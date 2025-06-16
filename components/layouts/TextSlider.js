@@ -19,7 +19,7 @@ const TextSlider = () => {
         >
           {[...Array(5)].map((_, i) => (
             <SwiperSlide key={i} className="w-auto! backface-hidden!">
-              <p className="text-white text-[40px]">
+              <p className="text-white text-base lg:text-[40px]">
                 Middler makes painting quotes easy, fast, and 98% accurate — no
                 guesswork, just results.
               </p>

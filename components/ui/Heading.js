@@ -1,11 +1,11 @@
 'use client';
 import PreHeading from "@/components/ui/PreHeading";
 
-const Heading = ({ oh = false, preheading = "", heading = "", className = "", highlight = "" }) => {
+const Heading = ({ oh = false, preheading = "", heading = "", className = "text-[22px]", highlight = "" }) => {
   const parts = heading.split(new RegExp(`(${highlight})`, "gi"));
 
   return (
-    <div className="flex flex-col items-center gap-4">
+    <div className="flex flex-col items-center gap-2.5 lg:gap-4">
       {!oh && <PreHeading children={preheading} />}
       <h2 className={`font-bold lg:text-[50px] text-center ${className}`}>
         {parts.map((part, idx) =>

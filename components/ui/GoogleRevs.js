@@ -1,6 +1,6 @@
 const GoogleRevs = () => {
   return (
-    <div className="rounded-[86px] py-6 px-12 bg-gradient-to-b from-white to-[#f3f3f3] grd_shdow-2 flex items-center justify-center gap-5">
+    <div className="rounded-[86px] max-lg:hidden py-6 px-12 bg-gradient-to-b from-white to-[#f3f3f3] grd_shdow-2 flex items-center justify-center gap-5">
       <div className="rounded-full p-3.5 bg-white dbl_shw">
         <img src="/images/icons/google.png" className="size-9" alt="" />
       </div>
