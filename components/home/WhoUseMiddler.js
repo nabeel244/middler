@@ -54,7 +54,7 @@ const WhoUseMiddler = () => {
           </p>
         </div>
       </div>
-      <div className="w-full 2xl:px-3 relative">
+      <div className="w-full 2xl:w-[1340px]! mx-auto relative">
         <Swiper
           onSwiper={(swiper) => (swiperRef.current = swiper)}
           modules={[Autoplay, Pagination, Navigation]}
@@ -83,6 +83,7 @@ const WhoUseMiddler = () => {
             },
             1400: {
               spaceBetween: 30,
+              slidesPerView: 4,
             },
           }}
           className="pb-20! lg:pb-[140px]! max-lg:px-6! cards_slider"

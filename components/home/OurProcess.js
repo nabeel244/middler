@@ -41,12 +41,12 @@ const OurProcess = () => {
                   Here’s how:
                 </p>
               </div>
-              <div className="lg:w-[86%]">
+              <div className="">
                 <div className="flex flex-col gap-y-14 lg:gap-y-[180px]">
                   {process.map((item, idx) => (
                     <div
                       key={idx}
-                      className={`grid lg:grid-cols-[154px_auto] w-full gap-20`}
+                      className={`grid lg:grid-cols-[154px_auto] w-full gap-32`}
                     >
                       <div
                         className={`max-lg:hidden size-[154px] relative  ${idx !== 3

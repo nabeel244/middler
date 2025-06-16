@@ -41,7 +41,7 @@ const Header = () => {
   }, [router]);
 
   return (
-    <header className="lg:px-20 fixed z-[1000] w-full top-0 left-0 lg:pt-5">
+    <header className="lg:px-20 absolute z-[1000] w-full top-0 left-0 lg:pt-5">
       <nav ref={dropdownRef} className="relative flex items-center justify-between bg-white shadow-[0_4px_32px_rgba(0,0,0,0.25)] px-5 py-4 lg:rounded-[10px]">
         <Link className="inline-block" href="/">
           <img src="/images/logo.png" className="w-24 lg:w-48" alt="" />

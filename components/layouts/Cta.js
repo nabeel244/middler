@@ -30,10 +30,10 @@ const Cta = () => {
   }, []);
 
   return (
-    <section className="py-20 px-3 lg:px-10 bg-[#eaeff4] border-y border-white shadow-[0_3px_8px] shadow-[rgba(20,27,52,0.04)]">
+    <section className="py-20 px-3 bg-[#eaeff4] border-y border-white shadow-[0_3px_8px] shadow-[rgba(20,27,52,0.04)]">
       <div className="container">
         <div className="row justify-center">
-          <div className="lg:w-9/12">
+          <div className="lg:w-10/12">
             <div className="flex flex-col gap-8 lg:gap-14 items-center text-center">
               <div className="max-lg:relative mb-8">
                 <img

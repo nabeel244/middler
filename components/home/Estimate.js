@@ -7,13 +7,13 @@ const Estimate = () => {
       <div className="container">
         <div className="row">
           <div className="w-full">
-            <div className="px-5 lg:px-20 py-10 flex flex-col items-center justify-center gap-[50px]">
+            <div className="px-5 py-10 flex flex-col items-center justify-center gap-[50px]">
               <Heading
                 heading="Answer a few question and in 30 seconds, this is exactly what you’ll see."
                 highlight="Answer"
                 preheading="estimate"
               />
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 w-full">
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-10 w-full">
                 {estimateCards.map((card, idx) => (
                   <div
                     key={idx}
