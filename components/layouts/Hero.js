@@ -1,32 +1,31 @@
 import Button from "../ui/Button";
 
 
+
 const Hero = () => {
   return (
-    <section
-      className="relative mt-20 pt-20 mb-20 bg-no-repeat"
-      style={{
-        backgroundImage: `url(/images/hero_bg.png)`,
-        backgroundPosition: "center top",
-        backgroundSize: "cover",
-      }}
-    >
-      <div className="px-20">
-        <div className="flex flex-wrap gap-y-8 justify-between items-center -mx-3 relative *:px-3 *:w-full *:relative">
-          <div className="lg:w-6/12">
-            <div className="flex flex-col pr-1">
-              <h1 className="font-bold text-6xl leading-relaxed mb-5">
-                Welcome to <span className="text-primary">Middler</span>
+    <section className="relative mt-20 pt-20 pb-10 px-10 overflow-hidden">
+      <div
+        className="absolute -left-10 top-1/2 -translate-y-1/2 size-1/2 bg-center bg-no-repeat bg-[url('/images/hero_el.png')]"
+        style={{ backgroundSize: "contain" }}
+      ></div>
+      <div className="container">
+        <div className="row gap-y-14 gap-x-5 justify-center items-center">
+          <div className="lg:w-5/12">
+            <div className="flex flex-col">
+              <h1 className="font-bold text-6xl leading-snug mb-5">
+                <span className="text-primary">Calculate </span> The Price To
+                Paint!
               </h1>
               <p className="text-2xl leading-snug">
-                The only way to put a real price on a house is trhough proper
-                appraisal.
+                Get the accurate, True Price for labor, materials, and paint for
+                any painting project in seconds.
               </p>
             </div>
           </div>
           <div className="lg:w-6/12">
-            <div className="relative size-full">
-              <img src="/images/hero_img.png" alt="" />
+            <div className="relative size-full text-center">
+              <img src="/images/hero_img.png" className="inline-block" alt="" />
             </div>
           </div>
           <div className="lg:w-10/12 mx-auto flex justify-center">
@@ -72,38 +71,6 @@ const Hero = () => {
                   Search Place
                 </Button>
               </form>
-            </div>
-          </div>
-          <div className="w-full mt-16">
-            <div className="grid lg:grid-cols-4 gap-10">
-              {[
-                {
-                  title: "People using Middler",
-                  count: "23,000+",
-                },
-                {
-                  title: "In paint calculated",
-                  count: "$150,000,000+",
-                },
-                {
-                  title: "Accurate prices nationwide",
-                  count: "98%",
-                },
-                {
-                  title: "Painting estimates given out",
-                  count: "$350,000,000+",
-                },
-              ].map((item, index) => (
-                <div
-                  key={index}
-                  className="flex flex-col items-center justify-center px-5 py-10 rounded-3xl bg-gradient-to-b from-white to-[#f3f3f3] grd_shdow"
-                >
-                  <div className="flex gap-2 flex-col items-center">
-                    <p className="text-sm">{item.title}</p>
-                    <h3 className="text-2xl font-semibold">{item.count}</h3>
-                  </div>
-                </div>
-              ))}
             </div>
           </div>
         </div>
