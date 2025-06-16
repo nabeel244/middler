@@ -1,5 +1,6 @@
 "use client";
 
+import { menuItems } from "@/app/constants";
 import Button from "@/components/ui/Button";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
@@ -10,12 +11,6 @@ const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const router = useRouter();
   const dropdownRef = useRef(null);
-
-  const menuItems = [
-    { name: "Home", url: "/" },
-    { name: "About", url: "/about" },
-    { name: "Contact", url: "/contact" },
-  ];
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -53,7 +48,7 @@ const Header = () => {
         </Link>
 
         <ul className="hidden lg:flex items-center gap-x-2">
-          {menuItems.map((item, index) => (
+          {menuItems.slice(0, 3).map((item, index) => (
             <li key={index} className="px-4">
               <Link
                 href={item.url}
@@ -94,7 +89,7 @@ const Header = () => {
       {isMobileMenuOpen && (
         <div className="lg:hidden bg-white shadow-md rounded-b-2xl px-5 py-4 absolute top-full left-0 w-full z-[999]">
           <ul className="flex flex-col gap-4">
-            {menuItems.map((item, index) => (
+            {menuItems.slice(0, 3).map((item, index) => (
               <li key={index} className="pl-1">
                 <Link
                   href={item.url}
