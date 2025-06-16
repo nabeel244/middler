@@ -9,7 +9,7 @@ const Hero = () => {
         className="absolute -left-10 top-1/2 -translate-y-1/2 size-1/2 bg-center bg-no-repeat bg-[url('/images/hero_el.png')]"
         style={{ backgroundSize: "contain" }}
       ></div>
-      <div className="container lg:w-[960px]! xl:w-[1300px]!">
+      <div className="container xl:px-10! 2xl:w-[1300px]!">
         <div className="row gap-y-14 gap-x-5 justify-between items-center max-lg:text-center">
           <div className="lg:w-5/12 max-lg:order-1">
             <div className="flex flex-col">
