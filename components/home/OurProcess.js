@@ -41,7 +41,7 @@ const OurProcess = () => {
                   Here’s how:
                 </p>
               </div>
-              <div className="">
+              <div className="lg:px-10">
                 <div className="flex flex-col gap-y-14 lg:gap-y-[180px]">
                   {process.map((item, idx) => (
                     <div
@@ -73,10 +73,10 @@ const OurProcess = () => {
                             </span>
                             <div className="h-full w-0 border-2 border-dashed border-primary" />
                           </div>
-                          <h4 className="font-satoshi mb-2 lg:mb-5 text-[13px] lg:text-2xl font-bold">
+                          <h4 className="font-satoshi mb-2 lg:mb-5 text-[13px] lg:text-3xl font-bold">
                             {item.title}
                           </h4>
-                          <p className="font-satoshi font-normal text-xs lg:text-2xl">
+                          <p className="font-satoshi font-normal text-xs lg:text-3xl">
                             {item.text}
                           </p>
                         </div>
