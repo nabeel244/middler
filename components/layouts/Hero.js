@@ -61,12 +61,12 @@ const Hero = () => {
                   </span>
                   <input
                     type="text"
-                    className="inline-block w-full grow outline-none! max-lg:text-[8px]"
+                    className="inline-block w-full grow outline-none! text-lg max-lg:text-[8px]"
                     placeholder="3976 First St, Glendale CA,98765Mekelle (MQX)"
                   />
                 </div>
                 <Button type="submit" className="rounded-xl! max-lg:py-4! max-lg:px-2! max-lg:whitespace-nowrap max-lg:text-[8px]">
-                  Search Place
+                  Start Calculating
                 </Button>
               </form>
             </div>

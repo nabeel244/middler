@@ -9,7 +9,7 @@ const ctaPoints = [
 
 const Cta2 = () => {
   return (
-    <section className="px-5 lg:px-10 pb-20">
+    <section className="px-5 lg:px-10 pb-20 lg:pt-20">
       <div className="container">
         <div className="row">
           <div className="w-full">
@@ -19,8 +19,8 @@ const Cta2 = () => {
                 className="lg:w-[300px] drop-shadow-[0_0_20px_rgba(0,0,0,0.8)]"
                 alt=""
               />
-              <div className="w-full max-w-[754px] flex-col flex gap-5">
-                <h2 className="font-bold text-2xl lg:text-[62px]">
+              <div className="w-full max-w-[800px] flex-col flex gap-10">
+                <h2 className="font-bold text-2xl lg:text-[58px]">
                   <span className="text-primary">Ready</span> to Make Smarter
                   Project Decisions—Faster?
                 </h2>

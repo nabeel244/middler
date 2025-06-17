@@ -54,11 +54,10 @@ const Header = () => {
               <li key={index} className="px-4">
                 <Link
                   href={item.url}
-                  className={` ${
-                    pathname === item.url
-                      ? "text-primary font-semibold"
-                      : "text-black hover:text-primary"
-                  } transition-all duration-200 ease-in-out`}
+                  className={` ${pathname === item.url
+                    ? "text-primary font-semibold"
+                    : "text-black hover:text-primary"
+                    } transition-all duration-200 ease-in-out`}
                 >
                   {item.name}
                 </Link>
@@ -66,7 +65,7 @@ const Header = () => {
             ))}
           </ul>
           <Button className="max-lg:hidden" href="/">
-            Start Now!
+            Free Estimator
           </Button>
 
           <button
@@ -76,23 +75,20 @@ const Header = () => {
           >
             <span className="w-[26px] h-4 block relative">
               <span
-                className={`h-0.5 bg-black block left-0 rounded-xl w-full transition-all duration-300 absolute ${
-                  isMobileMenuOpen
-                    ? "rotate-45 top-1/2 -translate-y-1/2"
-                    : "top-0"
-                }`}
+                className={`h-0.5 bg-black block left-0 rounded-xl w-full transition-all duration-300 absolute ${isMobileMenuOpen
+                  ? "rotate-45 top-1/2 -translate-y-1/2"
+                  : "top-0"
+                  }`}
               />
               <span
-                className={`h-0.5 bg-black block left-0 rounded-xl w-4/5 transition-all duration-300 absolute ${
-                  isMobileMenuOpen ? "opacity-0" : "top-1/2 -translate-y-1/2"
-                }`}
+                className={`h-0.5 bg-black block left-0 rounded-xl w-4/5 transition-all duration-300 absolute ${isMobileMenuOpen ? "opacity-0" : "top-1/2 -translate-y-1/2"
+                  }`}
               />
               <span
-                className={`h-0.5 bg-black block left-0 rounded-xl w-full transition-all duration-300 absolute ${
-                  isMobileMenuOpen
-                    ? "-rotate-45 top-1/2 -translate-y-1/2"
-                    : "bottom-0"
-                }`}
+                className={`h-0.5 bg-black block left-0 rounded-xl w-full transition-all duration-300 absolute ${isMobileMenuOpen
+                  ? "-rotate-45 top-1/2 -translate-y-1/2"
+                  : "bottom-0"
+                  }`}
               />
             </span>
           </button>
@@ -112,11 +108,10 @@ const Header = () => {
                   <Link
                     href={item.url}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className={`block ${
-                      pathname === item.url
-                        ? "text-primary font-semibold"
-                        : "text-black hover:text-primary"
-                    } transition-all duration-200 ease-in-out`}
+                    className={`block ${pathname === item.url
+                      ? "text-primary font-semibold"
+                      : "text-black hover:text-primary"
+                      } transition-all duration-200 ease-in-out`}
                   >
                     {item.name}
                   </Link>
@@ -124,7 +119,7 @@ const Header = () => {
               ))}
               <li className="my-4">
                 <Button small className="w-full py-2! px-3.5!" href="/">
-                  Start Now!
+                  Free Estimator
                 </Button>
               </li>
             </ul>

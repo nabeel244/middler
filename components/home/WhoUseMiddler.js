@@ -54,7 +54,7 @@ const WhoUseMiddler = () => {
           </p>
         </div>
       </div>
-      <div className="w-full 2xl:w-[1340px]! mx-auto relative">
+      <div className="w-full 2xl:w-[1380px]! mx-auto relative">
         <Swiper
           onSwiper={(swiper) => (swiperRef.current = swiper)}
           modules={[Autoplay, Pagination, Navigation]}
