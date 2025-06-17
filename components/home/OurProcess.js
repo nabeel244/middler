@@ -26,7 +26,7 @@ const OurProcess = () => {
       <div className="container">
         <div className="row">
           <div className="w-full">
-            <div className="flex flex-col w-full items-center text-center gap-y-20 lg:gap-y-28">
+            <div className="flex flex-col w-full items-center text-center gap-y-20 lg:gap-y-32">
               <div className="lg:w-[68%]">
                 <Heading
                   heading="How it works!"
@@ -35,7 +35,7 @@ const OurProcess = () => {
                   phClassname="mb-[30px]"
                   className="text-[26px]"
                 />
-                <p className="text-center text-[11px] lg:text-[22px] mt-2">
+                <p className="text-center text-[11px] lg:text-2xl mt-2">
                   Whether you’re on-site or at the office, Middler makes it fast
                   and easy to generate polished, data-backed painting estimates.
                   Here’s how:

@@ -53,8 +53,8 @@ const GetStarted = () => {
                 </div>
               </div>
               <div className="max-lg:px-5 lg:col-start-1 lg:-col-end-1 lg:row-start-1 lg:-row-end-1 flex max-lg:flex-wrap justify-between items-end relative z-[1]">
-                <div className="lg:w-[316px] flex flex-col gap-4 max-lg:order-2 w-full max-lg:mt-8">
-                  <p className="text-xl max-lg:hidden">
+                <div className="lg:w-4/12 flex flex-col gap-5 max-lg:order-2 w-full max-lg:mt-8">
+                  <p className="text-2xl max-lg:hidden">
                     Know the true cost before the first brushstroke begins.
                     Middler gives you precise estimates with total clarity
                   </p>

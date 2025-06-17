@@ -1,10 +1,10 @@
 const Brands = () => {
   return (
-    <section className="pt-5 lg:py-10 max-lg:order-1">
+    <section className="lg:py-10 max-lg:order-1">
       <div className="container">
         <div className="row">
           <div className="w-full">
-            <div className="p-2.5 max-lg:flex flex-wrap *:max-lg:w-1/3 lg:grid lg:grid-cols-5 lg:items-center gap-y-2.5">
+            <div className="p-2.5 max-lg:flex flex-wrap max-lg:justify-center *:max-lg:w-1/3 lg:grid lg:grid-cols-5 lg:items-center gap-y-2.5">
               {[
                 {
                   title: "People using Middler",
@@ -37,8 +37,8 @@ const Brands = () => {
                   </div>
                 ) : (
                   <div key={idx} className={`${item.className} flex flex-col gap-1 items-center text-center`}>
-                    <span className="text-[8px] lg:text-sm leading-[25px]">{item.title}</span>
-                    <h3 className="font-semibold text-[8px] lg:text-2xl">{item.no}</h3>
+                    <span className="text-[10px] lg:text-sm leading-[25px]">{item.title}</span>
+                    <h3 className="font-semibold text-[10px] lg:text-2xl">{item.no}</h3>
                   </div>
                 );
               })}

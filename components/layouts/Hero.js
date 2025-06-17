@@ -22,7 +22,7 @@ const Hero = () => {
               </p>
             </div>
           </div>
-          <div className="lg:w-6/12 max-lg:order-3">
+          <div className="lg:w-6/12 max-lg:hidden">
             <div className="relative size-full text-center">
               <img src="/images/hero_img.png" className="inline-block w-full" alt="" />
             </div>
@@ -30,7 +30,7 @@ const Hero = () => {
           <div className="lg:w-10/12 mx-auto flex justify-center max-lg:order-2">
             <div className="w-full bg-white p-6 lg:p-[30px] shadow-[0_4px_30px_rgba(0,0,0,0.2)] rounded-[20px] flex flex-col gap-6 lg:gap-5">
               <div className="relative py-4 lg:px-1.5 border-b-[1.5px] border-[rgba(51,51,51,0.15)] after:h-[3px] after:w-[89px] after:absolute after:-bottom-px after:left-0 after:bg-primary">
-                <p className="text-[11px] lg:text-lg font-semibold">
+                <p className="text-[11px] lg:text-2xl font-semibold">
                   Enter address of the property that's being painted
                 </p>
               </div>

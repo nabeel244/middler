@@ -48,13 +48,13 @@ const WhoUseMiddler = () => {
             highlight="Middler?"
             className="text-[26px]"
           />
-          <p className="text-[11px] lg:text-[22px]">
+          <p className="text-[11px] lg:text-2xl">
             Middler is trusted by a wide range of professionals who need fast,
             accurate painting estimates—without the hassle.
           </p>
         </div>
       </div>
-      <div className="w-full 2xl:w-[1380px]! mx-auto relative">
+      <div className="w-full 2xl:w-[1380px]! 3xl:w-[1500px]! mx-auto relative">
         <Swiper
           onSwiper={(swiper) => (swiperRef.current = swiper)}
           modules={[Autoplay, Pagination, Navigation]}

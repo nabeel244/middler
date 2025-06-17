@@ -57,10 +57,8 @@ const Cta = () => {
                   highlight="Certifies"
                   className="text-xl"
                 />
-                <p className="text-[11px] lg:text-[26px] mt-3 max-lg:mb-[35px] lg:mt-5">
-                  Because people will always think painters are making up prices
-                  until a trusted party like Middler starts certifying prices.
-                  That’s what we do.
+                <p className="text-[11px] lg:text-2xl mt-3 max-lg:mb-[35px] lg:mt-5">
+                  Because people will always doubt contractor pricing until a trusted platform like Middler starts certifying estimates. That’s what we do — for painters, plumbers, and everyone else.
                 </p>
               </div>
               <div>
