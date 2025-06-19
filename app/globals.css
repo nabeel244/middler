@@ -92,6 +92,11 @@
   .p_w_b b {
     @apply max-lg:text-xl inline-block max-lg:mb-2
   }
+
+  :is(.qstnre input:focus-visible, .qstnre select:focus-visible, .qstnre textarea:focus-visible, .qstnre button:focus-visible) {
+    @apply ring-2 ring-primary ring-offset-2 outline-none;
+  }
+
 }
 
 .cards_slider .swiper-pagination {

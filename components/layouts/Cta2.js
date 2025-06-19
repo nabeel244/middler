@@ -20,7 +20,7 @@ const Cta2 = () => {
                 alt=""
               />
               <div className="w-full max-w-[800px] flex-col flex gap-10">
-                <h2 className="font-bold text-2xl lg:text-[58px]">
+                <h2 className="font-bold text-2xl lg:text-[50px]">
                   <span className="text-primary">Ready</span> to Make Smarter
                   Project Decisions—Faster?
                 </h2>

@@ -61,7 +61,7 @@ const OurProcess = () => {
                         />
                       </div>
                       <div className="flex flex-col items-start text-left max-lg:pl-10">
-                        <span className="block mb-[26px] p-[3px] bg-gradient-to-br from-primary to-[#8dacff] rounded-2xl grd_shdow-3">
+                        <span className="block mb-8 p-[3px] bg-gradient-to-br from-primary to-[#8dacff] rounded-2xl grd_shdow-3">
                           <span className="inline-block py-2 text-sm px-[22px] rounded-[13px] bg-[#dfe8ff] ">
                             Step {idx + 1}
                           </span>
@@ -73,10 +73,10 @@ const OurProcess = () => {
                             </span>
                             <div className="h-full w-0 border-2 border-dashed border-primary" />
                           </div>
-                          <h4 className="font-satoshi mb-2 lg:mb-5 text-[13px] lg:text-3xl font-bold">
+                          <h4 className=" mb-2 lg:mb-5 text-[13px] lg:text-2xl font-bold">
                             {item.title}
                           </h4>
-                          <p className="font-satoshi font-normal text-xs lg:text-3xl">
+                          <p className="font-normal text-xs lg:text-2xl">
                             {item.text}
                           </p>
                         </div>

@@ -1,10 +1,11 @@
+import Questionnaire from "@/components/layouts/Questionnaire";
 import { FaCheck } from "react-icons/fa";
 
 const page = () => {
   return (
-    <div className="h-dvh overflow-hidden w-full p-3 pt-5 bg-cover bg-no-repeat bg-center bg-[url('/images/modals/bg_1.png')]">
+    <div className="overflow-hidden w-full p-3 pt-5 bg-cover bg-no-repeat bg-center bg-[url('/images/modals/bg_1.png')]">
       <div className="grid size-full grid-rows-1 xl:grid-cols-[auto_1fr_auto] gap-5">
-        <div className="pt-10">
+        <div className="pt-10 max-w-[225px]">
           <img src="/images/modals/1.png" className="h-full w-full" alt="" />
         </div>
         <div className="w-full flex items-center flex-col justify-between">
@@ -33,28 +34,16 @@ const page = () => {
           </div>
 
           <div className="px-10 w-full">
-            <div className="px-11 py-5 flex flex-col items-center justify-center gap-[30px] bg-white shadow-[0_6px_46px] shadow-black/20 rounded-[31px]">
-              <div className="py-3">
-                <h5 className="text-[26px] leading-none font-semibold text-[#333333]">
-                  Are you painting the inside of the house?
-                </h5>
-              </div>
-              <div className="flex items-center justify-center gap-x-[38px]">
-                <button className="py-3 px-8 min-w-[200px] inline-block rounded-[11px] text-xl text-center font-semibold border-2 border-primary bg-primary text-white">
-                  Yes
-                </button>
-                <button className="py-3 px-8 min-w-[200px] inline-block rounded-[11px] text-xl text-center font-semibold border-2 border-primary text-primary">
-                  No
-                </button>
-              </div>
+            <div className="px-11 py-[6vh] flex flex-col items-center justify-center gap-[30px] bg-white shadow-[0_6px_46px] shadow-black/20 rounded-[31px]">
+              {/* <Questionnaire /> */}
             </div>
           </div>
 
-          <div className="mt-4">
-            <img src="/images/modals/3.png" className="w-full" alt="" />
+          <div className="mt-4 w-full">
+            <img src="/images/modals/3.png" className="w-full object-cover max-h-[200px] rounded-2xl" alt="" />
           </div>
         </div>
-        <div className="pt-10">
+        <div className="pt-10 max-w-[225px]">
           <img src="/images/modals/2.png" className="h-full w-full" alt="" />
         </div>
       </div>

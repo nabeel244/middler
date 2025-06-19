@@ -37,20 +37,20 @@ const Cta = () => {
       <div className="container">
         <div className="row justify-center">
           <div className="w-full max-lg:px-0">
-            <div className="flex flex-col lg:gap-[30px] max-lg:px-6 py-10 lg:py-20 items-center text-center bg-[#eaeff4] lg:bg-[#0b0b0b]/10 lg:rounded-[40px] lg:*:px-[130px] lg:*:py-10 *:w-full">
+            <div className="flex flex-col lg:gap-[30px] max-lg:px-6 py-10 lg:py-20 items-center text-center bg-[#eaeff4] lg:bg-[#0b0b0b]/10 lg:rounded-[40px] lg:*:px-[130px] lg:*:py-8 *:w-full">
               <div className="relative w-full flex items-center justify-center">
                 <img
                   src={imageSrc}
-                  className="w-[75px] lg:w-[421px] relative z-[1] inline-block max-lg:mb-[30px]"
+                  className="w-[75px] lg:w-[350px] relative z-[1] inline-block max-lg:mb-[30px]"
                   alt=""
                 />
                 <img
                   src="/images/logo.png"
-                  className="max-lg:hidden absolute inset-0 m-auto w-full lg:max-w-[867px] lg:h-[194px] object-contain opacity-20"
+                  className="max-lg:hidden absolute inset-0 m-auto w-full lg:max-w-[743px] lg:h-[170px] object-contain opacity-15"
                   alt=""
                 />
               </div>
-              <div>
+              <div className="pb-0!">
                 <Heading
                   oh
                   heading="Why Middler Certifies Estimates!"
@@ -62,7 +62,7 @@ const Cta = () => {
                 </p>
               </div>
               <div>
-                <p className="font-medium text-[11px] lg:text-3xl lg:leading-[53px]">
+                <p className="font-medium text-[11px] lg:text-2xl">
                   “Middler’s prices are not for painters that are trying to rip
                   people off and not for customers who want to underpay
                   painters. The seal stands by that.”

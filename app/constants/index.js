@@ -35,7 +35,7 @@ export const socials = [
     icon: FaYoutube,
     url: "/",
   },
-]
+];
 
 export const estimateCards = [
   {
@@ -55,4 +55,97 @@ export const estimateCards = [
     desc: "$25,788",
     active: true
   },
-]
+];
+
+export const questions = [
+  {
+    id: "insidePainting",
+    required: true,
+    question: "Are you painting the inside of the house?",
+    type: "radio",
+    options: ["Yes", "No"],
+    next: null
+  },
+  {
+    id: "address",
+    required: true,
+    title: "Put a Real Price® on painting a house",
+    description: "Answer a few questions and in 30 seconds, we’ll give you a price for labor, materials and paint.",
+    label: "Enter the address of the house",
+    type: "text",
+    placeholder: "3976 First St., Glendale CA, 98765",
+    next: "start"
+  },
+  {
+    id: "squareFeet",
+    required: true,
+    question: "How many square feet is being painted?",
+    description: "If you’re painting the whole house enter the total sqft. If your only painting 1 or a few rooms, measure the floor sqft of each room and add them up.",
+    type: "number",
+    placeholder: "Enter the total SQFT",
+    next: "Next"
+  },
+  {
+    id: "paintItems",
+    required: true,
+    question: "What are you painting?",
+    description: "Select all items you are painting",
+    type: "multipleOptions",
+    options: [
+      "Walls", "Ceilings", "Crown Molding", "Interior Door",
+      "Baseboard and Trims", "Window + Patio Doors", "Stairs Railing + Spindles"
+    ],
+    next: "Next"
+  },
+  {
+    id: "homeCondition",
+    required: true,
+    question: "What condition is the inside of the house in?",
+    type: "radio",
+    options: ["Fair", "Good", "Great"],
+    next: "Next"
+  },
+  {
+    id: "insideDetail",
+    required: true,
+    question: "How detailed is the inside of the house?",
+    type: "radio",
+    options: ["Basic", "Some Detail", "Very Detailed"],
+    next: "Next"
+  },
+  {
+    id: "extraItems",
+    required: false,
+    question: "If you're a painter you can add extra items you're painting on the inside of the home.",
+    type: "custom-inputs",
+    dynamicAdd: true,
+    skip: true
+  },
+  {
+    id: "cabinetsPainting",
+    required: true,
+    question: "Are you painting any cabinets?",
+    description: `Cabinets can be <b>anywhere</b>. In the Kitchen, Bathrooms, Hallways, Bedrooms, Offices, Outside, Garage and anywhere in between.`,
+    type: "radio",
+    options: ["Yes", "No"],
+    next: null
+  },
+  {
+    id: "PaintBrand",
+    required: true,
+    question: "Please select the paint would like to use?",
+    type: "dropdown",
+    placeholder: "Brand of Paints",
+    options: ["Behr", "Sherwin Williams", "Benjamin Moore", "Dunn-Edwards", "PPG", "Valspar"],
+    next: "Yes"
+  },
+  {
+    id: "cabinetsNo",
+    required: true,
+    question: "How many cabinets are you painting?",
+    description: `Count every door and drawer, big and small, even if they open or they don’t. Make sure you count every cabinet including in the kitchen, bathrooms, hallways, outside, garage and anywhere in between.`,
+    type: "number",
+    placeholder: "Enter a #",
+    next: "Next"
+  },
+];
