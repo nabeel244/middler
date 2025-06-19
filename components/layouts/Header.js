@@ -64,7 +64,7 @@ const Header = () => {
               </li>
             ))}
           </ul>
-          <Button className="max-lg:hidden" href="/">
+          <Button className="max-lg:hidden" href="/paint-estimator">
             Free Estimator
           </Button>
 
@@ -118,7 +118,7 @@ const Header = () => {
                 </li>
               ))}
               <li className="my-4">
-                <Button small className="w-full py-2! px-3.5!" href="/">
+                <Button small className="w-full py-2! px-3.5!" href="/paint-estimator">
                   Free Estimator
                 </Button>
               </li>

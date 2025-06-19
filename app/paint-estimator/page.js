@@ -8,10 +8,10 @@ const page = () => {
         <div className="pt-10 max-w-[225px]">
           <img src="/images/modals/1.png" className="h-full w-full" alt="" />
         </div>
-        <div className="w-full flex items-center flex-col justify-between">
+        <div className="w-full flex items-center flex-col justify-between gap-7">
           <img src="/images/logo.png" className="max-w-[240px]" alt="" />
 
-          <div className="px-[35px] py-6 flex items-center justify-center gap-x-[150px] pt-5">
+          <div className="px-[35px] py-6 flex items-center justify-center gap-x-[150px]">
             <div className="size-10 rounded-full bg-primary text-white relative flex items-center justify-center before:absolute before:top-1/2 before:-translate-y-1/2 before:left-full before:h-[3px] before:w-[150px] before:bg-[#6F6F6F] before:z-0 after:absolute after:top-1/2 after:-translate-y-1/2 after:left-full after:h-[3px] after:w-[150px] after:bg-primary">
               <FaCheck />
               <span className="font-bold text-primary absolute left-1/2 -translate-x-1/2 -top-8 whitespace-nowrap">
@@ -35,11 +35,11 @@ const page = () => {
 
           <div className="px-10 w-full">
             <div className="px-11 py-[6vh] flex flex-col items-center justify-center gap-[30px] bg-white shadow-[0_6px_46px] shadow-black/20 rounded-[31px]">
-              {/* <Questionnaire /> */}
+              <Questionnaire />
             </div>
           </div>
 
-          <div className="mt-4 w-full">
+          <div className="mt-5 w-full">
             <img src="/images/modals/3.png" className="w-full object-cover max-h-[200px] rounded-2xl" alt="" />
           </div>
         </div>

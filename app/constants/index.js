@@ -119,7 +119,8 @@ export const questions = [
     question: "If you're a painter you can add extra items you're painting on the inside of the home.",
     type: "custom-inputs",
     dynamicAdd: true,
-    skip: true
+    skip: true,
+    next: "Next",
   },
   {
     id: "cabinetsPainting",
