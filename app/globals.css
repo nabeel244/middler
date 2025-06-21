@@ -2,8 +2,6 @@
 
 @theme {
 
-  --font-satoshi: "satoshi", sans-serif;
-
   --color-primary: #275ff6;
   --color-primary-50: #eef5ff;
   --color-primary-100: #d9e8ff;
@@ -36,16 +34,16 @@
 
   body {
     @apply overflow-x-hidden leading-normal text-base;
-    font-family: var(--font-poppins), sans-serif;
+    font-family: var(--font-poppins), sans-serif !important;
   }
 
   p {
-    font-family: var(--font-poppins), sans-serif;
+    font-family: var(--font-poppins), sans-serif !important;
   }
 
   :is(h1, h2, h3, h4, h5, h6) {
     @apply font-bold;
-    font-family: var(--font-poppins), sans-serif;
+    font-family: var(--font-poppins), sans-serif !important;
   }
 
   img {
@@ -60,10 +58,6 @@
 }
 
 @layer components {
-
-  .font-rubik {
-    font-family: var(--font-rubik), sans-serif;
-  }
 
   .row {
     @apply -mx-3 flex flex-wrap *:px-3 *:w-full *:relative;
@@ -104,7 +98,7 @@
   }
 
   .qsnre_btn {
-    @apply py-3.5 px-8 max-lg:w-[150px] lg:min-w-[200px] lg:w-auto whitespace-nowrap inline-block rounded-[11px] text-xl leading-[18px] tracking-[1px] not-disabled:hover:shadow-[0_0_10px_3px] cursor-pointer disabled:cursor-not-allowed shadow-primary/30 text-center font-semibold border-2 border-primary transition-all duration-300 ease-in-out bg-primary text-white capitalize;
+    @apply py-3.5 px-8 max-lg:min-w-[150px] lg:min-w-[200px] lg:w-auto whitespace-nowrap inline-block rounded-[11px] text-xl leading-[18px] tracking-[1px] not-disabled:hover:shadow-[0_0_10px_3px] cursor-pointer disabled:cursor-not-allowed shadow-primary/30 text-center font-semibold border-2 border-primary transition-all duration-300 ease-in-out bg-primary text-white capitalize;
   }
 
   .dropdown::-webkit-scrollbar {

@@ -35,7 +35,7 @@ const Footer = () => {
               Links
             </h5>
             <ul className="flex flex-col gap-3">
-              {menuItems.map((item, idx) => (
+              {menuItems.filter((_, idx) => idx !== 1).map((item, idx) => (
                 <li key={idx}>
                   <Link
                     href={item.url}

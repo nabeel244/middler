@@ -93,7 +93,7 @@ export default function Questionnaire() {
           animate="center"
           exit="exit"
           transition={{ type: "spring", stiffness: 300, damping: 30 }}
-          className="px-8 min-h-[220px] flex flex-col items-center justify-center gap-6 bg-white shadow[0_6px_46px_rgba(0,0,0,0.2)] rounded-4xl qsnre"
+          className="lg:px-8 lg:min-h-[220px] flex flex-col items-center justify-center gap-[30px] lg:gap-6 bg-white shadow[0_6px_46px_rgba(0,0,0,0.2)] rounded-3xl lg:rounded-4xl qsnre"
         >
           <div className="pt-3 text-center">
             <h2 className="text-[26px] leading-[1.2] font-bold text-[#333333]">
@@ -136,7 +136,7 @@ export default function Questionnaire() {
                         );
                       }
                     }}
-                    className={`py-3 px-8 min-w-[200px] inline-block rounded-[11px] text-xl text-center font-semibold border-2 border-primary transition-all duration-300 ease-in-out cursor-pointer ${
+                    className={`py-2.5 lg:py-3 px-8 min-w-[140px] lg:min-w-[200px] inline-block rounded-[11px] text-xl text-center font-semibold border-2 border-primary transition-all duration-300 ease-in-out cursor-pointer ${
                       selected
                         ? opt === "No"
                           ? "bg-transparent text-primary"
@@ -200,8 +200,11 @@ export default function Questionnaire() {
             <>
               <div className="flex flex-col gap-x-4 gap-y-6 w-full relative">
                 {customItems.map((item, idx) => (
-                  <div key={idx} className="flex gap-3 relative">
-                    <div className="lg:w-1/2">
+                  <div
+                    key={idx}
+                    className="flex max-lg:flex-col gap-5 lg:gap-3 relative"
+                  >
+                    <div className="w-full lg:w-1/2">
                       <label className="block mb-2 text-base leading-[22px] font-medium text-[#1F2937] tracking-[1px]">
                         Item {idx + 1}
                       </label>
@@ -215,18 +218,23 @@ export default function Questionnaire() {
                         className="w-full border border-[#656E81] rounded-[20px] px-5 py-2.5 outline-none shadow-[0_2px_30px] shadow-black/20 focus:ring focus:ring-primary focus:border-primary transition-all duration-300 ease-in-out"
                       />
                     </div>
-                    <div className="lg:w-1/2">
+                    <div className="w-full lg:w-1/2">
                       <label className="block mb-2 text-base leading-[22px] font-medium text-[#1F2937] tracking-[1px]">
                         Price {idx + 1}
                       </label>
-                      <input
-                        type="number"
-                        value={item.price}
-                        onChange={(e) =>
-                          updateCustomItem(idx, "price", e.target.value)
-                        }
-                        className="w-full block border border-[#656E81] rounded-[20px] px-5 pl-10 py-2.5 outline-none shadow-[0_2px_30px] shadow-black/20 focus:ring focus:ring-primary focus:border-primary transition-all duration-300 ease-in-out"
-                      />
+                      <div className="w-full relative">
+                        <input
+                          type="number"
+                          value={item.price}
+                          onChange={(e) =>
+                            updateCustomItem(idx, "price", e.target.value)
+                          }
+                          className="w-full block border border-[#656E81] rounded-[20px] px-5 pl-10 py-2.5 outline-none shadow-[0_2px_30px] shadow-black/20 focus:ring focus:ring-primary focus:border-primary transition-all duration-300 ease-in-out"
+                        />
+                        <span className="absolute top-1/2 -translate-y-1/2 left-5 text-neutral-500 pointer-events-none">
+                          $
+                        </span>
+                      </div>
                     </div>
                     {idx > 0 && (
                       <button
@@ -276,7 +284,7 @@ export default function Questionnaire() {
               {showDropdown && (
                 <div
                   ref={dropdownRef}
-                  className="absolute w-full mt-1 bg-white shadow-[0_0_20px] shadow-black/20 rounded-[10px] z-10 max-h-[260px] overflow-y-auto dropdown"
+                  className="absolute w-full mt-2 lg:mt-1 bg-white shadow-[0_0_20px] shadow-black/20 rounded-[10px] z-10 max-h-[510px] lg:max-h-[260px] overflow-y-auto dropdown"
                 >
                   {current.options.map((opt, idx) => {
                     const isSelected = answers[current.id] === opt;
@@ -287,9 +295,9 @@ export default function Questionnaire() {
                           handleInput(current.id, opt);
                           setShowDropdown(false);
                         }}
-                        className={`flex items-center gap-3 px-3 py-2 cursor-pointer ${
+                        className={`flex items-center gap-3 px-3 py-3 lg:py-2 cursor-pointer ${
                           isSelected
-                            ? "bg-primary text-white"
+                            ? "bg-primary/15"
                             : "text-[#1F2937]  hover:bg-primary/5"
                         }`}
                       >

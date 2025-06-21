@@ -22,12 +22,12 @@ const Hero = () => {
               </p>
             </div>
           </div>
-          <div className="lg:w-5/12 max-lg:hidden">
+          <div className="lg:w-6/12 max-lg:hidden">
             <div className="relative size-full text-center">
               <img src="/images/hero_img.png" className="inline-block max-h-[285px] object-cover rounded-2xl w-full" alt="" />
             </div>
           </div>
-          <div className="lg:w-10/12 mx-auto flex justify-center max-lg:order-2">
+          <div className="mx-auto flex justify-center max-lg:order-2">
             <div className="w-full bg-white p-6 lg:p-[30px] shadow-[0_4px_30px_rgba(0,0,0,0.2)] rounded-[20px] flex flex-col gap-6 lg:gap-5">
               <div className="relative py-4 lg:px-1.5 border-b-[1.5px] border-[rgba(51,51,51,0.15)] after:h-[3px] after:w-[89px] after:absolute after:-bottom-px after:left-0 after:bg-primary">
                 <p className="text-[11px] lg:text-2xl font-semibold">

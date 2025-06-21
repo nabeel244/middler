@@ -36,10 +36,10 @@ const Estimate = () => {
                       />
                     </span>
                     <div className="pb-2">
-                      <span className="font-rubik capitalize text-[11px] tracking-[1px] block mb-1.5">
+                      <span className="capitalize text-[11px] tracking-[1px] block mb-1.5">
                         {card.title}
                       </span>
-                      <h3 className="font-rubik font-semibold text-[26px] lg:text-[40px] leading-none">
+                      <h3 className="font-semibold text-[26px] lg:text-[40px] leading-none">
                         {card.desc}
                       </h3>
                     </div>

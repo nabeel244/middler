@@ -46,7 +46,7 @@ const OurProcess = () => {
                   {process.map((item, idx) => (
                     <div
                       key={idx}
-                      className={`grid lg:grid-cols-[154px_auto] w-full gap-32`}
+                      className={`grid lg:grid-cols-[154px_auto] w-full gap-12`}
                     >
                       <div
                         className={`max-lg:hidden size-[154px] relative  ${idx !== 3
