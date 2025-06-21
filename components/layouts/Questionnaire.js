@@ -93,7 +93,7 @@ export default function Questionnaire() {
           animate="center"
           exit="exit"
           transition={{ type: "spring", stiffness: 300, damping: 30 }}
-          className="lg:px-8 2xl:min-h-[220px] flex flex-col items-center justify-center gap-[30px] lg:gap-6 bg-white shadow[0_6px_46px_rgba(0,0,0,0.2)] rounded-3xl lg:rounded-4xl qsnre"
+          className="lg:px-8 2xl:min-h-[190px] flex flex-col items-center justify-center gap-[30px] lg:gap-6 bg-white shadow[0_6px_46px_rgba(0,0,0,0.2)] rounded-3xl lg:rounded-4xl qsnre"
         >
           <div className="pt-3 text-center">
             <h2 className="text-[26px] leading-[1.2] font-bold text-[#333333]">

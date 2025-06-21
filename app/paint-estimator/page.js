@@ -30,11 +30,15 @@ const page = () => {
 
   return (
     <div className="min-h-dvh h-full overflow-hidden w-full p-6 lg:p-3 lg:pt-5 bg-cover bg-no-repeat bg-center bg-[url('/images/modals/bg_1.png')]">
-      <div className="grid size-full lg:grid-rows-1 xl:grid-cols-[auto_1fr_auto] gap-5">
+      <div className="grid size-full min-h-[calc(100dvh_-_32px)] lg:grid-rows-1 xl:grid-cols-[0.2fr_1fr_0.2fr] gap-5">
         <div className="max-lg:hidden pt-10 max-w-[200px] 2xl:max-w-[288px]">
-          <img src="/images/modals/1.png" className="h-full w-full" alt="" />
+          <img
+            src="/images/modals/1.png"
+            className="h-full w-full object-cover rounded-2xl"
+            alt=""
+          />
         </div>
-        <div className="w-full flex items-center flex-col justify-between gap-6 lg:gap-7 2xl:gap-7">
+        <div className="w-full flex items-center flex-col justify-between gap-6 lg:gap-0">
           <div
             ref={dropdownRef}
             className="max-lg:flex justify-between items-center max-lg:w-full relative"
@@ -102,7 +106,7 @@ const page = () => {
             </AnimatePresence>
           </div>
 
-          <div className="lg:px-[35px] pt-6 lg:py-6 mt-3 max-lg:self-end lg:mt-6 flex items-center justify-center gap-x-[118px] lg:gap-x-[150px]">
+          <div className="lg:px-[35px] pt-6 lg:py-5 mt-3 max-lg:self-end lg:mt-0 flex items-center justify-center gap-x-[118px] lg:gap-x-[150px]">
             <div className="size-7 lg:size-10 rounded-full bg-primary text-white relative flex items-center justify-center before:absolute before:top-1/2 before:-translate-y-1/2 before:left-full before:h-0.5 lg:before:h-[3px] before:w-[118px] lg:before:w-[150px] before:bg-[#6F6F6F] before:z-0 after:absolute after:top-1/2 after:-translate-y-1/2 after:left-full after:h-0.5 lg:after:h-[3px] after:w-[118px] lg:after:w-[150px] after:bg-primary">
               <FaCheck />
               <span className="max-lg:text-[10px] lg:font-bold text-primary absolute left-1/2 -translate-x-1/2 -top-8 whitespace-nowrap">
@@ -130,15 +134,15 @@ const page = () => {
           </div>
 
           <div className="lg:px-20 w-full">
-            <div className="px-4 lg:px-11 py-[30px] lg:py-5 2xl:py-8 flex flex-col items-center justify-center gap-[30px] bg-white shadow-[0_6px_46px] shadow-black/20 rounded-3xl lg:rounded-[31px]">
+            <div className="px-4 lg:px-11 py-[30px] lg:py-5 flex flex-col items-center justify-center gap-[30px] bg-white shadow-[0_6px_46px] shadow-black/20 rounded-3xl lg:rounded-[31px]">
               <Questionnaire />
             </div>
           </div>
 
-          <div className="max-lg:hidden mt-5 w-full">
+          <div className="max-lg:hidden w-full max-h-1/4">
             <img
               src="/images/modals/3.png"
-              className="w-full object-cover max-h-[280px] rounded-2xl"
+              className="w-full object-cover h-full rounded-2xl"
               alt=""
             />
           </div>
@@ -156,7 +160,11 @@ const page = () => {
           </div>
         </div>
         <div className="max-lg:hidden pt-10 max-w-[200px] 2xl:max-w-[288px]">
-          <img src="/images/modals/2.png" className="h-full w-full" alt="" />
+          <img
+            src="/images/modals/2.png"
+            className="h-full w-full object-cover rounded-2xl"
+            alt=""
+          />
         </div>
       </div>
     </div>
