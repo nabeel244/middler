@@ -84,7 +84,7 @@
   }
 
   .p_w_b b {
-    @apply max-lg:text-xl inline-block max-lg:mb-2
+    @apply max-lg:text-xl font-semibold inline-block max-lg:mb-2
   }
 
   .qsnre input[type="number"]::-webkit-inner-spin-button,

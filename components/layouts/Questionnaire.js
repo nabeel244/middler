@@ -1,6 +1,6 @@
 "use client";
 import { questions } from "@/app/constants";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { IoCloseOutline } from "react-icons/io5";
 import { TfiAngleDown } from "react-icons/tfi";
@@ -93,7 +93,7 @@ export default function Questionnaire() {
           animate="center"
           exit="exit"
           transition={{ type: "spring", stiffness: 300, damping: 30 }}
-          className="lg:px-8 lg:min-h-[220px] flex flex-col items-center justify-center gap-[30px] lg:gap-6 bg-white shadow[0_6px_46px_rgba(0,0,0,0.2)] rounded-3xl lg:rounded-4xl qsnre"
+          className="lg:px-8 2xl:min-h-[220px] flex flex-col items-center justify-center gap-[30px] lg:gap-6 bg-white shadow[0_6px_46px_rgba(0,0,0,0.2)] rounded-3xl lg:rounded-4xl qsnre"
         >
           <div className="pt-3 text-center">
             <h2 className="text-[26px] leading-[1.2] font-bold text-[#333333]">
@@ -101,11 +101,10 @@ export default function Questionnaire() {
             </h2>
             {current.description && (
               <p
-                className={`mt-4 ${
-                  current.title
-                    ? "text-[#1F2937] font-medium"
-                    : "text-neutral-600"
-                } text-center`}
+                className={`mt-4 ${current.title
+                  ? "text-[#1F2937] font-medium"
+                  : "text-neutral-600"
+                  } text-center`}
                 dangerouslySetInnerHTML={{ __html: current.description }}
               />
             )}
@@ -119,9 +118,8 @@ export default function Questionnaire() {
 
           {current.type === "radio" && (
             <div
-              className={`flex flex-wrap gap-5 ${
-                current.options.length > 2 ? "flex-col" : ""
-              }`}
+              className={`flex flex-wrap gap-5 ${current.options.length > 2 ? "flex-col" : ""
+                }`}
             >
               {current.options.map((opt) => {
                 const selected = answers[current.id] === opt;
@@ -136,15 +134,14 @@ export default function Questionnaire() {
                         );
                       }
                     }}
-                    className={`py-2.5 lg:py-3 px-8 min-w-[140px] lg:min-w-[200px] inline-block rounded-[11px] text-xl text-center font-semibold border-2 border-primary transition-all duration-300 ease-in-out cursor-pointer ${
-                      selected
-                        ? opt === "No"
-                          ? "bg-transparent text-primary"
-                          : "bg-transparent text-primary"
-                        : opt === "No"
+                    className={`py-2.5 lg:py-3 px-8 min-w-[140px] lg:min-w-[200px] inline-block rounded-[11px] text-xl text-center font-semibold border-2 border-primary transition-all duration-300 ease-in-out cursor-pointer ${selected
+                      ? opt === "No"
+                        ? "bg-transparent text-primary"
+                        : "bg-transparent text-primary"
+                      : opt === "No"
                         ? "bg-transparent text-primary"
                         : "bg-primary text-white"
-                    }`}
+                      }`}
                   >
                     {opt}
                   </button>
@@ -170,11 +167,10 @@ export default function Questionnaire() {
                     className="flex items-center w-full gap-3 p-3 not-last:border-b border-b-[#E5E7EB] cursor-pointer hover:bg-[#F9FAFB] transition-all duration-300 ease-in-out"
                   >
                     <span
-                      className={`size-5 rounded-[7px] border flex items-center justify-center text-3xl text-white ${
-                        selected
-                          ? "border-primary bg-primary"
-                          : "border-[#868C8F]"
-                      }`}
+                      className={`size-5 rounded-[7px] border flex items-center justify-center text-3xl text-white ${selected
+                        ? "border-primary bg-primary"
+                        : "border-[#868C8F]"
+                        }`}
                     >
                       {selected ? <RxCheck /> : null}
                     </span>
@@ -268,11 +264,10 @@ export default function Questionnaire() {
                 onClick={() => setShowDropdown(!showDropdown)}
               >
                 <span
-                  className={`text-lg tracking-[1px] ${
-                    answers[current.id]
-                      ? "font-medium text-[#1F2937]"
-                      : "text-[#868C8F]"
-                  }`}
+                  className={`text-lg tracking-[1px] ${answers[current.id]
+                    ? "font-medium text-[#1F2937]"
+                    : "text-[#868C8F]"
+                    }`}
                 >
                   {answers[current.id] || current.placeholder}
                 </span>
@@ -295,11 +290,10 @@ export default function Questionnaire() {
                           handleInput(current.id, opt);
                           setShowDropdown(false);
                         }}
-                        className={`flex items-center gap-3 px-3 py-3 lg:py-2 cursor-pointer ${
-                          isSelected
-                            ? "bg-primary/15"
-                            : "text-[#1F2937]  hover:bg-primary/5"
-                        }`}
+                        className={`flex items-center gap-3 px-3 py-3 lg:py-2 cursor-pointer ${isSelected
+                          ? "bg-primary/15"
+                          : "text-[#1F2937]  hover:bg-primary/5"
+                          }`}
                       >
                         <div className="size-[60px] p-2.5 flex items-center justify-center bg-white shadow-[0_3px_10px] shadow-black/15 rounded-full">
                           <img

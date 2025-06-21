@@ -6,10 +6,8 @@ import Heading from "../ui/Heading";
 const Cta = () => {
   const [imageSrc, setImageSrc] = useState("/images/icons/fav.png");
   const [awardsImg, setAwardsImg] = useState("/images/elements/exl.png");
-  const [awards, setAwards] = useState([]);
 
-  const smallScreenAwards = ["impact award", "excellence award"];
-  const largeScreenAwards = [
+  const awards = [
     `Home Owners <br/> & Diyer`,
     `Real estate & <br/> Property managers`,
     `paint <br/> contractors`,
@@ -23,7 +21,6 @@ const Cta = () => {
       setAwardsImg(
         isSmallScreen ? "/images/elements/exl2.png" : "/images/elements/exl.png"
       );
-      setAwards(isSmallScreen ? smallScreenAwards : largeScreenAwards);
     };
 
     handleResize();
@@ -36,17 +33,17 @@ const Cta = () => {
     <section className=" lg:py-20">
       <div className="container">
         <div className="row justify-center">
-          <div className="w-full max-lg:px-0">
-            <div className="flex flex-col lg:gap-[30px] max-lg:px-6 py-10 lg:py-[70px] items-center text-center bg-[#eaeff4] lg:bg-[#0b0b0b]/10 lg:rounded-[40px] lg:*:px-[130px] lg:*:py-6 *:w-full">
-              <div className="relative w-full flex items-center justify-center lg:py-3!">
+          <div className="w-full">
+            <div className="flex flex-col lg:gap-[30px] max-lg:*:px-5 py-10 lg:py-[70px] items-center text-center bg-[#0b0b0b]/10 rounded-3xl lg:rounded-[40px] lg:*:px-[130px] lg:*:py-6 *:w-full">
+              <div className="relative w-full flex items-center justify-center lg:py-3! max-lg:mb-10">
                 <img
-                  src={imageSrc}
-                  className="w-[75px] lg:w-[320px] relative z-[1] inline-block max-lg:mb-[30px]"
+                  src="/images/logo.png"
+                  className="w-[160px] lg:w-[320px] relative z-[1] inline-block"
                   alt=""
                 />
                 <img
                   src="/images/logo.png"
-                  className="max-lg:hidden absolute inset-0 m-auto w-full lg:max-w-[700px] lg:h-[150px] object-contain opacity-15"
+                  className="absolute inset-0 m-auto w-full max-w-[300px] lg:max-w-[700px] lg:h-[150px] object-contain opacity-15"
                   alt=""
                 />
               </div>
@@ -68,10 +65,7 @@ const Cta = () => {
                   painters. The seal stands by that.”
                 </p>
               </div>
-              <div className="lg:hidden max-lg:mt-10 w-auto!">
-                <GoogleRevs />
-              </div>
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-y-10 gap-x-0 lg:gap-x-[25px] mt-10 lg:mt-4 px-3! py-0!">
+              <div className="grid grid-cols-2 max-lg:px-0! lg:grid-cols-4 gap-y-10 gap-x-0 lg:gap-x-[25px] mt-10 lg:mt-4 lg:px-3! py-0!">
                 {awards.map((item, index) => (
                   <div
                     key={index}
@@ -83,7 +77,7 @@ const Cta = () => {
                       alt={item}
                     />
                     <div
-                      className="text-black lg:text-primary font-medium uppercase text-sm lg:text-xl py-[5px] lg:py-[7px] relative after:absolute after:left-1/2 after:-translate-x-1/2 after:h-0.5 after:w-[108px] lg:after:w-[48%] after:bottom-0 after:bg-gradient-to-b after:from-primary after:to-primary-900"
+                      className="text-primary font-medium uppercase text-sm lg:text-xl py-[5px] lg:py-[7px] relative after:absolute after:left-1/2 after:-translate-x-1/2 after:h-0.5 after:w-[108px] lg:after:w-[48%] after:bottom-0 after:bg-gradient-to-b after:from-primary after:to-primary-900"
                       dangerouslySetInnerHTML={{ __html: item }}
                     />
                   </div>

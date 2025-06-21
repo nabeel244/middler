@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-r from-primary-950 to-primary pt-[60px] px-6 pb-5 lg:p-[60px]">
+    <footer className="bg-gradient-to-br lg:bg-gradient-to-r from-primary-950 to-primary pt-[60px] px-6 pb-5 lg:p-[60px]">
       <div className="container">
         <div className="flex flex-wrap justify-between gap-y-14 pb-5 mb-5 lg:pb-4 lg:mb-4 border-b border-b-white/60">
           <div className="w-full lg:max-w-[481px] flex flex-col gap-y-[19px]">

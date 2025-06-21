@@ -31,10 +31,10 @@ const page = () => {
   return (
     <div className="min-h-dvh h-full overflow-hidden w-full p-6 lg:p-3 lg:pt-5 bg-cover bg-no-repeat bg-center bg-[url('/images/modals/bg_1.png')]">
       <div className="grid size-full lg:grid-rows-1 xl:grid-cols-[auto_1fr_auto] gap-5">
-        <div className="max-lg:hidden pt-10 max-w-[288px]">
+        <div className="max-lg:hidden pt-10 max-w-[200px] 2xl:max-w-[288px]">
           <img src="/images/modals/1.png" className="h-full w-full" alt="" />
         </div>
-        <div className="w-full flex items-center flex-col justify-between gap-6 lg:gap-7">
+        <div className="w-full flex items-center flex-col justify-between gap-6 lg:gap-7 2xl:gap-7">
           <div
             ref={dropdownRef}
             className="max-lg:flex justify-between items-center max-lg:w-full relative"
@@ -130,7 +130,7 @@ const page = () => {
           </div>
 
           <div className="lg:px-20 w-full">
-            <div className="px-4 lg:px-11 py-[30px] lg:py-8 flex flex-col items-center justify-center gap-[30px] bg-white shadow-[0_6px_46px] shadow-black/20 rounded-3xl lg:rounded-[31px]">
+            <div className="px-4 lg:px-11 py-[30px] lg:py-5 2xl:py-8 flex flex-col items-center justify-center gap-[30px] bg-white shadow-[0_6px_46px] shadow-black/20 rounded-3xl lg:rounded-[31px]">
               <Questionnaire />
             </div>
           </div>
@@ -155,7 +155,7 @@ const page = () => {
             </div>
           </div>
         </div>
-        <div div className="max-lg:hidden pt-10 max-w-[288px]">
+        <div className="max-lg:hidden pt-10 max-w-[200px] 2xl:max-w-[288px]">
           <img src="/images/modals/2.png" className="h-full w-full" alt="" />
         </div>
       </div>

@@ -73,7 +73,7 @@ const GetStarted = () => {
                       text: `<b>Get a Real Price for your house painting</b><br/> Fast, Clear, and Accurate.`,
                     },
                   ].map((item, idx) => (
-                    <div key={idx} className="flex flex-col lg:flex-row gap-5 lg:gap-x-3.5 max-lg:border-b border-b-primary-400 max-lg:pb-2">
+                    <div key={idx} className="flex flex-col max-lg: items-center max-lg:text-center lg:flex-row gap-5 lg:gap-x-3.5 max-lg:border-b border-b-primary-400 max-lg:pb-2">
                       <img
                         className="w-[38px] h-[51px] lg:w-[30px] object-contain lg:h-10"
                         src={`/images/icons/${item.icon}`}

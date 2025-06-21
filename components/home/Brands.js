@@ -14,7 +14,7 @@ const Brands = () => {
                 {
                   title: "Painting estimates given out",
                   no: "$350,000,000+",
-                  className: "max-lg:order-5"
+                  className: "max-lg:order-5 max-lg:w-1/2!"
                 },
                 {
                   img: "/images/google_reviews.png",
@@ -28,7 +28,7 @@ const Brands = () => {
                 {
                   title: "Accurate prices nationwide",
                   no: "98%",
-                  className: "max-lg:order-4"
+                  className: "max-lg:order-4 max-lg:w-1/2!"
                 },
               ].map((item, idx) => {
                 return item.img ? (
@@ -36,7 +36,7 @@ const Brands = () => {
                     <img src={item.img} alt="" />
                   </div>
                 ) : (
-                  <div key={idx} className={`${item.className} flex flex-col gap-1 items-center text-center`}>
+                  <div key={idx} className={`${item.className}  flex flex-col gap-1 items-center text-center`}>
                     <span className="text-[10px] lg:text-sm leading-[25px]">{item.title}</span>
                     <h3 className="font-semibold text-[10px] lg:text-2xl">{item.no}</h3>
                   </div>
