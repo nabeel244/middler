@@ -1,6 +1,7 @@
 "use client";
 import { questions } from "@/app/constants";
 import { AnimatePresence, motion } from "motion/react";
+import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { IoCloseOutline } from "react-icons/io5";
 import { TfiAngleDown } from "react-icons/tfi";
@@ -21,6 +22,7 @@ export default function Questionnaire() {
   const [showDropdown, setShowDropdown] = useState(false);
 
   const dropdownRef = useRef(null);
+  const router = useRouter();
 
   useEffect(() => {
     const handleClickOutside = (e) => {
@@ -62,7 +64,7 @@ export default function Questionnaire() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(answers),
       });
-      alert("Responses saved locally in data/responses.json");
+      router.push("/paint-estimator/result");
     } catch (err) {
       alert("Failed to save responses.");
     }
@@ -180,6 +182,53 @@ export default function Questionnaire() {
                   </button>
                 );
               })}
+            </div>
+          )}
+
+
+          {current.type === "text_dropdown" && (
+            <div className="relative w-full">
+              <div
+                className="flex items-center justify-between border border-[#656E81] rounded-[20px] px-5 py-3 cursor-pointer"
+                onClick={() => setShowDropdown(!showDropdown)}
+              >
+                <span
+                  className={`text-[13px] lg:text-lg tracking-[1px] ${answers[current.id]
+                    ? "font-medium text-[#1F2937]"
+                    : "text-[#868C8F]"
+                    }`}
+                >
+                  {answers[current.id] || current.placeholder}
+                </span>
+              </div>
+
+              {showDropdown && (
+                <div
+                  ref={dropdownRef}
+                  className="absolute w-full mt-2 lg:mt-1 bg-white shadow-[0_0_20px] shadow-black/20 rounded-[10px] z-10 max-h-[510px] lg:max-h-[260px] overflow-y-auto dropdown"
+                >
+                  {current.options.map((opt, idx) => {
+                    const isSelected = answers[current.id] === opt;
+                    return (
+                      <div
+                        key={idx}
+                        onClick={() => {
+                          handleInput(current.id, opt);
+                          setShowDropdown(false);
+                        }}
+                        className={`flex items-center gap-3 px-5 py-2 first:pt-5 last:pb-4 cursor-pointer ${isSelected
+                          ? "bg-primary/15"
+                          : "text-[#656E81]  hover:bg-primary/5"
+                          }`}
+                      >
+                        <span className="text-sm lg:text-lg leading-[22px] tracking-[0.5px]">
+                          {opt}
+                        </span>
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
             </div>
           )}
 

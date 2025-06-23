@@ -72,8 +72,9 @@ export const questions = [
     title: "Put a Real Price® on painting a house",
     description: "Answer a few questions and in 30 seconds, we’ll give you a price for labor, materials and paint.",
     label: "Enter the address of the house",
-    type: "text",
+    type: "text_dropdown",
     placeholder: "3976 First St., Glendale CA, 98765",
+    options: ["39 Sienna, Warszawa, Wojewodztwo mazowieckie 00 - 121", "399 Park Avenue, New York, NY 10022", "3900 Elati Street. Denver, Co 80216", "390 Madison Avenue, New York, NY 10017", "3900 Hemphill Street, Fort Worth, TX 76110"],
     next: "start"
   },
   {

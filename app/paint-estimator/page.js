@@ -29,23 +29,23 @@ const page = () => {
   }, []);
 
   return (
-    <div className="min-h-dvh h-full overflow-hidden w-full p-6 lg:p-3 lg:pt-5 bg-cover bg-no-repeat bg-center bg-[url('/images/modals/bg_1.png')]">
+    <div className="min-h-dvh h-full overflow-hidden w-full p-6 lg:p-3 bg-cover bg-no-repeat bg-center bg-[url('/images/modals/bg_1.png')]">
       <div className="grid size-full min-h-[calc(100dvh_-_32px)] lg:grid-rows-1 xl:grid-cols-[0.2fr_1fr_0.2fr] gap-5">
-        <div className="max-lg:hidden pt-10 max-w-[200px] 2xl:max-w-[288px]">
+        <div className="max-lg:hidden pt-24">
           <img
             src="/images/modals/1.png"
             className="h-full w-full object-cover rounded-2xl"
             alt=""
           />
         </div>
-        <div className="w-full flex items-center flex-col justify-between gap-6 lg:gap-0">
+        <div className="w-full flex items-center flex-col justify-between gap-6 lg:gap-5">
           <div
             ref={dropdownRef}
             className="max-lg:flex justify-between items-center max-lg:w-full relative"
           >
             <img
               src={mobileImgs ? "/images/logo_bold.png" : "/images/logo.png"}
-              className="max-w-[230px] lg:max-w-[280px] lg:mt-3"
+              className="max-w-[230px] lg:max-w-[280px]"
               alt=""
             />
             <button
@@ -159,7 +159,7 @@ const page = () => {
             </div>
           </div>
         </div>
-        <div className="max-lg:hidden pt-10 max-w-[200px] 2xl:max-w-[288px]">
+        <div className="max-lg:hidden pt-24">
           <img
             src="/images/modals/2.png"
             className="h-full w-full object-cover rounded-2xl"

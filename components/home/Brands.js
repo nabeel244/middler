@@ -37,7 +37,7 @@ const Brands = () => {
                   </div>
                 ) : (
                   <div key={idx} className={`${item.className}  flex flex-col gap-1 items-center text-center`}>
-                    <span className="text-[10px] lg:text-sm leading-[25px]">{item.title}</span>
+                    <span className="text-[9px] lg:text-sm leading-[25px]">{item.title}</span>
                     <h3 className="font-semibold text-[10px] lg:text-2xl">{item.no}</h3>
                   </div>
                 );

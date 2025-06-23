@@ -13,7 +13,7 @@ const Estimate = () => {
                 highlight="Answer"
                 preheading="estimate"
               />
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-10 w-full">
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-5 w-full">
                 {estimateCards.map((card, idx) => (
                   <div
                     key={idx}
