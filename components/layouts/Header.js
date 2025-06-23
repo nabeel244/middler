@@ -50,7 +50,7 @@ const Header = () => {
           </Link>
 
           <ul className="hidden lg:flex items-center gap-x-2">
-            {menuItems.slice(0, 3).map((item, index) => (
+            {menuItems.slice(0, 2).map((item, index) => (
               <li key={index} className="px-4">
                 <Link
                   href={item.url}

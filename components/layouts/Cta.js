@@ -4,7 +4,6 @@ import GoogleRevs from "../ui/GoogleRevs";
 import Heading from "../ui/Heading";
 
 const Cta = () => {
-  const [imageSrc, setImageSrc] = useState("/images/icons/fav.png");
   const [awardsImg, setAwardsImg] = useState("/images/elements/exl.png");
 
   const awards = [
@@ -17,7 +16,6 @@ const Cta = () => {
   useEffect(() => {
     const handleResize = () => {
       const isSmallScreen = window.innerWidth < 992;
-      setImageSrc(isSmallScreen ? "/images/icons/fav.png" : "/images/logo.png");
       setAwardsImg(
         isSmallScreen ? "/images/elements/exl2.png" : "/images/elements/exl.png"
       );
@@ -73,7 +71,7 @@ const Cta = () => {
                   >
                     <img
                       src={awardsImg}
-                      className="w-[150px] lg:w-[200px]"
+                      className="w-[120px] lg:w-[200px]"
                       alt={item}
                     />
                     <div

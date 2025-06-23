@@ -39,7 +39,7 @@ const cards = [
 const WhoUseMiddler = () => {
   const swiperRef = useRef(null);
   return (
-    <section className="pt-[60px] lg:px-5">
+    <section className="lg:pt-[60px] lg:px-5">
       <div className="w-full max-w-[1024px] mx-auto lg:mb-[60px] max-lg:px-8">
         <div className="flex flex-col gap-5 text-center">
           <Heading

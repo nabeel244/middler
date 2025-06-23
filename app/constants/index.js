@@ -3,7 +3,6 @@ import { RiInstagramFill } from "react-icons/ri";
 
 export const menuItems = [
   { name: "Home", url: "/" },
-  { name: "About Us", url: "/about" },
   { name: "Contact Us", url: "/contact" },
   { name: "Privacy Policy", url: "/privacy-policy" },
   { name: "terms of Service", url: "/terms-of-service" },

@@ -3,7 +3,7 @@ import Heading from "../ui/Heading";
 
 const Estimate = () => {
   return (
-    <section className="relative pt-10 lg:py-10 max-lg:order-2">
+    <section className="relative pt-10 lg:py-10 order-2">
       <div className="container">
         <div className="row">
           <div className="w-full">
