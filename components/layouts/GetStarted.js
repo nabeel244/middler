@@ -1,23 +1,8 @@
 "use client";
-import { useEffect, useState } from "react";
 import { FaCheck } from "react-icons/fa";
 import Button from "../ui/Button";
 import Heading from "../ui/Heading";
 const GetStarted = () => {
-  const [smallSize, setSmallSize] = useState(false);
-
-  useEffect(() => {
-    const handleResize = () => {
-      const isSmallScreen = window.innerWidth < 992;
-      setSmallSize(isSmallScreen ? true : false);
-    };
-
-    handleResize();
-    window.addEventListener("resize", handleResize);
-
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
   return (
     <section className="mb-20 overflow-hidden">
       <div className="container">
@@ -31,17 +16,13 @@ const GetStarted = () => {
             />
           </div>
           <div className="w-full">
-            <div className="grid w-full max-lg:grid-cols-1">
+            <div className="grid w-full max-lg:grid-cols-1 max-lg:gap-y-6">
               <div className="lg:col-start-1 lg:-col-end-1 lg:row-start-1 lg:-row-end-1 col-span-1">
                 <div className="flex justify-center max-lg:w-full">
-                  <div className="relative max-lg:min-h-[569px] max-lg:w-full">
+                  <div className="relative max-lg:min-h-[392px] max-lg:w-full">
                     <img
-                      src={
-                        smallSize
-                          ? "/images/mobile_mockup2.png"
-                          : "/images/mobile_mockup.png"
-                      }
-                      className="max-w-[430px] md:max-w-[600px] max-lg:absolute max-md:-ml-4 left-1/2 max-lg:-translate-x-1/2"
+                      src="/images/mobile_mockup2.png"
+                      className="max-w-[342px] md:max-w-[600px] max-lg:absolute left-1/2 max-lg:-translate-x-1/2"
                       alt=""
                     />
                     {[
@@ -52,15 +33,15 @@ const GetStarted = () => {
                     ].map((item, idx) => (
                       <div
                         key={idx}
-                        className={`absolute z-[2] flex items-center justify-center px-3 lg:px-7 py-2 lg:py-3.5 gap-[7] bg-[rgba(255,255,255,0.32)] lg:bg-[rgba(0,0,0,0.095)] backdrop-blur-[36px] shadow-[0_3.75px_5.95px_rgba(0,0,0,0.12)] rounded-lg ${
+                        className={`absolute z-[2] flex items-center justify-center px-2 lg:px-7 py-2 lg:py-3.5 gap-[7] bg-[rgba(255,255,255,0.32)] lg:bg-[rgba(0,0,0,0.095)] backdrop-blur-[36px] shadow-[0_3.75px_5.95px_rgba(0,0,0,0.12)] rounded-lg ${
                           idx === 0
-                            ? "lg:-left-5 left-5 top-[22%]"
+                            ? "lg:-left-5 left-4 top-[21%]"
                             : idx === 1
                             ? "lg:-left-24 left-1 top-[58%] lg:top-2/4"
                             : idx === 2
-                            ? "lg:-right-5 right-5 top-1/5"
+                            ? "lg:-right-5 right-3 top-[13%]"
                             : idx === 3
-                            ? "lg:-right-14 right-5 top-[45%] lg:top-3/8"
+                            ? "lg:-right-14 right-2 top-[47%] lg:top-3/8"
                             : ""
                         }`}
                       >
@@ -75,8 +56,8 @@ const GetStarted = () => {
                   </div>
                 </div>
               </div>
-              <div className="max-lg:px-5 max-lg:-translate-y-4 lg:col-start-1 lg:-col-end-1 lg:row-start-1 lg:-row-end-1 flex max-lg:flex-wrap justify-between items-end relative z-[1]">
-                <div className="lg:w-4/12 flex flex-col gap-5 max-lg:order-2 w-full max-lg:mt-8">
+              <div className="max-lg:px-5 lg:col-start-1 lg:-col-end-1 lg:row-start-1 lg:-row-end-1 flex max-lg:flex-wrap justify-between items-end relative z-[1]">
+                <div className="lg:w-[30%] flex flex-col gap-5 max-lg:order-2 w-full max-lg:mt-8">
                   <p className="text-2xl max-lg:hidden">
                     Know the true cost before the first brushstroke begins.
                     Middler gives you precise estimates with total clarity
@@ -85,7 +66,7 @@ const GetStarted = () => {
                     <Button small>Try now</Button>
                   </div>
                 </div>
-                <div className="lg:w-[28%] flex flex-col gap-10 max-lg:order-1">
+                <div className="lg:w-[25%] flex flex-col gap-10 max-lg:order-1">
                   {[
                     {
                       icon: "rating.png",

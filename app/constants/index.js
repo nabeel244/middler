@@ -22,12 +22,12 @@ export const socials = [
   {
     name: "instagram",
     icon: RiInstagramFill,
-    url: "/",
+    url: "https://www.instagram.com/middler_com/",
   },
   {
     name: "linkedin",
     icon: FaLinkedinIn,
-    url: "/",
+    url: "https://www.linkedin.com/company/middler/",
   },
   {
     name: "youtube",

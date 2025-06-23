@@ -49,7 +49,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="w-full flex justify-between items-center">
-          <p className="text-white text-[15px] leading-[15px] font-light">
+          <p className="text-white max-[400px]:text-xs! text-sm leading-[15px] font-light">
             Copyright &copy; {new Date().getFullYear()}{" "}
             Middler&nbsp;&nbsp;|&nbsp;&nbsp;All rights reserved
           </p>
@@ -58,7 +58,7 @@ const Footer = () => {
               const Icon = social.icon;
               return (
                 <li key={idx}>
-                  <Link href={social.url} className="text-white text-xl">
+                  <Link href={social.url} target="_blank" className="text-white text-xl">
                     <Icon />
                   </Link>
                 </li>
