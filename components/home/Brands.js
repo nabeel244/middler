@@ -1,6 +1,6 @@
 const Brands = () => {
   return (
-    <section className="lg:py-10 order-1">
+    <section className="lg:pb-10 order-1">
       <div className="container">
         <div className="row">
           <div className="w-full">

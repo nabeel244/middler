@@ -29,25 +29,21 @@ const page = () => {
   }, []);
 
   return (
-    <div className="min-h-dvh h-full overflow-hidden w-full p-6 lg:p-3 bg-cover bg-no-repeat bg-center bg-[url('/images/modals/bg_1.png')]">
-      <div className="grid size-full min-h-[calc(100dvh_-_32px)] lg:grid-rows-1 xl:grid-cols-[0.2fr_1fr_0.2fr] gap-5">
-        <div className="max-lg:hidden pt-24">
-          <img
-            src="/images/modals/1.png"
-            className="h-full w-full object-cover rounded-2xl"
-            alt=""
-          />
-        </div>
-        <div className="w-full flex items-center flex-col justify-between gap-6 lg:gap-5">
+    <div className="min-h-dvh h-full overflow-hidden w-full p-5 lg:p-3 xl:p-5 bg-cover bg-no-repeat bg-center bg-[url('/images/modals/bg_1.png')]">
+      <div className="grid size-full min-h-[calc(100dvh_-_40px)] lg:min-h-[calc(100dvh_-_32px)] xl:min-h-[calc(100dvh_-_40px)] lg:grid-rows-1 xl:grid-cols-[0.18fr_1fr_0.18fr] gap-5">
+        <div className="max-lg:hidden mt-40 bg-cover bg-center bg-no-repeat bg-[url('/images/modals/1.png')] rounded-2xl" />
+        <div className="w-full flex items-center flex-col justify-between gap-5">
           <div
             ref={dropdownRef}
             className="max-lg:flex justify-between items-center max-lg:w-full relative"
           >
-            <img
-              src={mobileImgs ? "/images/logo_bold.png" : "/images/logo.png"}
-              className="max-w-[230px] lg:max-w-[280px]"
-              alt=""
-            />
+            <div className="max-lg:grow max-lg:text-center">
+              <img
+                src={mobileImgs ? "/images/logo_bold.png" : "/images/logo.png"}
+                className="max-w-[160px] lg:max-w-[280px] inline-block"
+                alt=""
+              />
+            </div>
             <button
               onClick={() => setIsMobileMenuOpen((prev) => !prev)}
               aria-label="Toggle menu"
@@ -55,23 +51,20 @@ const page = () => {
             >
               <span className="w-[26px] h-4 block relative">
                 <span
-                  className={`h-0.5 bg-black block left-0 rounded-xl w-full transition-all duration-300 absolute ${
-                    isMobileMenuOpen
+                  className={`h-0.5 bg-black block left-0 rounded-xl w-full transition-all duration-300 absolute ${isMobileMenuOpen
                       ? "rotate-45 top-1/2 -translate-y-1/2"
                       : "top-0"
-                  }`}
+                    }`}
                 />
                 <span
-                  className={`h-0.5 bg-black block left-0 rounded-xl w-4/5 transition-all duration-300 absolute ${
-                    isMobileMenuOpen ? "opacity-0" : "top-1/2 -translate-y-1/2"
-                  }`}
+                  className={`h-0.5 bg-black block left-0 rounded-xl w-4/5 transition-all duration-300 absolute ${isMobileMenuOpen ? "opacity-0" : "top-1/2 -translate-y-1/2"
+                    }`}
                 />
                 <span
-                  className={`h-0.5 bg-black block left-0 rounded-xl w-full transition-all duration-300 absolute ${
-                    isMobileMenuOpen
+                  className={`h-0.5 bg-black block left-0 rounded-xl w-full transition-all duration-300 absolute ${isMobileMenuOpen
                       ? "-rotate-45 top-1/2 -translate-y-1/2"
                       : "bottom-0"
-                  }`}
+                    }`}
                 />
               </span>
             </button>
@@ -90,11 +83,10 @@ const page = () => {
                         <Link
                           href={item.url}
                           onClick={() => setIsMobileMenuOpen(false)}
-                          className={`block ${
-                            pathname === item.url
+                          className={`block ${pathname === item.url
                               ? "text-primary font-semibold"
                               : "text-black hover:text-primary"
-                          } transition-all duration-200 ease-in-out`}
+                            } transition-all duration-200 ease-in-out`}
                         >
                           {item.name}
                         </Link>
@@ -159,13 +151,7 @@ const page = () => {
             </div>
           </div>
         </div>
-        <div className="max-lg:hidden pt-24">
-          <img
-            src="/images/modals/2.png"
-            className="h-full w-full object-cover rounded-2xl"
-            alt=""
-          />
-        </div>
+        <div className="max-lg:hidden mt-40 bg-cover bg-center bg-no-repeat bg-[url('/images/modals/2.png')] rounded-2xl" />
       </div>
     </div>
   );

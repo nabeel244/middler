@@ -1,4 +1,5 @@
 "use client";
+import Result from "@/components/layouts/Result";
 import PriceLoader from "@/components/modals/PriceLoader";
 import { useState } from "react";
 
@@ -8,7 +9,7 @@ export default function ResultPage() {
   return (
     <div className="relative min-h-screen bg-slate-50">
       <div className={loading ? "pointer-events-none blur-sm" : ""}>
-
+        <Result />
       </div>
 
       {/* {loading && <PriceLoader onComplete={() => setLoading(false)} />} */}

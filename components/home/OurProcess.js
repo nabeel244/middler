@@ -35,7 +35,7 @@ const OurProcess = () => {
                   phClassname="mb-[30px]"
                   className="text-[26px]"
                 />
-                <p className="text-center text-[11px] lg:text-2xl mt-2">
+                <p className="text-center text-sm lg:text-2xl mt-2">
                   Whether you’re on-site or at the office, Middler makes it fast
                   and easy to generate polished, data-backed painting estimates.
                   Here’s how:

@@ -41,7 +41,7 @@ const Cta2 = () => {
                 <h2 className="font-bold text-2xl lg:text-[50px]">
                   <span className="text-primary">Ready</span> {smallSize ? "Ready to Win More Jobs—Faster?" : "to Make Smarter Project Decisions—Faster?"}
                 </h2>
-                <p className="text-[11px] lg:text-2xl">
+                <p className="text-sm lg:text-2xl text-left">
                   {smallSize ? "Level up with Middler, the smart estimating tool! Whether you're planning a renovation, budgeting for a trip, or tracking expenses, Middler helps you get accurate estimates and stay on track. No spreadsheets. No guesswork. Just better results." : "Level up your next home project with Middler, the smart estimating tool built for everyone. Whether you're planning interiors, exteriors, or full renovations, Middler helps you create fast, accurate, and professional estimates—every single time."}
                 </p>
                 {!smallSize && <p className="text-[11px] lg:text-2xl">

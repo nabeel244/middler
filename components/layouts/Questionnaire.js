@@ -328,7 +328,7 @@ export default function Questionnaire() {
               {showDropdown && (
                 <div
                   ref={dropdownRef}
-                  className="absolute w-full mt-2 lg:mt-1 bg-white shadow-[0_0_20px] shadow-black/20 rounded-[10px] z-10 max-h-[510px] lg:max-h-[260px] overflow-y-auto dropdown"
+                  className="absolute w-full mt-2 lg:mt-1 bg-white shadow-[0_0_20px] shadow-black/20 rounded-[10px] z-10 max-h-[480px] lg:max-h-[260px] xl:max-h-[380px] overflow-y-auto dropdown"
                 >
                   {current.options.map((opt, idx) => {
                     const isSelected = answers[current.id] === opt;
@@ -344,13 +344,13 @@ export default function Questionnaire() {
                           : "text-[#1F2937]  hover:bg-primary/5"
                           }`}
                       >
-                        <div className="size-[60px] p-2.5 flex items-center justify-center bg-white shadow-[0_3px_10px] shadow-black/15 rounded-full">
+                        <div className="size-10 lg:size-[60px] p-1 lg:p-2.5 flex items-center justify-center bg-white shadow-[0_3px_10px] shadow-black/15 rounded-full">
                           <img
                             src={`/images/brands/${idx + 1}.png`}
                             alt={opt}
                           />
                         </div>
-                        <span className="text-lg leading-[22px] tracking-[0.5px]">
+                        <span className="lg:text-lg lg:leading-[22px] tracking-[0.5px]">
                           {opt}
                         </span>
                       </div>

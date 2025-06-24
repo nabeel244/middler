@@ -110,7 +110,7 @@
   }
 
   .dropdown::-webkit-scrollbar-thumb {
-    @apply bg-neutral-300 rounded-3xl border-2 border-white
+    @apply bg-neutral-800 rounded-3xl border-2 border-white
   }
 }
 

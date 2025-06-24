@@ -16,7 +16,7 @@ export default function PriceLoader({ onComplete }) {
       setStage((s) => {
         if (s === steps.length) {
           clearInterval(id);
-          setTimeout(onComplete, 50000);
+          setTimeout(onComplete, 500);
           return s;
         }
         return s + 1;
@@ -40,9 +40,9 @@ export default function PriceLoader({ onComplete }) {
           animate={{ scale: 1, opacity: 1 }}
           exit={{ scale: 0.95, opacity: 0 }}
           transition={{ type: "spring", stiffness: 260, damping: 25 }}
-          className="w-auto max-w-[290px] sm:max-w-[320px] lg:max-w-[768px] rounded-xl bg-[#052F46] text-white px-10 py-8 shadow-lg space-y-6 lg:space-y-7"
+          className="w-auto max-w-[360px] sm:max-w-[320px] lg:max-w-[768px] rounded-xl bg-[#052F46] text-white px-10 py-8 shadow-lg space-y-6 lg:space-y-7"
         >
-          <h2 className="text-center font-bold text-[40px] leading-[1.2]">
+          <h2 className="text-center font-bold text-[26px] lg:text-[40px] leading-[1.2]">
             Calculating&nbsp;Your Custom&nbsp;Prices
           </h2>
 
@@ -72,7 +72,7 @@ export default function PriceLoader({ onComplete }) {
             ))}
 
             {stage === steps.length && (
-              <li className="text-4xl text-center font-extrabold text-amber-300 mt-6 lg:mt-7">
+              <li className="text-[26px] lg:text-4xl text-center font-extrabold text-white mt-6 lg:mt-7">
                 🎉Your pricing breakdown is ready!
               </li>
             )}
