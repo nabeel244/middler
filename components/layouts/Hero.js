@@ -1,13 +1,29 @@
+"use client";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 import Button from "../ui/Button";
 
-
-
 const Hero = () => {
+  const [address, setAddress] = useState("");
+  const router = useRouter();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!address.trim()) return;
+    if (typeof window !== "undefined") {
+      const stored = JSON.parse(sessionStorage.getItem("paintAnswers") || "{}");
+      sessionStorage.setItem(
+        "paintAnswers",
+        JSON.stringify({ ...stored, address })
+      );
+      sessionStorage.setItem("paintStep", "2");
+    }
+    router.push("/paint-estimator");
+  };
+
   return (
     <section className="relative mt-20 pt-12 lg:pt-20 pb-10 px-5 lg:px-10 overflow-hidden">
-      <div
-        className="absolute -left-4 top-[126px] h-[540px] w-[250px] lg:-left-10 lg:top-1/2 lg:-translate-y-1/2 lg:size-1/2 bg-center bg-no-repeat bg-[url('/images/hero_el2.png')] lg:bg-[url('/images/hero_el.png')] bg-contain"
-      ></div>
+      <div className="absolute -left-4 top-[126px] h-[540px] w-[250px] lg:-left-10 lg:top-1/2 lg:-translate-y-1/2 lg:size-1/2 bg-center bg-no-repeat bg-[url('/images/hero_el2.png')] lg:bg-[url('/images/hero_el.png')] bg-contain"></div>
       <div className="container xl:px-10! 2xl:w-[1300px]!">
         <div className="row gap-y-8 gap-x-5 justify-center xl:gap-x-20 items-center max-lg:text-center">
           <div className="lg:w-6/12 xl:w-5/12 max-lg:order-1">
@@ -23,8 +39,12 @@ const Hero = () => {
             </div>
           </div>
           <div className="lg:w-6/12 max-lg:hidden">
-            <div className="relative size-full text-center">
-              <img src="/images/hero_img.png" className="inline-block rounded-2xl w-full object-contain max-h-[320px]" alt="" />
+            <div className="relative size-full text-right">
+              <img
+                src="/images/hero_img.png"
+                className="inline-block rounded-2xl object-contain max-h-[320px]"
+                alt=""
+              />
             </div>
           </div>
           <div className="mx-auto flex justify-center max-lg:order-2">
@@ -34,7 +54,10 @@ const Hero = () => {
                   Enter address of the property that's being painted
                 </p>
               </div>
-              <form className="w-full flex gap-3 lg:gap-[30px] items-stretch">
+              <form
+                onSubmit={handleSubmit}
+                className="w-full flex gap-3 lg:gap-[30px] items-stretch"
+              >
                 <div className="p-3 rounded-xl grow bg-[#f3f3f3] flex gap-2.5 items-center">
                   <span>
                     <svg
@@ -61,11 +84,16 @@ const Hero = () => {
                   </span>
                   <input
                     type="text"
+                    value={address}
+                    onChange={(e) => setAddress(e.target.value)}
                     className="inline-block w-full grow outline-none! text-lg max-lg:text-[8px]"
                     placeholder="3976 First St, Glendale CA,98765Mekelle (MQX)"
                   />
                 </div>
-                <Button type="submit" className="rounded-xl! max-lg:py-4! max-lg:px-2! max-lg:whitespace-nowrap max-lg:text-[8px]">
+                <Button
+                  type="submit"
+                  className="rounded-xl! max-lg:py-4! max-lg:px-2! max-lg:whitespace-nowrap max-lg:text-[8px]"
+                >
                   Start Calculating
                 </Button>
               </form>

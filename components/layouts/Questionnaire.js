@@ -4,9 +4,8 @@ import { AnimatePresence, motion } from "motion/react";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { IoCloseOutline } from "react-icons/io5";
-import { TfiAngleDown } from "react-icons/tfi";
-
 import { RxCheck } from "react-icons/rx";
+import { TfiAngleDown } from "react-icons/tfi";
 
 const variants = {
   enter: { x: 100, opacity: 0 },
@@ -18,43 +17,58 @@ export default function Questionnaire() {
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState({});
   const [customItems, setCustomItems] = useState([{ name: "", price: "" }]);
-  const current = questions[step];
   const [showDropdown, setShowDropdown] = useState(false);
-
   const dropdownRef = useRef(null);
   const router = useRouter();
+  const current = questions[step];
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const storedAns = JSON.parse(sessionStorage.getItem("paintAnswers") || "{}");
+    const storedStep = sessionStorage.getItem("paintStep");
+    setAnswers(storedAns);
+    if (storedStep) setStep(Number(storedStep));
+  }, []);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    sessionStorage.setItem("paintAnswers", JSON.stringify(answers));
+    sessionStorage.setItem("paintStep", String(step));
+  }, [answers, step]);
 
   useEffect(() => {
     const handleClickOutside = (e) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
-        setShowDropdown(false); // Close dropdown if click is outside
-      }
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target))
+        setShowDropdown(false);
     };
-
     document.addEventListener("mousedown", handleClickOutside);
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   const canProceed = () => {
     if (current.skip) return true;
-    const value = answers[current.id];
-    if (current.type === "checkbox")
-      return Array.isArray(value) && value.length > 0;
+    const v = answers[current.id];
+    if (current.type === "multipleOptions")
+      return Array.isArray(v) && v.length > 0;
     if (current.type === "custom-inputs")
       return customItems.some((i) => i.name && i.price);
-    return value !== undefined && value !== "";
+    return v !== undefined && v !== "";
+  };
+
+  const handleInput = (id, value) => {
+    setAnswers((p) => ({ ...p, [id]: value }));
+  };
+
+  const nextIndex = (idx) => {
+    let n = idx + 1;
+    while (n < questions.length && questions[n].id === "address" && answers.address) n += 1;
+    return n;
   };
 
   const handleNext = async () => {
     if (!canProceed()) return;
-    if (step < questions.length - 1) {
-      setStep(step + 1);
-    } else {
-      await submit();
-    }
+    if (step < questions.length - 1) setStep(nextIndex(step));
+    else await submit();
   };
 
   const submit = async () => {
@@ -64,25 +78,22 @@ export default function Questionnaire() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(answers),
       });
+      sessionStorage.removeItem("paintStep");
       router.push("/paint-estimator/result");
-    } catch (err) {
+    } catch {
       alert("Failed to save responses.");
     }
   };
 
-  const handleInput = (id, value) => {
-    setAnswers({ ...answers, [id]: value });
-  };
-
   const addCustomItem = () => {
-    setCustomItems([...customItems, { name: "", price: "" }]);
+    setCustomItems((c) => [...c, { name: "", price: "" }]);
   };
 
-  const updateCustomItem = (index, key, value) => {
-    const updated = [...customItems];
-    updated[index][key] = value;
-    setCustomItems(updated);
-    handleInput(current.id, updated);
+  const updateCustomItem = (i, k, v) => {
+    const u = [...customItems];
+    u[i][k] = v;
+    setCustomItems(u);
+    handleInput(current.id, u);
   };
 
   return (
@@ -120,7 +131,7 @@ export default function Questionnaire() {
 
           {current.type === "radio" && (
             <div
-              className={`flex flex-wrap gap-5 ${current.options.length > 2 ? "flex-col" : ""
+              className={`flex flex-wrap gap-5 max-[400px]:gap-2! ${current.options.length > 2 ? "flex-col" : ""
                 }`}
             >
               {current.options.map((opt) => {
@@ -136,7 +147,7 @@ export default function Questionnaire() {
                         );
                       }
                     }}
-                    className={`py-2.5 lg:py-3 px-8 min-w-[140px] lg:min-w-[200px] inline-block rounded-[11px] text-xl text-center font-semibold border-2 border-primary transition-all duration-300 ease-in-out cursor-pointer ${selected
+                    className={`py-2.5 lg:py-3 px-8 max-[400px]:min-w-[125px]! min-w-[140px] lg:min-w-[200px] inline-block rounded-[11px] text-xl text-center font-semibold border-2 border-primary transition-all duration-300 ease-in-out cursor-pointer ${selected
                       ? opt === "No"
                         ? "bg-transparent text-primary"
                         : "bg-transparent text-primary"
