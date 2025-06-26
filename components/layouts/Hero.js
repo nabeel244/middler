@@ -25,7 +25,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative mt-20 pt-12 lg:pt-20 pb-10 px-0 lg:px-10 overflow-hidden">
+    <section className="relative mt-16 lg:mt-20 pt-12 lg:pt-20 pb-10 px-0 lg:px-10 overflow-hidden">
       <div className="absolute -left-4 top-[126px] h-[540px] w-[250px] lg:-left-10 lg:top-1/2 lg:-translate-y-1/2 lg:size-1/2 bg-center bg-no-repeat bg-[url('/images/hero_el2.png')] lg:bg-[url('/images/hero_el.png')] bg-contain"></div>
       <div className="container xl:px-10! 2xl:w-[1300px]!">
         <div className="row gap-y-12 lg:gap-y-8 gap-x-5 justify-center xl:gap-x-20 items-center max-lg:text-center">
@@ -51,18 +51,18 @@ const Hero = () => {
             </div>
           </div>
           <div className="mx-auto flex justify-center max-lg:order-2">
-            <div className="border border-primary-300 w-full bg-white p-3 lg:p-[30px] shadow-[0_4px_40px] shadow-primary/20 rounded-[20px] flex flex-col gap-[15px] lg:gap-5">
+            <div className="border border-primary-300 w-full bg-white p-3 max-lg:pb-6 lg:p-[30px] shadow-[0_4px_40px] shadow-primary/20 rounded-[20px] flex flex-col gap-[15px] lg:gap-5">
               <div className="relative py-4 lg:px-1.5 border-b-[1.5px] border-[rgba(51,51,51,0.15)] after:h-[3px] after:w-[89px] after:absolute after:-bottom-px after:left-0 after:bg-primary">
-                <p className="max-[400px]:text-[10px]! text-[3.5vw] lg:text-2xl font-semibold">
+                <p className="max-[400px]:text-[3.45vw]! text-[3.5vw] lg:text-2xl font-semibold">
                   Enter address of the property that's being painted
                 </p>
               </div>
               <form
                 onSubmit={handleSubmit}
-                className="w-full flex gap-3 lg:gap-[30px] items-stretch"
+                className="w-full flex gap-2.5 lg:gap-[30px] items-stretch"
               >
-                <div className="p-3 rounded-xl grow bg-[#f3f3f3] flex flex-col gap-2.5 relative">
-                  <div className="flex gap-2.5 items-center">
+                <div className="py-3 px-2 lg:p-3 rounded-xl grow bg-[#f3f3f3] flex flex-col gap-2 lg:gap-2.5 relative">
+                  <div className="flex gap-2 lg:gap-2.5 items-center">
                     <span>
                       <svg
                         className="size-3.5 lg:size-6"
