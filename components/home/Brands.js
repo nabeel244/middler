@@ -1,10 +1,10 @@
 const Brands = () => {
   return (
-    <section className="pt-5 lg:pb-10 order-1">
+    <section className="pt-10 lg:pb-10 order-1">
       <div className="container">
         <div className="row">
           <div className="w-full">
-            <div className="lg:p-2.5 max-lg:flex flex-wrap max-lg:justify-center *:max-lg:w-1/3 lg:grid lg:grid-cols-5 lg:items-center gap-y-5 lg:gap-y-2.5">
+            <div className="lg:p-2.5 max-lg:flex flex-wrap max-lg:justify-center *:max-lg:w-1/3 lg:grid lg:grid-cols-5 lg:items-center gap-y-6 lg:gap-y-2.5">
               {[
                 {
                   title: "People using Middler",
