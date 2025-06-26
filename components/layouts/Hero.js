@@ -25,13 +25,13 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative mt-16 lg:mt-20 pt-12 lg:pt-20 pb-10 px-0 lg:px-10 overflow-hidden">
+    <section className="relative mt-20 pt-12 lg:pt-20 pb-10 px-0 lg:px-10 overflow-hidden">
       <div className="absolute -left-4 top-[126px] h-[540px] w-[250px] lg:-left-10 lg:top-1/2 lg:-translate-y-1/2 lg:size-1/2 bg-center bg-no-repeat bg-[url('/images/hero_el2.png')] lg:bg-[url('/images/hero_el.png')] bg-contain"></div>
       <div className="container xl:px-10! 2xl:w-[1300px]!">
-        <div className="row gap-y-12 lg:gap-y-8 gap-x-5 justify-center xl:gap-x-20 items-center max-lg:text-center">
+        <div className="row gap-y-14 lg:gap-y-8 gap-x-5 justify-center xl:gap-x-20 items-center max-lg:text-center">
           <div className="lg:w-6/12 xl:w-5/12 max-lg:order-1">
             <div className="flex flex-col max-lg:px-5">
-              <h1 className="font-bold text-4xl leading-[52px] lg:text-6xl lg:leading-[1.2] mb-5">
+              <h1 className="font-bold text-[40px] leading-14 lg:text-6xl lg:leading-[1.2] mb-7 lg:mb-5">
                 <span className="text-primary">Calculate </span> The Price To
                 Paint!
               </h1>
