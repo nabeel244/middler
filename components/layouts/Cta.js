@@ -50,7 +50,7 @@ const Cta = () => {
                   oh
                   heading="Why Middler Certifies Estimates!"
                   highlight="Certifies"
-                  className="text-xl"
+                  className="text-xl font-semibold!"
                 />
                 <p className="text-[11px] lg:text-2xl mt-3 max-lg:mb-[35px] lg:mt-5">
                   Because people will always doubt contractor pricing until a trusted platform like Middler starts certifying estimates. That’s what we do — for painters, plumbers, and everyone else.

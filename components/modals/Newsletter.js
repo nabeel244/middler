@@ -4,6 +4,10 @@ import { useState } from "react";
 
 const Newsletter = ({ onClose }) => {
   const [email, setEmail] = useState("");
+  const [error, setError] = useState("");
+
+  const isValid = (val) =>
+    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val.trim());
 
   return (
     <AnimatePresence>
@@ -22,12 +26,17 @@ const Newsletter = ({ onClose }) => {
           className="w-auto max-w-[90%] sm:max-w-[320px] lg:max-w-[768px] rounded-xl bg-[#052F46] text-white px-10 py-8 shadow-lg flex flex-col items-center gap-6 lg:gap-7"
         >
           <h2 className="text-center font-bold text-[26px] lg:text-[40px] leading-[1.3]">
-            Keep These Prices & Get Details of This Project Sent To Your Email
+            Keep These Prices &amp; Get Details of This Project Sent To Your Email
           </h2>
 
           <form
             onSubmit={(e) => {
               e.preventDefault();
+              if (!isValid(email)) {
+                setError("Please enter a valid email address *");
+                return;
+              }
+              setError("");
               onClose();
             }}
             className="w-full overflow-hidden flex flex-col items-center gap-6 lg:gap-7"
@@ -37,14 +46,19 @@ const Newsletter = ({ onClose }) => {
               name="email"
               placeholder="Email"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
+              onChange={(e) => {
+                setEmail(e.target.value);
+                if (error) setError("");
+              }}
               className="w-full bg-white px-5 py-3 text-black rounded-full outline-none"
             />
+            {error && (
+              <small className="text-red-500 -mt-4 font-semibold">{error}</small>
+            )}
             <div className="flex items-center justify-center">
               <button
                 type="submit"
-                className="bg-primary text-white uppercase rounded-xl py-3 px-4 min-w-[150px]"
+                className="bg-primary text-white uppercase rounded-xl py-3 px-4 min-w-[150px] cursor-pointer hover:bg-primary-800 transition-all duration-300 ease-in-out"
               >
                 send
               </button>
@@ -58,7 +72,7 @@ const Newsletter = ({ onClose }) => {
           </p>
           <button
             onClick={onClose}
-            className="text-white/70 text-lg lg:text-xl leading-[22px] lg:leading-7 underline hover:text-white transition-all duration-200 ease-in-out"
+            className="text-white/70 text-lg lg:text-xl leading-[22px] lg:leading-7 underline hover:text-white transition-all duration-200 ease-in-out cursor-pointer"
           >
             No Thanks
           </button>

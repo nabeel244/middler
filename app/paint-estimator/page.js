@@ -4,6 +4,14 @@ import Navbar from "@/components/layouts/Navbar";
 import Questionnaire from "@/components/layouts/Questionnaire";
 import Progress from "@/components/ui/Progress";
 
+
+if (typeof window !== "undefined") {
+  localStorage.removeItem("paintAnswers");
+  localStorage.removeItem("paintStep");
+  localStorage.removeItem("resultFlowStep");
+}
+
+
 const page = () => {
   return (
     <div className="min-h-dvh h-full overflow-hidden w-full p-5 lg:p-3 xl:p-5 bg-cover bg-no-repeat bg-center bg-[url('/images/modals/bg_1.png')]">

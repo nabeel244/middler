@@ -30,13 +30,13 @@ const Navbar = () => {
       ref={dropdownRef}
       className="max-lg:flex justify-between items-center max-lg:w-full relative"
     >
-      <div className="max-lg:grow max-lg:text-center">
+      <Link href="/" className="block max-lg:grow max-lg:text-center">
         <img
           src={mobileImgs ? "/images/logo_bold.png" : "/images/logo.png"}
           className="max-w-[160px] lg:max-w-[280px] inline-block"
           alt=""
         />
-      </div>
+      </Link>
       <button
         onClick={() => setIsMobileMenuOpen((prev) => !prev)}
         aria-label="Toggle menu"

@@ -1,11 +1,35 @@
 "use client";
+
 import { questions } from "@/app/constants";
+import {
+  calculateCabinetsEstimate,
+  calculateExteriorEstimate,
+  calculateInteriorEstimate,
+} from "@/helpers/calculation";
 import { AnimatePresence, motion } from "motion/react";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { IoCloseOutline } from "react-icons/io5";
 import { RxCheck } from "react-icons/rx";
 import { TfiAngleDown } from "react-icons/tfi";
+import LoadingOverlay from "../modals/LoadingOverlay";
+
+const itemSlug = {
+  Walls: "walls",
+  Ceilings: "ceilings",
+  "Crown Molding": "crown_molding",
+  "Interior Door": "interior_doors",
+  "Baseboard and Trims": "baseboards_and_trim",
+  "Window + Patio Doors": "windows_patio_doors",
+  "Stairs Railing + Spindles": "stair_railing_spindles",
+};
+
+const detailSlug = (txt = "") =>
+  txt.toLowerCase().includes("very")
+    ? "very_detailed"
+    : txt.toLowerCase().includes("some")
+    ? "some_detail"
+    : "";
 
 const variants = {
   enter: { x: 100, opacity: 0 },
@@ -14,81 +38,136 @@ const variants = {
 };
 
 export default function Questionnaire() {
-  const [step, setStep] = useState(0);
-  const [answers, setAnswers] = useState({});
+  const [answers, setAnswers] = useState(() => {
+    if (typeof window === "undefined") return {};
+    try {
+      return JSON.parse(localStorage.getItem("paintAnswers") || "{}");
+    } catch {
+      return {};
+    }
+  });
+
+  const [step, setStep] = useState(() => {
+    if (typeof window === "undefined") return 0;
+    return Number(localStorage.getItem("paintStep") || 0);
+  });
+
   const [customItems, setCustomItems] = useState([{ name: "", price: "" }]);
   const [showDropdown, setShowDropdown] = useState(false);
+  const [loading, setLoading] = useState(false);
+
   const dropdownRef = useRef(null);
   const router = useRouter();
   const current = questions[step];
 
   useEffect(() => {
-    if (typeof window === "undefined") return;
-    const storedAns = JSON.parse(sessionStorage.getItem("paintAnswers") || "{}");
-    const storedStep = sessionStorage.getItem("paintStep");
-    setAnswers(storedAns);
-    if (storedStep) setStep(Number(storedStep));
-  }, []);
-
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    sessionStorage.setItem("paintAnswers", JSON.stringify(answers));
-    sessionStorage.setItem("paintStep", String(step));
-  }, [answers, step]);
-
-  useEffect(() => {
-    const handleClickOutside = (e) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target))
+    const clickOut = (e) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
         setShowDropdown(false);
+      }
     };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+    document.addEventListener("mousedown", clickOut);
+    return () => document.removeEventListener("mousedown", clickOut);
   }, []);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      localStorage.setItem("paintAnswers", JSON.stringify(answers));
+      localStorage.setItem("paintStep", String(step));
+    }
+  }, [answers, step]);
 
   const canProceed = () => {
     if (current.skip) return true;
     const v = answers[current.id];
-    if (current.type === "multipleOptions")
-      return Array.isArray(v) && v.length > 0;
+    if (current.type === "multipleOptions") return Array.isArray(v) && v.length;
     if (current.type === "custom-inputs")
       return customItems.some((i) => i.name && i.price);
     return v !== undefined && v !== "";
   };
 
-  const handleInput = (id, value) => {
-    setAnswers((p) => ({ ...p, [id]: value }));
-  };
+  const handleInput = (id, value) =>
+    setAnswers((prev) => ({ ...prev, [id]: value }));
 
-  const nextIndex = (idx) => {
-    let n = idx + 1;
-    while (n < questions.length && questions[n].id === "address" && answers.address) n += 1;
+  const nextIndex = (i) => {
+    let n = i + 1;
+    while (
+      n < questions.length &&
+      questions[n].id === "address" &&
+      answers.address
+    )
+      n += 1;
     return n;
   };
 
-  const handleNext = async () => {
-    if (!canProceed()) return;
-    if (step < questions.length - 1) setStep(nextIndex(step));
-    else await submit();
+  const mapForCalc = (raw) => {
+    return {
+      interiorSquareFeet: Number(raw.squareFeet) || 0,
+      interiorItems: (raw.paintItems || []).map((lbl) => ({
+        type: itemSlug[lbl],
+      })),
+      interiorCondition: (raw.homeCondition || "").toLowerCase(),
+      interiorDetail: detailSlug(raw.insideDetail),
+      interiorIndividualItems: raw.extraItems || [],
+      doorsAndDrawers: Number(raw.cabinetsNo) || 0,
+      paintQuality: "standard",
+      paintBrand: (raw.PaintBrand || "").toLowerCase().replace(/\s+/g, "_"),
+      ...raw,
+    };
   };
 
   const submit = async () => {
+    setLoading(true);
     try {
+      const toSlug = (txt) => txt.toLowerCase().replace(/\s+/g, "_");
+      const calcInput = {
+        ...answers,
+        interiorSquareFeet: Number(answers.squareFeet) || 0,
+        interiorItems: (answers.paintItems || []).map((lbl) => ({
+          type: toSlug(lbl.replace("+", "&")),
+        })),
+        interiorCondition: toSlug(answers.homeCondition),
+        interiorDetail: toSlug(answers.insideDetail),
+        doorsAndDrawers: Number(answers.cabinetsNo) || 0,
+        paintBrand: toSlug(answers.PaintBrand),
+        paintQuality: "standard",
+
+        interiorIndividualItems: answers.extraItems || [],
+        exteriorIndividualItems: [],
+      };
+
+      const interiorPrice = Number(await calculateInteriorEstimate(calcInput));
+      const cabinetsPrice = Number(await calculateCabinetsEstimate(calcInput));
+      const exteriorPrice = Number(await calculateExteriorEstimate(calcInput));
+      const totalPrice = interiorPrice + cabinetsPrice + exteriorPrice;
+
+      const enriched = {
+        ...calcInput,
+        interiorPrice,
+        cabinetsPrice,
+        exteriorPrice,
+        totalPrice,
+      };
+
+      localStorage.setItem("paintAnswers", JSON.stringify(enriched));
+
       await fetch("/api/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(answers),
+        body: JSON.stringify(enriched),
       });
-      sessionStorage.removeItem("paintStep");
+
+      localStorage.removeItem("paintStep");
       router.push("/paint-estimator/result");
-    } catch {
+    } catch (err) {
+      console.error("Estimator calc error:", err);
       alert("Failed to save responses.");
+      setLoading(false);
     }
   };
 
-  const addCustomItem = () => {
+  const addCustomItem = () =>
     setCustomItems((c) => [...c, { name: "", price: "" }]);
-  };
-
   const updateCustomItem = (i, k, v) => {
     const u = [...customItems];
     u[i][k] = v;
@@ -98,6 +177,7 @@ export default function Questionnaire() {
 
   return (
     <>
+      {loading && <LoadingOverlay />}
       <AnimatePresence mode="wait" initial={false}>
         <motion.div
           key={current.id}
@@ -106,24 +186,26 @@ export default function Questionnaire() {
           animate="center"
           exit="exit"
           transition={{ type: "spring", stiffness: 300, damping: 30 }}
-          className="lg:px-8 2xl:min-h-[190px] flex flex-col items-center justify-center gap-[30px] lg:gap-6 bg-white shadow[0_6px_46px_rgba(0,0,0,0.2)] rounded-3xl lg:rounded-4xl qsnre"
+          className={`lg:px-8 2xl:min-h-[190px] flex flex-col items-center justify-center gap-[30px] lg:gap-6 bg-white shadow[0_6px_46px_rgba(0,0,0,0.2)] rounded-3xl lg:rounded-4xl qsnre ${
+            loading ? "pointer-events-none" : ""
+          }`}
         >
           <div className="pt-3 text-center">
-            <h2 className="text-[26px] leading-[1.2] font-bold text-[#333333]">
+            <h2 className="text-[26px] font-bold text-[#333]">
               {current.title ? current.title : current.question}
             </h2>
             {current.description && (
               <p
-                className={`mt-4 ${current.title
-                  ? "text-[#1F2937] font-medium"
-                  : "text-neutral-600"
-                  } text-center`}
+                className={`mt-4 ${
+                  current.title
+                    ? "text-[#1F2937] font-medium"
+                    : "text-neutral-600"
+                } text-center`}
                 dangerouslySetInnerHTML={{ __html: current.description }}
               />
             )}
-
             {current.label && (
-              <p className="text-[22px] mt-6 leading-6 text-[#1F2937] font-semibold">
+              <p className="text-[22px] mt-6 text-[#1F2937] font-semibold">
                 {current.label}
               </p>
             )}
@@ -131,8 +213,9 @@ export default function Questionnaire() {
 
           {current.type === "radio" && (
             <div
-              className={`flex flex-wrap gap-5 max-[400px]:gap-2! ${current.options.length > 2 ? "flex-col" : ""
-                }`}
+              className={`flex flex-wrap gap-5 ${
+                current.options.length > 2 ? "flex-col" : ""
+              }`}
             >
               {current.options.map((opt) => {
                 const selected = answers[current.id] === opt;
@@ -140,21 +223,16 @@ export default function Questionnaire() {
                   <button
                     key={opt}
                     onClick={() => {
-                      setAnswers((prev) => ({ ...prev, [current.id]: opt }));
+                      setAnswers((p) => ({ ...p, [current.id]: opt }));
                       if (!current.next) {
-                        setStep((prev) =>
-                          Math.min(prev + 1, questions.length - 1)
-                        );
+                        setStep((p) => Math.min(p + 1, questions.length - 1));
                       }
                     }}
-                    className={`py-2.5 lg:py-3 px-8 max-[400px]:min-w-[125px]! min-w-[140px] lg:min-w-[200px] inline-block rounded-[11px] text-xl text-center font-semibold border-2 border-primary transition-all duration-300 ease-in-out cursor-pointer ${selected
-                      ? opt === "No"
-                        ? "bg-transparent text-primary"
-                        : "bg-transparent text-primary"
-                      : opt === "No"
+                    className={`py-2.5 px-8 min-w-[140px] rounded-[11px] text-xl font-semibold border-2 border-primary transition ${
+                      selected
                         ? "bg-transparent text-primary"
                         : "bg-primary text-white"
-                      }`}
+                    }`}
                   >
                     {opt}
                   </button>
@@ -165,7 +243,7 @@ export default function Questionnaire() {
 
           {current.type === "multipleOptions" && (
             <div className="rounded-2xl border border-[#E5E7EB] w-full overflow-hidden">
-              {current.options.map((opt, i) => {
+              {current.options.map((opt) => {
                 const selected = (answers[current.id] || []).includes(opt);
                 return (
                   <button
@@ -177,37 +255,36 @@ export default function Questionnaire() {
                         : [...prev, opt];
                       handleInput(current.id, next);
                     }}
-                    className="flex items-center w-full gap-3 p-3 not-last:border-b border-b-[#E5E7EB] cursor-pointer hover:bg-[#F9FAFB] transition-all duration-300 ease-in-out"
+                    className="flex items-center w-full gap-3 p-3 border-b last:border-b-0 border-[#E5E7EB] hover:bg-[#F9FAFB]"
                   >
                     <span
-                      className={`size-5 rounded-[7px] border flex items-center justify-center text-3xl text-white ${selected
-                        ? "border-primary bg-primary"
-                        : "border-[#868C8F]"
-                        }`}
+                      className={`size-5 rounded-[7px] border flex items-center justify-center ${
+                        selected
+                          ? "border-primary bg-primary"
+                          : "border-[#868C8F]"
+                      }`}
                     >
-                      {selected ? <RxCheck /> : null}
+                      {selected ? <RxCheck className="text-white" /> : null}
                     </span>
-                    <span className="text-[#1F2937] tracking-[1px] text-[15px]">
-                      {opt}
-                    </span>
+                    <span className="text-[#1F2937] text-[15px]">{opt}</span>
                   </button>
                 );
               })}
             </div>
           )}
 
-
           {current.type === "text_dropdown" && (
             <div className="relative w-full">
               <div
-                className="flex items-center justify-between border border-[#656E81] rounded-[20px] px-5 py-3 cursor-pointer"
+                className="flex justify-between border border-[#656E81] rounded-[20px] px-5 py-3 cursor-pointer"
                 onClick={() => setShowDropdown(!showDropdown)}
               >
                 <span
-                  className={`text-[13px] lg:text-lg tracking-[1px] ${answers[current.id]
-                    ? "font-medium text-[#1F2937]"
-                    : "text-[#868C8F]"
-                    }`}
+                  className={`text-[13px] lg:text-lg ${
+                    answers[current.id]
+                      ? "font-medium text-[#1F2937]"
+                      : "text-[#868C8F]"
+                  }`}
                 >
                   {answers[current.id] || current.placeholder}
                 </span>
@@ -216,25 +293,24 @@ export default function Questionnaire() {
               {showDropdown && (
                 <div
                   ref={dropdownRef}
-                  className="absolute w-full mt-2 lg:mt-1 bg-white shadow-[0_0_20px] shadow-black/20 rounded-[10px] z-10 max-h-[510px] lg:max-h-[260px] overflow-y-auto dropdown"
+                  className="absolute w-full mt-2 bg-white shadow-[0_0_20px] shadow-black/20 rounded-[10px] z-10 max-h-[260px] overflow-y-auto dropdown"
                 >
-                  {current.options.map((opt, idx) => {
+                  {current.options.map((opt) => {
                     const isSelected = answers[current.id] === opt;
                     return (
                       <div
-                        key={idx}
+                        key={opt}
                         onClick={() => {
                           handleInput(current.id, opt);
                           setShowDropdown(false);
                         }}
-                        className={`flex items-center gap-3 px-5 py-2 first:pt-5 last:pb-4 cursor-pointer ${isSelected
-                          ? "bg-primary/15"
-                          : "text-[#656E81]  hover:bg-primary/5"
-                          }`}
+                        className={`px-5 py-2 cursor-pointer ${
+                          isSelected
+                            ? "bg-primary/15 text-[#1F2937]"
+                            : "hover:bg-primary/5 text-[#656E81]"
+                        }`}
                       >
-                        <span className="text-sm lg:text-lg leading-[22px] tracking-[0.5px]">
-                          {opt}
-                        </span>
+                        {opt}
                       </div>
                     );
                   })}
@@ -248,20 +324,20 @@ export default function Questionnaire() {
               type={current.type}
               placeholder={current.placeholder}
               onChange={(e) => handleInput(current.id, e.target.value)}
-              className="w-full border border-[#656E81] rounded-[20px] px-5 py-3 outline-none shadow-[0_2px_30px] shadow-black/20 focus:ring focus:ring-primary focus:border-primary transition-all duration-300 ease-in-out"
+              className="w-full border border-[#656E81] rounded-[20px] px-5 py-3 shadow-[0_2px_30px] shadow-black/20 focus:ring-primary focus:border-primary outline-none"
             />
           )}
 
           {current.type === "custom-inputs" && (
             <>
-              <div className="flex flex-col gap-x-4 gap-y-6 w-full relative">
+              <div className="flex flex-col gap-6 w-full">
                 {customItems.map((item, idx) => (
                   <div
                     key={idx}
-                    className="flex max-lg:flex-col gap-5 lg:gap-3 relative"
+                    className="flex max-lg:flex-col gap-5 relative"
                   >
                     <div className="w-full lg:w-1/2">
-                      <label className="block mb-2 text-base leading-[22px] font-medium text-[#1F2937] tracking-[1px]">
+                      <label className="block mb-2 text-base font-medium text-[#1F2937]">
                         Item {idx + 1}
                       </label>
                       <input
@@ -271,23 +347,23 @@ export default function Questionnaire() {
                         onChange={(e) =>
                           updateCustomItem(idx, "name", e.target.value)
                         }
-                        className="w-full border border-[#656E81] rounded-[20px] px-5 py-2.5 outline-none shadow-[0_2px_30px] shadow-black/20 focus:ring focus:ring-primary focus:border-primary transition-all duration-300 ease-in-out"
+                        className="w-full border border-[#656E81] rounded-[20px] px-5 py-2.5 shadow-[0_2px_30px] shadow-black/20 focus:ring-primary focus:border-primary outline-none"
                       />
                     </div>
                     <div className="w-full lg:w-1/2">
-                      <label className="block mb-2 text-base leading-[22px] font-medium text-[#1F2937] tracking-[1px]">
+                      <label className="block mb-2 text-base font-medium text-[#1F2937]">
                         Price {idx + 1}
                       </label>
-                      <div className="w-full relative">
+                      <div className="relative">
                         <input
                           type="number"
                           value={item.price}
                           onChange={(e) =>
                             updateCustomItem(idx, "price", e.target.value)
                           }
-                          className="w-full block border border-[#656E81] rounded-[20px] px-5 pl-10 py-2.5 outline-none shadow-[0_2px_30px] shadow-black/20 focus:ring focus:ring-primary focus:border-primary transition-all duration-300 ease-in-out"
+                          className="w-full border border-[#656E81] rounded-[20px] px-5 pl-10 py-2.5 shadow-[0_2px_30px] shadow-black/20 focus:ring-primary focus:border-primary outline-none"
                         />
-                        <span className="absolute top-1/2 -translate-y-1/2 left-5 text-neutral-500 pointer-events-none">
+                        <span className="absolute top-1/2 -translate-y-1/2 left-5 text-neutral-500">
                           $
                         </span>
                       </div>
@@ -295,13 +371,13 @@ export default function Questionnaire() {
                     {idx > 0 && (
                       <button
                         onClick={() => {
-                          const updatedItems = customItems.filter(
+                          const updated = customItems.filter(
                             (_, i) => i !== idx
                           );
-                          setCustomItems(updatedItems);
-                          handleInput(current.id, updatedItems);
+                          setCustomItems(updated);
+                          handleInput(current.id, updated);
                         }}
-                        className="absolute right-0 top-0 flex place-items-center text-white text-lg bg-black cursor-pointer hover:shadow-[0_0_5px_2px] shadow-black/30 rounded-full p-0.5 transition-all duration-300 ease-in-out"
+                        className="absolute right-0 top-0 text-white bg-black rounded-full p-0.5"
                       >
                         <IoCloseOutline />
                       </button>
@@ -320,14 +396,15 @@ export default function Questionnaire() {
           {current.type === "dropdown" && (
             <div className="relative w-full">
               <div
-                className="flex items-center justify-between border border-[#656E81] rounded-[20px] px-5 py-3 cursor-pointer"
+                className="flex justify-between border border-[#656E81] rounded-[20px] px-5 py-3 cursor-pointer"
                 onClick={() => setShowDropdown(!showDropdown)}
               >
                 <span
-                  className={`text-lg tracking-[1px] ${answers[current.id]
-                    ? "font-medium text-[#1F2937]"
-                    : "text-[#868C8F]"
-                    }`}
+                  className={`text-lg ${
+                    answers[current.id]
+                      ? "font-medium text-[#1F2937]"
+                      : "text-[#868C8F]"
+                  }`}
                 >
                   {answers[current.id] || current.placeholder}
                 </span>
@@ -339,31 +416,28 @@ export default function Questionnaire() {
               {showDropdown && (
                 <div
                   ref={dropdownRef}
-                  className="absolute w-full mt-2 lg:mt-1 bg-white shadow-[0_0_20px] shadow-black/20 rounded-[10px] z-10 max-h-[480px] lg:max-h-[260px] xl:max-h-[380px] overflow-y-auto dropdown"
+                  className="absolute w-full mt-2 bg-white shadow-[0_0_20px] shadow-black/20 rounded-[10px] z-10 max-h-[320px] overflow-y-auto dropdown"
                 >
                   {current.options.map((opt, idx) => {
                     const isSelected = answers[current.id] === opt;
                     return (
                       <div
-                        key={idx}
+                        key={opt}
                         onClick={() => {
                           handleInput(current.id, opt);
                           setShowDropdown(false);
                         }}
-                        className={`flex items-center gap-3 px-3 py-3 lg:py-2 cursor-pointer ${isSelected
-                          ? "bg-primary/15"
-                          : "text-[#1F2937]  hover:bg-primary/5"
-                          }`}
+                        className={`flex items-center gap-3 px-3 py-2 cursor-pointer ${
+                          isSelected ? "bg-primary/15" : "hover:bg-primary/5"
+                        }`}
                       >
-                        <div className="size-10 lg:size-[60px] p-1 lg:p-2.5 flex items-center justify-center bg-white shadow-[0_3px_10px] shadow-black/15 rounded-full">
+                        <div className="size-10 p-2.5 flex items-center justify-center bg-white shadow-lg rounded-full">
                           <img
                             src={`/images/brands/${idx + 1}.png`}
                             alt={opt}
                           />
                         </div>
-                        <span className="lg:text-lg lg:leading-[22px] tracking-[0.5px]">
-                          {opt}
-                        </span>
+                        <span className="lg:text-lg">{opt}</span>
                       </div>
                     );
                   })}
@@ -375,12 +449,18 @@ export default function Questionnaire() {
           {current.next && (
             <div className="flex flex-col gap-4">
               {current.skip && (
-                <button onClick={() => handleNext()} className="qsnre_btn">
+                <button
+                  onClick={() => setStep(nextIndex(step))}
+                  className="qsnre_btn"
+                >
                   Skip
                 </button>
               )}
               <button
-                onClick={handleNext}
+                onClick={() => {
+                  if (step < questions.length - 1) setStep(nextIndex(step));
+                  else submit();
+                }}
                 disabled={!canProceed()}
                 aria-label={current.next}
                 title={
@@ -388,7 +468,7 @@ export default function Questionnaire() {
                     ? current.next
                     : "Please fill out all required fields"
                 }
-                className={`qsnre_btn`}
+                className="qsnre_btn"
               >
                 {current.next}
               </button>
@@ -396,14 +476,6 @@ export default function Questionnaire() {
           )}
         </motion.div>
       </AnimatePresence>
-
-      {/* Progress Bar */}
-      {/* <div className="mt-6 h-2 bg-gray-200 rounded-full overflow-hidden">
-        <div
-          className="h-full bg-primary transition-all"
-          style={{ width: `${((step + 1) / questions.length) * 100}%` }}
-        />
-      </div> */}
     </>
   );
 }
