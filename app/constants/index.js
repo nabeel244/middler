@@ -3,7 +3,7 @@ import { RiInstagramFill } from "react-icons/ri";
 
 export const menuItems = [
   { name: "Home", url: "/" },
-  { name: "Contact Us", url: "/contact" },
+  { name: "Contact Us", url: "/contact-us" },
   { name: "Privacy Policy", url: "/privacy-policy" },
   { name: "terms of Service", url: "/terms-of-service" },
 ];
@@ -58,14 +58,6 @@ export const estimateCards = [
 
 export const questions = [
   {
-    id: "insidePainting",
-    required: true,
-    question: "Are you painting the inside of the house?",
-    type: "radio",
-    options: ["Yes", "No"],
-    next: null
-  },
-  {
     id: "address",
     required: true,
     title: "Put a Real Price® on painting a house",
@@ -75,6 +67,14 @@ export const questions = [
     placeholder: "3976 First St., Glendale CA, 98765",
     options: ["39 Sienna, Warszawa, Wojewodztwo mazowieckie 00 - 121", "399 Park Avenue, New York, NY 10022", "3900 Elati Street. Denver, Co 80216", "390 Madison Avenue, New York, NY 10017", "3900 Hemphill Street, Fort Worth, TX 76110"],
     next: "start"
+  },
+  {
+    id: "insidePainting",
+    required: true,
+    question: "Are you painting the inside of the house?",
+    type: "radio",
+    options: ["Yes", "No"],
+    next: null
   },
   {
     id: "squareFeet",
@@ -114,7 +114,7 @@ export const questions = [
     next: "Next"
   },
   {
-    id: "extraItems",
+    id: "insideExtraItems",
     required: false,
     question: "If you're a painter you can add extra items you're painting on the inside of the home.",
     type: "custom-inputs",
@@ -132,6 +132,99 @@ export const questions = [
     next: null
   },
   {
+    id: "cabinetsNo",
+    required: true,
+    question: "How many cabinets are you painting?",
+    description: "Count every door and drawer, big and small, even if they open or they don’t. Make sure you count every cabinet including in the kitchen, bathrooms, hallways, outside, garage and anywhere in between.",
+    type: "number",
+    placeholder: "Enter a #",
+    suggetions: ["1.webp", "2.webp", "3.webp", "4.webp"],
+    next: "Next"
+  },
+  {
+    id: "cabinetsInsidePainting",
+    required: true,
+    question: "Are you painting the inside of the cabinets?",
+    type: "radio",
+    options: ["Yes", "No"],
+    suggetions: [
+      {
+        title: "The blue part is the inside", src: "inside.webp"
+      }
+    ],
+    next: null
+  },
+  {
+    id: "cabinetsCondition",
+    required: true,
+    question: "What condition are the cabinets in?",
+    type: "radio",
+    options: ["Fair", "Good", "Great"],
+    next: "Next"
+  },
+  {
+    id: "cabinetsDetail",
+    required: true,
+    question: "How detailed are the cabinets?",
+    type: "radio",
+    options: ["Basic", "Some Detail", "Very Detailed"],
+    next: "Next"
+  },
+
+  {
+    id: "outsidePainting",
+    required: true,
+    question: "Are you painting the outside of the house?",
+    type: "radio",
+    options: ["Yes", "No"],
+    next: null
+  },
+  {
+    id: "outsideSquareFeet",
+    required: true,
+    question: "How many square feet is being painted?",
+    description: "If you’re painting the whole house enter the total sqft.",
+    type: "number",
+    placeholder: "Enter the total SQFT",
+    next: "Next"
+  },
+  {
+    id: "outsidePaintItems",
+    required: true,
+    question: "What are you painting?",
+    description: "Select all items you are painting",
+    type: "multipleOptions",
+    options: [
+      "Walls", "Trims", "Garage Doors", "Windows + Patio Doors", "Gutters + Downspouts",
+    ],
+    next: "Next"
+  },
+  {
+    id: "outsideCondition",
+    required: true,
+    question: "What condition is the outside of the house in?",
+    type: "radio",
+    options: ["Fair", "Good", "Great"],
+    next: "Next"
+  },
+  {
+    id: "outsideDetail",
+    required: true,
+    question: "How detailed is the outside of the house?",
+    type: "radio",
+    options: ["Basic", "Some Detail", "Very Detailed"],
+    next: "Next"
+  },
+  {
+    id: "outsideExtraItems",
+    required: false,
+    question: "If you're a painter you can add extra items you're painting on the outside of the home.",
+    type: "custom-inputs",
+    dynamicAdd: true,
+    skip: true,
+    next: "Next",
+  },
+  {
     id: "PaintBrand",
     required: true,
     question: "Please select the paint would like to use?",
@@ -139,14 +232,5 @@ export const questions = [
     placeholder: "Brand of Paints",
     options: ["Behr", "Sherwin Williams", "Benjamin Moore", "Dunn-Edwards", "PPG", "Valspar"],
     next: "Yes"
-  },
-  {
-    id: "cabinetsNo",
-    required: true,
-    question: "How many cabinets are you painting?",
-    description: `Count every door and drawer, big and small, even if they open or they don’t. Make sure you count every cabinet including in the kitchen, bathrooms, hallways, outside, garage and anywhere in between.`,
-    type: "number",
-    placeholder: "Enter a #",
-    next: "Next"
   },
 ];

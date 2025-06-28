@@ -28,7 +28,7 @@ const Cta = () => {
   }, []);
 
   return (
-    <section className=" lg:py-20">
+    <section className="lg:py-20">
       <div className="container">
         <div className="row justify-center">
           <div className="w-full">

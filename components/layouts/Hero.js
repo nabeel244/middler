@@ -51,7 +51,7 @@ const Hero = () => {
             </div>
           </div>
           <div className="mx-auto flex justify-center max-lg:order-2">
-            <div className="border border-primary-300 w-full bg-white p-3 max-lg:pb-6 lg:p-[30px] shadow-[0_4px_40px] shadow-primary/20 rounded-[20px] flex flex-col gap-[15px] lg:gap-5">
+            <div className="border border-primary-300 w-full bg-white p-3 max-lg:pb-10 max-lg:pt-7 lg:p-[30px] shadow-[0_4px_40px] shadow-primary/20 rounded-[20px] flex flex-col gap-[15px] lg:gap-5">
               <div className="relative py-4 lg:px-1.5 border-b-[1.5px] border-[rgba(51,51,51,0.15)] after:h-[3px] after:w-[89px] after:absolute after:-bottom-px after:left-0 after:bg-primary">
                 <p className="max-[400px]:text-[3.45vw]! text-[3.5vw] lg:text-2xl font-semibold">
                   Enter address of the property that's being painted
