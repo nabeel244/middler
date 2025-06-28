@@ -1,10 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
 
-/* ------------------------------------------------------------------
-   Result fetches the latest entry from /api/latest and displays it.
-   All data pieces are rendered as plain text or elements—never objects.
-------------------------------------------------------------------- */
 export default function Result({ loading = false }) {
   const [data, setData] = useState(null);
 
@@ -41,9 +37,8 @@ export default function Result({ loading = false }) {
   /* ---------- UI ---------- */
   return (
     <div
-      className={`rounded-3xl max-lg:w-full bg-[#EAF5FF]/60 px-4 py-6 lg:p-16 ${
-        loading ? "pointer-events-none" : ""
-      }`}
+      className={`rounded-3xl max-lg:w-full bg-[#EAF5FF]/60 px-4 py-6 lg:p-16 ${loading ? "pointer-events-none" : ""
+        }`}
     >
       <div className="flex flex-col gap-6 lg:gap-12 items-center">
         {/* header */}
@@ -57,7 +52,7 @@ export default function Result({ loading = false }) {
         </header>
 
         {/* price grid */}
-        <section className="flex flex-col gap-4 lg:gap-8">
+        <section className="flex flex-col">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
             {priceBoxes.map(({ lbl, val }) => (
               <div
@@ -75,7 +70,7 @@ export default function Result({ loading = false }) {
           </div>
 
           {/* interior details */}
-          <div className="flex flex-col gap-6 items-start w-full">
+          <div className="flex flex-col gap-6 items-start w-full border-b border-b-neutral-300 my-4 lg:my-6 pb-4 lg:pb-6">
             <h3 className="text-xl lg:text-3xl font-semibold text-black py-1 px-2.5 relative inline-block after:absolute after:top-full after:left-0 after:bg-primary after:w-full after:h-0.5">
               Interior
             </h3>
@@ -120,7 +115,7 @@ export default function Result({ loading = false }) {
 
           {/* extras */}
           {extras.length > 0 && (
-            <div className="flex flex-col items-start gap-2 lg:gap-5 flex-wrap">
+            <div className="flex flex-col items-start gap-2 lg:gap-5 flex-wrap mb-4 lg:mb-8">
               <h3 className="text-xl lg:text-3xl font-semibold text-black py-1 px-2.5 relative inline-block after:absolute after:top-full after:left-0 after:bg-primary after:w-full after:h-0.5">
                 Extras:
               </h3>
@@ -136,7 +131,7 @@ export default function Result({ loading = false }) {
           )}
 
           {/* terms */}
-          <div className="flex flex-col items-start gap-2 lg:gap-5 flex-wrap">
+          <div className="flex flex-col items-start gap-2 lg:gap-5 flex-wrap mb-4 lg:mb-8">
             <h3 className="text-xl lg:text-3xl font-semibold text-black py-1 px-2.5 relative inline-block after:absolute after:top-full after:left-0 after:bg-primary after:w-full after:h-0.5">
               Terms
             </h3>

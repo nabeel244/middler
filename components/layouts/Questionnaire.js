@@ -14,13 +14,7 @@ import { RxCheck } from "react-icons/rx";
 import { TfiAngleDown } from "react-icons/tfi";
 import LoadingOverlay from "../modals/LoadingOverlay";
 
-// ── helper lists for skip‑ahead ──────────────────────────────────────────
-const INSIDE_QS = [
-  "squareFeet",
-  "paintItems",
-  "homeCondition",
-  "insideDetail",
-];
+const INSIDE_QS = ["squareFeet", "paintItems", "homeCondition", "insideDetail"];
 const CAB_QS = [
   "cabinetsNo",
   "cabinetsInsidePainting",
@@ -48,8 +42,8 @@ const detailSlug = (txt = "") =>
   txt.toLowerCase().includes("very")
     ? "very_detailed"
     : txt.toLowerCase().includes("some")
-      ? "some_detail"
-      : "";
+    ? "some_detail"
+    : "";
 
 const variants = {
   enter: { x: 100, opacity: 0 },
@@ -80,7 +74,6 @@ export default function Questionnaire() {
   const router = useRouter();
   const current = questions[step];
 
-  // ─────  close dropdown on outside click ─────
   useEffect(() => {
     const clickOut = (e) => {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
@@ -91,7 +84,6 @@ export default function Questionnaire() {
     return () => document.removeEventListener("mousedown", clickOut);
   }, []);
 
-  // ─────  persist step & answers ─────
   useEffect(() => {
     if (typeof window !== "undefined") {
       localStorage.setItem("paintAnswers", JSON.stringify(answers));
@@ -99,45 +91,39 @@ export default function Questionnaire() {
     }
   }, [answers, step]);
 
-  // ─────  navigate helper ─────────────────────
   const nextIndex = (i) => {
     let n = i + 1;
+
     while (n < questions.length) {
       const id = questions[n].id;
 
-      // 1️⃣  skip interior block
       if (answers.insidePainting === "No" && INSIDE_QS.includes(id)) {
-        n += 1;
-        continue;
-      }
-      // always show insideExtraItems immediately after squareFeet block
-      if (
-        answers.insidePainting === "No" &&
-        INSIDE_QS.includes(id) &&
-        id !== "insideExtraItems"
-      ) {
-        n += 1;
-        continue;
+        if (id !== "insideExtraItems") {
+          n++;
+          continue;
+        }
       }
 
-      // 2️⃣  skip cabinet block
       if (answers.cabinetsPainting === "No" && CAB_QS.includes(id)) {
-        n += 1;
-        continue;
+        if (id !== "outsidePainting") {
+          n++;
+          continue;
+        }
       }
 
-      // 3️⃣  skip exterior block
       if (answers.outsidePainting === "No" && OUTSIDE_QS.includes(id)) {
-        n += 1;
-        continue;
+        if (id !== "outsideExtraItems") {
+          n++;
+          continue;
+        }
       }
 
-      break; // keep this question
+      break;
     }
+
     return n;
   };
 
-  // ─────  validation per slide ────────────────
   const canProceed = () => {
     if (current.skip) return true;
     const v = answers[current.id];
@@ -150,7 +136,6 @@ export default function Questionnaire() {
   const handleInput = (id, value) =>
     setAnswers((prev) => ({ ...prev, [id]: value }));
 
-  // ─────  mapping helpers for calculator ─────
   const toSlug = (txt = "") => txt.toLowerCase().replace(/\s+/g, "_");
 
   const submit = async () => {
@@ -222,8 +207,9 @@ export default function Questionnaire() {
           animate="center"
           exit="exit"
           transition={{ type: "spring", stiffness: 300, damping: 30 }}
-          className={`lg:px-8 2xl:min-h-[190px] flex flex-col items-center justify-center gap-[30px] lg:gap-6 bg-white shadow[0_6px_46px_rgba(0,0,0,0.2)] rounded-3xl lg:rounded-4xl qsnre ${loading ? "pointer-events-none" : ""
-            }`}
+          className={`lg:px-8 2xl:min-h-[190px] flex flex-col items-center justify-center gap-[30px] lg:gap-6 bg-white shadow[0_6px_46px_rgba(0,0,0,0.2)] rounded-3xl lg:rounded-4xl qsnre ${
+            loading ? "pointer-events-none" : ""
+          }`}
         >
           <div className="pt-3 text-center">
             <h2 className="text-[26px] font-bold text-[#333]">
@@ -231,10 +217,11 @@ export default function Questionnaire() {
             </h2>
             {current.description && (
               <p
-                className={`mt-4 ${current.title
-                  ? "text-[#1F2937] font-medium"
-                  : "text-neutral-600"
-                  } text-center`}
+                className={`mt-4 ${
+                  current.title
+                    ? "text-[#1F2937] font-medium"
+                    : "text-neutral-600"
+                } text-center`}
                 dangerouslySetInnerHTML={{ __html: current.description }}
               />
             )}
@@ -246,31 +233,49 @@ export default function Questionnaire() {
           </div>
 
           {current.type === "radio" && (
-            <div
-              className={`flex flex-wrap gap-5 ${current.options.length > 2 ? "flex-col" : ""
+            <>
+              <div
+                className={`flex flex-wrap gap-5 ${
+                  current.options.length > 2 ? "flex-col" : ""
                 }`}
-            >
-              {current.options.map((opt) => {
-                const selected = answers[current.id] === opt;
-                return (
-                  <button
-                    key={opt}
-                    onClick={() => {
-                      setAnswers((p) => ({ ...p, [current.id]: opt }));
-                      if (!current.next) {
-                        setStep((p) => Math.min(p + 1, questions.length - 1));
-                      }
-                    }}
-                    className={`py-2.5 px-8 min-w-[140px] rounded-[11px] text-xl font-semibold border-2 border-primary transition ${selected
-                      ? "bg-transparent text-primary"
-                      : "bg-primary text-white"
+              >
+                {current.options.map((opt) => {
+                  const selected = answers[current.id] === opt;
+                  return (
+                    <button
+                      key={opt}
+                      onClick={() => {
+                        setAnswers((p) => ({ ...p, [current.id]: opt }));
+                        if (!current.next) {
+                          setStep((p) => Math.min(p + 1, questions.length - 1));
+                        }
+                      }}
+                      className={`py-2.5 px-8 min-w-[140px] rounded-[11px] text-xl font-semibold border-2 border-primary transition ${
+                        selected
+                          ? "bg-transparent text-primary"
+                          : "bg-primary text-white"
                       }`}
+                    >
+                      {opt}
+                    </button>
+                  );
+                })}
+              </div>
+              {current.suggetions &&
+                current.suggetions.map((item, idx) => (
+                  <div
+                    key={idx}
+                    className="flex flex-col items-center justify-center gap-3"
                   >
-                    {opt}
-                  </button>
-                );
-              })}
-            </div>
+                    <p className="text-neutral-700">{item.title}</p>
+                    <img
+                      src={`/images/cabinets/${item.src}`}
+                      className="max-w-20 lg:max-w-24 rounded-xl"
+                      alt=""
+                    />
+                  </div>
+                ))}
+            </>
           )}
 
           {current.type === "multipleOptions" && (
@@ -290,10 +295,11 @@ export default function Questionnaire() {
                     className="flex items-center w-full gap-3 p-3 border-b last:border-b-0 border-[#E5E7EB] hover:bg-[#F9FAFB]"
                   >
                     <span
-                      className={`size-5 rounded-[7px] border flex items-center justify-center ${selected
-                        ? "border-primary bg-primary"
-                        : "border-[#868C8F]"
-                        }`}
+                      className={`size-5 rounded-[7px] border flex items-center justify-center ${
+                        selected
+                          ? "border-primary bg-primary"
+                          : "border-[#868C8F]"
+                      }`}
                     >
                       {selected ? <RxCheck className="text-white" /> : null}
                     </span>
@@ -311,10 +317,11 @@ export default function Questionnaire() {
                 onClick={() => setShowDropdown(!showDropdown)}
               >
                 <span
-                  className={`text-[13px] lg:text-lg ${answers[current.id]
-                    ? "font-medium text-[#1F2937]"
-                    : "text-[#868C8F]"
-                    }`}
+                  className={`text-[13px] lg:text-lg ${
+                    answers[current.id]
+                      ? "font-medium text-[#1F2937]"
+                      : "text-[#868C8F]"
+                  }`}
                 >
                   {answers[current.id] || current.placeholder}
                 </span>
@@ -334,10 +341,11 @@ export default function Questionnaire() {
                           handleInput(current.id, opt);
                           setShowDropdown(false);
                         }}
-                        className={`px-5 py-2 cursor-pointer ${isSelected
-                          ? "bg-primary/15 text-[#1F2937]"
-                          : "hover:bg-primary/5 text-[#656E81]"
-                          }`}
+                        className={`px-5 py-2 cursor-pointer ${
+                          isSelected
+                            ? "bg-primary/15 text-[#1F2937]"
+                            : "hover:bg-primary/5 text-[#656E81]"
+                        }`}
                       >
                         {opt}
                       </div>
@@ -349,12 +357,27 @@ export default function Questionnaire() {
           )}
 
           {["text", "number"].includes(current.type) && (
-            <input
-              type={current.type}
-              placeholder={current.placeholder}
-              onChange={(e) => handleInput(current.id, e.target.value)}
-              className="w-full border border-[#656E81] rounded-[20px] px-5 py-3 shadow-[0_2px_30px] shadow-black/20 focus:ring-primary focus:border-primary outline-none"
-            />
+            <>
+              <input
+                type={current.type}
+                placeholder={current.placeholder}
+                onChange={(e) => handleInput(current.id, e.target.value)}
+                className="w-full border border-[#656E81] rounded-[20px] px-5 py-3 shadow-[0_2px_30px] shadow-black/20 focus:ring-primary focus:border-primary outline-none"
+              />
+              {current.suggetions && (
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-5">
+                  {current.suggetions.map((img, idx) => (
+                    <div key={idx}>
+                      <img
+                        src={`/images/cabinets/${img}`}
+                        className="max-w-20 lg:max-w-24 rounded-xl"
+                        alt=""
+                      />
+                    </div>
+                  ))}
+                </div>
+              )}
+            </>
           )}
 
           {current.type === "custom-inputs" && (
@@ -429,10 +452,11 @@ export default function Questionnaire() {
                 onClick={() => setShowDropdown(!showDropdown)}
               >
                 <span
-                  className={`text-lg ${answers[current.id]
-                    ? "font-medium text-[#1F2937]"
-                    : "text-[#868C8F]"
-                    }`}
+                  className={`text-lg ${
+                    answers[current.id]
+                      ? "font-medium text-[#1F2937]"
+                      : "text-[#868C8F]"
+                  }`}
                 >
                   {answers[current.id] || current.placeholder}
                 </span>
@@ -455,8 +479,9 @@ export default function Questionnaire() {
                           handleInput(current.id, opt);
                           setShowDropdown(false);
                         }}
-                        className={`flex items-center gap-3 px-3 py-2 cursor-pointer ${isSelected ? "bg-primary/15" : "hover:bg-primary/5"
-                          }`}
+                        className={`flex items-center gap-3 px-3 py-2 cursor-pointer ${
+                          isSelected ? "bg-primary/15" : "hover:bg-primary/5"
+                        }`}
                       >
                         <div className="size-10 p-2.5 flex items-center justify-center bg-white shadow-lg rounded-full">
                           <img

@@ -149,5 +149,38 @@
     "paintQuality": "standard",
     "interiorIndividualItems": [],
     "exteriorIndividualItems": []
+  },
+  {
+    "createdDate": "2025-06-28",
+    "createdTime": "19:35:18Z",
+    "address": "39 Sienna, Warszawa, Wojewodztwo mazowieckie 00 - 121",
+    "insidePainting": "No",
+    "squareFeet": "2",
+    "cabinetsPainting": "Yes",
+    "cabinetsNo": "2",
+    "cabinetsInsidePainting": "Yes",
+    "cabinetsCondition": "Great",
+    "cabinetsDetail": "Very Detailed",
+    "outsidePainting": "Yes",
+    "outsideSquareFeet": "2",
+    "outsidePaintItems": [
+      "Trims"
+    ],
+    "outsideCondition": "Great",
+    "outsideDetail": "Very Detailed",
+    "PaintBrand": "Behr",
+    "interiorSquareFeet": 2,
+    "interiorItems": [],
+    "interiorCondition": "",
+    "interiorDetail": "",
+    "doorsAndDrawers": 2,
+    "paintBrand": "behr",
+    "paintQuality": "standard",
+    "interiorIndividualItems": [],
+    "exteriorIndividualItems": [],
+    "interiorPrice": 2.03,
+    "cabinetsPrice": 63.76,
+    "exteriorPrice": 0,
+    "totalPrice": 65.78999999999999
   }
 ]
