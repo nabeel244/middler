@@ -115,7 +115,7 @@ export default function Result({ loading = false }) {
 
           {/* extras */}
           {extras.length > 0 && (
-            <div className="flex flex-col items-start gap-2 lg:gap-5 flex-wrap mb-4 lg:mb-8">
+            <div className="flex flex-col items-start gap-2 lg:gap-5 flex-wrap border-b border-b-neutral-300 mb-4 lg:mb-6 pb-4 lg:pb-6">
               <h3 className="text-xl lg:text-3xl font-semibold text-black py-1 px-2.5 relative inline-block after:absolute after:top-full after:left-0 after:bg-primary after:w-full after:h-0.5">
                 Extras:
               </h3>
