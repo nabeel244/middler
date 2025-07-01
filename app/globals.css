@@ -98,7 +98,7 @@
   }
 
   .qsnre_btn {
-    @apply py-3.5 px-8 max-lg:min-w-[150px] lg:min-w-[200px] lg:w-auto whitespace-nowrap inline-block rounded-[11px] text-xl leading-[18px] tracking-[1px] not-disabled:hover:shadow-[0_0_10px_3px] cursor-pointer disabled:cursor-not-allowed shadow-primary/30 text-center font-semibold border-2 border-primary transition-all duration-300 ease-in-out bg-primary text-white capitalize;
+    @apply py-3.5 px-8 max-lg:min-w-[150px] lg:min-w-[200px] lg:w-auto whitespace-nowrap inline-block rounded-[11px] text-xl leading-[18px] tracking-[1px] not-disabled:hover:shadow-[0_0_10px_3px] cursor-pointer disabled:cursor-not-allowed shadow-primary/30 text-center font-semibold border-2 border-primary transition-all duration-300 ease-in-out bg-primary text-white capitalize hover:bg-primary-800;
   }
 
   .dropdown::-webkit-scrollbar {
@@ -111,6 +111,14 @@
 
   .dropdown::-webkit-scrollbar-thumb {
     @apply bg-neutral-800 rounded-3xl border-2 border-white
+  }
+
+  .btn_prm {
+    @apply py-2.5 px-8 min-w-[140px] rounded-[11px] text-xl font-semibold border-2 border-primary transition-all duration-300 bg-transparent text-primary cursor-pointer hover:bg-primary hover:text-white;
+  }
+
+  .btn_scnd {
+    @apply py-2.5 px-8 min-w-[140px] rounded-[11px] text-xl font-semibold border-2 border-primary transition-all duration-300 bg-primary text-white cursor-pointer hover:bg-primary-800
   }
 }
 
