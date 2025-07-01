@@ -1,14 +1,15 @@
 import { gql } from '@apollo/client';
 
 export default gql`
-mutation quickEstimateClient(
+mutation firstEstimate(
+  $email: String!, 
   $estimate: EstimatorInputType
 ) {
-  quickEstimateClient(
+  firstEstimate(
+    email: $email, 
     estimate: $estimate
   ) {
-    id,
     message
   }
 }
-`
+`;

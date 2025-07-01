@@ -1,80 +1,191 @@
 "use client";
 import { useMutation } from "@apollo/client";
 import { AnimatePresence, motion } from "motion/react";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useCookies } from "react-cookie";
 import { BiLoaderCircle } from "react-icons/bi";
 
-/* ─── APOLLO ─────────────────────────────────────────────── */
+//// MUTATIONS
 import QUICK_ESTIMATE from "../../app/_mutations/quickEstimateClient";
 import InputFieldText from "../form/inputFieldText";
 
-/* ─────────────────────────────────────────────────────────── */
 const EmailType = ({
   dispatch,
+  changeUserValue,
+  resetUser,
+  user,
   changePopup,
   changePopupType,
   navigation,
   estimator,
+  validateEmail,
+  login,
   paintEstimateFieldsRequired,
   changePaintEstimator,
+  changeEstimatorValue,
+  paintEstimateSteps,
+  setRequired,
+  previewEstimate,
+  trackFormEvents,
+  changeEdit,
 }) => {
   const router = useRouter();
+  const [message, setMessage] = useState("");
+  const [dropdown, setDropdown] = useState("");
   const [loading, setLoading] = useState("");
+  const [loadingColor, setLoadingColor] = useState("white");
   const [userType, setUserType] = useState("");
   const [showOtherInput, setShowOtherInput] = useState(false);
-  const [, setCookie] = useCookies(["estimateID"]);
+  const [cookies, setCookie, removeCookie] = useCookies([
+    "email",
+    "token",
+    "user",
+    "pending_businessLogo",
+    "estimateID",
+  ]);
 
-  /* ─── APOLLO ───────────────────────────────────────────── */
-  const [quickEstimate] = useMutation(QUICK_ESTIMATE);
+  ///// MUTATIONS
+  const [
+    quickEstimate,
+    { dataQuickEstimate, loadingQuickEstimate, errorQuickEstimate },
+  ] = useMutation(QUICK_ESTIMATE);
 
-  /* ─── POPUP FLOW CONTROL ───────────────────────────────── */
   useEffect(() => {
     dispatch(changePopupType(""));
-    document.body.style.overflow = "hidden";
-    return () => (document.body.style.overflow = "auto");
-  }, [dispatch, changePopupType]);
+  }, []);
 
   useEffect(() => {
-    const id = setTimeout(() => dispatch(changePopupType("email")), 7000);
-    return () => clearTimeout(id);
-  }, [dispatch, changePopupType]);
+    // Disable body scroll when popup is active
+    document.body.style.overflow = "hidden";
 
-  /* ─── SUBMIT HANDLER ───────────────────────────────────── */
-  const submitSendEstimate = async (role) => {
+    // Re-enable on unmount
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, []);
+
+  const submitSendEstimate = async (userType) => {
+    setMessage("");
     setLoading("sendEstimate");
+
     try {
-      const { data } = await quickEstimate({
-        variables: { estimate: { ...estimator.value, userType: role } },
+      const response = await quickEstimate({
+        variables: {
+          estimate: {
+            adjustment: estimator.value.adjustment,
+            businessName: estimator.value.businessName,
+            businessLogo: estimator.value.businessLogo,
+            estimatorName: estimator.value.estimatorName,
+            businessAddress: estimator.value.businessAddress,
+            businessPhone: estimator.value.businessPhone,
+            businessEmail: estimator.value.businessEmail,
+            businessWebsite: estimator.value.businessWebsite,
+            businessLicenseNumber: estimator.value.businessLicenseNumber,
+            businessInstagram: estimator.value.businessInstagram,
+            clientName: estimator.value.clientName,
+            clientPhone: estimator.value.clientPhone,
+            clientPropertyAddress: estimator.value.clientPropertyAddress,
+            clientEmail: estimator.value.clientEmail,
+            clientZipCode: estimator.value.clientZipCode,
+            interiorSquareFeet: estimator.value.interiorSquareFeet,
+            interiorCondition: estimator.value.interiorCondition,
+            interiorDetail: estimator.value.interiorDetail,
+            interiorItems: estimator.value.interiorItems,
+            interiorIndividualItems: estimator.value.interiorIndividualItems,
+            interiorAdjusted: estimator.value.interiorAdjusted,
+            doorsAndDrawers: estimator.value.doorsAndDrawers,
+            insideCabinet:
+              estimator.value.insideCabinet == "yes" ? true : false,
+            cabinetCondition: estimator.value.cabinetCondition,
+            cabinetDetail: estimator.value.cabinetDetail,
+            cabinetAdjusted: estimator.value.cabinetAdjusted,
+            exteriorSquareFeet: estimator.value.exteriorSquareFeet,
+            exteriorCondition: estimator.value.exteriorCondition,
+            exteriorDetail: estimator.value.exteriorDetail,
+            exteriorItems: estimator.value.exteriorItems,
+            exteriorIndividualItems: estimator.value.exteriorIndividualItems,
+            exteriorAdjusted: estimator.value.exteriorAdjusted,
+            painters: estimator.value.painters,
+            hoursPerDay: estimator.value.hoursPerDay,
+            days: estimator.value.days,
+            paintBrand: estimator.value.paintBrand,
+            paintQuality: estimator.value.paintQuality,
+            warranty: estimator.value.warranty,
+            payments: estimator.value.payments,
+            deposit: estimator.value.deposit,
+            depositType: estimator.value.depositType,
+            painterTapeRolls: estimator.value.painterTapeRolls,
+            plasticRolls: estimator.value.plasticRolls,
+            dropCloths: estimator.value.dropCloths,
+            userType: userType,
+          },
+        },
       });
 
-      /* save estimateID for a year */
-      const expires = new Date(Date.now() + 31536000000);
-      setCookie("estimateID", data.quickEstimateClient.id, {
-        expires,
+      const expirationDate = new Date();
+      expirationDate.setTime(
+        expirationDate.getTime() + 365 * 24 * 60 * 60 * 1000
+      );
+
+      setCookie("estimateID", response.data.quickEstimateClient.id, {
+        expires: expirationDate,
         path: "/",
         sameSite: "lax",
       });
 
-      /* reveal preview, hide popup */
-      dispatch(changePaintEstimator(5));
-      dispatch(changePopup(""));
-
-      /* update URL without reloading */
-      router.replace(`${window.location.pathname}?success=1`);
-    } catch (err) {
-      console.error(err);
-    } finally {
       setLoading("");
+      setMessage(response.data.quickEstimateClient.message);
+
+      router.replace(`${window.location.pathname}?success=1`);
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: "estimate_success",
+        step: 1,
+        userType: userType,
+        estimateID: response.data.quickEstimateClient.id || null,
+      });
+
+      dispatch(changePopup(""));
+    } catch (error) {
+      console.log(error);
+      setLoading("");
+      if (error) setMessage(error.message);
     }
   };
 
-  /* ─── RENDER ───────────────────────────────────────────── */
+  useEffect(() => {
+    setTimeout(() => {
+      dispatch(changePopupType("email"));
+    }, 1000);
+  }, []);
+
+  const [stage, setStage] = useState(0);
+  const steps = [
+    "🔍 Gathering room size & details…",
+    "📈 Analyzing market rates & trends…",
+    "🛠️ Computing labor & material cost…",
+    "✅ Finalizing transparent pricing…",
+  ];
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setStage((s) => {
+        if (s === steps.length) {
+          clearInterval(id);
+          setTimeout(500);
+          return s;
+        }
+        return s + 1;
+      });
+    }, 1000);
+
+    return () => clearInterval(id);
+  }, [steps.length]);
+
   return (
     <AnimatePresence>
-      {/* first phase (loader) */}
-      {navigation.value.popupType === "" && (
+      {navigation.value.popupType == "" && (
         <motion.div
           key="loader"
           className="fixed inset-0 z-[1000] flex items-center justify-center bg-black/40 backdrop-blur-sm"
@@ -92,25 +203,43 @@ const EmailType = ({
             <h2 className="text-center font-bold text-[26px] lg:text-[40px] leading-[1.2]">
               Calculating&nbsp;Your Custom&nbsp;Prices
             </h2>
+
             <p className="text-center text-sm lg:text-xl text-neutral-300">
               Middler does&nbsp;
               <span className="text-red-400 font-semibold">NOT</span>
               &nbsp;adjust prices to benefit painters or homeowners.
             </p>
+
             <div className="h-3 lg:h-4 w-full bg-[#496877] rounded-r-full overflow-hidden">
               <motion.div
-                className="h-full bg-gradient-to-r from-[#052F46] via-[#4496FF] to-[#6A73FF]"
-                initial={{ width: "0%" }}
-                animate={{ width: "100%" }}
-                transition={{ duration: 4 }}
+                className="h-full bg-gradient-to-r from-[#052F46] from-0% via-[#4496FF] via-50% to-100% to-[#6A73FF]"
+                animate={{ width: `${(stage / steps.length) * 100}%` }}
+                transition={{ ease: "linear", duration: 0.3 }}
               />
             </div>
+
+            <ul className="space-y-1 text-sm lg:text-base">
+              {steps.map((txt, i) => (
+                <li
+                  key={i}
+                  className={`flex items-center gap-1.5 ${
+                    i < stage ? "text-white" : "text-teal-200/40"
+                  }`}
+                >
+                  {txt}
+                </li>
+              ))}
+
+              {stage === steps.length && (
+                <li className="text-[26px] lg:text-4xl text-center font-extrabold text-white mt-6 lg:mt-7">
+                  🎉Your pricing breakdown is ready!
+                </li>
+              )}
+            </ul>
           </motion.div>
         </motion.div>
       )}
-
-      {/* second phase (role selection) */}
-      {navigation.value.popupType === "email" && (
+      {navigation.value.popupType == "email" && (
         <motion.div
           key="role-modal"
           className="fixed inset-0 z-[1000] flex items-center justify-center bg-black/40 backdrop-blur-sm"
@@ -123,82 +252,131 @@ const EmailType = ({
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.95, opacity: 0 }}
             transition={{ type: "spring", stiffness: 260, damping: 25 }}
-            className="w-auto max-w-[360px] sm:max-w-[320px] lg:max-w-[768px] rounded-xl bg-white text-primary px-10 py-8 shadow-lg space-y-6 lg:space-y-7 relative"
+            className="w-auto max-w-[360px] sm:max-w-[320px] lg:max-w-[768px] rounded-xl bg-gradient-to-b from-[#EAF5FF] to-[#FAFAFA] text-primary px-10 py-8 lg:py-12 shadow-lg space-y-6 lg:space-y-7 relative"
           >
-            <h2 className="text-center font-bold text-[26px] lg:text-[40px]">
+            <h2 className="text-center text-black font-bold text-[26px] lg:text-[40px] leading-[1.2]">
               Most accurate paint estimate there is for your project!
             </h2>
 
             <div className="h-3 lg:h-4 w-full bg-[#496877] rounded-full overflow-hidden">
-              <div className="h-full bg-gradient-to-r from-[#052F46] via-[#4496FF] to-[#6A73FF]" />
+              <div className="h-full bg-primary" />
             </div>
 
             <div className="grid grid-cols-2 gap-3 lg:gap-6">
-              {["homeowner", "painter", "handyman"].map((r) => (
+              <div
+                className="w-full"
+                onClick={() => submitSendEstimate("homeowner")}
+              >
                 <button
-                  key={r}
-                  onClick={() => submitSendEstimate(r)}
-                  className="w-full py-5 px-8 lg:py-8 bg-primary text-white flex flex-col items-center rounded-lg gap-2"
+                  type="button"
+                  className="w-full py-5 px-8 lg:py-8 cursor-pointer bg-primary text-white gap-2 lg:gap-4 flex flex-col items-center rounded-lg"
                 >
                   <img
-                    src={`/images/icons/${r}.png`}
-                    alt={r}
+                    src={"/images/icons/home.png"}
+                    alt="Homeowner"
                     className="max-h-8 lg:max-h-12"
                   />
                   <span className="text-xs lg:text-lg font-bold uppercase">
-                    {r}
+                    Homeowner
                   </span>
                 </button>
-              ))}
-
+              </div>
+              <div
+                className="w-full"
+                onClick={() => submitSendEstimate("painter")}
+              >
+                <button
+                  type="button"
+                  className="w-full py-5 px-8 lg:py-8 cursor-pointer bg-primary text-white gap-2 lg:gap-4 flex flex-col items-center rounded-lg"
+                >
+                  <img
+                    src={"/images/icons/painter.png"}
+                    alt="Painter"
+                    className="max-h-8 lg:max-h-12"
+                  />
+                  <span className="text-xs lg:text-lg font-bold uppercase">
+                    Painter
+                  </span>
+                </button>
+              </div>
+              <div
+                className="w-full"
+                onClick={() => submitSendEstimate("handyman")}
+              >
+                <button
+                  type="button"
+                  className="w-full py-5 px-8 lg:py-8 cursor-pointer bg-primary text-white gap-2 lg:gap-4 flex flex-col items-center rounded-lg"
+                >
+                  <img
+                    src={"/images/icons/handyman.png"}
+                    alt="Handyman"
+                    className="max-h-8 lg:max-h-12"
+                  />
+                  <span className="text-xs lg:text-lg font-bold uppercase">
+                    Handyman
+                  </span>
+                </button>
+              </div>
               {!showOtherInput ? (
-                <button
-                  onClick={() => setShowOtherInput(true)}
-                  className="w-full py-5 px-8 lg:py-8 bg-primary text-white flex flex-col items-center rounded-lg gap-2"
-                >
-                  <img
-                    src={`/images/icons/others.png`}
-                    alt="Other"
-                    className="max-h-8 lg:max-h-12"
-                  />
-                  <span className="text-xs lg:text-lg font-bold uppercase">
-                    Other
-                  </span>
-                </button>
-              ) : (
-                <div className="flex flex-col w-full gap-3 col-span-2">
-                  <InputFieldText
-                    inputType="text"
-                    placeholder="Please enter your role"
-                    value={userType}
-                    dispatch={() => {}}
-                    changeValue={({ value }) => setUserType(value)}
-                    type="userType"
-                    dropdown=""
-                    setDropdown={() => {}}
-                    required={!userType}
-                    id="userType"
-                    validation={false}
-                    readOnly={false}
-                    edit
-                    changeEdit={() => {}}
-                  />
+                <div className="w-full" onClick={() => setShowOtherInput(true)}>
                   <button
-                    disabled={!userType}
-                    onClick={() => submitSendEstimate(userType)}
-                    className="w-full py-5 px-8 lg:py-8 bg-primary text-white flex flex-col items-center rounded-lg gap-2 disabled:opacity-50"
+                    type="button"
+                    className="w-full py-5 px-8 lg:py-8 cursor-pointer bg-primary text-white gap-2 lg:gap-4 flex flex-col items-center rounded-lg"
                   >
+                    <img
+                      src={"/images/icons/others.png"}
+                      alt="Other"
+                      className="max-h-8 lg:max-h-12"
+                    />
                     <span className="text-xs lg:text-lg font-bold uppercase">
-                      Submit
+                      Other
                     </span>
                   </button>
                 </div>
-              )}
-
-              {loading === "sendEstimate" && (
-                <div className="absolute inset-0 bg-black/70 backdrop-blur-xs rounded-xl flex items-center justify-center">
-                  <BiLoaderCircle className="text-white text-4xl animate-spin" />
+              ) : (
+                <div className="flex flex-col justify-end w-full gap-6">
+                  <InputFieldText
+                    inputType={"text"}
+                    placeholder={"Please enter your role"}
+                    value={userType}
+                    dispatch={() => {}}
+                    changeValue={({ value }) => setUserType(value)}
+                    type={"userType"}
+                    dropdown={""}
+                    setDropdown={setDropdown}
+                    required={!userType}
+                    id={"userType"}
+                    validation={false}
+                    readOnly={false}
+                    edit={true}
+                    changeEdit={() => {}}
+                  />
+                  <div onClick={() => userType && submitSendEstimate(userType)}>
+                    <button
+                      type="button"
+                      className="w-full py-5 px-8 lg:py-6 cursor-pointer bg-primary hover:bg-primary-800 transition-all duration-300 text-white gap-2 lg:gap-4 flex flex-col items-center rounded-lg"
+                    >
+                      <span className="text-xs lg:text-lg font-bold uppercase">
+                        Submit
+                      </span>
+                    </button>
+                  </div>
                 </div>
+              )}
+              {loading == "sendEstimate" && (
+                <motion.div
+                  key="loading"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  className="absolute z-[2] inset-0 bg-black/10 backdrop-blur-xs rounded-xl"
+                >
+                  <div className={`flex items-center justify-center size-full`}>
+                    <span className="text-7xl animate-spin text-black">
+                      <BiLoaderCircle />
+                    </span>
+                  </div>
+                </motion.div>
               )}
             </div>
           </motion.div>
