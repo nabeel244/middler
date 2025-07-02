@@ -133,7 +133,7 @@ const Preview = ({
     <>
       <div
         ref={previewRef}
-        className="w-full flex items-center flex-col justify-between gap-5"
+        className="w-full flex items-center flex-col justify-between gap-5 col-span-3"
       >
         <Navbar />
         <Progress step={1} />
@@ -330,7 +330,7 @@ const Preview = ({
                 )}
 
                 {hasExterior && (
-                  <div className="flex flex-col gap-6 items-start w-full border-b border-b-neutral-300 my-4 lg:my-6 pb-4 lg:pb-6">
+                  <div className="flex flex-col gap-6 items-start w-full border-b border-b-neutral-300 mt-4 lg:mt-6 pb-4 lg:pb-6">
                     <h3 className="text-xl lg:text-3xl font-semibold text-black py-1 px-2.5 relative inline-block after:absolute after:top-full after:left-0 after:bg-primary after:w-full after:h-0.5">
                       Exterior
                     </h3>
@@ -403,7 +403,7 @@ const Preview = ({
                 )}
 
                 {/* terms */}
-                <div className="flex flex-col items-start gap-2 lg:gap-5 flex-wrap mb-4 lg:mb-8">
+                <div className="flex flex-col items-start gap-2 lg:gap-5 flex-wrap my-4 lg:my-8">
                   <h3 className="text-xl lg:text-3xl font-semibold text-black py-1 px-2.5 relative inline-block after:absolute after:top-full after:left-0 after:bg-primary after:w-full after:h-0.5">
                     Terms
                   </h3>

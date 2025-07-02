@@ -41,12 +41,12 @@ const InputFieldText2 = ({
   };
 
   return (
-    <div className="relative">
+    <div className="relative w-full p-2">
       <input
         ref={inputRef}
         id={id}
         type={inputType}
-        className="w-full bg-white px-5 py-3 text-black rounded-full outline-none"
+        className="w-full bg-white px-5 py-5 text-black rounded-full outline-none border border-primary focus:ring-2 focus:ring-primary focus:border-transparent shadow-[0_0_10px] shadow-primary/20"
         placeholder={placeholder ? placeholder : ""}
         value={value}
         readOnly={readOnly ? true : false}

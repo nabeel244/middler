@@ -122,8 +122,7 @@ const PropertyAddress = ({
           Put a Real Price<sup>®</sup> on painting a house
         </h2>
         <p className={`mt-4 text-[#1F2937] font-medium text-center`}>
-          Answer a few questions and in 30 seconds, we&rsquo;ll give you a price
-          for labor, materials and paint.
+          Answer a few questions, and we'll give you a price for labor, materials, and paint in 30 seconds.
         </p>
         <p className="text-[22px] mt-6 text-[#1F2937] font-semibold">
           Enter the address of the house

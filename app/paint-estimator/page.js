@@ -63,6 +63,7 @@ import GET_CALCULATIONS from "../_mutations/getCalculations";
 ///// QUERIES
 import GET_USER from "../_queries/fetchUser";
 
+import GiftPopup from "@/components/modals/GiftPopup";
 import { validateEmail, validateNumber, validatePrice } from "@/helpers/forms";
 
 const allCountries = getCountries();
@@ -479,8 +480,8 @@ const PaintEstimator = ({ }) => {
         <title>Estimate Page</title>
       </Head>
       <main className="min-h-dvh h-full overflow-hidden w-full p-5 lg:p-3 xl:p-5 bg-cover bg-no-repeat bg-center bg-[url('/images/modals/bg_1.png')]">
-        <div className="grid size-full min-h-[calc(100dvh_-_40px)] lg:min-h-[calc(100dvh_-_32px)] xl:min-h-[calc(100dvh_-_40px)] lg:grid-rows-1 xl:grid-cols-[0.18fr_1fr_0.18fr] gap-5">
-          {+navigation.value.paintEstimator != "5" && (
+        <div className="grid size-full min-h-[calc(100dvh_-_40px)] lg:min-h-[calc(100dvh_-_32px)] xl:min-h-[calc(100dvh_-_40px)] lg:grid-rows-1 xl:grid-cols-[0.2fr_1fr_0.2fr] gap-5">
+          {navigation.value.paintEstimator != "5" && (
             <>
               <div className="max-lg:hidden mt-40 bg-cover bg-center bg-no-repeat bg-[url('/images/modals/1.png')] rounded-2xl" />
               <div className="w-full flex items-center flex-col justify-between gap-5">
@@ -1007,10 +1008,10 @@ const PaintEstimator = ({ }) => {
                   </div>
                 </div>
 
-                <div className="max-lg:hidden w-full max-h-1/4">
+                <div className="max-lg:hidden w-full max-h-[30%]">
                   <img
                     src="/images/modals/3.png"
-                    className="w-full object-cover h-full rounded-2xl"
+                    className="w-full object-fill h-full rounded-2xl"
                     alt=""
                   />
                 </div>
@@ -1101,7 +1102,7 @@ const PaintEstimator = ({ }) => {
             changeEdit={changeEdit}
           />
         )}
-        {popup == "giftCard" && (
+        {/* {popup == "giftCard" && (
           <GiftCard
             dispatch={dispatch}
             changeUserValue={changeUserValue}
@@ -1121,6 +1122,12 @@ const PaintEstimator = ({ }) => {
             previewEstimate={previewEstimate}
             trackFormEvents={trackFormEvents}
             changeEdit={changeEdit}
+          />
+        )} */}
+        {popup == "giftCard" && (
+          <GiftPopup
+            dispatch={dispatch}
+            changePopup={changePopup}
           />
         )}
       </>

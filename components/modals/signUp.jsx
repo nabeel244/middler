@@ -120,9 +120,9 @@ const SignUp = ({
           animate={{ scale: 1, opacity: 1 }}
           exit={{ scale: 0.95, opacity: 0 }}
           transition={{ type: "spring", stiffness: 260, damping: 25 }}
-          className="w-auto max-w-[90%] sm:max-w-[320px] lg:max-w-[768px] rounded-xl bg-[#052F46] text-white px-10 py-8 shadow-lg flex flex-col items-center gap-6 lg:gap-7"
+          className="w-auto max-w-[90%] sm:max-w-[320px] lg:max-w-[768px] rounded-xl bg-gradient-to-b from-[#EAF5FF] to-[#FAFAFA] text-black px-10 py-8 lg:py-12 shadow-lg flex flex-col items-center gap-6 lg:gap-7"
         >
-          <h2 className="text-center font-bold text-[26px] lg:text-[40px] leading-[1.3]">
+          <h2 className="text-center font-bold text-[26px] lg:text-[40px] leading-[1.3] text-black">
             Keep These Prices &amp; Get Details of This Project Sent To Your
             Email
           </h2>
@@ -130,6 +130,7 @@ const SignUp = ({
           <div className="w-full overflow-hidden flex flex-col items-center gap-6 lg:gap-7">
             <InputFieldText2
               inputType={"text"}
+              placeholder="Enter your email address"
               value={estimator.value.businessEmail}
               dispatch={dispatch}
               changeValue={changeEstimatorValue}
@@ -144,13 +145,13 @@ const SignUp = ({
             >
               <button
                 onClick={() => (href ? router.push(href) : null)}
-                className="bg-primary text-white uppercase rounded-xl py-3 px-4 min-w-[150px] cursor-pointer hover:bg-primary-800 transition-all duration-300 ease-in-out"
+                className="bg-gradient-to-r from-primary to-[#6E7EFF] text-white uppercase rounded-xl py-3 px-4 min-w-[150px] cursor-pointer hover:to-primary transition-all duration-300 ease-in-out"
               >
                 send
               </button>
             </div>
           </div>
-          <p className="text-white text-[22px] lg:text-2xl text-center">
+          <p className="text-black text-[22px] lg:text-2xl text-center">
             We have <span className="font-semibold">HUGE DISCOUNTS</span> for
             everything in the painting world and we’ll hook you up with those as
             well!
@@ -169,11 +170,10 @@ const SignUp = ({
               localStorage.setItem("signupDismissed", "true"),
               dispatch(changePopup(""))
             )}
-            className="text-white/70 text-lg lg:text-xl leading-[22px] lg:leading-7 underline hover:text-white transition-all duration-200 ease-in-out cursor-pointer"
+            className="text-primary/70 text-lg lg:text-xl leading-[22px] lg:leading-7 underline hover:text-primary transition-all duration-200 ease-in-out cursor-pointer"
           >
             No Thanks
           </button>
-          <img src="/images/icons/fav.png" className="w-20 lg:w-32" alt="" />
         </motion.div>
       </motion.div>
     </AnimatePresence>

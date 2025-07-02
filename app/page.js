@@ -9,12 +9,12 @@ import GetStarted from "@/components/layouts/GetStarted";
 import Header from "@/components/layouts/Header";
 import Hero from "@/components/layouts/Hero";
 import TextSlider from "@/components/layouts/TextSlider";
+import GiftPopup from "@/components/modals/GiftPopup";
 
 const Home = () => {
   return (
     <>
       <Header />
-
       <main>
         <Hero />
         <div className="flex flex-col">
