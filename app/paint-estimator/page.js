@@ -1128,6 +1128,7 @@ const PaintEstimator = ({ }) => {
           <GiftPopup
             dispatch={dispatch}
             changePopup={changePopup}
+            isMainPage={false}
           />
         )}
       </>

@@ -1,3 +1,4 @@
+"use client";
 import Brands from "@/components/home/Brands";
 import Estimate from "@/components/home/Estimate";
 import OurProcess from "@/components/home/OurProcess";
@@ -10,11 +11,30 @@ import Header from "@/components/layouts/Header";
 import Hero from "@/components/layouts/Hero";
 import TextSlider from "@/components/layouts/TextSlider";
 import GiftPopup from "@/components/modals/GiftPopup";
+import { useEffect, useState } from "react";
 
 const Home = () => {
+  const [showPopUp, setShowPopUp] = useState(false);
+  useEffect(() => {
+    const saved = sessionStorage.getItem("noEmailEntered");
+    if (saved) {
+      setShowPopUp(saved);
+      sessionStorage.removeItem("noEmailEntered");
+    } else {
+    }
+  }, []);
   return (
     <>
       <Header />
+
+      {showPopUp && (
+        <GiftPopup
+          showPopUp={showPopUp}
+          setShowPopUp={setShowPopUp}
+          isMainPage={true}
+        />
+      )}
+
       <main>
         <Hero />
         <div className="flex flex-col">

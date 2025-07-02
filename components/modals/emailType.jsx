@@ -157,7 +157,7 @@ const EmailType = ({
   useEffect(() => {
     setTimeout(() => {
       dispatch(changePopupType("email"));
-    }, 1000);
+    }, 5000);
   }, []);
 
   const [stage, setStage] = useState(0);

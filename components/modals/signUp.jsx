@@ -165,15 +165,15 @@ const SignUp = ({
               ></div>
             </div>
           )}
-          <button
+          <a
             onClick={() => (
-              localStorage.setItem("signupDismissed", "true"),
-              dispatch(changePopup(""))
+              sessionStorage.setItem("noEmailEntered", "true"),
+              (window.location.href = "/")
             )}
             className="text-primary/70 text-lg lg:text-xl leading-[22px] lg:leading-7 underline hover:text-primary transition-all duration-200 ease-in-out cursor-pointer"
           >
             No Thanks
-          </button>
+          </a>
         </motion.div>
       </motion.div>
     </AnimatePresence>
