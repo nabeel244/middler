@@ -5,9 +5,6 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
-  experimental: {
-    missingSuspenseWithCSRBailout: false
-  },
   images: {
     loader: 'default',
     domains: ['middler.com', 'www.middler.com'],

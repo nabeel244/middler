@@ -4,7 +4,7 @@ import { useWindowSize } from "@react-hook/window-size";
 import { AsYouType, getCountries } from "libphonenumber-js";
 import { AnimatePresence, motion } from "motion/react";
 import Head from "next/head";
-import { useEffect, useRef, useState } from "react";
+import { Suspense, useEffect, useRef, useState } from "react";
 import { useCookies } from "react-cookie";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -65,7 +65,7 @@ import GET_USER from "../_queries/fetchUser";
 
 import GiftPopup from "@/components/modals/GiftPopup";
 import { validateEmail, validateNumber, validatePrice } from "@/helpers/forms";
-import { useSearchParams } from "next/navigation";
+import StepSync from "./StepSync";
 
 const allCountries = getCountries();
 
@@ -474,14 +474,6 @@ const PaintEstimator = ({ }) => {
     console.log("GRAPHQL", process.env.NEXT_PUBLIC_GRAPHQL_PRODUCTION_ENDPOINT);
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
-
-  const searchParams = useSearchParams();
-  useEffect(() => {
-    const step = searchParams.get("step");
-    if (step) {
-      dispatch(changePaintEstimator(step));
-    }
-  }, [searchParams]);
 
   const [lastModal, setLastModal] = useState("");
   const [blurPage, setBlurPage] = useState(false);
@@ -1078,6 +1070,9 @@ const PaintEstimator = ({ }) => {
           )}
         </div>
       </main>
+      <Suspense fallback={null}>
+        <StepSync />
+      </Suspense>
       <>
         {popup == "emailType" && (
           <EmailType
