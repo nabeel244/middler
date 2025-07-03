@@ -30,7 +30,7 @@ const InsideCabinet = ({
           Are you painting the inside of the cabinets?
         </h2>
       </div>
-      <div className="flex flex-wrap gap-5">
+      <div className="flex flex-wrap gap-5 justify-center">
         <button
           onClick={() => (
             paintEstimateFieldsRequired(

@@ -65,6 +65,7 @@ import GET_USER from "../_queries/fetchUser";
 
 import GiftPopup from "@/components/modals/GiftPopup";
 import { validateEmail, validateNumber, validatePrice } from "@/helpers/forms";
+import { useSearchParams } from "next/navigation";
 
 const allCountries = getCountries();
 
@@ -400,7 +401,7 @@ const PaintEstimator = ({ }) => {
     ) {
       const timer = setTimeout(() => {
         dispatch(changePopup("giftCard"));
-      }, 5000);
+      }, 3000);
 
       return () => clearTimeout(timer);
     }
@@ -474,12 +475,32 @@ const PaintEstimator = ({ }) => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
+  const searchParams = useSearchParams();
+  useEffect(() => {
+    const step = searchParams.get("step");
+    if (step) {
+      dispatch(changePaintEstimator(step));
+    }
+  }, [searchParams]);
+
+  const [lastModal, setLastModal] = useState("");
+  const [blurPage, setBlurPage] = useState(false);
+
+  useEffect(() => {
+    if (popup === "") {
+      setBlurPage(lastModal === "emailType");
+    } else {
+      setBlurPage(false);
+      setLastModal(popup);
+    }
+  }, [popup, lastModal]);
+
   return (
     <>
       <Head>
         <title>Estimate Page</title>
       </Head>
-      <main className="min-h-dvh h-full overflow-hidden w-full p-5 lg:p-3 xl:p-5 bg-cover bg-no-repeat bg-center bg-[url('/images/modals/bg_1.png')]">
+      <main className={`min-h-dvh h-full overflow-hidden w-full p-5 lg:p-3 xl:p-5 bg-cover bg-no-repeat bg-center bg-[url('/images/modals/bg_1.png')] ${blurPage ? "blur-sm" : ""}`}>
         <div className="grid size-full min-h-[calc(100dvh_-_40px)] lg:min-h-[calc(100dvh_-_32px)] xl:min-h-[calc(100dvh_-_40px)] lg:grid-rows-1 xl:grid-cols-[0.2fr_1fr_0.2fr] gap-5">
           {navigation.value.paintEstimator != "5" && (
             <>

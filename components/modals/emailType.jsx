@@ -198,21 +198,21 @@ const EmailType = ({
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.95, opacity: 0 }}
             transition={{ type: "spring", stiffness: 260, damping: 25 }}
-            className="w-auto max-w-[360px] sm:max-w-[320px] lg:max-w-[768px] rounded-xl bg-[#052F46] text-white px-10 py-8 shadow-lg space-y-6 lg:space-y-7"
+            className="w-auto max-w-[360px] sm:max-w-[320px] lg:max-w-[768px] rounded-xl bg-gradient-to-b from-[#EAF5FF] to-[#FAFAFA] text-black px-10 py-8 shadow-lg space-y-6 lg:space-y-7"
           >
             <h2 className="text-center font-bold text-[26px] lg:text-[40px] leading-[1.2]">
               Calculating&nbsp;Your Custom&nbsp;Prices
             </h2>
 
-            <p className="text-center text-sm lg:text-xl text-neutral-300">
+            <p className="text-center text-sm lg:text-xl text-black">
               Middler does&nbsp;
               <span className="text-red-400 font-semibold">NOT</span>
               &nbsp;adjust prices to benefit painters or homeowners.
             </p>
 
-            <div className="h-3 lg:h-4 w-full bg-[#496877] rounded-r-full overflow-hidden">
+            <div className="h-3 lg:h-4 w-full bg-[#EAF5FF] rounded-full overflow-hidden">
               <motion.div
-                className="h-full bg-gradient-to-r from-[#052F46] from-0% via-[#4496FF] via-50% to-100% to-[#6A73FF]"
+                className="h-full bg-gradient-to-r bg-primary"
                 animate={{ width: `${(stage / steps.length) * 100}%` }}
                 transition={{ ease: "linear", duration: 0.3 }}
               />
@@ -223,7 +223,7 @@ const EmailType = ({
                 <li
                   key={i}
                   className={`flex items-center gap-1.5 ${
-                    i < stage ? "text-white" : "text-teal-200/40"
+                    i < stage ? "text-black" : "text-neutral-700"
                   }`}
                 >
                   {txt}
@@ -231,7 +231,7 @@ const EmailType = ({
               ))}
 
               {stage === steps.length && (
-                <li className="text-[26px] lg:text-4xl text-center font-extrabold text-white mt-6 lg:mt-7">
+                <li className="text-[26px] lg:text-4xl text-center font-extrabold text-black mt-6 lg:mt-7">
                   🎉Your pricing breakdown is ready!
                 </li>
               )}
@@ -258,7 +258,7 @@ const EmailType = ({
               Most accurate paint estimate there is for your project!
             </h2>
 
-            <div className="h-3 lg:h-4 w-full bg-[#496877] rounded-full overflow-hidden">
+            <div className="h-3 lg:h-4 w-full bg-primary rounded-full overflow-hidden">
               <div className="h-full bg-primary" />
             </div>
 

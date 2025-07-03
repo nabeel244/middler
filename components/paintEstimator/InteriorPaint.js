@@ -31,7 +31,7 @@ const InteriorPaint = ({
           Are you painting the inside of the house?
         </h2>
       </div>
-      <div className="flex items-center justify-center gap-x-10">
+      <div className="flex items-center justify-center gap-x-5">
         <button
           onClick={() =>
             paintEstimateFieldsRequired(

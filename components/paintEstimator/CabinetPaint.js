@@ -38,7 +38,7 @@ const CabinetPaint = ({
       <div className="w-3/5 2xl:w-[60%] mb-5 pb-5 h-max rounded-xl max-lg:w-[80%] max-md:w-full px-5">
         <h1 className="text-xl md:text-2xl text-gray-800 mb-2 font-[600] text-center"></h1>
         <h2 className="text-md text-gray-800 mb-2 font-[400] text-center px-5"></h2>
-        <div className="flex flex-wrap gap-5">
+        <div className="flex flex-wrap gap-5 justify-center">
           <button
             onClick={() =>
               paintEstimateFieldsRequired(

@@ -114,11 +114,11 @@
   }
 
   .btn_prm {
-    @apply py-2.5 px-8 min-w-[140px] rounded-[11px] text-xl font-semibold border-2 border-primary transition-all duration-300 bg-transparent text-primary cursor-pointer hover:bg-primary hover:text-white;
+    @apply py-2.5 px-8 min-w-[120px] lg:min-w-[140px] rounded-[11px] text-xl font-semibold border-2 border-primary transition-all duration-300 bg-transparent text-primary cursor-pointer hover:bg-primary hover:text-white;
   }
 
   .btn_scnd {
-    @apply py-2.5 px-8 min-w-[140px] rounded-[11px] text-xl font-semibold border-2 border-primary transition-all duration-300 bg-primary text-white cursor-pointer hover:bg-primary-800
+    @apply py-2.5 px-8 min-w-[120px] lg:min-w-[140px] rounded-[11px] text-xl font-semibold border-2 border-primary transition-all duration-300 bg-primary text-white cursor-pointer hover:bg-primary-800
   }
 }
 
