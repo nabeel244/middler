@@ -28,6 +28,7 @@ const InputFieldText = ({
   edit,
   changeEdit,
   placeholder,
+  className,
 }) => {
   const inputRef = useRef(null);
   const [hasValue, setHasValue] = useState(!!value);
@@ -53,7 +54,11 @@ const InputFieldText = ({
         ref={inputRef}
         id={id}
         type={inputType}
-        className="w-full bg-white px-5 py-3 text-black outline-none border-black border rounded-lg focus:ring-2 ring-primary focus:border-transparent"
+        className={
+          className
+            ? className
+            : "w-full bg-white px-5 py-3 text-black outline-none border-black border rounded-lg focus:ring-2 ring-primary focus:border-transparent"
+        }
         placeholder={placeholder ? placeholder : ""}
         value={value}
         readOnly={readOnly ? true : false}

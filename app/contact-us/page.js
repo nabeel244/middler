@@ -1,9 +1,75 @@
+"use client";
+import { useMutation } from "@apollo/client";
+import Head from "next/head";
+import React, { useEffect, useRef, useState } from "react";
+import { ImSpinner2 } from "react-icons/im";
+import { useDispatch, useSelector } from "react-redux";
+import { validateEmail } from "../../helpers/forms";
+
+//// COMPONENTS
+
+//// REDUCERS
+import { changeUserValue } from "../_redux/features/userSlice";
+
+///// MUTATIONS
+import CONTACT_MIDDLER from "../_mutations/contactMiddler";
+
+import InputFieldText from "@/components/form/inputFieldText";
+import InputTextArea from "@/components/form/inputTextArea";
 import Footer from "@/components/layouts/Footer";
 import Header from "@/components/layouts/Header";
 import Button from "@/components/ui/Button";
 import Heading from "@/components/ui/Heading";
 
 const page = () => {
+  const [dropdown, setDropdown] = useState("");
+  const [message, setMessage] = useState("");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState("");
+  const user = useSelector((state) => state.userReducer.value);
+  const dispatch = useDispatch();
+
+  //// MUTATIONS
+  const [
+    contactMiddler,
+    { dataContactMiddler, loadingContactMiddler, errorContactMiddler },
+  ] = useMutation(CONTACT_MIDDLER);
+
+  const submitSendMessage = async () => {
+    setError("");
+    setMessage("");
+
+    if (user.email) {
+      if (!validateEmail(user.email)) {
+        return setMessage("Email is not valid");
+      }
+    }
+
+    if (user.message.length > 10000) {
+      return setError("Message is too long");
+    }
+
+    setLoading("sendMessage");
+
+    try {
+      const response = await contactMiddler({
+        variables: {
+          email: user.email.toLowerCase(),
+          message: user.message,
+        },
+      });
+
+      setLoading("");
+      setMessage(response.data.contactMiddler.message);
+      dispatch(changeUserValue({ value: "", type: "email" }));
+      dispatch(changeUserValue({ value: "", type: "message" }));
+    } catch (error) {
+      console.log(error);
+      setLoading("");
+      if (error) setError(error.message);
+    }
+  };
+
   return (
     <>
       <Header />
@@ -18,7 +84,9 @@ const page = () => {
                   <span className="text-primary">Contact Us</span>
                 </h1>
                 <p className="text-base lg:text-2xl leading-6 lg:leading-snug">
-                  Need Support? Get in touch!
+                  Questions about your Real Price® estimate or going
+                  Middler-Certified? <br /> Our experts reply within one
+                  business day—clear, data-backed help, zero stress.
                 </p>
               </div>
             </div>
@@ -35,14 +103,14 @@ const page = () => {
         </div>
       </section>
 
-      <section className="py-20">
+      <section className="pb-20 pt-10 lg:py-20">
         <div className="container">
           <div className="row">
             <div className="w-full">
               <div className="bg-[#0b0b0b]/10 rounded-3xl lg:rounded-[40px] p-10">
-                <div className="flex flex-wrap items-center justify-between">
-                  <div className="lg:w-2/5">
-                    <h2 className="text-black font-bold text-[22px] lg:text-5xl mb-5">
+                <div className="flex flex-wrap items-center justify-between max-lg:gap-y-10">
+                  <div className="lg:w-2/5 max-lg:text-center">
+                    <h2 className="text-black font-bold text-[22px] lg:text-5xl mb-2 lg:mb-5">
                       Email
                     </h2>
                     <a
@@ -56,36 +124,65 @@ const page = () => {
                       to you within 1 business day *
                     </p>
                   </div>
-                  <div className="lg:w-1/2">
+                  <div className="lg:w-1/2 w-full">
                     <Heading
                       heading="Let us lend a hand"
                       highlight="let us"
                       oh
-                      className="text-left w-full"
+                      className="lg:text-left w-full text-2xl"
                     />
-                    <form className="mt-5">
+                    <div className="mt-5">
                       <div className="flex flex-col gap-4 *:w-full *:relative">
-                        <div>
-                          <input
-                            type="text"
-                            name="email"
-                            placeholder="Your Email *"
-                            className="w-full bg-white rounded-xl px-3 py-5 outline-none border border-white focus:border-primary focus:shadow-[0_0_10px] shadow-primary/20 shadow-none transition-all duration-300 ease-in-out"
-                          />
-                        </div>
-                        <div>
-                          <textarea
-                            name="message"
-                            rows={5}
-                            placeholder="Start typing here..."
-                            className="w-full bg-white resize-none rounded-xl px-3 py-5 outline-none border border-white focus:border-primary focus:shadow-[0_0_10px] shadow-primary/20 shadow-none transition-all duration-300 ease-in-out"
-                          />
-                        </div>
-                        <div>
-                          <Button className="rounded-xl!">Send Message</Button>
+                        <InputFieldText
+                          inputType={"text"}
+                          placeholder={"Your Email *"}
+                          value={user.email}
+                          dispatch={dispatch}
+                          changeValue={changeUserValue}
+                          type={"email"}
+                          dropdown={""}
+                          setDropdown={setDropdown}
+                          id={"email"}
+                          className="w-full bg-white rounded-xl px-3 py-5 outline-none border border-white focus:border-primary focus:shadow-[0_0_10px] shadow-primary/20 shadow-none transition-all duration-300 ease-in-out"
+                        />
+                        <InputTextArea
+                          dispatch={dispatch}
+                          changeValue={changeUserValue}
+                          value={user.message}
+                          placeholder="Start typing here..."
+                          type="message"
+                        />
+                        <span className="px-3 -mt-4 mb-2 inline-block text-[12px] text-gray-500">
+                          10000 word count
+                        </span>
+                        {message && (
+                          <div className="text-[14px] text-color-1 -mt-3 px-3">
+                            {message.substring(0, 120)}
+                          </div>
+                        )}
+                        {error && (
+                          <div className="text-[14px] text-red-400 -mt-3 px-3">
+                            {error.substring(0, 120)}
+                          </div>
+                        )}
+                        <div className="max-lg:flex justify-center">
+                          <button
+                            onClick={() => submitSendMessage()}
+                            disabled={loading}
+                            className={`bg-primary hover:bg-primary-900 text-white text-sm font-semibold rounded-xl px-12 py-4 transition-all duration-300 ease-in-out disabled:bg-gray-500 disabled:cursor-not-allowed flex items-center justify-center gap-4`}
+                          >
+                            <span>
+                              {loading ? "Sending..." : "Send Message"}
+                            </span>
+                            {loading && (
+                              <span className="text-2xl animate-spin">
+                                <ImSpinner2 />
+                              </span>
+                            )}
+                          </button>
                         </div>
                       </div>
-                    </form>
+                    </div>
                   </div>
                 </div>
               </div>

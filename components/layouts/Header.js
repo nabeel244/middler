@@ -103,7 +103,7 @@ const Header = () => {
             className="lg:hidden bg-white border-t border-t-primary shadow-[0_10px_10px_rgba(0,0,0,0.2)] rounded-b-2xl px-5 py-4 absolute top-full left-0 w-full z-[1001]"
           >
             <ul className="flex flex-col gap-4">
-              {menuItems.slice(0, 3).map((item, index) => (
+              {menuItems.slice(0, 2).map((item, index) => (
                 <li key={index} className="pl-1">
                   <Link
                     href={item.url}

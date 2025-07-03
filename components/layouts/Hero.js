@@ -76,7 +76,7 @@ const Hero = () => {
         <div className="row gap-y-14 lg:gap-y-8 gap-x-5 justify-center xl:gap-x-20 items-center max-lg:text-center">
           <div className="lg:w-6/12 xl:w-5/12 max-lg:order-1">
             <div className="flex flex-col max-lg:px-5">
-              <h1 className="font-bold text-[40px] leading-14 lg:text-6xl lg:leading-[1.2] mb-5">
+              <h1 className="font-bold text-[40px] leading-14 lg:text-6xl lg:leading-[1.2] mb-3 lg:mb-5">
                 <span className="text-primary">Calculate </span> The Price To Paint!
               </h1>
               <p className="text-base lg:text-2xl leading-6 lg:leading-snug">
