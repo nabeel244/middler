@@ -72,6 +72,9 @@ const page = () => {
 
   return (
     <>
+      <Head>
+        <title>Contact Us</title>
+      </Head>
       <Header />
 
       <section className="relative mt-14 lg:mt-20 pt-12 lg:pt-20 pb-10 px-0 lg:px-10 overflow-hidden">

@@ -119,14 +119,8 @@ const PropertyAddress = ({
     <>
       <div className="pt-3 text-center">
         <h2 className="text-[26px] font-bold text-[#333]">
-          Put a Real Price<sup>®</sup> on painting a house
-        </h2>
-        <p className={`mt-4 text-[#1F2937] font-medium text-center`}>
           Get a Real Price on house painting. Enter address for instant quote.
-        </p>
-        <p className="text-[22px] mt-6 text-[#1F2937] font-semibold">
-          Enter the address of the house
-        </p>
+        </h2>
       </div>
       <div className="relative w-full">
         <input

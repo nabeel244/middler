@@ -1024,7 +1024,7 @@ const PaintEstimator = ({ }) => {
                 <div className="max-lg:hidden w-full max-h-[30%]">
                   <img
                     src="/images/modals/3.png"
-                    className="w-full object-fill h-full rounded-2xl"
+                    className="w-full object-fill object-top h-full rounded-2xl"
                     alt=""
                   />
                 </div>
