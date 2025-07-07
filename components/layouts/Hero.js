@@ -23,21 +23,35 @@ const Hero = () => {
 
   useEffect(() => {
     if (!placePredictions?.length) return;
-    const svc = new window.google.maps.places.PlacesService(document.createElement("div"));
+    const svc = new window.google.maps.places.PlacesService(
+      document.createElement("div")
+    );
     (async () => {
       const enriched = await Promise.all(
         placePredictions.map(
           (p) =>
             new Promise((resolve) => {
               svc.getDetails({ placeId: p.place_id }, (res, status) => {
-                if (status === window.google.maps.places.PlacesServiceStatus.OK) {
+                if (
+                  status === window.google.maps.places.PlacesServiceStatus.OK
+                ) {
                   const c = res.address_components;
-                  const street = c.find((x) => x.types.includes("street_number"))?.long_name;
-                  const route = c.find((x) => x.types.includes("route"))?.long_name;
+                  const street = c.find((x) =>
+                    x.types.includes("street_number")
+                  )?.long_name;
+                  const route = c.find((x) =>
+                    x.types.includes("route")
+                  )?.long_name;
                   if (!street || !route) return resolve(null);
-                  const zip = c.find((x) => x.types.includes("postal_code"))?.long_name;
-                  const city = c.find((x) => x.types.includes("locality"))?.long_name;
-                  const st = c.find((x) => x.types.includes("administrative_area_level_1"))?.short_name;
+                  const zip = c.find((x) =>
+                    x.types.includes("postal_code")
+                  )?.long_name;
+                  const city = c.find((x) =>
+                    x.types.includes("locality")
+                  )?.long_name;
+                  const st = c.find((x) =>
+                    x.types.includes("administrative_area_level_1")
+                  )?.short_name;
                   resolve({
                     ...p,
                     formattedAddress: `${street} ${route}, ${city}, ${st} ${zip}`,
@@ -77,16 +91,22 @@ const Hero = () => {
           <div className="lg:w-6/12 xl:w-5/12 max-lg:order-1">
             <div className="flex flex-col max-lg:px-5">
               <h1 className="font-bold text-[40px] leading-14 lg:text-6xl lg:leading-[1.2] mb-3 lg:mb-5">
-                <span className="text-primary">Calculate </span> The Price To Paint!
+                <span className="text-primary">Calculate </span> The Price To
+                Paint!
               </h1>
               <p className="text-base lg:text-2xl leading-6 lg:leading-snug">
-                Get the accurate, True Price for labor, materials, and paint for any painting project in seconds.
+                Get the accurate, True Price for labor, materials, and paint for
+                any painting project in seconds.
               </p>
             </div>
           </div>
           <div className="lg:w-6/12 max-lg:hidden">
             <div className="relative size-full text-right">
-              <img src="/images/hero_img.png" className="inline-block rounded-2xl object-contain max-h-[320px]" alt="" />
+              <img
+                src="/images/hero_img.png"
+                className="inline-block rounded-2xl object-contain max-h-[320px]"
+                alt=""
+              />
             </div>
           </div>
           <div className="mx-auto flex justify-center max-lg:order-2">
@@ -103,8 +123,19 @@ const Hero = () => {
                 <div className="py-3 px-2 lg:p-3 rounded-xl grow bg-[#f3f3f3] flex flex-col gap-2 relative">
                   <div className="flex gap-2 items-center">
                     <span>
-                      <svg className="size-3.5 lg:size-6" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M17.5 17.5L21.5 21.5" stroke="#141B34" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                      <svg
+                        className="size-3.5 lg:size-6"
+                        viewBox="0 0 25 25"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M17.5 17.5L21.5 21.5"
+                          stroke="#141B34"
+                          strokeWidth="1.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
                         <path
                           d="M19.5 11.5C19.5 7.08172 15.9183 3.5 11.5 3.5C7.08172 3.5 3.5 7.08172 3.5 11.5C3.5 15.9183 7.08172 19.5 11.5 19.5C15.9183 19.5 19.5 15.9183 19.5 11.5Z"
                           stroke="#141B34"
@@ -125,6 +156,19 @@ const Hero = () => {
                       }}
                       placeholder="3976 First St, Glendale CA, 98765"
                       className="inline-block w-full grow outline-none!  text-lg max-lg:text-[10px] ios-nozoom"
+                      style={
+                        /iPad|iPhone|iPod/.test(
+                          typeof navigator !== "undefined"
+                            ? navigator.userAgent
+                            : ""
+                        )
+                          ? {
+                              fontSize: "16px",
+                              transform: "scale(.625)",
+                              transformOrigin: "left center",
+                            }
+                          : {}
+                      }
                     />
                   </div>
                   {typed && predictions.length > 0 && (
@@ -151,7 +195,10 @@ const Hero = () => {
                     </small>
                   )}
                 </div>
-                <Button type="submit" className="rounded-xl! max-lg:py-3! max-lg:px-3! max-lg:whitespace-nowrap max-lg:text-xs cursor-pointer">
+                <Button
+                  type="submit"
+                  className="rounded-xl! max-lg:py-3! max-lg:px-3! max-lg:whitespace-nowrap max-lg:text-xs cursor-pointer"
+                >
                   Start Calculating
                 </Button>
               </div>
