@@ -131,7 +131,7 @@
   }
 
   .ios-nozoom::placeholder {
-    transform: scale(.625);
+    transform: scale(1.6);
     transform-origin: 0 0;
   }
 }
