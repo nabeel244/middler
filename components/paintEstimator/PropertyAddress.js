@@ -146,7 +146,7 @@ const PropertyAddress = ({
               predictionsWithZip.map((item, idx) => (
                 <div
                   key={idx}
-                  className="px-5 py-2 cursor-pointer hover:bg-primary/5 text-[#656E81]"
+                  className="px-5 py-2 cursor-pointer hover:bg-primary/5 text-[#656E81] max-lg:text-xs"
                   onClick={() => {
                     dispatch(
                       changeEstimatorValue({

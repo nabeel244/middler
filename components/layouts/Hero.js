@@ -124,7 +124,7 @@ const Hero = () => {
                         if (error) setError(false);
                       }}
                       placeholder="3976 First St, Glendale CA, 98765"
-                      className="inline-block w-full grow outline-none! text-lg max-lg:text-[10px]"
+                      className="inline-block w-full grow outline-none!  text-lg max-lg:text-[10px] ios-nozoom"
                     />
                   </div>
                   {typed && predictions.length > 0 && (

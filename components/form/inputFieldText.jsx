@@ -57,7 +57,7 @@ const InputFieldText = ({
         className={
           className
             ? className
-            : "w-full bg-white px-5 py-3 text-black outline-none border-black border rounded-lg focus:ring-2 ring-primary focus:border-transparent"
+            : "w-full bg-white px-2 lg:px-5 py-3 max-lg:text-[10px] lg:py-3 text-black outline-none border-black border rounded-lg focus:ring-2 ring-primary focus:border-transparent"
         }
         placeholder={placeholder ? placeholder : ""}
         value={value}

@@ -262,7 +262,7 @@ const EmailType = ({
               <div className="h-full bg-primary" />
             </div>
 
-            <div className="grid grid-cols-2 gap-3 lg:gap-6">
+            <div className="grid grid-cols-2 grid-rows-2 *:max-lg:h-24 gap-3 lg:gap-6">
               <div
                 className="w-full"
                 onClick={() => submitSendEstimate("homeowner")}
@@ -334,7 +334,7 @@ const EmailType = ({
                   </button>
                 </div>
               ) : (
-                <div className="flex flex-col justify-end w-full gap-6">
+                <div className="flex flex-col justify-between lg:justify-end w-full lg:gap-6">
                   <InputFieldText
                     inputType={"text"}
                     placeholder={"Please enter your role"}
@@ -354,7 +354,7 @@ const EmailType = ({
                   <div onClick={() => userType && submitSendEstimate(userType)}>
                     <button
                       type="button"
-                      className="w-full py-5 px-8 lg:py-6 cursor-pointer bg-primary hover:bg-primary-800 transition-all duration-300 text-white gap-2 lg:gap-4 flex flex-col items-center rounded-lg"
+                      className="w-full py-4 px-8 lg:py-6 cursor-pointer bg-primary hover:bg-primary-800 transition-all duration-300 text-white gap-2 lg:gap-4 flex flex-col items-center rounded-lg"
                     >
                       <span className="text-xs lg:text-lg font-bold uppercase">
                         Submit
