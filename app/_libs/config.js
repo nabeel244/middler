@@ -2,7 +2,7 @@ export function pickByEnv({ dev, prod, override, fallback }) {
   if (override) return override;
   return process.env.NODE_ENV === 'development'
     ? dev ?? fallback
-    : prod ?? fallback;
+    : prod ?? fallback; 
 }
 
 export const GRAPHQL_ENDPOINT =
