@@ -122,19 +122,7 @@
   }
 }
 
-@media screen and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
-
-  input {
-    font-size: 16px !important;
-    transform: scale(.625);
-    transform-origin: 0 0;
-  }
-
-  input::placeholder {
-    transform: scale(1.6);
-    transform-origin: 0 0;
-  }
-}
+/* @media screen and (max-device-width: 480px)comm */
 
 .cards_slider .swiper-pagination {
   position: relative;
