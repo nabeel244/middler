@@ -6,8 +6,8 @@ export function pickByEnv({ dev, prod, override, fallback }) {
 }
 
 export const GRAPHQL_ENDPOINT =
-  "http://graphql-api-production.up.railway.app/graphql"
-  || 'http://graphql-api-production.up.railway.app/graphql';
+  "https://graphql-api-production.up.railway.app/graphql"
+  || 'https://graphql-api-production.up.railway.app/graphql';
 
 export const SITE_URL = pickByEnv({
   dev: process.env.NEXT_PUBLIC_SITE_URL_DEV,
