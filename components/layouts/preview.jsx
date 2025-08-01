@@ -416,7 +416,7 @@ const Preview = ({
                 </div>
 
                 {/* action buttons */}
-                <div className="flex items-center gap-2 lg:gap-4">
+                {/* <div className="flex items-center gap-2 lg:gap-4">
                   {[
                     { t: "Print", icon: "print.png" },
                     { t: "Save as PDF", icon: "pdf.png" },
@@ -434,7 +434,7 @@ const Preview = ({
                       <span>{t}</span>
                     </button>
                   ))}
-                </div>
+                </div> */}
               </section>
             </div>
           </div>
