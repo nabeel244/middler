@@ -337,7 +337,7 @@ const EmailType = ({
                 <div className="flex flex-col justify-between lg:justify-end w-full lg:gap-6">
                   <InputFieldText
                     inputType={"text"}
-                    placeholder={"Please enter your role"}
+                    placeholder={"Your role"}
                     value={userType}
                     dispatch={() => {}}
                     changeValue={({ value }) => setUserType(value)}

@@ -110,12 +110,21 @@ const Hero = () => {
             </div>
           </div>
           <div className="mx-auto flex justify-center max-lg:order-2">
-            <form
+            {/* <form
               onSubmit={handleSubmit}
               className="border border-primary-300 w-full bg-white p-3 max-lg:pb-10 max-lg:pt-7 lg:p-[30px] shadow-[0_4px_40px] shadow-primary/20 rounded-[20px] flex flex-col gap-[15px] lg:gap-5"
             >
               <div className="relative py-4 lg:px-1.5 border-b-[1.5px] border-[rgba(51,51,51,0.15)] after:h-[3px] after:w-[89px] after:absolute after:-bottom-px after:left-0 after:bg-primary">
                 <p className="max-[400px]:text-[3.45vw]! text-[3.5vw] lg:text-2xl font-semibold">
+                  Enter address of the property that's being painted
+                </p>
+              </div> */}
+            <form
+              onSubmit={handleSubmit}
+             className="border border-primary-300 w-full bg-white p-2 sm:p-3 max-lg:pb-5 max-lg:pt-2 lg:p-[30px] shadow-[0_4px_40px] shadow-primary/20 rounded-[20px] flex flex-col gap-2 lg:gap-5"
+            >
+              <div className="relative py-2 lg:px-1.5 border-b-[1.5px] border-[rgba(51,51,51,0.15)] after:h-[3px] after:w-[89px] after:absolute after:-bottom-px after:left-0 after:bg-primary">
+                <p className="max-[400px]:text-[3.45vw]! text-[3.5vw] lg:text-2xl font-semibold max-sm:mt-2">
                   Enter address of the property that's being painted
                 </p>
               </div>
@@ -156,22 +165,22 @@ const Hero = () => {
                       }}
                       placeholder="3976 First St, Glendale CA, 98765"
                       className="inline-block w-full grow outline-none! text-lg max-lg:text-[10px] ios-nozoom"
-                       style={{
-    fontSize: '16px', // Ensuring the font size is 16px
-  }}
-                      // style={
-                      //   /iPad|iPhone|iPod/.test(
-                      //     typeof navigator !== "undefined"
-                      //       ? navigator.userAgent
-                      //       : ""
-                      //   )
-                      //     ? {
-                      //         fontSize: "16px",
-                      //         transform: "scale(.625)",
-                      //         transformOrigin: "left center",
-                      //       }
-                      //     : {}
-                      // }
+                      style={{
+                        fontSize: '16px', // Ensuring the font size is 16px
+                      }}
+                    // style={
+                    //   /iPad|iPhone|iPod/.test(
+                    //     typeof navigator !== "undefined"
+                    //       ? navigator.userAgent
+                    //       : ""
+                    //   )
+                    //     ? {
+                    //         fontSize: "16px",
+                    //         transform: "scale(.625)",
+                    //         transformOrigin: "left center",
+                    //       }
+                    //     : {}
+                    // }
                     />
                   </div>
                   {typed && predictions.length > 0 && (
@@ -200,9 +209,8 @@ const Hero = () => {
                 </div>
                 <Button
                   type="submit"
-                  className={`rounded-xl! max-lg:py-3! max-lg:px-3! max-lg:whitespace-nowrap max-lg:text-xs cursor-pointer ${
-                    error ? "max-lg:mt-4" : ""
-                  }`}
+                  className={`rounded-xl! max-lg:py-3! max-lg:px-3! max-lg:whitespace-nowrap max-lg:text-xs cursor-pointer ${error ? "max-lg:mt-4" : ""
+                    }`}
                 >
                   Start Calculating
                 </Button>
