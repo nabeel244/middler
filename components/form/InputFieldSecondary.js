@@ -66,7 +66,7 @@ const InputFieldSecondary = ({
         onChange={handleChange}
       />
       {required && (
-        <div className="flex items-center px-2 py-[2px] w-max mx-5 gap-x-3 border-[1px] border-red-300 rounded-lg mt-1">
+        <div className="flex items-center px-2 py-[2px] w-max mx-1 gap-x-3 border-[1px] border-red-300 rounded-lg mt-1">
           <span className="text-red-500 text-[12px]">
             Address field required
           </span>

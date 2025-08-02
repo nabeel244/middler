@@ -171,11 +171,10 @@ const PropertyAddress = ({
         )}
         {Array.isArray(requiredFields) &&
           requiredFields.includes("clientPropertyAddress") && (
-            <div className="flex items-center px-2 py-[2px] w-max mx-5 gap-x-3 border-[1px] border-red-300 rounded-lg mt-[2px]">
+            <div className="flex items-center px-2 py-[2px] w-max mx-1 gap-x-3 border-[1px] border-red-300 rounded-lg mt-[2px]">
               <span className="text-red-500 text-[12px]">{warning}</span>
             </div>
           )}
-
       </div>
       <button
         onClick={() => {

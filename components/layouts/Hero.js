@@ -197,7 +197,9 @@ const Hero = () => {
                 </div>
                 <Button
                   type="submit"
-                  className="rounded-xl! max-lg:py-3! max-lg:px-3! max-lg:whitespace-nowrap max-lg:text-xs cursor-pointer"
+                  className={`rounded-xl! max-lg:py-3! max-lg:px-3! max-lg:whitespace-nowrap max-lg:text-xs cursor-pointer ${
+                    error ? "max-lg:mt-4" : ""
+                  }`}
                 >
                   Start Calculating
                 </Button>
