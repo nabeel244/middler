@@ -46,14 +46,18 @@ const GiftPopup = ({
               <div className="flex flex-col items-center relative gap-[15px] text-center">
                 <img
                   src="/images/logo.png"
-                  className="max-w-[124px] lg:max-w-[128px] mb-3 sm:mb-5"
+                  className="max-w-[124px] lg:max-w-[128px] mb-1 sm:mb-5"
                   alt=""
                 />
-                <img src="/images/tag.png" className="max-w-[65px]" alt="" />
-                <h1 className="text-[#003058] text-4xl lg:text-[50px] font-bold lg:leading-[50px] sm:mb-4 uppercase">
+                <img
+                  src="/images/tag.png"
+                  className="max-w-[40px] sm:max-w-[65px]"
+                  alt=""
+                />
+                <h1 className="text-[#003058] text-2xl sm:text-4xl lg:text-[50px] font-bold lg:leading-[50px] sm:mb-4 uppercase">
                   Take 10% off
                 </h1>
-                <p className="text-sm lg:text-base text-[#0B0B0B] mb-2 sm:mb-4 lg:leading-[22px]">
+                <p className="text-xs sm:text-sm lg:text-base text-[#0B0B0B] sm:mb-4 lg:leading-[22px]">
                   Book now and save on your first completed service up to $500
                 </p>
                 <div className="flex items-center gap-2.5">
@@ -74,11 +78,11 @@ const GiftPopup = ({
                   Book Now
                 </button>
               </div>
-              <p className="text-[15px] leading-[22px]">
+              <p className="text-[12px] sm:text-[15px] leading-[22px]">
                 Cannot be combined wth other offers
               </p>
             </div>
-            <div className="size-full bg-[url('/images/modals/gift.png')] bg-cover bg-no-repeat scale-y-[1.02] min-h-[200px] sm:min-h-[215px]" />
+            <div className="size-full bg-[url('/images/modals/gift.png')] bg-cover bg-no-repeat scale-y-[1.02] min-h-[180px] sm:min-h-[215px]" />
           </motion.div>
         </motion.div>
       )}

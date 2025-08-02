@@ -9,26 +9,26 @@ const Brands = () => {
                 {
                   title: "People using Middler",
                   no: "23,000+",
-                  className: "max-lg:order-1"
+                  className: "max-lg:order-1",
                 },
                 {
                   title: "Painting estimates given out",
                   no: "$350,000,000+",
-                  className: "max-lg:order-5 max-lg:w-1/2!"
+                  className: "max-lg:order-5 max-lg:w-1/2!",
                 },
                 {
                   img: "/images/google_reviews.png",
-                  className: "max-lg:order-2"
+                  className: "max-lg:order-2",
                 },
                 {
                   title: "In paint calculated",
                   no: "$150,000,000+",
-                  className: "max-lg:order-3"
+                  className: "max-lg:order-3",
                 },
                 {
                   title: "Accurate prices nationwide",
                   no: "98%",
-                  className: "max-lg:order-4 max-lg:w-1/2!"
+                  className: "max-lg:order-4 max-lg:w-1/2!",
                 },
               ].map((item, idx) => {
                 return item.img ? (
@@ -36,9 +36,16 @@ const Brands = () => {
                     <img src={item.img} alt="" />
                   </div>
                 ) : (
-                  <div key={idx} className={`${item.className}  flex flex-col gap-1 items-center text-center`}>
-                    <span className="text-[11px] lg:text-sm leading-[25px]">{item.title}</span>
-                    <h3 className="font-semibold text-xs lg:text-2xl">{item.no}</h3>
+                  <div
+                    key={idx}
+                    className={`${item.className}  flex flex-col gap-1 items-center text-center`}
+                  >
+                    <span className="text-[11px] lg:text-sm leading-[25px]">
+                      {item.title}
+                    </span>
+                    <h3 className="font-semibold text-xs lg:text-2xl">
+                      {item.no}
+                    </h3>
                   </div>
                 );
               })}
