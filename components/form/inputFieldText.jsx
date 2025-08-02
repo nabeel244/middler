@@ -48,6 +48,10 @@ const InputFieldText = ({
     setDropdown(dropdown);
   };
 
+   const inputStyle = placeholder === 'Your role'
+    ? { fontSize: '16px' , marginBottom: '5px' }
+    : {};
+
   return (
     <div className="relative w-full">
       <input
@@ -63,6 +67,7 @@ const InputFieldText = ({
         value={value}
         readOnly={readOnly ? true : false}
         onChange={handleChange}
+        style={inputStyle}
       />
     </div>
   );
