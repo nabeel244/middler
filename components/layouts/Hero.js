@@ -156,19 +156,22 @@ const Hero = () => {
                       }}
                       placeholder="3976 First St, Glendale CA, 98765"
                       className="inline-block w-full grow outline-none! text-lg max-lg:text-[10px] ios-nozoom"
-                      style={
-                        /iPad|iPhone|iPod/.test(
-                          typeof navigator !== "undefined"
-                            ? navigator.userAgent
-                            : ""
-                        )
-                          ? {
-                              fontSize: "16px",
-                              transform: "scale(.625)",
-                              transformOrigin: "left center",
-                            }
-                          : {}
-                      }
+                       style={{
+    fontSize: '16px', // Ensuring the font size is 16px
+  }}
+                      // style={
+                      //   /iPad|iPhone|iPod/.test(
+                      //     typeof navigator !== "undefined"
+                      //       ? navigator.userAgent
+                      //       : ""
+                      //   )
+                      //     ? {
+                      //         fontSize: "16px",
+                      //         transform: "scale(.625)",
+                      //         transformOrigin: "left center",
+                      //       }
+                      //     : {}
+                      // }
                     />
                   </div>
                   {typed && predictions.length > 0 && (
