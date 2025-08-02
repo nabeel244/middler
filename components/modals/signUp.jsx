@@ -120,7 +120,7 @@ const SignUp = ({
           animate={{ scale: 1, opacity: 1 }}
           exit={{ scale: 0.95, opacity: 0 }}
           transition={{ type: "spring", stiffness: 260, damping: 25 }}
-          className="w-auto max-w-[90%] sm:max-w-[320px] lg:max-w-[768px] rounded-xl bg-gradient-to-b from-[#EAF5FF] to-[#FAFAFA] text-black px-10 py-8 lg:py-12 shadow-lg flex flex-col items-center gap-6 lg:gap-7"
+          className="w-auto max-w-[90%] sm:max-w-[320px] lg:max-w-[768px] rounded-xl bg-gradient-to-b from-[#EAF5FF] to-[#FAFAFA] text-black px-6 sm:px-10 py-6 sm:py-8 lg:py-12 shadow-lg flex flex-col items-center gap-4 sm:gap-6 lg:gap-7"
         >
           <h2 className="text-center font-bold text-[26px] lg:text-[40px] leading-[1.3] text-black">
             Keep These Prices &amp; Get Details of This Project Sent To Your

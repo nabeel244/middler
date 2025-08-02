@@ -230,7 +230,7 @@ const Preview = ({
                       </div>
                     </div>
 
-                    <div className="flex justify-between items-center w-full">
+                    <div className="flex flex-col md:flex-row justify-between md:items-center w-full">
                       <div className="text-[#595858] text-xs lg:text-lg flex gap-2 flex-wrap">
                         <span className="font-semibold text-black">
                           Interior Details:
@@ -243,7 +243,7 @@ const Preview = ({
                             : "unknown"}
                         </span>
                       </div>
-                      <div className="text-[#595858] text-xs lg:text-lg flex gap-2 flex-wrap flex-col lg:w-[37%]">
+                      <div className="text-[#595858] text-xs lg:text-lg flex gap-2 flex-wrap flex-col lg:w-[37%] mt-4 md:mt-0">
                         <span className="font-semibold text-black">
                           Items to be Painted:
                         </span>
@@ -357,7 +357,7 @@ const Preview = ({
                       </div>
                     </div>
 
-                    <div className="flex justify-between items-center w-full">
+                    <div className="flex flex-col md:flex-row justify-between md:items-center w-full">
                       <div className="text-[#595858] text-xs lg:text-lg flex gap-2 flex-wrap">
                         <span className="font-semibold text-black">
                           Exterior Details:
@@ -370,7 +370,7 @@ const Preview = ({
                             : "unknown"}
                         </span>
                       </div>
-                      <div className="text-[#595858] text-xs lg:text-lg flex gap-2 flex-wrap flex-col lg:w-[37%]">
+                      <div className="text-[#595858] text-xs lg:text-lg flex gap-2 flex-wrap flex-col lg:w-[37%] mt-4 md:mt-0">
                         <span className="font-semibold text-black">
                           Items to be Painted:
                         </span>

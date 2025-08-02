@@ -119,7 +119,7 @@ const Hero = () => {
                   Enter address of the property that's being painted
                 </p>
               </div>
-              <div className="w-full flex gap-2.5 lg:gap-[30px] items-stretch">
+              <div className="w-full flex flex-col sm:flex-row gap-2.5 lg:gap-[30px] items-stretch">
                 <div className="py-3 px-2 lg:p-3 rounded-xl grow bg-[#f3f3f3] flex flex-col gap-2 relative">
                   <div className="flex gap-2 items-center">
                     <span>
@@ -163,10 +163,10 @@ const Hero = () => {
                             : ""
                         )
                           ? {
-                            fontSize: "16px",
-                            transform: "scale(.625)",
-                            transformOrigin: "left center",
-                          }
+                              fontSize: "16px",
+                              transform: "scale(.625)",
+                              transformOrigin: "left center",
+                            }
                           : {}
                       }
                     />
