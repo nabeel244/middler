@@ -303,8 +303,8 @@ const Preview = ({
                       </div>
                     </div>
 
-                    <div className="flex justify-between items-center w-full">
-                      <div className="text-[#595858] text-xs lg:text-lg flex gap-2 flex-wrap">
+                    <div className="flex justify-between items-end sm:items-center w-full">
+                      <div className="text-[#595858] text-xs lg:text-lg flex gap-2 flex-wrap mb-3 sm:mb-0">
                         <span className="font-semibold text-black">
                           Painting Cabinet:
                         </span>

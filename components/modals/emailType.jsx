@@ -254,7 +254,7 @@ const EmailType = ({
             transition={{ type: "spring", stiffness: 260, damping: 25 }}
             className="w-auto max-w-[360px] sm:max-w-[320px] lg:max-w-[768px] rounded-xl bg-gradient-to-b from-[#EAF5FF] to-[#FAFAFA] text-primary px-10 py-8 lg:py-12 shadow-lg space-y-6 lg:space-y-7 relative"
           >
-            <h2 className="text-center text-black font-bold text-[26px] lg:text-[40px] leading-[1.2]">
+            <h2 className="text-center text-black font-bold text-[22px] sm:text-[26px] lg:text-[40px] leading-[1.2]">
               Most accurate paint estimate there is for your project!
             </h2>
 
@@ -262,7 +262,7 @@ const EmailType = ({
               <div className="h-full bg-primary" />
             </div>
 
-            <div className="grid grid-cols-2 grid-rows-2 *:max-lg:h-24 gap-3 lg:gap-6">
+            <div className="grid sm:grid-cols-2 sm:grid-rows-2 *:max-lg:h-24 gap-3 lg:gap-6">
               <div
                 className="w-full"
                 onClick={() => submitSendEstimate("homeowner")}
