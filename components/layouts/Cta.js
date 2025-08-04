@@ -32,7 +32,7 @@ const Cta = () => {
       <div className="container">
         <div className="row justify-center">
           <div className="w-full">
-            <div className="flex flex-col lg:gap-[30px] max-lg:*:px-5 py-10 lg:py-[70px] items-center text-center bg-[#0b0b0b]/10 rounded-3xl lg:rounded-[40px] lg:*:px-[130px] lg:*:py-6 *:w-full">
+            <div className="flex flex-col lg:gap-7 max-lg:*:px-5 py-10 lg:py-[60px] items-center text-center bg-[#0b0b0b]/10 rounded-3xl lg:rounded-[40px] lg:*:px-[130px] lg:*:py-5 *:w-full">
               <div className="relative w-full flex items-center justify-center lg:py-3! max-lg:mb-10">
                 <img
                   src="/images/logo.png"
@@ -52,18 +52,18 @@ const Cta = () => {
                   highlight="Certifies"
                   className="text-xl font-semibold!"
                 />
-                <p className="text-[11px] lg:text-2xl mt-3 max-lg:mb-[35px] lg:mt-5">
+                <p className="text-[11px] lg:text-[22px] mt-3 max-lg:mb-[35px] lg:mt-5">
                   Because people will always doubt contractor pricing until a trusted platform like Middler starts certifying estimates. That’s what we do — for painters, plumbers, and everyone else.
                 </p>
               </div>
-              <div>
-                <p className="font-medium text-[11px] lg:text-2xl">
+              <div className="lg:pt-0!">
+                <p className="font-medium text-[11px] lg:text-[22px]">
                   “Middler’s prices are not for painters that are trying to rip
                   people off and not for customers who want to underpay
                   painters. The seal stands by that.”
                 </p>
               </div>
-              <div className="grid grid-cols-2 max-lg:px-0! lg:grid-cols-4 gap-y-10 gap-x-0 lg:gap-x-[25px] mt-10 lg:mt-4 lg:px-3! py-0!">
+              <div className="grid grid-cols-2 max-lg:px-0! lg:grid-cols-4 gap-y-10 gap-x-0 lg:gap-x-[25px] mt-10 lg:mt-0 lg:px-3! py-0!">
                 {awards.map((item, index) => (
                   <div
                     key={index}

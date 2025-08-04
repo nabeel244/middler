@@ -533,7 +533,7 @@ const PaintEstimator = ({ }) => {
                     <button
                       onClick={goBack}
                       disabled={String(navigation.value.paintEstimator) === orderedSteps[0]}
-                      className="absolute top-3 left-3 rounded-full disabled:cursor-not-allowed not-disabled:cursor-pointer bg-neutral-100 border disabled:border-neutral-400 disabled:text-neutral-500 text-black border-neutral-500 p-3 not-disabled:hover:bg-black not-disabled:hover:text-white transition-all duration-300 ease-in-out not-disabled:hover:shadow-[0_0_20px] shadow-black/30"
+                      className="absolute top-1.5 left-1.5 lg:top-2 lg:left-2 rounded-full disabled:cursor-not-allowed not-disabled:cursor-pointer bg-neutral-100 border disabled:border-neutral-400 disabled:text-neutral-500 text-black border-neutral-500 p-1.5 max-lg:text-base lg:p-2.5 not-disabled:hover:bg-black not-disabled:hover:text-white transition-all duration-300 ease-in-out not-disabled:hover:shadow-[0_0_20px] shadow-black/30"
                     >
                       <FaArrowLeft />
                     </button>
