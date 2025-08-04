@@ -520,7 +520,7 @@ const PaintEstimator = ({ }) => {
         <div className="grid size-full min-h-[calc(100dvh_-_40px)] lg:min-h-[calc(100dvh_-_32px)] xl:min-h-[calc(100dvh_-_24px)] lg:grid-rows-1 xl:grid-cols-[0.18fr_1fr_0.18fr] gap-5">
           {navigation.value.paintEstimator != "5" && (
             <>
-              <div className="max-lg:hidden mt-40 bg-cover bg-center bg-no-repeat bg-[url('/images/modals/1.png')] rounded-2xl" />
+              <div className="max-lg:hidden mt-[70px] bg-cover bg-center bg-no-repeat bg-[url('/images/modals/1.png')] rounded-2xl" />
               <div className="w-full flex items-center flex-col justify-between gap-3">
                 <Navbar />
                 <Progress />
@@ -533,7 +533,7 @@ const PaintEstimator = ({ }) => {
                     <button
                       onClick={goBack}
                       disabled={String(navigation.value.paintEstimator) === orderedSteps[0]}
-                      className="absolute -top-3 -left-4 rounded-full disabled:cursor-not-allowed not-disabled:cursor-pointer bg-neutral-100 border disabled:border-neutral-400 disabled:text-neutral-500 text-black border-neutral-500 p-3 not-disabled:hover:bg-black not-disabled:hover:text-white transition-all duration-300 ease-in-out not-disabled:shadow-[0_0_20px] shadow-black/30"
+                      className="absolute top-3 left-3 rounded-full disabled:cursor-not-allowed not-disabled:cursor-pointer bg-neutral-100 border disabled:border-neutral-400 disabled:text-neutral-500 text-black border-neutral-500 p-3 not-disabled:hover:bg-black not-disabled:hover:text-white transition-all duration-300 ease-in-out not-disabled:hover:shadow-[0_0_20px] shadow-black/30"
                     >
                       <FaArrowLeft />
                     </button>
@@ -1072,7 +1072,7 @@ const PaintEstimator = ({ }) => {
                   </div>
                 </div>
               </div>
-              <div className="max-lg:hidden mt-40 bg-cover bg-center bg-no-repeat bg-[url('/images/modals/2.png')] rounded-2xl" />
+              <div className="max-lg:hidden mt-[70px] bg-cover bg-center bg-no-repeat bg-[url('/images/modals/2.png')] rounded-2xl" />
             </>
           )}
           {navigation.value.paintEstimator == "5" && (
