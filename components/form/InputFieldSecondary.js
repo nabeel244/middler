@@ -48,13 +48,13 @@ const InputFieldSecondary = ({
   };
 
   return (
-    <div className="relative w-full">
+    <div className="relative w-full grow">
       <input
         ref={inputRef}
         id={id}
         type={inputType}
         className={`
-          w-full border border-[#656E81] rounded-[20px] px-5 py-3 shadow-[0_2px_30px] shadow-black/20 focus:ring-primary focus:border-primary outline-none
+          w-full border border-[#656E81] rounded-xl px-5 py-3 shadow-[0_2px_30px] shadow-black/20 focus:ring-primary focus:border-primary outline-none
           ${value ? "has-value" : ""}
           ${inputClassOne}
           ${inputClassTwo}

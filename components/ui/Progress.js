@@ -10,14 +10,12 @@ const Progress = ({ step = 0 }) => {
   const isActive = (idx) => idx === step;
 
   return (
-    <div className="lg:px-[35px] pt-6 lg:py-5 mt-3 lg:mt-0 flex items-center justify-center max-[400px]:gap-x-[105px] gap-x-[128px] lg:gap-x-[150px]">
-      {/* ────── 1. Project Details ────── */}
+    <div className="lg:px-[35px] pt-6 lg:py-5 2xl:pb-2.5 mt-3 lg:mt-0 flex items-center justify-center max-[400px]:gap-x-[105px] gap-x-[128px] lg:gap-x-[150px]">
       <div
         className={`size-7 lg:size-10 rounded-full relative flex items-center justify-center
-          ${
-            isActive(0)
-              ? "bg-primary text-white"
-              : "border-2 border-primary bg-white"
+          ${isActive(0)
+            ? "bg-primary text-white"
+            : "border-2 border-primary bg-white"
           }
           before:absolute before:top-1/2 before:-translate-y-1/2 before:left-full
           before:h-0.5 lg:before:h-[3px] before:w-[128px] max-[400px]:before:w-[105px]! lg:before:w-[150px]
@@ -29,9 +27,8 @@ const Progress = ({ step = 0 }) => {
           <span className="inline-block size-2 lg:size-3.5 rounded-full bg-primary" />
         )}
         <span
-          className={`max-lg:text-[10px] ${
-            isActive(0) ? "lg:font-bold" : "font-normal"
-          } text-primary absolute left-1/2 -translate-x-1/2 -top-6 whitespace-nowrap`}
+          className={`max-lg:text-[10px] ${isActive(0) ? "lg:font-bold" : "font-normal"
+            } text-primary absolute left-1/2 -translate-x-1/2 -top-6 whitespace-nowrap`}
         >
           Project Details
         </span>
@@ -40,10 +37,9 @@ const Progress = ({ step = 0 }) => {
       {/* ────── 2. See Prices ────── */}
       <div
         className={`size-7 lg:size-10 rounded-full relative flex items-center justify-center
-          ${
-            isActive(1)
-              ? "bg-primary text-white"
-              : "border-2 border-primary bg-white"
+          ${isActive(1)
+            ? "bg-primary text-white"
+            : "border-2 border-primary bg-white"
           }
           before:absolute before:top-1/2 before:-translate-y-1/2 before:left-full before:-translate-x-px before:ml-0.5
           before:h-0.5 lg:before:h-[3px] before:w-[130px] max-[400px]:before:w-[105px]! lg:before:w-[150px]
@@ -55,9 +51,8 @@ const Progress = ({ step = 0 }) => {
           <span className="inline-block size-2 lg:size-3.5 rounded-full bg-primary" />
         )}
         <span
-          className={`max-lg:text-[10px] ${
-            isActive(1) ? "lg:font-bold" : "font-normal"
-          } text-primary absolute left-1/2 -translate-x-1/2 -top-6 whitespace-nowrap`}
+          className={`max-lg:text-[10px] ${isActive(1) ? "lg:font-bold" : "font-normal"
+            } text-primary absolute left-1/2 -translate-x-1/2 -top-6 whitespace-nowrap`}
         >
           See Prices
         </span>

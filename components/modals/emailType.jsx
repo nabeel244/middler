@@ -254,14 +254,9 @@ const EmailType = ({
             transition={{ type: "spring", stiffness: 260, damping: 25 }}
             className="w-auto max-w-[360px] sm:max-w-[320px] lg:max-w-[768px] rounded-xl bg-gradient-to-b from-[#EAF5FF] to-[#FAFAFA] text-primary px-10 py-8 lg:py-12 shadow-lg space-y-6 lg:space-y-7 relative"
           >
-            <div>
-              <h2 className="text-center text-black font-bold text-[22px] sm:text-[26px] mb-2 lg:text-[40px] leading-[1.2]">
-                One last step before your Free Middler Qoute!
-              </h2>
-              <p className="text-center text-sm lg:text-2xl text-[#656e81]">
-                Which one best describe you today?
-              </p>
-            </div>
+            <h2 className="text-center text-black font-bold text-[22px] sm:text-[26px] lg:text-[40px] leading-[1.2]">
+              One last step before your Free Middler Qoute!
+            </h2>
 
             <div className="h-3 lg:h-4 w-full bg-primary rounded-full overflow-hidden">
               <div className="h-full bg-primary" />

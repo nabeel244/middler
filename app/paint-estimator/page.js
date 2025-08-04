@@ -515,20 +515,20 @@ const PaintEstimator = ({ }) => {
         <title>Estimate Page</title>
       </Head>
       <main
-        className={`min-h-dvh h-full overflow-hidden w-full p-5 lg:p-3 xl:p-5 xl:py-3 bg-cover bg-no-repeat bg-center bg-[url('/images/modals/bg_1.png')]`}
+        className={`min-h-dvh h-full overflow-hidden w-full p-5 lg:p-3 xl:p-6 xl:py-5 bg-cover bg-no-repeat bg-center bg-[url('/images/modals/bg_1.png')]`}
       >
-        <div className="grid size-full min-h-[calc(100dvh_-_40px)] lg:min-h-[calc(100dvh_-_32px)] xl:min-h-[calc(100dvh_-_24px)] lg:grid-rows-1 xl:grid-cols-[0.18fr_1fr_0.18fr] gap-5">
+        <div className="grid size-full min-h-[calc(100dvh_-_40px)] lg:min-h-[calc(100dvh_-_32px)] xl:min-h-[calc(100dvh_-_40px)] lg:grid-rows-1 xl:grid-cols-[0.3fr_1fr_0.3fr] gap-5 lg:gap-8">
           {navigation.value.paintEstimator != "5" && (
             <>
-              <div className="max-lg:hidden mt-[70px] bg-cover bg-center bg-no-repeat bg-[url('/images/modals/1.png')] rounded-2xl" />
-              <div className="w-full flex items-center flex-col justify-between gap-3">
+              <div className="max-lg:hidden mt-[64px] bg-cover bg-center bg-no-repeat bg-[url('/images/modals/1.png')] rounded-2xl" />
+              <div className={`w-full flex items-center flex-col justify-between gap-5 2xl:gap-8`}>
                 <Navbar />
                 <Progress />
 
                 <div className="lg:hidden">
                   <img src="/images/modals/team.png" alt="" />
                 </div>
-                <div className="lg:px-20 w-full">
+                <div className="lg:px-5 w-full">
                   <div className="px-4 lg:px-11 xl:px-2 py-[30px] lg:py-6 flex flex-col items-center justify-center gap-[30px] bg-white shadow-[0_6px_46px] shadow-black/20 rounded-3xl lg:rounded-[31px] relative">
                     <button
                       onClick={goBack}
@@ -1052,10 +1052,10 @@ const PaintEstimator = ({ }) => {
                   </div>
                 </div>
 
-                <div className="max-lg:hidden w-full h-auto max-h-[220px] rounded-2xl">
+                <div className="max-lg:hidden w-full h-auto max-h-[220px] 2xl:max-h-[300px] rounded-2xl">
                   <img
                     src="/images/modals/3.png"
-                    className="w-full object-fill object-top h-full rounded-2xl"
+                    className="w-full object-fill 2xl:object-cover object-top h-full rounded-2xl"
                     alt=""
                   />
                 </div>
@@ -1072,7 +1072,7 @@ const PaintEstimator = ({ }) => {
                   </div>
                 </div>
               </div>
-              <div className="max-lg:hidden mt-[70px] bg-cover bg-center bg-no-repeat bg-[url('/images/modals/2.png')] rounded-2xl" />
+              <div className="max-lg:hidden mt-[64px] bg-cover bg-center bg-no-repeat bg-[url('/images/modals/2.png')] rounded-2xl" />
             </>
           )}
           {navigation.value.paintEstimator == "5" && (

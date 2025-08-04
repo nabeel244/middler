@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { validateNumber } from "@/helpers/forms";
 import InputFieldSecondary from "../form/InputFieldSecondary";
@@ -37,48 +37,50 @@ const InteriorSquareFeet = ({
           and add them up.
         </p>
       </div>
-      <InputFieldSecondary
-        inputType={"text"}
-        placeholder={`Enter the total SQFT`}
-        value={estimator.value.interiorSquareFeet}
-        dispatch={dispatch}
-        changeValue={changeEstimatorValue}
-        type={"interiorSquareFeet"}
-        inputClassOne={`${
-          requiredFields.includes("interiorSquareFeet")
-            ? " border-color-1 "
-            : " "
-        }`}
-        dropdown={""}
-        setDropdown={setDropdown}
-        required={requiredFields.includes("interiorSquareFeet")}
-        id={"interiorSquareFeet"}
-        validation={true}
-        validationMethod={validateNumber}
-      />
-      <div className="flex flex-col gap-4">
-        <button
-          onClick={() => {
-            paintEstimateFieldsRequired(
-              +navigation.value.paintEstimator,
-              estimator.value,
-              dispatch,
-              changePaintEstimator,
-              changeEstimatorValue,
-              paintEstimateSteps,
-              setRequired,
-              changePopup,
-              previewEstimate,
-              trackFormEvents,
-              navigation,
-              changeEdit,
-              false
-            );
-          }}
-          className="qsnre_btn"
-        >
-          <span>NEXT</span>
-        </button>
+      <div className="flex justify-between w-full gap-5">
+        <InputFieldSecondary
+          inputType={"text"}
+          placeholder={`Enter the total SQFT`}
+          value={estimator.value.interiorSquareFeet}
+          dispatch={dispatch}
+          changeValue={changeEstimatorValue}
+          type={"interiorSquareFeet"}
+          inputClassOne={`${
+            requiredFields.includes("interiorSquareFeet")
+              ? " border-color-1 "
+              : " "
+          }`}
+          dropdown={""}
+          setDropdown={setDropdown}
+          required={requiredFields.includes("interiorSquareFeet")}
+          id={"interiorSquareFeet"}
+          validation={true}
+          validationMethod={validateNumber}
+        />
+        <div className="flex flex-col gap-4">
+          <button
+            onClick={() => {
+              paintEstimateFieldsRequired(
+                +navigation.value.paintEstimator,
+                estimator.value,
+                dispatch,
+                changePaintEstimator,
+                changeEstimatorValue,
+                paintEstimateSteps,
+                setRequired,
+                changePopup,
+                previewEstimate,
+                trackFormEvents,
+                navigation,
+                changeEdit,
+                false
+              );
+            }}
+            className="qsnre_btn"
+          >
+            <span>NEXT</span>
+          </button>
+        </div>
       </div>
     </>
   );
