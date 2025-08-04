@@ -32,7 +32,7 @@ const Navbar = () => {
     >
       <Link href="/" className="block max-lg:grow max-lg:text-center">
         <img
-          src={mobileImgs ? "/images/logo_bold.png" : "/images/logo.png"}
+          src={mobileImgs ? "/images/logo.png" : "/images/logo.png"}
           className="max-w-[160px] lg:max-w-[280px] inline-block"
           alt=""
         />

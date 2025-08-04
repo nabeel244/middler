@@ -143,7 +143,7 @@ const ExteriorIndividualItems = ({
           Add Another Item
         </button>
       </div>
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col lg:flex-row gap-4">
         <button
           onClick={() => {
             paintEstimateFieldsRequired(

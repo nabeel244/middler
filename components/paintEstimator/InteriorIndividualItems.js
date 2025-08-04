@@ -68,11 +68,10 @@ const InteriorIndividualItems = ({
                 index="title"
                 items={estimator.value.interiorIndividualItems}
                 type={"interiorIndividualItems"}
-                inputClassOne={`${
-                  requiredFields.includes("interiorIndividualItems")
+                inputClassOne={`${requiredFields.includes("interiorIndividualItems")
                     ? " border-primary "
                     : " "
-                }`}
+                  }`}
                 dropdown={""}
                 setDropdown={setDropdown}
                 id={`interiorIndividualItems${idx}-title`}
@@ -92,11 +91,10 @@ const InteriorIndividualItems = ({
                 index="price"
                 items={estimator.value.interiorIndividualItems}
                 type={"interiorIndividualItems"}
-                inputClassOne={`${
-                  requiredFields.includes("interiorIndividualItems")
+                inputClassOne={`${requiredFields.includes("interiorIndividualItems")
                     ? " border-primary "
                     : " "
-                }`}
+                  }`}
                 dropdown={""}
                 setDropdown={setDropdown}
                 id={`interiorIndividualItems${idx}-price`}
@@ -144,7 +142,7 @@ const InteriorIndividualItems = ({
           <span>Add Another Item</span>
         </button>
       </div>
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col lg:flex-row gap-4">
         <button
           onClick={() => {
             paintEstimateFieldsRequired(

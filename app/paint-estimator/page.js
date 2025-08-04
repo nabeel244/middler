@@ -4,6 +4,7 @@ import { useWindowSize } from "@react-hook/window-size";
 import { AsYouType, getCountries } from "libphonenumber-js";
 import { AnimatePresence, motion } from "motion/react";
 import Head from "next/head";
+import { useRouter } from "next/navigation";
 import { Suspense, useEffect, useRef, useState } from "react";
 import { useCookies } from "react-cookie";
 import { useDispatch, useSelector } from "react-redux";
@@ -65,12 +66,14 @@ import GET_USER from "../_queries/fetchUser";
 
 import GiftPopup from "@/components/modals/GiftPopup";
 import { validateEmail, validateNumber, validatePrice } from "@/helpers/forms";
+import { FaArrowLeft } from "react-icons/fa";
 import StepSync from "./StepSync";
 
 const allCountries = getCountries();
 
-const PaintEstimator = ({}) => {
+const PaintEstimator = ({ }) => {
   const dispatch = useDispatch();
+  const router = useRouter();
   const businessEmailRef = useRef();
   const termsRef = useRef(null);
   const previewRef = useRef(null);
@@ -478,6 +481,25 @@ const PaintEstimator = ({}) => {
   const [lastModal, setLastModal] = useState("");
   const [blurPage, setBlurPage] = useState(false);
 
+  const orderedSteps = [
+    "1",
+    "2", "2.1", "2.2", "2.3", "2.4", "2.5",
+    "3", "3.1", "3.2", "3.3", "3.4",
+    "4", "4.1", "4.2", "4.3", "4.4", "4.5", "4.6",
+    "5"
+  ];
+
+  const goBack = () => {
+    const current = String(navigation.value.paintEstimator);
+    const idx = orderedSteps.indexOf(current);
+    if (idx <= 0) return;
+    const prev = orderedSteps[idx - 1];
+    dispatch(changePaintEstimator(prev));
+    const url = new URL(window.location.href);
+    url.searchParams.set("step", prev);
+    window.history.replaceState({}, "", url.toString());
+  };
+
   useEffect(() => {
     if (popup === "") {
       setBlurPage(lastModal === "emailType");
@@ -493,15 +515,13 @@ const PaintEstimator = ({}) => {
         <title>Estimate Page</title>
       </Head>
       <main
-        className={`min-h-dvh h-full overflow-hidden w-full p-5 lg:p-3 xl:p-5 bg-cover bg-no-repeat bg-center bg-[url('/images/modals/bg_1.png')] ${
-          blurPage ? "blur-sm" : ""
-        }`}
+        className={`min-h-dvh h-full overflow-hidden w-full p-5 lg:p-3 xl:p-5 xl:py-3 bg-cover bg-no-repeat bg-center bg-[url('/images/modals/bg_1.png')]`}
       >
-        <div className="grid size-full min-h-[calc(100dvh_-_40px)] lg:min-h-[calc(100dvh_-_32px)] xl:min-h-[calc(100dvh_-_40px)] lg:grid-rows-1 xl:grid-cols-[0.2fr_1fr_0.2fr] gap-5">
+        <div className="grid size-full min-h-[calc(100dvh_-_40px)] lg:min-h-[calc(100dvh_-_32px)] xl:min-h-[calc(100dvh_-_24px)] lg:grid-rows-1 xl:grid-cols-[0.18fr_1fr_0.18fr] gap-5">
           {navigation.value.paintEstimator != "5" && (
             <>
               <div className="max-lg:hidden mt-40 bg-cover bg-center bg-no-repeat bg-[url('/images/modals/1.png')] rounded-2xl" />
-              <div className="w-full flex items-center flex-col justify-between gap-5">
+              <div className="w-full flex items-center flex-col justify-between gap-3">
                 <Navbar />
                 <Progress />
 
@@ -509,7 +529,14 @@ const PaintEstimator = ({}) => {
                   <img src="/images/modals/team.png" alt="" />
                 </div>
                 <div className="lg:px-20 w-full">
-                  <div className="px-4 lg:px-11 py-[30px] lg:py-5 flex flex-col items-center justify-center gap-[30px] bg-white shadow-[0_6px_46px] shadow-black/20 rounded-3xl lg:rounded-[31px]">
+                  <div className="px-4 lg:px-11 xl:px-2 py-[30px] lg:py-6 flex flex-col items-center justify-center gap-[30px] bg-white shadow-[0_6px_46px] shadow-black/20 rounded-3xl lg:rounded-[31px] relative">
+                    <button
+                      onClick={goBack}
+                      disabled={String(navigation.value.paintEstimator) === orderedSteps[0]}
+                      className="absolute -top-3 -left-4 rounded-full disabled:cursor-not-allowed not-disabled:cursor-pointer bg-neutral-100 border disabled:border-neutral-400 disabled:text-neutral-500 text-black border-neutral-500 p-3 not-disabled:hover:bg-black not-disabled:hover:text-white transition-all duration-300 ease-in-out not-disabled:shadow-[0_0_20px] shadow-black/30"
+                    >
+                      <FaArrowLeft />
+                    </button>
                     <AnimatePresence mode="wait" initial={false}>
                       <motion.div
                         initial="enter"
@@ -1025,7 +1052,7 @@ const PaintEstimator = ({}) => {
                   </div>
                 </div>
 
-                <div className="max-lg:hidden w-full max-h-auto">
+                <div className="max-lg:hidden w-full h-auto max-h-[220px] rounded-2xl">
                   <img
                     src="/images/modals/3.png"
                     className="w-full object-fill object-top h-full rounded-2xl"
@@ -1073,7 +1100,7 @@ const PaintEstimator = ({}) => {
             />
           )}
         </div>
-      </main>
+      </main >
       <Suspense fallback={null}>
         <StepSync />
       </Suspense>
