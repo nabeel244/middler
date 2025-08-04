@@ -223,7 +223,7 @@ const EmailType = ({
                 <li
                   key={i}
                   className={`flex items-center gap-1.5 ${
-                    i < stage ? "text-black" : "text-neutral-700"
+                    i < stage ? "text-black" : "text-neutral-500"
                   }`}
                 >
                   {txt}
@@ -254,69 +254,53 @@ const EmailType = ({
             transition={{ type: "spring", stiffness: 260, damping: 25 }}
             className="w-auto max-w-[360px] sm:max-w-[320px] lg:max-w-[768px] rounded-xl bg-gradient-to-b from-[#EAF5FF] to-[#FAFAFA] text-primary px-10 py-8 lg:py-12 shadow-lg space-y-6 lg:space-y-7 relative"
           >
-            <h2 className="text-center text-black font-bold text-[22px] sm:text-[26px] lg:text-[40px] leading-[1.2]">
-              Most accurate paint estimate there is for your project!
-            </h2>
+            <div>
+              <h2 className="text-center text-black font-bold text-[22px] sm:text-[26px] mb-2 lg:text-[40px] leading-[1.2]">
+                One last step before your Free Middler Qoute!
+              </h2>
+              <p className="text-center text-sm lg:text-2xl text-[#656e81]">
+                Which one best describe you today?
+              </p>
+            </div>
 
             <div className="h-3 lg:h-4 w-full bg-primary rounded-full overflow-hidden">
               <div className="h-full bg-primary" />
             </div>
 
-            <div className="grid sm:grid-cols-2 sm:grid-rows-2 *:max-lg:h-24 gap-3 lg:gap-6">
-              <div
-                className="w-full"
-                onClick={() => submitSendEstimate("homeowner")}
-              >
-                <button
-                  type="button"
-                  className="w-full py-5 px-8 lg:py-8 cursor-pointer bg-primary text-white gap-2 lg:gap-4 flex flex-col items-center rounded-lg"
-                >
-                  <img
-                    src={"/images/icons/home.png"}
-                    alt="Homeowner"
-                    className="max-h-8 lg:max-h-12"
-                  />
-                  <span className="text-xs lg:text-lg font-bold uppercase">
-                    Homeowner
-                  </span>
-                </button>
-              </div>
-              <div
-                className="w-full"
-                onClick={() => submitSendEstimate("painter")}
-              >
-                <button
-                  type="button"
-                  className="w-full py-5 px-8 lg:py-8 cursor-pointer bg-primary text-white gap-2 lg:gap-4 flex flex-col items-center rounded-lg"
-                >
-                  <img
-                    src={"/images/icons/painter.png"}
-                    alt="Painter"
-                    className="max-h-8 lg:max-h-12"
-                  />
-                  <span className="text-xs lg:text-lg font-bold uppercase">
-                    Painter
-                  </span>
-                </button>
-              </div>
-              <div
-                className="w-full"
-                onClick={() => submitSendEstimate("handyman")}
-              >
-                <button
-                  type="button"
-                  className="w-full py-5 px-8 lg:py-8 cursor-pointer bg-primary text-white gap-2 lg:gap-4 flex flex-col items-center rounded-lg"
-                >
-                  <img
-                    src={"/images/icons/handyman.png"}
-                    alt="Handyman"
-                    className="max-h-8 lg:max-h-12"
-                  />
-                  <span className="text-xs lg:text-lg font-bold uppercase">
-                    Handyman
-                  </span>
-                </button>
-              </div>
+            <div className="grid sm:grid-cols-2 sm:grid-rows-2 *:max-lg:h-24 gap-3 lg:gap-7">
+              {[
+                {
+                  label: "Homeowner",
+                  icon: "home.png",
+                  onClick: () => submitSendEstimate("homeowner"),
+                },
+                {
+                  label: "Painter",
+                  icon: "painter.png",
+                  onClick: () => submitSendEstimate("painter"),
+                },
+                {
+                  label: "Handyman",
+                  icon: "handyman.png",
+                  onClick: () => submitSendEstimate("handyman"),
+                },
+              ].map((item, idx) => (
+                <div key={idx} className="w-full" onClick={item.onClick}>
+                  <button
+                    type="button"
+                    className="w-full py-5 px-8 lg:py-8 cursor-pointer bg-primary text-white gap-2 lg:gap-4 flex flex-col items-center rounded-lg"
+                  >
+                    <img
+                      src={"/images/icons/" + item.icon}
+                      alt={item.label}
+                      className="max-h-8 lg:max-h-14"
+                    />
+                    <span className="text-xs lg:text-xl tracking-wider font-bold uppercase">
+                      {item.label}
+                    </span>
+                  </button>
+                </div>
+              ))}
               {!showOtherInput ? (
                 <div className="w-full" onClick={() => setShowOtherInput(true)}>
                   <button
@@ -326,9 +310,9 @@ const EmailType = ({
                     <img
                       src={"/images/icons/others.png"}
                       alt="Other"
-                      className="max-h-8 lg:max-h-12"
+                      className="max-h-8 lg:max-h-14"
                     />
-                    <span className="text-xs lg:text-lg font-bold uppercase">
+                    <span className="text-xs lg:text-xl tracking-wider font-bold uppercase">
                       Other
                     </span>
                   </button>
