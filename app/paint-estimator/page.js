@@ -69,7 +69,7 @@ import StepSync from "./StepSync";
 
 const allCountries = getCountries();
 
-const PaintEstimator = ({ }) => {
+const PaintEstimator = ({}) => {
   const dispatch = useDispatch();
   const businessEmailRef = useRef();
   const termsRef = useRef(null);
@@ -492,7 +492,11 @@ const PaintEstimator = ({ }) => {
       <Head>
         <title>Estimate Page</title>
       </Head>
-      <main className={`min-h-dvh h-full overflow-hidden w-full p-5 lg:p-3 xl:p-5 bg-cover bg-no-repeat bg-center bg-[url('/images/modals/bg_1.png')] ${blurPage ? "blur-sm" : ""}`}>
+      <main
+        className={`min-h-dvh h-full overflow-hidden w-full p-5 lg:p-3 xl:p-5 bg-cover bg-no-repeat bg-center bg-[url('/images/modals/bg_1.png')] ${
+          blurPage ? "blur-sm" : ""
+        }`}
+      >
         <div className="grid size-full min-h-[calc(100dvh_-_40px)] lg:min-h-[calc(100dvh_-_32px)] xl:min-h-[calc(100dvh_-_40px)] lg:grid-rows-1 xl:grid-cols-[0.2fr_1fr_0.2fr] gap-5">
           {navigation.value.paintEstimator != "5" && (
             <>
@@ -1021,7 +1025,7 @@ const PaintEstimator = ({ }) => {
                   </div>
                 </div>
 
-                <div className="max-lg:hidden w-full max-h-[30%]">
+                <div className="max-lg:hidden w-full max-h-auto">
                   <img
                     src="/images/modals/3.png"
                     className="w-full object-fill object-top h-full rounded-2xl"
