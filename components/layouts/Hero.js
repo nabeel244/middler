@@ -183,7 +183,7 @@ const Hero = () => {
                       {predictions.map((p) => (
                         <div
                           key={p.place_id}
-                          className="px-2 lg:px-4 lg:py-2 lg:first:pt-4 lg:last:pb-4 py-1 first:pt-2 last:pb-2 hover:bg-primary/10 cursor-pointer text-base text-left lg:text-base text-[#656E81]"
+                          className="px-4 lg:px-4 lg:py-2 lg:first:pt-4 lg:last:pb-4 py-2 first:pt-4 last:pb-4 hover:bg-primary/10 cursor-pointer text-base text-left lg:text-base text-[#656E81]"
                           onClick={() => {
                             setAddress(p.formattedAddress);
                             setSelected(p);
