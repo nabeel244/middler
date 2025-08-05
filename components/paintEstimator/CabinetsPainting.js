@@ -30,7 +30,7 @@ const CabinetsPainting = ({
 
   return (
     <>
-      <div className="pt-3 text-center">
+      <div className="text-center">
         <h2 className="text-[26px] font-bold text-[#333]">
           How many cabinets are you painting?
         </h2>
@@ -68,13 +68,13 @@ const CabinetsPainting = ({
         </button>
       </div>
       {/* <div className="grid grid-cols-4 gap-3 lg:gap-5 w-full"> */}
-      <div className="grid grid-cols-[repeat(auto-fit,minmax(80px,1fr))] gap-[1px] place-items-center w-full">
+      <div className="grid grid-cols-[repeat(auto-fit,minmax(80px,96px))] gap-1 place-items-center w-full place-content-center">
         {cabinetImages.map((img, index) => (
           <div key={index}>
             <img
               src={img.src}
               alt={img.alt}
-              className="max-w-20 lg:max-w-24 rounded-xl"
+              className="max-w-20 lg:max-w-20 rounded-xl"
             />
           </div>
         ))}

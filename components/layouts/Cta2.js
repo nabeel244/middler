@@ -34,7 +34,7 @@ const Cta2 = () => {
             <div className="flex flex-col-reverse  max-lg:gap-y-10 lg:flex-row text-center lg:text-left items-center justify-between">
               <img
                 src="/images/mobile.png"
-                className="lg:w-[300px] drop-shadow-[0_0_20px_rgba(0,0,0,0.8)]"
+                className="lg:w-[360px]"
                 alt=""
               />
               <div className="w-full max-w-[800px] flex-col flex gap-10">

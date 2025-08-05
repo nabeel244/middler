@@ -521,7 +521,7 @@ const PaintEstimator = ({ }) => {
           {navigation.value.paintEstimator != "5" && (
             <>
               <div className="max-lg:hidden mt-[64px] bg-cover bg-center bg-no-repeat bg-[url('/images/modals/1.png')] rounded-2xl" />
-              <div className={`w-full flex items-center flex-col justify-between gap-5 2xl:gap-5`}>
+              <div className={`w-full flex items-center flex-col justify-between gap-5 2xl:gap-4`}>
                 <Navbar />
                 <Progress />
 
@@ -1052,7 +1052,7 @@ const PaintEstimator = ({ }) => {
                   </div>
                 </div>
 
-                <div className="max-lg:hidden w-full h-auto max-h-[220px] 2xl:max-h-[300px] rounded-2xl">
+                <div className="max-lg:hidden w-full h-auto max-h-[220px] 2xl:max-h-[280px] rounded-2xl">
                   <img
                     src="/images/modals/3.png"
                     className="w-full object-fill 2xl:object-cover object-top h-full rounded-2xl"
