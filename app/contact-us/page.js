@@ -84,7 +84,7 @@ const page = () => {
             <div className="lg:w-6/12 xl:w-5/12 max-lg:order-1">
               <div className="flex flex-col max-lg:px-5">
                 <h1 className="font-bold text-[40px] leading-14 lg:text-6xl lg:leading-[1.2] mb-5">
-                  <span className="text-primary">Contact Us</span>
+                  <span className="text-primary">Get In Touch</span>
                 </h1>
                 <p className="text-base lg:text-2xl leading-6 lg:leading-snug">
                   Questions about your Real Price® estimate or going
@@ -96,7 +96,7 @@ const page = () => {
             <div className="lg:w-6/12 max-lg:hidden">
               <div className="relative size-full text-right">
                 <img
-                  src="/images/contact_hero.jpg"
+                  src="/images/hero_img.png"
                   className="inline-block rounded-2xl object-contain max-h-[320px]"
                   alt=""
                 />
