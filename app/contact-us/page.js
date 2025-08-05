@@ -97,7 +97,7 @@ const page = () => {
               <div className="relative size-full text-right">
                 <img
                   src="/images/hero_img.png"
-                  className="inline-block rounded-2xl object-contain max-h-[320px]"
+                  className="inline-block rounded-2xl object-contain max-h-[350px]"
                   alt=""
                 />
               </div>
@@ -129,8 +129,8 @@ const page = () => {
                   </div>
                   <div className="lg:w-1/2 w-full">
                     <Heading
-                      heading="Let us lend a hand"
-                      highlight="let us"
+                      heading="Contact Our Team"
+                      highlight="contact"
                       oh
                       className="lg:text-left w-full text-2xl"
                     />
