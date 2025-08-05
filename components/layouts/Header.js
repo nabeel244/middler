@@ -46,7 +46,7 @@ const Header = () => {
           className="relative flex items-center justify-between bg-white shadow-[0_4px_32px_rgba(0,0,0,0.25)] px-5 py-4 lg:rounded-[10px]"
         >
           <Link className="inline-block" href="/">
-            <img src="/images/logo.png" className="w-24 lg:w-48" alt="" />
+            <img src="/images/logo.png" className="w-28 lg:w-48" alt="" />
           </Link>
 
           <ul className="hidden lg:flex items-center gap-x-2">

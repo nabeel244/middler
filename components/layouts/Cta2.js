@@ -31,10 +31,10 @@ const Cta2 = () => {
       <div className="container">
         <div className="row">
           <div className="w-full">
-            <div className="flex flex-col-reverse  max-lg:gap-y-10 lg:flex-row text-center lg:text-left items-center justify-between">
+            <div className="flex flex-col-reverse  max-lg:gap-y-10 lg:gap-x-20 lg:flex-row text-center lg:text-left items-center justify-between">
               <img
                 src="/images/mobile.png"
-                className="lg:w-[360px]"
+                className="lg:w-[340px]"
                 alt=""
               />
               <div className="w-full max-w-[800px] flex-col flex gap-10">

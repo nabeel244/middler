@@ -1,12 +1,13 @@
 "use client";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useCookies } from "react-cookie";
 import usePlacesService from "react-google-autocomplete/lib/usePlacesAutocompleteService";
 import Button from "../ui/Button";
 
 const Hero = () => {
   const router = useRouter();
+  const dropdownRef = useRef(null);
   const [address, setAddress] = useState("");
   const [error, setError] = useState(false);
   const [typed, setTyped] = useState(false);
@@ -20,6 +21,21 @@ const Hero = () => {
   useEffect(() => {
     if (typed && address.length) getPlacePredictions({ input: address });
   }, [address]);
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+        setTyped(false);
+        setPred([]);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("touchstart", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("touchstart", handleClickOutside);
+    };
+  }, []);
 
   useEffect(() => {
     if (!placePredictions?.length) return;
@@ -110,15 +126,7 @@ const Hero = () => {
             </div>
           </div>
           <div className="mx-auto flex justify-center max-lg:order-2">
-            {/* <form
-              onSubmit={handleSubmit}
-              className="border border-primary-300 w-full bg-white p-3 max-lg:pb-10 max-lg:pt-7 lg:p-[30px] shadow-[0_4px_40px] shadow-primary/20 rounded-[20px] flex flex-col gap-[15px] lg:gap-5"
-            >
-              <div className="relative py-4 lg:px-1.5 border-b-[1.5px] border-[rgba(51,51,51,0.15)] after:h-[3px] after:w-[89px] after:absolute after:-bottom-px after:left-0 after:bg-primary">
-                <p className="max-[400px]:text-[3.45vw]! text-[3.5vw] lg:text-2xl font-semibold">
-                  Enter address of the property that's being painted
-                </p>
-              </div> */}
+
             <form
               onSubmit={handleSubmit}
               className="border border-primary-300 w-full bg-white p-2 sm:p-3 max-lg:pb-5 max-lg:pt-2 lg:p-[30px] shadow-[0_4px_40px] shadow-primary/20 rounded-[20px] flex flex-col gap-2 lg:gap-5"
@@ -129,7 +137,7 @@ const Hero = () => {
                 </p>
               </div>
               <div className="w-full flex flex-col sm:flex-row gap-2.5 lg:gap-[30px] items-stretch">
-                <div className="py-3 px-2 lg:p-3 rounded-xl grow bg-[#f3f3f3] flex flex-col gap-2 relative">
+                <div ref={dropdownRef} className="py-3 px-2 lg:p-3 rounded-xl grow bg-[#f3f3f3] flex flex-col gap-2 relative">
                   <div className="flex gap-2 items-center">
                     <span>
                       <svg
@@ -166,29 +174,16 @@ const Hero = () => {
                       placeholder="3976 First St, Glendale CA, 98765"
                       className="inline-block w-full grow outline-none! text-lg max-lg:text-[10px] ios-nozoom"
                       style={{
-                        fontSize: '16px', // Ensuring the font size is 16px
+                        fontSize: '16px',
                       }}
-                    // style={
-                    //   /iPad|iPhone|iPod/.test(
-                    //     typeof navigator !== "undefined"
-                    //       ? navigator.userAgent
-                    //       : ""
-                    //   )
-                    //     ? {
-                    //         fontSize: "16px",
-                    //         transform: "scale(.625)",
-                    //         transformOrigin: "left center",
-                    //       }
-                    //     : {}
-                    // }
                     />
                   </div>
                   {typed && predictions.length > 0 && (
-                    <div className="absolute left-0 top-full mt-1 w-full bg-white rounded-lg shadow-[0_0_12px_rgba(0,0,0,0.15)] z-10 max-h-60 overflow-y-auto">
+                    <div className="absolute left-0 top-full mt-1 w-full bg-white rounded-lg shadow-[0_0_12px_rgba(0,0,0,0.15)] z-10 max-h-60 overflow-y-auto divide-y divide-black/15">
                       {predictions.map((p) => (
                         <div
                           key={p.place_id}
-                          className="px-2 lg:px-4 lg:py-2 lg:first:pt-4 lg:last:pb-4 py-1 first:pt-2 last:pb-2 hover:bg-primary/10 cursor-pointer text-[10px] text-left lg:text-base text-[#656E81]"
+                          className="px-2 lg:px-4 lg:py-2 lg:first:pt-4 lg:last:pb-4 py-1 first:pt-2 last:pb-2 hover:bg-primary/10 cursor-pointer text-xs text-left lg:text-base text-[#656E81]"
                           onClick={() => {
                             setAddress(p.formattedAddress);
                             setSelected(p);
