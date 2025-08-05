@@ -68,7 +68,7 @@ const CabinetsPainting = ({
         </button>
       </div>
       {/* <div className="grid grid-cols-4 gap-3 lg:gap-5 w-full"> */}
-      <div className="grid grid-cols-[repeat(auto-fit,minmax(80px,96px))] gap-2 place-items-center w-full place-content-center">
+      <div className="grid grid-cols-[repeat(auto-fit,minmax(80px,96px))] gap-1.5 place-items-center w-full place-content-center">
         {cabinetImages.map((img, index) => (
           <div key={index}>
             <img
