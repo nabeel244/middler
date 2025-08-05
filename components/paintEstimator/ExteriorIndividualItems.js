@@ -127,22 +127,6 @@ const ExteriorIndividualItems = ({
             <span className="text-red-500 text-[12px]">Please select one</span>
           </div>
         )}
-      <div>
-        <button
-          onClick={() =>
-            dispatch(
-              addObjectToArray({
-                newObject: individualItem[0],
-                items: estimator.value.exteriorIndividualItems,
-                type: "exteriorIndividualItems",
-              })
-            )
-          }
-          className="qsnre_btn"
-        >
-          Add Another Item
-        </button>
-      </div>
       <div className="flex flex-col lg:flex-row gap-4">
         <button
           onClick={() => {
@@ -162,9 +146,23 @@ const ExteriorIndividualItems = ({
               false
             );
           }}
-          className="qsnre_btn"
+          className="qsnre_btn text-neutral-600 border-neutral-600 bg-transparent hover:bg-black hover:border-black hover:text-white"
         >
           Skip
+        </button>
+        <button
+          onClick={() =>
+            dispatch(
+              addObjectToArray({
+                newObject: individualItem[0],
+                items: estimator.value.exteriorIndividualItems,
+                type: "exteriorIndividualItems",
+              })
+            )
+          }
+          className="qsnre_btn"
+        >
+          Add Another Item
         </button>
         <button
           onClick={() => {
@@ -189,7 +187,6 @@ const ExteriorIndividualItems = ({
           Next
         </button>
       </div>
-      <div className="text-center w-full my-3"></div>
     </>
   );
 };

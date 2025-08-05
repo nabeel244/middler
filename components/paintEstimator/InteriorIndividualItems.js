@@ -69,8 +69,8 @@ const InteriorIndividualItems = ({
                 items={estimator.value.interiorIndividualItems}
                 type={"interiorIndividualItems"}
                 inputClassOne={`${requiredFields.includes("interiorIndividualItems")
-                    ? " border-primary "
-                    : " "
+                  ? " border-primary "
+                  : " "
                   }`}
                 dropdown={""}
                 setDropdown={setDropdown}
@@ -92,8 +92,8 @@ const InteriorIndividualItems = ({
                 items={estimator.value.interiorIndividualItems}
                 type={"interiorIndividualItems"}
                 inputClassOne={`${requiredFields.includes("interiorIndividualItems")
-                    ? " border-primary "
-                    : " "
+                  ? " border-primary "
+                  : " "
                   }`}
                 dropdown={""}
                 setDropdown={setDropdown}
@@ -126,22 +126,6 @@ const InteriorIndividualItems = ({
             <span className="text-red-500 text-[12px]">Please select one</span>
           </div>
         )}
-      <div>
-        <button
-          onClick={() =>
-            dispatch(
-              addObjectToArray({
-                newObject: individualItem[0],
-                items: estimator.value.interiorIndividualItems,
-                type: "interiorIndividualItems",
-              })
-            )
-          }
-          className="qsnre_btn"
-        >
-          <span>Add Another Item</span>
-        </button>
-      </div>
       <div className="flex flex-col lg:flex-row gap-4">
         <button
           onClick={() => {
@@ -161,9 +145,23 @@ const InteriorIndividualItems = ({
               false
             );
           }}
-          className="qsnre_btn"
+          className="qsnre_btn bg-transparent border-neutral-600 text-neutral-600 hover:text-white hover:bg-black"
         >
           skip
+        </button>
+        <button
+          onClick={() =>
+            dispatch(
+              addObjectToArray({
+                newObject: individualItem[0],
+                items: estimator.value.interiorIndividualItems,
+                type: "interiorIndividualItems",
+              })
+            )
+          }
+          className="qsnre_btn"
+        >
+          <span>Add Another Item</span>
         </button>
         <button
           onClick={() => {

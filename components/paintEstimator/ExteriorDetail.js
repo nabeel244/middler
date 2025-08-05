@@ -31,7 +31,7 @@ const ExteriorDetail = ({
           How detailed is the inside of the house?
         </h2>
       </div>
-      <div className="flex flex-col gap-5">
+      <div className="grid lg:grid-cols-3 gap-5">
         {exteriorDetails.map((item, idx) => (
           <button
             key={idx}

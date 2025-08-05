@@ -31,7 +31,7 @@ const CabinetConditions = ({
           What condition are the cabinets in?
         </h2>
       </div>
-      <div className="flex flex-wrap flex-col gap-5">
+      <div className="flex flex-wrap flex-col lg:flex-row gap-5">
         {cabinetConditions.map((item, idx) => (
           <button key={idx}
             onClick={() => {

@@ -31,7 +31,7 @@ const CabinetDetail = ({
           What condition are the cabinets in?
         </h2>
       </div>
-      <div className="flex flex-col gap-5">
+      <div className="grid lg:grid-cols-3 gap-5">
         {cabinetDetail.map((item, idx) => (
           <button
             onClick={() => {

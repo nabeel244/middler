@@ -84,7 +84,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative mt-14 lg:mt-20 pt-12 lg:pt-20 pb-3 sm:pb-10 px-0 lg:px-10">
+    <section className="relative mt-14 lg:mt-20 pt-12 lg:pt-[70px] pb-3 sm:pb-10 px-0 lg:px-10">
       <div className="absolute -left-4 top-[126px] h-[540px] w-[250px] lg:-left-10 lg:top-1/2 lg:-translate-y-1/2 lg:size-1/2 bg-center bg-no-repeat bg-[url('/images/hero_el2.png')] lg:bg-[url('/images/hero_el.png')] bg-contain" />
       <div className="container xl:px-10! 2xl:w-[1300px]!">
         <div className="row gap-y-8 sm:gap-y-14 lg:gap-y-8 gap-x-5 justify-center xl:gap-x-20 items-center max-lg:text-center">
@@ -121,7 +121,7 @@ const Hero = () => {
               </div> */}
             <form
               onSubmit={handleSubmit}
-             className="border border-primary-300 w-full bg-white p-2 sm:p-3 max-lg:pb-5 max-lg:pt-2 lg:p-[30px] shadow-[0_4px_40px] shadow-primary/20 rounded-[20px] flex flex-col gap-2 lg:gap-5"
+              className="border border-primary-300 w-full bg-white p-2 sm:p-3 max-lg:pb-5 max-lg:pt-2 lg:p-[30px] shadow-[0_4px_40px] shadow-primary/20 rounded-[20px] flex flex-col gap-2 lg:gap-5"
             >
               <div className="relative py-2 lg:px-1.5 border-b-[1.5px] border-[rgba(51,51,51,0.15)] after:h-[3px] after:w-[89px] after:absolute after:-bottom-px after:left-0 after:bg-primary">
                 <p className="max-[400px]:text-[3.45vw]! text-[3.5vw] lg:text-2xl font-semibold max-sm:mt-2">

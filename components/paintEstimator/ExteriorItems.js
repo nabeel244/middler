@@ -34,9 +34,9 @@ const ExteriorItems = ({
           Select all items you are painting
         </p>
       </div>
-      <div className="rounded-2xl border border-[#E5E7EB] w-full overflow-hidden divide-y divide-[#E5E7EB]">
+      <div className="rounded-2xl lg:-my-3 lg:-mx-5 lg:p-3 flex max-lg:flex-col lg:flex-wrap gap-3 lg:justify-center lg:items-center border border-[#E5E7EB] w-full overflow-hidden max-lg:divide-y divide-[#E5E7EB]">
         {exteriorItemsToBePainted.map((item, idx) => (
-          <label key={idx} className={`flex items-center w-full gap-3 p-3`}>
+          <label key={idx} className={`flex items-center w-full max-lg:p-3 lg:w-fit grow gap-2 lg:nth-[6]:max-w-[207px]`}>
             <input
               type="checkbox"
               name="exteriorItems"

@@ -521,7 +521,7 @@ const PaintEstimator = ({ }) => {
           {navigation.value.paintEstimator != "5" && (
             <>
               <div className="max-lg:hidden mt-[64px] bg-cover bg-center bg-no-repeat bg-[url('/images/modals/1.png')] rounded-2xl" />
-              <div className={`w-full flex items-center flex-col justify-between gap-5 2xl:gap-8`}>
+              <div className={`w-full flex items-center flex-col justify-between gap-5 2xl:gap-5`}>
                 <Navbar />
                 <Progress />
 
@@ -547,7 +547,7 @@ const PaintEstimator = ({ }) => {
                           stiffness: 300,
                           damping: 30,
                         }}
-                        className={`lg:px-8 2xl:min-h-[190px] flex flex-col items-center justify-center gap-[30px] lg:gap-6 bg-white shadow[0_6px_46px_rgba(0,0,0,0.2)] rounded-3xl lg:rounded-4xl qsnre`}
+                        className={`lg:px-5 2xl:min-h-[190px] w-full flex flex-col items-center justify-center gap-[30px] lg:gap-4 bg-white shadow[0_6px_46px_rgba(0,0,0,0.2)] rounded-3xl lg:rounded-4xl qsnre`}
                       >
                         {navigation.value.paintEstimator == "1" && (
                           <PropertyAddress

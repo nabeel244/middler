@@ -37,7 +37,7 @@ const InteriorSquareFeet = ({
           and add them up.
         </p>
       </div>
-      <div className="flex justify-between w-full gap-5">
+      <div className="flex flex-col lg:flex-row items-center justify-between w-full gap-5">
         <InputFieldSecondary
           inputType={"text"}
           placeholder={`Enter the total SQFT`}
@@ -45,11 +45,10 @@ const InteriorSquareFeet = ({
           dispatch={dispatch}
           changeValue={changeEstimatorValue}
           type={"interiorSquareFeet"}
-          inputClassOne={`${
-            requiredFields.includes("interiorSquareFeet")
-              ? " border-color-1 "
-              : " "
-          }`}
+          inputClassOne={`${requiredFields.includes("interiorSquareFeet")
+            ? " border-color-1 "
+            : " "
+            }`}
           dropdown={""}
           setDropdown={setDropdown}
           required={requiredFields.includes("interiorSquareFeet")}

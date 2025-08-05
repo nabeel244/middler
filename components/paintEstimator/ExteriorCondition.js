@@ -31,7 +31,7 @@ const ExteriorCondition = ({
           What condition is the outside of the home in?
         </h2>
       </div>
-      <div className="flex flex-col gap-5">
+      <div className="grid lg:grid-cols-3 gap-5">
         {exteriorConditions.map((item, idx) => (
           <button
             key={idx}

@@ -32,33 +32,27 @@ const PaintBrand = ({
           Please select the paint you would like to use?
         </h2>
       </div>
-      <InputDropDown
-        stateValue={estimator.value.paintBrand}
-        setDropdown={setDropdown}
-        dropdown={dropdown}
-        label={"Brand of Paint"}
-        svg={"arrowDown"}
-        svgLabel={"Arrow Down"}
-        svgColor={"black"}
-        list={paintList}
-        dropdownType={"paintBrand"}
-        viewType={"title"}
-        dataType={"type"}
-        stateType={"paintBrand"}
-        dispatch={dispatch}
-        stateMethod={changeEstimatorValue}
-        readOnly={false}
-        id={"paintBrand"}
-        edit={navigation.value.edit}
-        changeEdit={changeEdit}
-      />
-      {Array.isArray(requiredFields) &&
-        requiredFields.includes("paintBrand") && (
-          <div className="flex items-center px-2 py-[2px] w-max mx-5 gap-x-3 border-[1px] border-red-300 rounded-lg mt-3">
-            <span className="text-red-500 text-[12px]">Please select one</span>
-          </div>
-        )}
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col max-lg:items-center w-full lg:flex-row gap-4">
+        <InputDropDown
+          stateValue={estimator.value.paintBrand}
+          setDropdown={setDropdown}
+          dropdown={dropdown}
+          label={"Brand of Paint"}
+          svg={"arrowDown"}
+          svgLabel={"Arrow Down"}
+          svgColor={"black"}
+          list={paintList}
+          dropdownType={"paintBrand"}
+          viewType={"title"}
+          dataType={"type"}
+          stateType={"paintBrand"}
+          dispatch={dispatch}
+          stateMethod={changeEstimatorValue}
+          readOnly={false}
+          id={"paintBrand"}
+          edit={navigation.value.edit}
+          changeEdit={changeEdit}
+        />
         <button
           onClick={() => {
             paintEstimateFieldsRequired(
@@ -82,6 +76,12 @@ const PaintBrand = ({
           Done
         </button>
       </div>
+      {Array.isArray(requiredFields) &&
+        requiredFields.includes("paintBrand") && (
+          <div className="flex items-center px-2 py-[2px] w-max mx-5 gap-x-3 border-[1px] border-red-300 rounded-lg mt-3">
+            <span className="text-red-500 text-[12px]">Please select one</span>
+          </div>
+        )}
     </>
   );
 };

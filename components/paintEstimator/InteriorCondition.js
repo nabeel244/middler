@@ -31,7 +31,7 @@ const InteriorCondition = ({
           What condition is the inside of the house in?
         </h2>
       </div>
-      <div className="flex flex-col gap-5">
+      <div className="flex flex-col lg:flex-row gap-5">
         {interiorConditions.map((item, idx) => (
           <button
             key={idx}

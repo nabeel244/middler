@@ -262,7 +262,7 @@ const EmailType = ({
               <div className="h-full bg-primary" />
             </div>
 
-            <div className="grid sm:grid-cols-2 sm:grid-rows-2 *:max-lg:h-24 gap-3 lg:gap-7">
+            <div className="grid grid-cols-2 sm:grid-rows-2 *:max-lg:h-24 gap-3 lg:gap-7">
               {[
                 {
                   label: "Homeowner",
@@ -333,7 +333,7 @@ const EmailType = ({
                   <div onClick={() => userType && submitSendEstimate(userType)}>
                     <button
                       type="button"
-                      className="w-full py-4 px-8 lg:py-6 cursor-pointer bg-primary hover:bg-primary-800 transition-all duration-300 text-white gap-2 lg:gap-4 flex flex-col items-center rounded-lg"
+                      className="w-full py-3 px-8 lg:py-6 cursor-pointer bg-primary hover:bg-primary-800 transition-all duration-300 text-white gap-2 lg:gap-4 flex flex-col items-center rounded-lg"
                     >
                       <span className="text-xs lg:text-lg font-bold uppercase">
                         Submit
@@ -342,22 +342,22 @@ const EmailType = ({
                   </div>
                 </div>
               )}
-              {loading == "sendEstimate" && (
-                <motion.div
-                  key="loading"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  className="absolute z-[2] inset-0 bg-black/10 backdrop-blur-xs rounded-xl"
-                >
-                  <div className={`flex items-center justify-center size-full`}>
-                    <span className="text-7xl animate-spin text-black">
-                      <BiLoaderCircle />
-                    </span>
-                  </div>
-                </motion.div>
-              )}
             </div>
+            {loading == "sendEstimate" && (
+              <motion.div
+                key="loading"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="absolute z-[2] inset-0 size-full bg-black/10 backdrop-blur-xs rounded-xl"
+              >
+                <div className={`flex items-center justify-center size-full`}>
+                  <span className="text-7xl animate-spin text-black">
+                    <BiLoaderCircle />
+                  </span>
+                </div>
+              </motion.div>
+            )}
           </motion.div>
         </motion.div>
       )}

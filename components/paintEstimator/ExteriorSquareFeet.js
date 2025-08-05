@@ -35,26 +35,25 @@ const ExteriorSquareFeet = ({
           If you&rsquo;re painting the whole house enter the total sqft.
         </p>
       </div>
-      <InputFieldSecondary
-        inputType={"text"}
-        placeholder={`Enter the total SQFT`}
-        value={estimator.value.exteriorSquareFeet}
-        dispatch={dispatch}
-        changeValue={changeEstimatorValue}
-        type={"exteriorSquareFeet"}
-        inputClassOne={`${
-          requiredFields.includes("exteriorSquareFeet")
+      <div className="flex flex-col max-lg:items-center lg:flex-row w-full gap-4">
+        <InputFieldSecondary
+          inputType={"text"}
+          placeholder={`Enter the total SQFT`}
+          value={estimator.value.exteriorSquareFeet}
+          dispatch={dispatch}
+          changeValue={changeEstimatorValue}
+          type={"exteriorSquareFeet"}
+          inputClassOne={`${requiredFields.includes("exteriorSquareFeet")
             ? " border-color-1 "
             : " "
-        }`}
-        dropdown={""}
-        setDropdown={setDropdown}
-        required={requiredFields.includes("exteriorSquareFeet")}
-        id={"exteriorSquareFeet"}
-        validation={true}
-        validationMethod={validateNumber}
-      />
-      <div className="flex flex-col gap-4">
+            }`}
+          dropdown={""}
+          setDropdown={setDropdown}
+          required={requiredFields.includes("exteriorSquareFeet")}
+          id={"exteriorSquareFeet"}
+          validation={true}
+          validationMethod={validateNumber}
+        />
         <button
           onClick={() => {
             paintEstimateFieldsRequired(
