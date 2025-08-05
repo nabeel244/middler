@@ -46,7 +46,7 @@ const InteriorIndividualItems = ({
   return (
     <>
       <div className="pt-3 text-center">
-        <h2 className="text-[26px] font-bold text-[#333]">
+        <h2 className="text-[24px] font-bold text-[#333]">
           If your a painter you can add extra items you&rsquo;re painting on the{" "}
           <strong>inside of the home.</strong>
         </h2>
