@@ -30,7 +30,7 @@ const Navbar = () => {
       ref={dropdownRef}
       className="max-lg:flex justify-between items-center max-lg:w-full relative"
     >
-      <Link href="/" className="block max-lg:grow max-lg:text-center">
+      <Link href="/" className="block max-lg:grow max-lg:text-left">
         <img
           src={mobileImgs ? "/images/logo.png" : "/images/logo.png"}
           className="max-w-[160px] lg:max-w-[280px] inline-block"
