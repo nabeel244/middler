@@ -122,8 +122,10 @@ const SignUp = ({
           transition={{ type: "spring", stiffness: 260, damping: 25 }}
           className="w-auto max-w-[90%] sm:max-w-[320px] lg:max-w-[768px] rounded-xl bg-gradient-to-b from-[#EAF5FF] to-[#FAFAFA] text-black px-6 sm:px-10 py-6 sm:py-8 lg:py-12 shadow-lg flex flex-col items-center gap-4 sm:gap-6 lg:gap-7"
         >
+          <img src="/images/fav.png" alt="" className="max-w-20 lg:max-w-24" />
           <h2 className="text-center font-bold text-[22px] lg:text-[24px] leading-[1.3] text-black">
-            Enter your email to receive the estimate &amp; we'll keep it sent to your email as well
+            Enter your email to receive the estimate &amp; we'll keep it sent to
+            your email as well
             {/* Keep These Prices &amp; Get Details of This Project Sent To Your Email */}
           </h2>
 
@@ -170,7 +172,7 @@ const SignUp = ({
               sessionStorage.setItem("noEmailEntered", "true"),
               (window.location.href = "/")
             )}
-            className="text-primary/70 text-lg lg:text-xl leading-[22px] lg:leading-7 underline hover:text-primary transition-all duration-200 ease-in-out cursor-pointer"
+            className="text-neutral-500 underline-offset-4 text-lg lg:text-xl leading-[22px] lg:leading-7 underline hover:text-primary transition-all duration-200 ease-in-out cursor-pointer"
           >
             No Thanks
           </a>

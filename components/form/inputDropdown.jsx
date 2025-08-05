@@ -98,7 +98,7 @@ const InputDropDown = ({
                     setDropdown(""))
               }
             >
-              <div className="size-10 lg:size-14 p-1 flex items-center justify-center bg-white shadow-lg rounded-full">
+              <div className="size-10 lg:size-20 object-cover p-0.5 flex items-center justify-center bg-white shadow-lg rounded-full">
                 <img alt="" src={subitem.image} className="" />
               </div>
               <span className="lg:text-lg">
