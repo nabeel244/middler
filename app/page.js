@@ -11,6 +11,7 @@ import Header from "@/components/layouts/Header";
 import Hero from "@/components/layouts/Hero";
 import TextSlider from "@/components/layouts/TextSlider";
 import GiftPopup from "@/components/modals/GiftPopup";
+import ToastProvider from "@/components/ToastProvider";
 import OpenPopup from "@/components/ui/OpenPopup";
 import { useEffect, useState } from "react";
 
@@ -53,6 +54,7 @@ const Home = () => {
       <Footer />
 
       <OpenPopup showPopUp={showPopUp} setShowPopUp={setShowPopUp} />
+      <ToastProvider />
     </>
   );
 };

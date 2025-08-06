@@ -48,7 +48,7 @@ const InputFieldSecondary = ({
   };
 
   return (
-    <div className="relative w-full grow max-w-[600px]">
+    <div className="relative w-full grow max-w-[380px]">
       <input
         ref={inputRef}
         id={id}

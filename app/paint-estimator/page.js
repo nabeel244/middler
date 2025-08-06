@@ -531,7 +531,7 @@ const PaintEstimator = ({ }) => {
                 <div className="lg:hidden">
                   <img src="/images/modals/team.png" alt="" />
                 </div>
-                <div className="lg:px-5 w-full">
+                <div className={`${navigation.value.paintEstimator == "2.2" ? "px-0" : "lg:px-5"} w-full`}>
                   <div className="px-4 lg:px-11 xl:px-2 py-[30px] lg:py-6 flex flex-col items-center justify-center gap-[30px] bg-white shadow-[0_6px_46px] shadow-black/20 rounded-3xl lg:rounded-[31px] relative">
                     {/* <button
                       onClick={goBack}

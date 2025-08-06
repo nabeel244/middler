@@ -255,7 +255,7 @@ const EmailType = ({
             className="w-auto max-w-[360px] sm:max-w-[320px] lg:max-w-[768px] rounded-xl bg-gradient-to-b from-[#EAF5FF] to-[#FAFAFA] text-primary px-10 py-8 lg:py-12 shadow-lg space-y-6 lg:space-y-7 relative"
           >
             <h2 className="text-center text-black font-bold text-[22px] sm:text-[26px] lg:text-[40px] leading-[1.2]">
-              One last step before your Free Middler Qoute!
+              One last step before your Free Middler Quote!
             </h2>
 
             <div className="h-3 lg:h-4 w-full bg-primary rounded-full overflow-hidden">

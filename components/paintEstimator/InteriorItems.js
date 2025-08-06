@@ -31,9 +31,9 @@ const InteriorItems = ({
           What are you painting?
         </h2>
       </div>
-      <div className="rounded-2xl lg:-mx-5 lg:p-3 flex max-lg:flex-col flex-wrap gap-3 lg:justify-center items-center border border-[#E5E7EB] w-full max-lg:divide-y max-lg:divide-[#E5E7EB] overflow-hidden">
+      <div className="rounded-2xl lg:p-3 flex max-lg:flex-col flex-wrap gap-y-3 lg:justify-center items-center 3xl:justify-start border border-[#E5E7EB] w-full xl:w-[calc(100%_+_38px)] max-lg:divide-y max-lg:divide-[#E5E7EB] overflow-hidden">
         {interiorItemsToBePainted.map((item, idx) => (
-          <label key={idx} className={`flex items-center w-full lg:min-w-1/5 lg:w-fit grow gap-2 max-lg:p-3`}>
+          <label key={idx} className={`flex items-center w-full lg:min-w-1/4 lg:w-fit 3xl:max-w-1/4 3xl:w-full grow gap-2 max-lg:p-3`}>
             <input
               type="checkbox"
               name="interiorItems"
