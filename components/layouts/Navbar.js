@@ -3,7 +3,7 @@
 import { menuItems } from "@/app/constants";
 import { AnimatePresence, motion } from "motion/react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 const Navbar = () => {
   const [mobileImgs, setMobileImgs] = useState(false);
@@ -12,6 +12,21 @@ const Navbar = () => {
   const dropdownRef = useRef(null);
 
   const pathname = usePathname();
+
+  const router = useRouter();
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
 
   useEffect(() => {
@@ -25,9 +40,20 @@ const Navbar = () => {
 
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+
+  useEffect(() => {
+    const handleRouteChange = () => {
+      setIsMobileMenuOpen(false);
+    };
+
+    router.events?.on?.("routeChangeStart", handleRouteChange);
+    return () => {
+      router.events?.off?.("routeChangeStart", handleRouteChange);
+    };
+  }, [router]);
   return (
     <div
-      ref={dropdownRef}
       className="max-lg:flex justify-between items-center max-lg:w-full relative"
     >
       <Link href="/" className="block max-lg:grow max-lg:text-left">
@@ -64,7 +90,7 @@ const Navbar = () => {
 
       <AnimatePresence>
         {isMobileMenuOpen && (
-          <motion.div
+          <motion.div ref={dropdownRef}
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
