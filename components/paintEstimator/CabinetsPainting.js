@@ -35,13 +35,13 @@ const CabinetsPainting = ({
           How many cabinets are you painting?
         </h2>
         <p
-          className={`mt-4 xl:mt-1 text-neutral-600 text-center xl:text-[13px]`}
+          className={`mt-4 xl:mt-1 text-neutral-600 text-center xl:text-[13px] 3xl:px-20`}
         >
           Count every door and drawer, big and small, even if they open or they don&rsquo;t. Make sure you count every cabinet including in the kitchen, bathrooms, hallways, outside, garage and anywhere in between.
         </p>
       </div>
       <div
-        className="flex flex-col max-lg:items-center lg:flex-row w-full xl:px-10 gap-4"
+        className="flex flex-col max-lg:items-center justify-center lg:flex-row w-full xl:px-10 gap-4"
       >
         <InputFieldSecondary
           inputType={'text'}

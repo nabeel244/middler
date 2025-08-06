@@ -37,7 +37,7 @@ const InteriorSquareFeet = ({
           and add them up.
         </p>
       </div>
-      <div className="flex flex-col lg:flex-row items-center justify-between w-full gap-5">
+      <div className="mt-2 flex flex-col lg:flex-row items-center justify-center w-full gap-5 2xl:gap-8">
         <InputFieldSecondary
           inputType={"text"}
           placeholder={`Enter the total SQFT`}

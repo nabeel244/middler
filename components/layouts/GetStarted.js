@@ -6,7 +6,7 @@ const GetStarted = () => {
   return (
     <section className="mb-20 overflow-hidden">
       <div className="container">
-        <div className="row justify-center gap-y-[50px]">
+        <div className="row justify-center gap-y-10">
           <div className="lg:w-7/12 max-lg:px-8">
             <Heading
               heading="Ready to Get The Price To Paint —Faster?"
@@ -22,7 +22,7 @@ const GetStarted = () => {
                   <div className="relative max-lg:min-h-[392px] max-lg:w-full">
                     <img
                       src="/images/mobile_mockup2.png"
-                      className="max-w-[342px] md:max-w-[550px] max-lg:absolute left-1/2 max-lg:-translate-x-1/2"
+                      className="max-w-[342px] md:max-w-[460px] max-lg:absolute left-1/2 max-lg:-translate-x-1/2"
                       alt=""
                     />
                     <div className="absolute -bottom-1 right-0 w-full h-[12%] bg-gradient-to-t from-white from-10% to-transparent" />
@@ -35,13 +35,13 @@ const GetStarted = () => {
                       <div
                         key={idx}
                         className={`absolute z-[2] flex items-center justify-center px-2 lg:px-7 py-2 lg:py-3.5 gap-[7px] bg-[rgba(255,255,255,0.32)] lg:bg-[rgba(187,187,187,0.2)] backdrop-blur-[36px] shadow-[0_3.75px_5.95px_rgba(0,0,0,0.12)] rounded-lg ${idx === 0
-                          ? "lg:-left-6 xl:-left-[70px] left-4 top-[21%]"
+                          ? "lg:-left-6 xl:-left-28 left-4 top-[21%]"
                           : idx === 1
-                            ? "lg:-left-24 xl:-left-[150px] left-1 top-[58%] lg:top-1/2 xl:top-[53%]"
+                            ? "lg:-left-24 xl:-left-48 left-1 top-[58%] lg:top-1/2 xl:top-[53%]"
                             : idx === 2
-                              ? "lg:-right-5 xl:-right-20 right-3 top-[13%]"
+                              ? "lg:-right-5 xl:-right-[100px] right-3 top-[13%]"
                               : idx === 3
-                                ? "lg:-right-14 xl:-right-[108px] right-2 top-[47%] lg:top-3/8"
+                                ? "lg:-right-14 xl:-right-32 right-2 top-[47%] lg:top-3/8"
                                 : ""
                           }`}
                       >

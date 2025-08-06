@@ -35,7 +35,7 @@ const ExteriorSquareFeet = ({
           If you&rsquo;re painting the whole house enter the total sqft.
         </p>
       </div>
-      <div className="flex flex-col max-lg:items-center lg:flex-row w-full gap-4">
+      <div className="flex flex-col max-lg:items-center justify-center lg:flex-row w-full gap-4">
         <InputFieldSecondary
           inputType={"text"}
           placeholder={`Enter the total SQFT`}

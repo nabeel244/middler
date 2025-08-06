@@ -45,17 +45,17 @@ const InteriorIndividualItems = ({
 
   return (
     <>
-      <div className="pt-3 text-center">
-        <h2 className="text-[24px] font-bold text-[#333]">
+      <div className="text-center">
+        <h2 className="text-[25px] font-bold text-[#333]">
           If your a painter you can add extra items you&rsquo;re painting on the{" "}
           <strong>inside of the home.</strong>
         </h2>
       </div>
       <div className="flex flex-col gap-6 w-full">
         {estimator.value.interiorIndividualItems?.map((item, idx) => (
-          <div key={idx} className="flex max-lg:flex-col gap-5 relative">
+          <div key={idx} className="flex max-lg:flex-col gap-5 2xl:px-4 relative">
             <div className="w-full lg:w-1/2">
-              <label className="block mb-2 text-base font-medium text-[#1F2937]">
+              <label className="block mb-1 text-base font-medium text-[#1F2937]">
                 Item {idx + 1}
               </label>
               <InputFieldSecondary
@@ -78,7 +78,7 @@ const InteriorIndividualItems = ({
               />
             </div>
             <div className="w-full lg:w-1/2">
-              <label className="block mb-2 text-base font-medium text-[#1F2937]">
+              <label className="block mb-1 text-base font-medium text-[#1F2937]">
                 Price {idx + 1}
               </label>
               <InputFieldSecondary
@@ -103,7 +103,7 @@ const InteriorIndividualItems = ({
               />
             </div>
             <div
-              className="absolute right-0 top-0 text-white bg-black rounded-full p-0.5"
+              className="absolute right-4 top-0 text-white bg-black rounded-full p-0.5"
               onClick={() =>
                 dispatch(
                   addObjectToArray({
@@ -126,7 +126,7 @@ const InteriorIndividualItems = ({
             <span className="text-red-500 text-[12px]">Please select one</span>
           </div>
         )}
-      <div className="flex flex-col lg:flex-row gap-4">
+      <div className="flex flex-col lg:flex-row gap-4 mt-2">
         <button
           onClick={() => {
             paintEstimateFieldsRequired(

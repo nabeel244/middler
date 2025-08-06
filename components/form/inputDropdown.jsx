@@ -40,7 +40,7 @@ const InputDropDown = ({
       : "";
 
   return (
-    <div className="relative w-full">
+    <div className="relative w-full max-w-[600px]">
       <div
         id={id}
         className={`flex justify-between border border-[#656E81] rounded-[20px] px-5 py-3 cursor-pointer`}
@@ -98,8 +98,8 @@ const InputDropDown = ({
                     setDropdown(""))
               }
             >
-              <div className="size-10 lg:size-20 object-cover p-0.5 flex items-center justify-center bg-white shadow-lg rounded-full">
-                <img alt="" src={subitem.image} className="" />
+              <div className="size-10 lg:size-16 object-cover p-0.5 flex items-center justify-center bg-white shadow-lg rounded-full">
+                <img src={subitem.image} className="w-full" />
               </div>
               <span className="lg:text-lg">
                 {viewType ? subitem[viewType] : subitem}

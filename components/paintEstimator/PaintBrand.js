@@ -32,7 +32,7 @@ const PaintBrand = ({
           Please select the paint you would like to use?
         </h2>
       </div>
-      <div className="flex flex-col max-lg:items-center w-full lg:flex-row gap-4">
+      <div className="2xl:mt-3 flex flex-col max-lg:items-center justify-center w-full lg:flex-row gap-4">
         <InputDropDown
           stateValue={estimator.value.paintBrand}
           setDropdown={setDropdown}

@@ -517,7 +517,7 @@ const PaintEstimator = ({ }) => {
       <main
         className={`min-h-dvh h-full overflow-hidden w-full p-5 lg:p-3 xl:p-6 xl:py-5 bg-cover bg-no-repeat bg-center bg-[url('/images/modals/bg_1.png')]`}
       >
-        <div className="grid size-full min-h-[calc(100dvh_-_40px)] lg:min-h-[calc(100dvh_-_32px)] xl:min-h-[calc(100dvh_-_40px)] lg:grid-rows-1 xl:grid-cols-[0.3fr_1fr_0.3fr] gap-5 lg:gap-8">
+        <div className="grid size-full min-h-[calc(100dvh_-_40px)] lg:min-h-[calc(100dvh_-_32px)] xl:min-h-[calc(100dvh_-_40px)] lg:grid-rows-1 xl:grid-cols-[0.3fr_1fr_0.3fr] 3xl:grid-cols-[0.23fr_1fr_0.23fr] gap-5 lg:gap-8 3xl:gap-10">
           {navigation.value.paintEstimator != "5" && (
             <>
               <div className="max-lg:hidden mt-[64px] bg-cover bg-center bg-no-repeat bg-[url('/images/modals/1.png')] rounded-2xl" />
@@ -530,13 +530,13 @@ const PaintEstimator = ({ }) => {
                 </div>
                 <div className="lg:px-5 w-full">
                   <div className="px-4 lg:px-11 xl:px-2 py-[30px] lg:py-6 flex flex-col items-center justify-center gap-[30px] bg-white shadow-[0_6px_46px] shadow-black/20 rounded-3xl lg:rounded-[31px] relative">
-                    <button
+                    {/* <button
                       onClick={goBack}
                       disabled={String(navigation.value.paintEstimator) === orderedSteps[0]}
                       className="absolute top-1.5 left-1.5 lg:top-2 lg:left-2 rounded-full disabled:cursor-not-allowed not-disabled:cursor-pointer bg-neutral-100 border disabled:border-neutral-400 disabled:text-neutral-500 text-black border-neutral-500 p-1.5 max-lg:text-base lg:p-2.5 not-disabled:hover:bg-black not-disabled:hover:text-white transition-all duration-300 ease-in-out not-disabled:hover:shadow-[0_0_20px] shadow-black/30"
                     >
                       <FaArrowLeft />
-                    </button>
+                    </button> */}
                     <AnimatePresence mode="wait" initial={false}>
                       <motion.div
                         initial="enter"
@@ -1052,7 +1052,7 @@ const PaintEstimator = ({ }) => {
                   </div>
                 </div>
 
-                <div className="max-lg:hidden w-full h-auto max-h-[220px] 2xl:max-h-[280px] rounded-2xl">
+                <div className={`max-lg:hidden w-full h-auto max-h-[220px] 2xl:max-h-[280px] ${navigation.value.paintEstimator == "3.1" || navigation.value.paintEstimator == "3.2" ? "3xl:max-h-[280px]" : " 3xl:max-h-[310px]"} rounded-2xl`}>
                   <img
                     src="/images/modals/3.png"
                     className="w-full object-fill 2xl:object-cover object-top h-full rounded-2xl"

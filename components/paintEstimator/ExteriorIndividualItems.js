@@ -46,8 +46,8 @@ const ExteriorIndividualItems = ({
 
   return (
     <>
-      <div className="pt-3 text-center">
-        <h2 className="text-[26px] font-bold text-[#333]">
+      <div className="text-center">
+        <h2 className="text-[25px] font-bold text-[#333]">
           If your a painter you can add extra items you&rsquo;re painting on the{" "}
           <strong>outside of the home.</strong>
         </h2>
@@ -56,7 +56,7 @@ const ExteriorIndividualItems = ({
         {estimator.value.exteriorIndividualItems?.map((item, idx) => (
           <div key={idx} className="flex max-lg:flex-col gap-5 relative">
             <div className="w-full lg:w-1/2">
-              <label className="block mb-2 text-base font-medium text-[#1F2937]">
+              <label className="block mb-1 text-base font-medium text-[#1F2937]">
                 Item {idx + 1}
               </label>
               <InputFieldSecondary
@@ -79,7 +79,7 @@ const ExteriorIndividualItems = ({
               />
             </div>
             <div className="w-full lg:w-1/2">
-              <label className="block mb-2 text-base font-medium text-[#1F2937]">
+              <label className="block mb-1 text-base font-medium text-[#1F2937]">
                 Price {idx + 1}
               </label>
               <InputFieldSecondary

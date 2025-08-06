@@ -122,7 +122,7 @@ const PropertyAddress = ({
           Get a Real Price on house painting. Enter address for instant quote.
         </h2>
       </div>
-      <div className="relative w-full">
+      <div className="relative w-full max-w-[820px]">
         <input
           type="text"
           placeholder="3976 First St., Glendale CA, 98765"
