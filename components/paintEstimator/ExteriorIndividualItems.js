@@ -52,10 +52,10 @@ const ExteriorIndividualItems = ({
           <strong>outside of the home.</strong>
         </h2>
       </div>
-      <div className="flex flex-col gap-6 w-full">
+      <div className="flex flex-col gap-6 w-full 3xl:items-center">
         {estimator.value.exteriorIndividualItems?.map((item, idx) => (
-          <div key={idx} className="flex max-lg:flex-col gap-5 relative">
-            <div className="w-full lg:w-1/2">
+          <div key={idx} className="flex max-lg:flex-col gap-5 2xl:px-4 relative 3xl:w-[780px]">
+            <div className="w-full lg:w-1/2 lg:max-w-[380px]">
               <label className="block mb-1 text-base font-medium text-[#1F2937]">
                 Item {idx + 1}
               </label>
@@ -78,7 +78,7 @@ const ExteriorIndividualItems = ({
                 id={`exteriorIndividualItems${idx}-title`}
               />
             </div>
-            <div className="w-full lg:w-1/2">
+            <div className="w-full lg:w-1/2 lg:max-w-[380px]">
               <label className="block mb-1 text-base font-medium text-[#1F2937]">
                 Price {idx + 1}
               </label>
