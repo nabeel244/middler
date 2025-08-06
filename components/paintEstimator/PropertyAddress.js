@@ -136,7 +136,7 @@ const PropertyAddress = ({
             ),
             setUserTyped(true)
           )}
-          className="w-full px-5 py-3 rounded-[20px] border text-color-grayone border-[#656e81] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-[13px] lg:text-lg font-medium text-[#1F2937]"
+          className="w-full px-5 py-3 rounded-[20px] border text-color-grayone border-[#656e81] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-base lg:text-lg font-medium text-[#1F2937]"
         />
 
         {dropdown === "clientPropertyAddress" && (
