@@ -64,6 +64,7 @@ import GET_CALCULATIONS from "../_mutations/getCalculations";
 ///// QUERIES
 import GET_USER from "../_queries/fetchUser";
 
+import Confirmation from "@/components/modals/Confirmation";
 import GiftPopup from "@/components/modals/GiftPopup";
 import { validateEmail, validateNumber, validatePrice } from "@/helpers/forms";
 import { FaArrowLeft } from "react-icons/fa";
@@ -508,6 +509,8 @@ const PaintEstimator = ({ }) => {
       setLastModal(popup);
     }
   }, [popup, lastModal]);
+
+  const [isConfirmOpen, setIsConfirmOpen] = useState(false)
 
   return (
     <>
@@ -1147,30 +1150,11 @@ const PaintEstimator = ({ }) => {
             previewEstimate={previewEstimate}
             trackFormEvents={trackFormEvents}
             changeEdit={changeEdit}
+            setIsConfirmOpen={setIsConfirmOpen}
           />
         )}
-        {/* {popup == "giftCard" && (
-          <GiftCard
-            dispatch={dispatch}
-            changeUserValue={changeUserValue}
-            resetUser={resetUser}
-            user={user}
-            changePopup={changePopup}
-            changePopupType={changePopupType}
-            navigation={navigation}
-            estimator={estimator}
-            validateEmail={validateEmail}
-            login={login}
-            paintEstimateFieldsRequired={paintEstimateFieldsRequired}
-            changePaintEstimator={changePaintEstimator}
-            changeEstimatorValue={changeEstimatorValue}
-            paintEstimateSteps={paintEstimateSteps}
-            setRequired={setRequired}
-            previewEstimate={previewEstimate}
-            trackFormEvents={trackFormEvents}
-            changeEdit={changeEdit}
-          />
-        )} */}
+
+        {isConfirmOpen && <Confirmation isConfirmOpen={isConfirmOpen} setIsConfirmOpen={setIsConfirmOpen} />}
         {popup == "giftCard" && (
           <GiftPopup
             dispatch={dispatch}

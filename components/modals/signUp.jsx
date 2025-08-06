@@ -5,7 +5,6 @@ import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useCookies } from "react-cookie";
 
-//// MUTATIONS
 import SAVE_ESTIMATE from "@/app/_mutations/saveEstimate";
 import InputFieldText2 from "../form/InputFieldText2";
 
@@ -28,6 +27,7 @@ const SignUp = ({
   previewEstimate,
   trackFormEvents,
   changeEdit,
+  setIsConfirmOpen,
 }) => {
   const router = useRouter();
   const [message, setMessage] = useState("");
@@ -42,17 +42,14 @@ const SignUp = ({
     "estimateID",
   ]);
 
-  ///// MUTATIONS
   const [
     saveEstimate,
     { dataSaveEstimate, loadingSaveEstimate, errorSaveEstimate },
   ] = useMutation(SAVE_ESTIMATE);
 
   useEffect(() => {
-    // Disable body scroll when popup is active
     document.body.style.overflow = "hidden";
 
-    // Re-enable on unmount
     return () => {
       document.body.style.overflow = "auto";
     };
@@ -100,7 +97,6 @@ const SignUp = ({
         });
         dispatch(changePopup(""));
       } else {
-        // Fallback to generic error message
         setMessage(error.message || "Something went wrong.");
       }
     }
@@ -168,10 +164,11 @@ const SignUp = ({
             </div>
           )}
           <a
-            onClick={() => (
-              sessionStorage.setItem("noEmailEntered", "true"),
-              (window.location.href = "/")
-            )}
+            // onClick={() => (
+            //   sessionStorage.setItem("noEmailEntered", "true"),
+            //   (window.location.href = "/")
+            // )}
+            onClick={() => setIsConfirmOpen(true)}
             className="text-neutral-500 underline-offset-4 text-lg lg:text-xl leading-[22px] lg:leading-7 underline hover:text-primary transition-all duration-200 ease-in-out cursor-pointer"
           >
             No Thanks
