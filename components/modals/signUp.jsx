@@ -120,8 +120,8 @@ const SignUp = ({
         >
           <img src="/images/fav.png" alt="" className="max-w-20 lg:max-w-24" />
           <h2 className="text-center font-bold text-[22px] lg:text-[24px] leading-[1.3] text-black">
-            Enter your email to receive the estimate &amp; we'll keep it sent to
-            your email as well
+            Enter your email to receive your estimate 
+            {/* &amp; we'll keep it sent to your email as well */}
             {/* Keep These Prices &amp; Get Details of This Project Sent To Your Email */}
           </h2>
 
@@ -145,7 +145,7 @@ const SignUp = ({
                 onClick={() => (href ? router.push(href) : null)}
                 className="bg-gradient-to-r from-primary to-[#6E7EFF] text-white uppercase rounded-xl py-3 px-4 min-w-[150px] cursor-pointer hover:to-primary transition-all duration-300 ease-in-out"
               >
-                send
+                Get Estimate
               </button>
             </div>
           </div>
