@@ -24,7 +24,7 @@ const GiftPopup = ({
     if (!isMainPage) {
       try {
         localStorage.setItem("giftCardDismissed", "true");
-      } catch {}
+      } catch { }
       dispatch(changePopup(""));
     } else {
       setShowPopUp(false);
@@ -35,14 +35,14 @@ const GiftPopup = ({
     let stored = null;
     try {
       stored = localStorage.getItem("giftCounterDeadline");
-    } catch {}
+    } catch { }
     let deadline = stored ? parseInt(stored, 10) : NaN;
     const now = Date.now();
     if (!deadline || Number.isNaN(deadline) || deadline <= now) {
       deadline = now + INITIAL_SECONDS * 1000;
       try {
         localStorage.setItem("giftCounterDeadline", String(deadline));
-      } catch {}
+      } catch { }
     }
     deadlineRef.current = deadline;
 
@@ -59,7 +59,7 @@ const GiftPopup = ({
         setSecondsLeft(INITIAL_SECONDS);
         try {
           localStorage.setItem("giftCounterDeadline", String(next));
-        } catch {}
+        } catch { }
       }
     };
 
@@ -126,13 +126,18 @@ const GiftPopup = ({
     setError("");
     setSubmitting(true);
     try {
+      const query = `
+    mutation {
+      subscribeUser(email: "${email}") 
+    }
+  `;
       const res = await fetch(getGraphQLEndpoint(), {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          query: SEND_THANK_YOU_MUTATION,
-          variables: { email: email.trim().toLowerCase() },
+          query: query
         }),
+
       });
       const json = await res.json();
       if (!res.ok || json.errors) {
@@ -222,9 +227,8 @@ const GiftPopup = ({
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0, y: 8 }}
                           transition={{ duration: 0.2 }}
-                          className={`w-full relative bg-[#f3f3f3] border rounded-lg flex items-center justify-center p-1 transition-colors duration-200 ${
-                            error ? "border-red-500" : "border-stone-300"
-                          }`}
+                          className={`w-full relative bg-[#f3f3f3] border rounded-lg flex items-center justify-center p-1 transition-colors duration-200 ${error ? "border-red-500" : "border-stone-300"
+                            }`}
                         >
                           <input
                             type="email"
@@ -265,7 +269,7 @@ const GiftPopup = ({
                           className="w-full relative bg-[#f3f3f3] border border-stone-300 rounded-lg p-4 text-left"
                         >
                           <p className="text-sm sm:text-base">
-                            Thanks. We’ve emailed you a confirmation.
+                            Thanks. We’ve sent you discount email.
                           </p>
                         </motion.div>
                       )}

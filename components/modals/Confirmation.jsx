@@ -28,23 +28,24 @@ const Confirmation = ({ setIsConfirmOpen, isConfirmOpen }) => {
           className="w-auto max-w-[320px] lg:max-w-[480px] rounded-xl bg-gradient-to-b from-[#EAF5FF] to-[#FAFAFA] text-black p-6 sm:px-10 sm:py-8 shadow-lg flex flex-col items-center gap-4 sm:gap-6 lg:gap-7"
         >
           <h2 className="text-center font-bold text-[22px] lg:text-[24px] leading-[1.3] text-black">
-            Do you want to continue?
+            Are you sure you don't want to save your estimate?
           </h2>
           <div className="flex flex-wrap items-center justify-center gap-3">
+      
             <button
+              onClick={() => setIsConfirmOpen(false)}
+              className="bg-gradient-to-r from-primary to-[#6E7EFF] text-white hover:to-primary px-10 py-2 font-medium rounded-lg"
+            >
+               Save Estimate
+            </button>
+              <button
               onClick={() => (
                 sessionStorage.setItem("noEmailEntered", "true"),
                 (window.location.href = "/")
               )}
-              className="bg-red-500 border border-red-500 text-white px-10 py-2 font-medium rounded-lg"
+              className="bg-gray-500 text-black border border-gray-100 px-10 py-2 font-medium rounded-lg"
             >
-              Yes
-            </button>
-            <button
-              onClick={() => setIsConfirmOpen(false)}
-              className="bg-green-500 border border-green-500 text-white px-10 py-2 font-medium rounded-lg"
-            >
-              No
+              Leave
             </button>
           </div>
         </motion.div>
