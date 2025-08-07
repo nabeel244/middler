@@ -24,7 +24,7 @@ const GiftPopup = ({
     if (!isMainPage) {
       try {
         localStorage.setItem("giftCardDismissed", "true");
-      } catch { }
+      } catch {}
       dispatch(changePopup(""));
     } else {
       setShowPopUp(false);
@@ -35,14 +35,14 @@ const GiftPopup = ({
     let stored = null;
     try {
       stored = localStorage.getItem("giftCounterDeadline");
-    } catch { }
+    } catch {}
     let deadline = stored ? parseInt(stored, 10) : NaN;
     const now = Date.now();
     if (!deadline || Number.isNaN(deadline) || deadline <= now) {
       deadline = now + INITIAL_SECONDS * 1000;
       try {
         localStorage.setItem("giftCounterDeadline", String(deadline));
-      } catch { }
+      } catch {}
     }
     deadlineRef.current = deadline;
 
@@ -59,7 +59,7 @@ const GiftPopup = ({
         setSecondsLeft(INITIAL_SECONDS);
         try {
           localStorage.setItem("giftCounterDeadline", String(next));
-        } catch { }
+        } catch {}
       }
     };
 
@@ -135,9 +135,8 @@ const GiftPopup = ({
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          query: query
+          query: query,
         }),
-
       });
       const json = await res.json();
       if (!res.ok || json.errors) {
@@ -195,7 +194,7 @@ const GiftPopup = ({
                   alt=""
                 />
                 <h1 className="text-[#003058] text-2xl sm:text-4xl lg:text-[30px] font-bold lg:leading-[30px] uppercase">
-                  10% Off Five Star Painter
+                  10% Off Five Star Painting
                 </h1>
                 <p className="text-xs sm:text-sm lg:text-base text-[#0B0B0B] sm:mb-4 lg:leading-[22px]">
                   Book now and save on your first completed service up to $500
@@ -227,8 +226,9 @@ const GiftPopup = ({
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0, y: 8 }}
                           transition={{ duration: 0.2 }}
-                          className={`w-full relative bg-[#f3f3f3] border rounded-lg flex items-center justify-center p-1 transition-colors duration-200 ${error ? "border-red-500" : "border-stone-300"
-                            }`}
+                          className={`w-full relative bg-[#f3f3f3] border rounded-lg flex items-center justify-center p-1 transition-colors duration-200 flex-col sm:flex-row  gap-2  ${
+                            error ? "border-red-500" : "border-stone-300"
+                          }`}
                         >
                           <input
                             type="email"
@@ -245,7 +245,7 @@ const GiftPopup = ({
                                   "Please enter a valid email address.*"
                                 );
                             }}
-                            className="bg-transparent text-black outline-none! shadow-none! grow pl-5"
+                            className="flex-1 w-full bg-transparent text-black outline-none! shadow-none! grow pl-5"
                             aria-invalid={!!error}
                             disabled={submitting}
                           />
@@ -253,7 +253,7 @@ const GiftPopup = ({
                             onClick={handleSubmit}
                             disabled={submitting}
                             aria-busy={submitting}
-                            className="bg-blue-500 hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 ease-in-out py-2 px-4 rounded-md align-middle text-white"
+                            className="w-full sm:w-auto bg-blue-500 hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 ease-in-out py-2 px-4 rounded-md align-middle text-white"
                           >
                             {submitting ? "Sending..." : "Get Offer"}
                           </button>
