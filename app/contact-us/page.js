@@ -122,7 +122,7 @@ const page = () => {
                     >
                       support@middler.com
                     </a>
-                    <p className="text-neutral-400 text-xs">
+                    <p className="text-black text-xs">
                       One of our expert Middler representatives will reach out
                       to you within 1 business day *
                     </p>
