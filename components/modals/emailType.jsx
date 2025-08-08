@@ -254,13 +254,16 @@ const EmailType = ({
             transition={{ type: "spring", stiffness: 260, damping: 25 }}
             className="w-auto max-w-[360px] sm:max-w-[320px] lg:max-w-[768px] rounded-xl bg-gradient-to-b from-[#EAF5FF] to-[#FAFAFA] text-primary px-10 py-8 lg:py-12 shadow-lg space-y-6 lg:space-y-7 relative"
           >
-            <h2 className="text-center text-black font-bold text-[22px] sm:text-[26px] lg:text-[40px] leading-[1.2]">
-              One last step before your Free Middler Quote!
+            <h2 className="text-center text-[#043DD7] font-bold text-[22px] sm:text-[26px] lg:text-[40px] leading-[1.2]">
+              One last Step
             </h2>
+            <h3 className="text-center text-[#1F2937] font-bold text-[14px] sm:text-[14px]">
+              Who Are You?
+            </h3>
 
-            <div className="h-3 lg:h-4 w-full bg-primary rounded-full overflow-hidden">
+            {/* <div className="h-3 lg:h-4 w-full bg-primary rounded-full overflow-hidden">
               <div className="h-full bg-primary" />
-            </div>
+            </div> */}
 
             <div className="grid grid-cols-2 sm:grid-rows-2 *:max-lg:h-24 gap-3 lg:gap-7">
               {[
@@ -343,6 +346,15 @@ const EmailType = ({
                 </div>
               )}
             </div>
+
+            <div className="h-3 lg:h-4 w-full bg-primary rounded-full overflow-hidden">
+              <div className="h-full bg-primary" />
+            </div>
+
+            <h3 className="text-center text-[#043DD7] font-bold text-[22px] sm:text-[26px] leading-[1.2]">
+              🎉Your Free Estimate is one step away!
+            </h3>
+
             {loading == "sendEstimate" && (
               <motion.div
                 key="loading"

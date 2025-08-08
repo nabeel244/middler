@@ -22,7 +22,7 @@ const GetStarted = () => {
                   <div className="relative min-h-[250px] sm:max-lg:min-h-[392px] max-lg:w-full">
                     <img
                       src="/images/mobile_mockup2.png"
-                      className="max-w-[342px] md:max-w-[480px] xl:max-w-[680px] max-lg:absolute left-1/2 max-lg:-translate-x-1/2"
+                      className="max-w-[400px] md:max-w-[480px] xl:max-w-[680px] max-lg:absolute left-1/2 max-lg:-translate-x-1/2"
                       alt=""
                     />
                     {/* <div className="absolute -bottom-1 right-0 w-full h-[12%] bg-gradient-to-t from-white from-10% to-transparent" />

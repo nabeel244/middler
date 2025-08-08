@@ -269,7 +269,7 @@ const GiftPopup = ({
                           className="w-full relative bg-[#f3f3f3] border border-stone-300 rounded-lg p-4 text-left"
                         >
                           <p className="text-sm sm:text-base">
-                            Thanks. We’ve sent you discount email.
+                            Thanks! We sent you an eamil with your discount.
                           </p>
                         </motion.div>
                       )}
@@ -317,7 +317,7 @@ const GiftPopup = ({
               </p>
             </motion.div>
 
-            <div className="size-full bg-[url('/images/modals/gift.png')] bg-cover bg-no-repeat scale-y-[1.02] min-h-[180px] sm:min-h-[215px]" />
+            <div className="w-full sm:size-full bg-[url('/images/modals/gift.png')] bg-cover bg-no-repeat sm:scale-y-[1.02] aspect-[16/9] sm:min-h-[215px]" />
           </motion.div>
         </motion.div>
       )}
