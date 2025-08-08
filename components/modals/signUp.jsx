@@ -78,7 +78,7 @@ const SignUp = ({
         event: "estimate_success",
         step: 2,
       });
-      dispatch(changePopup(""));
+      dispatch(changePopup("giftCard"));
       setMessage(response.data.saveEstimate.message);
     } catch (error) {
       console.log(error);
@@ -95,7 +95,7 @@ const SignUp = ({
           event: "estimate_signup_success",
           step: 2,
         });
-        dispatch(changePopup(""));
+        dispatch(changePopup("giftCard"));
       } else {
         setMessage(error.message || "Something went wrong.");
       }
@@ -141,10 +141,7 @@ const SignUp = ({
               className="flex items-center justify-center"
               onClick={() => submitSaveEstimate()}
             >
-              <button
-                onClick={() => (href ? router.push(href) : null)}
-                className="bg-gradient-to-r from-primary to-[#6E7EFF] text-white uppercase rounded-xl py-3 px-4 min-w-[150px] cursor-pointer hover:to-primary transition-all duration-300 ease-in-out"
-              >
+              <button className="bg-gradient-to-r from-primary to-[#6E7EFF] text-white uppercase rounded-xl py-3 px-4 min-w-[150px] cursor-pointer hover:to-primary transition-all duration-300 ease-in-out">
                 Get Estimate
               </button>
             </div>
@@ -164,10 +161,6 @@ const SignUp = ({
             </div>
           )}
           <a
-            // onClick={() => (
-            //   sessionStorage.setItem("noEmailEntered", "true"),
-            //   (window.location.href = "/")
-            // )}
             onClick={() => setIsConfirmOpen(true)}
             className="text-neutral-500 underline-offset-4 text-lg lg:text-xl leading-[22px] lg:leading-7 underline hover:text-primary transition-all duration-200 ease-in-out cursor-pointer"
           >

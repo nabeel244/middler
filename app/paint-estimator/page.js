@@ -72,7 +72,7 @@ import StepSync from "./StepSync";
 
 const allCountries = getCountries();
 
-const PaintEstimator = ({}) => {
+const PaintEstimator = ({ }) => {
   const dispatch = useDispatch();
   const router = useRouter();
   const businessEmailRef = useRef();
@@ -549,11 +549,10 @@ const PaintEstimator = ({}) => {
                   <img src="/images/modals/team.png" alt="" />
                 </div>
                 <div
-                  className={`${
-                    navigation.value.paintEstimator == "2.2"
+                  className={`${navigation.value.paintEstimator == "2.2"
                       ? "px-0"
                       : "lg:px-5"
-                  } w-full`}
+                    } w-full`}
                 >
                   <div className="px-4 lg:px-11 xl:px-2 py-[30px] lg:py-6 flex flex-col items-center justify-center gap-[30px] bg-white shadow-[0_6px_46px] shadow-black/20 rounded-3xl lg:rounded-[31px] relative">
                     {/* <button
@@ -1079,12 +1078,11 @@ const PaintEstimator = ({}) => {
                 </div>
 
                 <div
-                  className={`max-lg:hidden w-full h-auto max-h-[220px] 2xl:max-h-[280px] ${
-                    navigation.value.paintEstimator == "3.1" ||
-                    navigation.value.paintEstimator == "3.2"
+                  className={`max-lg:hidden w-full h-auto max-h-[220px] 2xl:max-h-[280px] ${navigation.value.paintEstimator == "3.1" ||
+                      navigation.value.paintEstimator == "3.2"
                       ? "3xl:max-h-[280px]"
                       : " 3xl:max-h-[310px]"
-                  } rounded-2xl`}
+                    } rounded-2xl`}
                 >
                   <img
                     src="/images/modals/3.png"
@@ -1194,6 +1192,7 @@ const PaintEstimator = ({}) => {
           <GiftPopup
             dispatch={dispatch}
             changePopup={changePopup}
+            showPopUp={true}
             isMainPage={false}
           />
         )}
