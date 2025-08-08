@@ -72,7 +72,7 @@ import StepSync from "./StepSync";
 
 const allCountries = getCountries();
 
-const PaintEstimator = ({ }) => {
+const PaintEstimator = ({}) => {
   const dispatch = useDispatch();
   const router = useRouter();
   const businessEmailRef = useRef();
@@ -484,10 +484,25 @@ const PaintEstimator = ({ }) => {
 
   const orderedSteps = [
     "1",
-    "2", "2.1", "2.2", "2.3", "2.4", "2.5",
-    "3", "3.1", "3.2", "3.3", "3.4",
-    "4", "4.1", "4.2", "4.3", "4.4", "4.5", "4.6",
-    "5"
+    "2",
+    "2.1",
+    "2.2",
+    "2.3",
+    "2.4",
+    "2.5",
+    "3",
+    "3.1",
+    "3.2",
+    "3.3",
+    "3.4",
+    "4",
+    "4.1",
+    "4.2",
+    "4.3",
+    "4.4",
+    "4.5",
+    "4.6",
+    "5",
   ];
 
   const goBack = () => {
@@ -510,7 +525,7 @@ const PaintEstimator = ({ }) => {
     }
   }, [popup, lastModal]);
 
-  const [isConfirmOpen, setIsConfirmOpen] = useState(false)
+  const [isConfirmOpen, setIsConfirmOpen] = useState(false);
 
   return (
     <>
@@ -524,14 +539,22 @@ const PaintEstimator = ({ }) => {
           {navigation.value.paintEstimator != "5" && (
             <>
               <div className="max-lg:hidden mt-[64px] bg-cover bg-center bg-no-repeat bg-[url('/images/modals/1.png')] rounded-2xl" />
-              <div className={`w-full flex items-center flex-col justify-between gap-5 2xl:gap-4`}>
+              <div
+                className={`w-full flex items-center flex-col justify-between gap-5 2xl:gap-4`}
+              >
                 <Navbar />
                 <Progress />
 
                 <div className="lg:hidden">
                   <img src="/images/modals/team.png" alt="" />
                 </div>
-                <div className={`${navigation.value.paintEstimator == "2.2" ? "px-0" : "lg:px-5"} w-full`}>
+                <div
+                  className={`${
+                    navigation.value.paintEstimator == "2.2"
+                      ? "px-0"
+                      : "lg:px-5"
+                  } w-full`}
+                >
                   <div className="px-4 lg:px-11 xl:px-2 py-[30px] lg:py-6 flex flex-col items-center justify-center gap-[30px] bg-white shadow-[0_6px_46px] shadow-black/20 rounded-3xl lg:rounded-[31px] relative">
                     {/* <button
                       onClick={goBack}
@@ -1055,7 +1078,14 @@ const PaintEstimator = ({ }) => {
                   </div>
                 </div>
 
-                <div className={`max-lg:hidden w-full h-auto max-h-[220px] 2xl:max-h-[280px] ${navigation.value.paintEstimator == "3.1" || navigation.value.paintEstimator == "3.2" ? "3xl:max-h-[280px]" : " 3xl:max-h-[310px]"} rounded-2xl`}>
+                <div
+                  className={`max-lg:hidden w-full h-auto max-h-[220px] 2xl:max-h-[280px] ${
+                    navigation.value.paintEstimator == "3.1" ||
+                    navigation.value.paintEstimator == "3.2"
+                      ? "3xl:max-h-[280px]"
+                      : " 3xl:max-h-[310px]"
+                  } rounded-2xl`}
+                >
                   <img
                     src="/images/modals/3.png"
                     className="w-full object-fill 2xl:object-cover object-top h-full rounded-2xl"
@@ -1103,7 +1133,7 @@ const PaintEstimator = ({ }) => {
             />
           )}
         </div>
-      </main >
+      </main>
       <Suspense fallback={null}>
         <StepSync />
       </Suspense>
@@ -1154,7 +1184,12 @@ const PaintEstimator = ({ }) => {
           />
         )}
 
-        {isConfirmOpen && <Confirmation isConfirmOpen={isConfirmOpen} setIsConfirmOpen={setIsConfirmOpen} />}
+        {isConfirmOpen && (
+          <Confirmation
+            isConfirmOpen={isConfirmOpen}
+            setIsConfirmOpen={setIsConfirmOpen}
+          />
+        )}
         {popup == "giftCard" && (
           <GiftPopup
             dispatch={dispatch}
