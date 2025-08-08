@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { interiorItemsToBePainted } from "@/app/constants";
 
@@ -33,7 +33,11 @@ const InteriorItems = ({
       </div>
       <div className="rounded-2xl lg:p-3 flex max-lg:flex-col flex-wrap gap-y-3 lg:justify-center items-center 3xl:justify-start border border-[#E5E7EB] w-full xl:w-[calc(100%_+_38px)] max-lg:divide-y max-lg:divide-[#E5E7EB] overflow-hidden">
         {interiorItemsToBePainted.map((item, idx) => (
-          <label key={idx} className={`flex items-center w-full lg:min-w-1/4 lg:w-fit 3xl:max-w-1/4 3xl:w-full grow gap-2 max-lg:p-3`}>
+          <label
+            key={idx}
+            // className={`flex items-center w-full lg:min-w-1/4 lg:w-fit 3xl:max-w-1/4 3xl:w-full grow gap-2 max-lg:p-3`}
+            className="flex items-center gap-2 max-lg:p-3 border border-transparent hover:border-gray-200 rounded-lg w-full lg:w-[217px]"
+          >
             <input
               type="checkbox"
               name="interiorItems"

@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { exteriorItemsToBePainted } from "@/app/constants";
 
@@ -33,7 +33,11 @@ const ExteriorItems = ({
       </div>
       <div className="rounded-2xl lg:-mx-5 2xl:mx-0 lg:p-3 flex max-lg:flex-col lg:flex-wrap gap-3 lg:justify-center lg:items-center border border-[#E5E7EB] w-full overflow-hidden max-lg:divide-y divide-[#E5E7EB]">
         {exteriorItemsToBePainted.map((item, idx) => (
-          <label key={idx} className={`flex items-center w-full max-lg:p-3 lg:w-fit grow gap-2 lg:nth-[6]:max-w-[207px]`}>
+          <label
+            key={idx}
+            //  className={`flex items-center w-full max-lg:p-3 lg:w-fit grow gap-2 lg:nth-[6]:max-w-[207px] `
+            className="flex items-center gap-2 max-lg:p-3 border border-transparent hover:border-gray-200 rounded-lg w-full lg:w-[220px]"
+          >
             <input
               type="checkbox"
               name="exteriorItems"
