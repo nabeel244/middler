@@ -474,8 +474,8 @@ const PaintEstimator = ({ }) => {
   }, [+navigation.value.paintEstimator]);
 
   useEffect(() => {
-    console.log("NODE", process.env.NODE_ENV);
-    console.log("GRAPHQL", process.env.NEXT_PUBLIC_GRAPHQL_PRODUCTION_ENDPOINT);
+    // console.log("NODE", process.env.NODE_ENV);
+    // console.log("GRAPHQL", process.env.NEXT_PUBLIC_GRAPHQL_PRODUCTION_ENDPOINT);
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
@@ -550,8 +550,8 @@ const PaintEstimator = ({ }) => {
                 </div>
                 <div
                   className={`${navigation.value.paintEstimator == "2.2"
-                      ? "px-0"
-                      : "lg:px-5"
+                    ? "px-0"
+                    : "lg:px-5"
                     } w-full`}
                 >
                   <div className="px-4 lg:px-11 xl:px-2 py-[30px] lg:py-6 flex flex-col items-center justify-center gap-[30px] bg-white shadow-[0_6px_46px] shadow-black/20 rounded-3xl lg:rounded-[31px] relative">
@@ -1079,9 +1079,9 @@ const PaintEstimator = ({ }) => {
 
                 <div
                   className={`max-lg:hidden w-full h-auto max-h-[220px] 2xl:max-h-[280px] ${navigation.value.paintEstimator == "3.1" ||
-                      navigation.value.paintEstimator == "3.2"
-                      ? "3xl:max-h-[280px]"
-                      : " 3xl:max-h-[310px]"
+                    navigation.value.paintEstimator == "3.2"
+                    ? "3xl:max-h-[280px]"
+                    : " 3xl:max-h-[310px]"
                     } rounded-2xl`}
                 >
                   <img
