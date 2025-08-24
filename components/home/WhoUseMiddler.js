@@ -13,25 +13,25 @@ const cards = [
   {
     span: "Interior",
     title: "Designers",
-    text: "Help clients budget more accurately for painting as part of a design package. Give them confidence in the numbers and your recommendations.",
+    text: "Show clients accurate interior painting cost as part of design packages.",
     icon: "chair.png",
   },
   {
-    span: "Home Owners",
+    span: "Homeowners",
     title: "& DIY’ers",
-    text: "Add painting estimates to your service offerings without the time-consuming math. Middler handles the numbers so you can focus on the job.",
+    text: "Estimate the cost to paint interior of house or exterior projects before hiring.",
     icon: "tools.png",
   },
   {
     span: "Painters",
-    title: "& Painting Crews",
-    text: "Whether you're solo or running a team, Middler helps you quote jobs quickly, look more professional, and win more work.",
+    title: "& Contractors",
+    text: "Win more jobs with professional, fast painting estimates.",
     icon: "brush.png",
   },
   {
-    span: "Real Estate",
-    title: "Agents & Property Managers",
-    text: "Need a quick quote before listing or renovating? Middler provides fast, reliable cost estimates to help guide decisions and close deals faster.",
+    span: "Real Estate Agents",
+    title: "& Property Managers",
+    text: "Need a quick cost to paint a room or an entire property before listing? Middler delivers in seconds.",
     icon: "house.png",
   },
 ];
@@ -44,13 +44,12 @@ const WhoUseMiddler = () => {
         <div className="flex flex-col gap-5 text-center">
           <Heading
             oh
-            heading="Who uses Middler?"
+            heading="Who Uses Middler?"
             highlight="Middler?"
             className="text-[26px]"
           />
           <p className="text-sm lg:text-2xl">
-            Middler is trusted by a wide range of professionals who need fast,
-            accurate painting estimates—without the hassle.
+            Middler is trusted by a wide range of professionals who need fast, accurate painting estimates—without the hassle.
           </p>
         </div>
       </div>
@@ -108,7 +107,9 @@ const WhoUseMiddler = () => {
                     <span className="text-primary">{card.span}</span>{" "}
                     {card.title}
                   </h3>
-                  <p className="text-sm leading-7">{card.text}</p>
+                    <p className="text-sm leading-7">
+                        {card.text}
+                    </p>
                 </div>
               </div>
             </SwiperSlide>

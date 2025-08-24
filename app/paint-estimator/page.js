@@ -529,9 +529,40 @@ const PaintEstimator = ({ }) => {
 
   return (
     <>
-      <Head>
-        <title>Estimate Page</title>
-      </Head>
+      <head>
+        <title>Free Paint Estimate Cost Calculator - Middler</title>
+
+        <meta property="og:site_name" content="Middler" />
+
+        <meta name="robots" content="index, follow" />
+
+        <meta name="description"
+              content="Free paint cost calculator to estimate interior & exterior house painting costs per square foot instantly." />
+
+        <meta property="og:title" content="Free Paint Estimate Cost Calculator - Middler" />
+
+        <meta property="og:type" content="website" />
+
+        <meta property="og:url" content="https://middler.com/paint-estimator" />
+
+        <meta property="og:image" content="https://middler.com/images/modals/3.png" />
+
+        <meta property="og:description"
+              content="Free paint cost calculator to estimate interior & exterior house painting costs per square foot instantly." />
+
+        <meta name="twitter:card" content="summary" />
+
+        <meta name="twitter:url" content="https://middler.com/" />
+
+        <meta name="twitter:title" content="Free Paint Estimate Cost Calculator - Middler" />
+
+        <meta name="twitter:description"
+              content="Free paint cost calculator to estimate interior & exterior house painting costs per square foot instantly." />
+
+        <meta name="twitter:image" content="https://middler.com/images/modals/3.png" />
+
+        <link rel="canonical" href="https://middler.com/paint-estimator" />
+      </head>
       <main
         className={`min-h-dvh h-full overflow-hidden w-full p-5 lg:p-3 xl:p-6 xl:py-5 bg-cover bg-no-repeat bg-center bg-[url('/images/modals/bg_1.png')]`}
       >
