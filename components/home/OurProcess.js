@@ -13,7 +13,7 @@ const OurProcess = () => {
     },
     {
       title: "Trust the Accuracy",
-      text: "Our AI-powered algorithm analyzes your inputs and instantly calculates local painting prices in your area.",
+      text: "We factor in local labor rates, paint coverage, and material costs to show the true cost to paint a house.",
     },
     {
       title: "Download & Share",

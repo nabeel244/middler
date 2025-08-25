@@ -9,8 +9,8 @@ const GetStarted = () => {
         <div className="row justify-center gap-y-10">
           <div className="lg:w-7/12 max-lg:px-8">
             <Heading
-              heading="Ready to Get The Price To Paint —Faster?"
-              highlight="Ready"
+              heading="Know the Cost of Painting a House Before You Begin"
+              highlight="Know the Cost"
               preheading="get started"
               className="text-[26px]"
             />
@@ -23,7 +23,7 @@ const GetStarted = () => {
                     <img
                       src="/images/mobile_mockup2.png"
                       className="max-w-[400px] md:max-w-[480px] xl:max-w-[680px] max-lg:absolute left-1/2 max-lg:-translate-x-1/2"
-                      alt=""
+                      alt="Paint Calculator | House Paint Estimate Cost"
                     />
                     {/* <div className="absolute -bottom-1 right-0 w-full h-[12%] bg-gradient-to-t from-white from-10% to-transparent" />
                     {[
@@ -59,9 +59,12 @@ const GetStarted = () => {
               <div className="max-lg:px-5 lg:col-start-1 lg:-col-end-1 lg:row-start-1 lg:-row-end-1 flex max-lg:flex-wrap justify-between items-end relative z-[1]">
                 <div className="lg:w-[30%] flex flex-col gap-5 max-lg:order-2 w-full max-lg:mt-8">
                   <p className="text-2xl max-lg:hidden">
-                    Know the true cost before the first brushstroke begins.{" "}
-                    <br />
-                    Middler gives you precise estimates with total clarity
+                    {/*Know the true cost before the first brushstroke begins.{" "}*/}
+                    {/*<br />*/}
+                    {/*Middler gives you precise estimates with total clarity*/}
+                    Wondering about the painting cost per square foot? Or need an{" "}
+                    {/*<br />*/}
+                    interior painting cost calculator for your next project? Middler gives you:
                   </p>
                   <div className="max-lg:flex justify-center max-lg:w-full">
                     <Button small>Try now</Button>

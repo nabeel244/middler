@@ -3,10 +3,10 @@ import { useEffect, useState } from "react";
 import { FaCheck } from "react-icons/fa";
 
 const ctaPoints = [
-  "Lightning-Fast Estimates",
-  "Data-Driven Accuracy",
-  "Branded, Professional Reports",
-  "Built for Painting Pros",
+  "Lightning-fast estimates",
+  "Data-driven accuracy",
+  "Professional, branded reports",
+  "Works for both small rooms and full house projects",
 ];
 
 const Cta2 = () => {
@@ -42,11 +42,14 @@ const Cta2 = () => {
                   <span className="text-primary">Ready</span> {smallSize ? "Ready to Win More Jobs—Faster?" : "to Make Smarter Project Decisions—Faster?"}
                 </h2>
                 <p className="text-sm lg:text-2xl text-left">
-                  {smallSize ? "Level up with Middler, the smart estimating tool! Whether you're planning a renovation, budgeting for a trip, or tracking expenses, Middler helps you get accurate estimates and stay on track. No spreadsheets. No guesswork. Just better results." : "Level up your next home project with Middler, the smart estimating tool built for everyone. Whether you're planning interiors, exteriors, or full renovations, Middler helps you create fast, accurate, and professional estimates—every single time."}
+                  {smallSize ? "Level up your next home project with Middler, the smart estimating tool built for everyone. Whether you're planning interiors, exteriors, or full renovations, Middler helps you create fast, accurate, and professional estimates—every single time." : "Level up your next home project with Middler, the smart estimating tool built for everyone. Whether you're planning interiors, exteriors, or full renovations, Middler helps you create fast, accurate, and professional estimates—every single time."}
                 </p>
+                <h3 className="font-bold text-2xl lg:text-[30px]">
+                  <span className="text-primary">Smarter, Faster </span>
+                  Painting Estimates
+                </h3>
                 {!smallSize && <p className="text-[11px] lg:text-2xl">
-                  No spreadsheets. No guesswork. Just trusted pricing you can
-                  count on.
+                  No spreadsheets. No rough guesses. Just the painting cost calculator built for speed, accuracy, and trust.
                 </p>}
                 <div className="flex max-lg:text-left flex-col gap-2.5 lg:gap-5 py-2.5">
                   {[...Array(2)].map((_, colIdx) => {
