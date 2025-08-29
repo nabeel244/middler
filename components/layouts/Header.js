@@ -45,8 +45,9 @@ const Header = () => {
           ref={dropdownRef}
           className="relative flex items-center justify-between bg-white shadow-[0_4px_32px_rgba(0,0,0,0.25)] px-5 py-4 lg:rounded-[10px]"
         >
-          <Link className="inline-block" href="/">
-            <img src="/images/logo.png" className="w-28 lg:w-48" alt="" />
+          <Link className="inline-block" href="/" aria-label="Middler Home">
+            <img src="/images/logo.png" className="w-28 lg:w-48" alt="Middler Home" />
+            <span className="sr-only">Go to Middler Homepage</span>
           </Link>
 
           <ul className="hidden lg:flex items-center gap-x-2">
