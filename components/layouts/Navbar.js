@@ -56,11 +56,12 @@ const Navbar = () => {
     <div
       className="max-lg:flex justify-between items-center max-lg:w-full relative"
     >
-      <Link href="/" className="block max-lg:grow max-lg:text-left">
+      <Link href="/" className="block max-lg:grow max-lg:text-left"
+            aria-label="Go to Middler Home">
         <img
           src={mobileImgs ? "/images/logo.png" : "/images/logo.png"}
           className="max-w-28 lg:max-w-[280px] inline-block"
-          alt=""
+          alt="Middler Logo"
         />
       </Link>
       <button
