@@ -73,9 +73,9 @@ const OurProcess = () => {
                             </span>
                             <div className="h-full w-0 border-2 border-dashed border-primary" />
                           </div>
-                          <h4 className=" mb-2 lg:mb-5 text-[13px] lg:text-2xl font-bold">
+                          <h3 className=" mb-2 lg:mb-5 text-[13px] lg:text-2xl font-bold">
                             {item.title}
-                          </h4>
+                          </h3>
                           <p className="font-normal text-xs lg:text-2xl">
                             {item.text}
                           </p>

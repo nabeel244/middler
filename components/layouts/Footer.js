@@ -22,7 +22,7 @@ const Footer = () => {
                 const Icon = social.icon;
                 return (
                   <li key={idx}>
-                    <Link href={social.url} className="text-white text-xl">
+                    <Link href={social.url} className="text-white text-xl" aria-label={social.alt}>
                       <Icon />
                     </Link>
                   </li>
@@ -31,9 +31,9 @@ const Footer = () => {
             </ul>
           </div>
           <div className="w-full lg:max-w-[151px] px-1">
-            <h5 className="text-[22px] leading-4 font-bold text-white mb-5">
+            <p className="text-[22px] leading-4 font-bold text-white mb-5">
               Links
-            </h5>
+            </p>
             <ul className="flex flex-col gap-3">
               {menuItems.filter((_, idx) => idx !== 1).map((item, idx) => (
                 <li key={idx}>
@@ -58,7 +58,7 @@ const Footer = () => {
               const Icon = social.icon;
               return (
                 <li key={idx}>
-                  <Link href={social.url} target="_blank" className="text-white text-xl">
+                  <Link href={social.url} target="_blank" className="text-white text-xl" aria-label={social.alt}>
                     <Icon />
                   </Link>
                 </li>

@@ -122,7 +122,7 @@ const Hero = () => {
               <img
                 src="/images/hero_img.png"
                 className="inline-block rounded-2xl object-contain max-h-[320px]"
-                alt=""
+                alt="cost to paint a house"
               />
             </div>
           </div>

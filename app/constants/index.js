@@ -28,11 +28,13 @@ export const socials = [
     name: "instagram",
     icon: RiInstagramFill,
     url: "https://www.instagram.com/middler_com/",
+    alt: "Middler Instagram"
   },
   {
     name: "linkedin",
     icon: FaLinkedinIn,
     url: "https://www.linkedin.com/company/middler/",
+    alt: "Middler LinkedIn"
   },
   // {
   //   name: "youtube",
