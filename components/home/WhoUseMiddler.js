@@ -8,6 +8,7 @@ import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Heading from "../ui/Heading";
 import SwiperBtn from "../ui/SwiperBtn";
+import Image from "next/image";
 
 const cards = [
   {
@@ -96,10 +97,12 @@ const WhoUseMiddler = () => {
                   }`}
               >
                 <div className="p-[15px] rounded-[10px] bg-primary/10">
-                  <img
+                  <Image
                     src={`/images/icons/${card.icon}`}
-                    className="size-10"
                     alt={`${card.span} ${card.title}`}
+                    width={40}
+                    height={40}
+                    className="size-10"
                   />
                 </div>
                 <div className="flex flex-col gap-2.5">

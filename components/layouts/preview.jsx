@@ -3,6 +3,8 @@ import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 import usePlacesService from "react-google-autocomplete/lib/usePlacesAutocompleteService";
 import "react-quill/dist/quill.snow.css";
+import Image from "next/image";
+
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
 ///// COMPONENTS
@@ -426,10 +428,12 @@ const Preview = ({
                       key={t}
                       className="rounded-[20px] lg:rounded-4xl bg-[#043DD7] hover:bg-primary-800 text-white px-3 lg:px-10 lg:py-5 py-2.5 inline-flex items-center gap-1 lg:gap-3 text-[10px] lg:text-lg font-semibold"
                     >
-                      <img
+                      <Image
                         src={`/images/icons/${icon}`}
-                        className="max-h-3.5 lg:max-h-7"
                         alt={t}
+                        width={28} // lg:max-h-7 ≈ 28px
+                        height={28}
+                        className="max-h-3.5 lg:max-h-7"
                       />
                       <span>{t}</span>
                     </button>

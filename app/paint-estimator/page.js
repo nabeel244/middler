@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 import { Suspense, useEffect, useRef, useState } from "react";
 import { useCookies } from "react-cookie";
 import { useDispatch, useSelector } from "react-redux";
-import { Image } from "next/image";
+import Image from "next/image";
 
 //// REDUCERS
 import { login } from "../_redux/features/authSlice";

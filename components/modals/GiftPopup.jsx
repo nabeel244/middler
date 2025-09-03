@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { IoMdClose } from "react-icons/io";
 import { toast } from "react-toastify";
+import Image from "next/image";
 
 const GiftPopup = ({
   dispatch,
@@ -183,15 +184,19 @@ const GiftPopup = ({
               </button>
 
               <div className="flex flex-col items-center relative gap-[15px] text-center">
-                <img
+                <Image
                   src="/images/logo.webp"
+                  alt="Company logo"
+                  width={128}
+                  height={60}
                   className="max-w-[124px] lg:max-w-[128px] mb-1 sm:mb-5"
-                  alt=""
                 />
-                <img
+                <Image
                   src="/images/tag.webp"
+                  alt="Company tag"
+                  width={65}
+                  height={40}
                   className="max-w-[40px] sm:max-w-[65px]"
-                  alt=""
                 />
                 <h1 className="text-[#003058] text-2xl sm:text-4xl lg:text-[30px] font-bold lg:leading-[30px] uppercase">
                   10% Off Five Star Painting

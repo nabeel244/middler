@@ -6,7 +6,7 @@ import { AnimatePresence, motion } from "motion/react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import { Image } from "next/image";
+import Image from "next/image";
 
 const Header = () => {
   const pathname = usePathname();

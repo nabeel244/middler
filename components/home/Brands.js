@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const Brands = () => {
   return (
     <section className="pt-5 lg:pb-10 order-1">
@@ -33,7 +35,13 @@ const Brands = () => {
               ].map((item, idx) => {
                 return item.img ? (
                   <div key={idx} className={`w-full ${item.className}`}>
-                    <img src={item.img} alt="" />
+                    <Image
+                      src={item.img}
+                      alt="Google Reviews of Middler"
+                      width={180}
+                      height={50}
+                      className="mx-auto"
+                    />
                   </div>
                 ) : (
                   <div

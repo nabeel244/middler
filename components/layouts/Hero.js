@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { useCookies } from "react-cookie";
 import usePlacesService from "react-google-autocomplete/lib/usePlacesAutocompleteService";
 import Button from "../ui/Button";
+import Image from "next/image";
 
 const Hero = () => {
   const router = useRouter();
@@ -119,10 +120,12 @@ const Hero = () => {
           </div>
           <div className="lg:w-6/12 max-lg:hidden">
             <div className="relative size-full text-right">
-              <img
+              <Image
                 src="/images/hero_img.webp"
-                className="inline-block rounded-2xl object-contain max-h-[320px]"
                 alt="cost to paint a house"
+                width={500}
+                height={320}
+                className="inline-block rounded-2xl object-contain max-h-[320px]"
               />
             </div>
           </div>

@@ -14,7 +14,15 @@ export default function ToastProvider() {
       pauseOnFocusLoss={false}
       draggable
       pauseOnHover
-      theme="colored"
+      theme="light"
+      toastStyle={{
+        backgroundColor: '#ffffff',
+        color: '#1f2937',
+        border: '1px solid #e5e7eb'
+      }}
+      progressStyle={{
+        backgroundColor: '#275ff6'
+      }}
     />
   );
 }

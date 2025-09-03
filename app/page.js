@@ -1,138 +1,145 @@
 "use client";
-import Brands from "@/components/home/Brands";
-import Estimate from "@/components/home/Estimate";
-import OurProcess from "@/components/home/OurProcess";
-import WhoUseMiddler from "@/components/home/WhoUseMiddler";
-import Cta from "@/components/layouts/Cta";
-import Cta2 from "@/components/layouts/Cta2";
-import Footer from "@/components/layouts/Footer";
-import GetStarted from "@/components/layouts/GetStarted";
+import dynamic from "next/dynamic";
+import { useEffect, useState, Suspense } from "react";
+
+// Critical above-the-fold components (load immediately)
 import Header from "@/components/layouts/Header";
 import Hero from "@/components/layouts/Hero";
-import TextSlider from "@/components/layouts/TextSlider";
-import GiftPopup from "@/components/modals/GiftPopup";
-import ToastProvider from "@/components/ToastProvider";
-import OpenPopup from "@/components/ui/OpenPopup";
-import { useEffect, useState } from "react";
+
+// Non-critical components (lazy loaded)
+const Brands = dynamic(() => import("@/components/home/Brands"), {
+  loading: () => <div className="h-32 bg-gray-100 animate-pulse" />,
+});
+
+const Estimate = dynamic(() => import("@/components/home/Estimate"), {
+  loading: () => <div className="h-64 bg-gray-100 animate-pulse" />,
+});
+
+const TextSlider = dynamic(() => import("@/components/layouts/TextSlider"), {
+  loading: () => <div className="h-20 bg-gradient-to-br from-primary-800 to-primary animate-pulse" />,
+});
+
+const GetStarted = dynamic(() => import("@/components/layouts/GetStarted"), {
+  loading: () => <div className="h-32 bg-gray-100 animate-pulse" />,
+});
+
+const Cta = dynamic(() => import("@/components/layouts/Cta"), {
+  loading: () => <div className="h-40 bg-gray-100 animate-pulse" />,
+});
+
+const OurProcess = dynamic(() => import("@/components/home/OurProcess"), {
+  loading: () => <div className="h-64 bg-gray-100 animate-pulse" />,
+});
+
+const WhoUseMiddler = dynamic(() => import("@/components/home/WhoUseMiddler"), {
+  loading: () => <div className="h-64 bg-gray-100 animate-pulse" />,
+});
+
+const Cta2 = dynamic(() => import("@/components/layouts/Cta2"), {
+  loading: () => <div className="h-40 bg-gray-100 animate-pulse" />,
+});
+
+const Footer = dynamic(() => import("@/components/layouts/Footer"), {
+  loading: () => <div className="h-64 bg-gray-900 animate-pulse" />,
+});
+
+// Heavy modal components (only load when needed)
+const GiftPopup = dynamic(() => import("@/components/modals/GiftPopup"));
+const OpenPopup = dynamic(() => import("@/components/ui/OpenPopup"));
+const ToastProvider = dynamic(() => import("@/components/ToastProvider"));
 
 const Home = () => {
   const [showPopUp, setShowPopUp] = useState(false);
+  const [isClient, setIsClient] = useState(false);
+
+  // Optimized useEffect - defer sessionStorage access
   useEffect(() => {
-    const saved = sessionStorage.getItem("noEmailEntered");
-    if (saved) {
-      setShowPopUp(saved);
-      sessionStorage.removeItem("noEmailEntered");
-    } else {
-    }
-  }, []);
-
-    // Organization Schema Data
-    const organizationSchema = {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "Middler",
-        "alternateName": "Middler",
-        "url": "https://middler.com/",
-        "logo": "https://middler.com/images/logo.webp",
-        "sameAs": [
-            "https://www.linkedin.com/company/middler/",
-            "https://www.instagram.com/middler_com/"
-        ]
-    };
-
-    // Product Schema Data
-    const productSchema = {
-        "@context": "https://schema.org/",
-        "@type": "Product",
-        "name": "Paint Cost Estimate Calculator",
-        "image": "https://middler.com/images/mobile_mockup2.webp",
-        "description": "Plan your painting project with confidence. Middler's paint calculator gives detailed cost estimates for interior & exterior house painting, including paint, material & labor.",
-        "brand": {
-            "@type": "Brand",
-            "name": "Middler"
+    // Use setTimeout to defer non-critical operations
+    const timer = setTimeout(() => {
+      setIsClient(true);
+      try {
+        const saved = sessionStorage.getItem("noEmailEntered");
+        if (saved) {
+          setShowPopUp(saved);
+          sessionStorage.removeItem("noEmailEntered");
         }
-    };
+      } catch (error) {
+        console.warn("SessionStorage access failed:", error);
+      }
+    }, 100); // Small delay to prevent blocking
+
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <>
-        <head>
-        <title>Paint Calculator | House Paint Estimate Cost - Middler</title>
-        <meta property="og:site_name" content="Middler" />
+      {/* Critical above-the-fold content */}
+      <Header />
 
-        <meta name="robots" content="index, follow" />
-
-        <meta name="description"
-              content="Plan your painting project with confidence. Middler’s paint calculator gives detailed cost estimates for interior & exterior house painting, including paint, material & labor." />
-
-        <meta property="og:title" content="Paint Calculator | House Paint Estimate Cost - Middler" />
-
-        <meta property="og:type" content="website" />
-
-        <meta property="og:url" content="https://middler.com/" />
-
-        <meta property="og:image" content="https://middler.com/images/mobile_mockup2.webp" />
-
-        <meta property="og:description"
-              content="Plan your painting project with confidence. Middler’s paint calculator gives detailed cost estimates for interior & exterior house painting, including paint, material & labor." />
-
-        <meta name="twitter:card" content="summary" />
-
-        <meta name="twitter:url" content="https://middler.com/" />
-
-        <meta name="twitter:title" content="Paint Calculator | House Paint Estimate Cost - Middler" />
-
-        <meta name="twitter:description"
-              content="Plan your painting project with confidence. Middler’s paint calculator gives detailed cost estimates for interior & exterior house painting, including paint, material & labor." />
-
-        <meta name="twitter:image" content="https://middler.com/images/mobile_mockup2.webp" />
-
-        <link rel="canonical" href="https://middler.com/" />
-
-        {/* Organization Schema Script */}
-        <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{
-                __html: JSON.stringify(organizationSchema)
-            }}
-        />
-
-        {/* Product Schema Script */}
-        <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{
-                __html: JSON.stringify(productSchema)
-            }}
-        />
-        </head>
-
-        <Header />
-
-      {showPopUp && (
-        <GiftPopup
-          showPopUp={showPopUp}
-          setShowPopUp={setShowPopUp}
-          isMainPage={true}
-        />
+      {/* Conditional popup - only render when needed */}
+      {isClient && showPopUp && (
+        <Suspense fallback={null}>
+          <GiftPopup
+            showPopUp={showPopUp}
+            setShowPopUp={setShowPopUp}
+            isMainPage={true}
+          />
+        </Suspense>
       )}
 
       <main>
+        {/* Critical content first */}
         <Hero />
+        
+        {/* Below-the-fold content with lazy loading */}
         <div className="flex flex-col">
-          <Estimate />
-          <Brands />
+          <Suspense fallback={<div className="h-64 bg-gray-100 animate-pulse" />}>
+            <Estimate />
+          </Suspense>
+          <Suspense fallback={<div className="h-32 bg-gray-100 animate-pulse" />}>
+            <Brands />
+          </Suspense>
         </div>
-        <TextSlider />
-        <GetStarted />
-        <Cta />
-        <OurProcess />
-        <WhoUseMiddler />
-        <Cta2 />
+        
+        <Suspense fallback={<div className="h-20 bg-gradient-to-br from-primary-800 to-primary animate-pulse" />}>
+          <TextSlider />
+        </Suspense>
+        
+        <Suspense fallback={<div className="h-32 bg-gray-100 animate-pulse" />}>
+          <GetStarted />
+        </Suspense>
+        
+        <Suspense fallback={<div className="h-40 bg-gray-100 animate-pulse" />}>
+          <Cta />
+        </Suspense>
+        
+        <Suspense fallback={<div className="h-64 bg-gray-100 animate-pulse" />}>
+          <OurProcess />
+        </Suspense>
+        
+        <Suspense fallback={<div className="h-64 bg-gray-100 animate-pulse" />}>
+          <WhoUseMiddler />
+        </Suspense>
+        
+        <Suspense fallback={<div className="h-40 bg-gray-100 animate-pulse" />}>
+          <Cta2 />
+        </Suspense>
       </main>
 
-      <Footer />
+      <Suspense fallback={<div className="h-64 bg-gray-900 animate-pulse" />}>
+        <Footer />
+      </Suspense>
 
-      <OpenPopup showPopUp={showPopUp} setShowPopUp={setShowPopUp} />
-      <ToastProvider />
+      {/* Non-critical components */}
+      {isClient && (
+        <Suspense fallback={null}>
+          <OpenPopup showPopUp={showPopUp} setShowPopUp={setShowPopUp} />
+        </Suspense>
+      )}
+      
+      <Suspense fallback={null}>
+        <ToastProvider />
+      </Suspense>
     </>
   );
 };

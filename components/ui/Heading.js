@@ -14,7 +14,7 @@ const Heading = ({ oh = false, preheading = "", heading = "", className = "text-
       <h2 className={`font-bold lg:text-[50px] text-center ${className}`}>
         {parts.map((part, idx) =>
           part.toLowerCase() === highlight.toLowerCase() ? (
-            <span key={idx} className="text-primary">{part}</span>
+            <span key={idx} className="text-primary-800">{part}</span>
           ) : (
             <span key={idx}>{part}</span>
           )

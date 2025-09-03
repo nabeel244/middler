@@ -5,7 +5,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { ImSpinner2 } from "react-icons/im";
 import { useDispatch, useSelector } from "react-redux";
 import { validateEmail } from "../../helpers/forms";
-import { Image } from "next/image";
+import Image from "next/image";
 
 
 //// COMPONENTS

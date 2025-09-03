@@ -1,5 +1,6 @@
 'use client';
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 const InsideCabinet = ({
   estimator,
@@ -84,10 +85,12 @@ const InsideCabinet = ({
       </div>
       <div className="flex flex-col items-center justify-center gap-3">
         <p className="text-neutral-700">The blue part is the inside</p>
-        <img
-          src={`/images/cabinets/inside.webp`}
+        <Image
+          src="/images/cabinets/inside.webp"
+          alt="Cabinet inside view"
+          width={96}
+          height={96}
           className="max-w-20 lg:max-w-24 rounded-xl"
-          alt=""
         />
       </div>
     </>
