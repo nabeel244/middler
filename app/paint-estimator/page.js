@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation";
 import { Suspense, useEffect, useRef, useState } from "react";
 import { useCookies } from "react-cookie";
 import { useDispatch, useSelector } from "react-redux";
+import { Image } from "next/image";
 
 //// REDUCERS
 import { login } from "../_redux/features/authSlice";
@@ -577,7 +578,13 @@ const PaintEstimator = ({ }) => {
                 <Progress />
 
                 <div className="lg:hidden">
-                  <img src="/images/modals/team.webp" alt="" />
+                  <Image
+                    src="/images/modals/team.webp"
+                    alt="Team"
+                    width={600}
+                    height={400}
+                    className="w-full h-auto"
+                  />
                 </div>
                 <div
                   className={`${navigation.value.paintEstimator == "2.2"
@@ -1115,22 +1122,42 @@ const PaintEstimator = ({ }) => {
                     : " 3xl:max-h-[310px]"
                     } rounded-2xl`}
                 >
-                  <img
+                  <Image
                     src="/images/modals/3.webp"
+                    alt="Main modal"
+                    width={800}
+                    height={600}
                     className="w-full object-fill 2xl:object-cover object-top h-full rounded-2xl"
-                    alt=""
                   />
                 </div>
 
                 <div className="lg:hidden grid w-full grid-cols-2 gap-3">
                   <div className="col-span-2">
-                    <img src="/images/modals/wmn_laugh.webp" alt="" />
+                    <Image
+                      src="/images/modals/wmn_laugh.webp"
+                      alt="Woman laughing"
+                      width={600}
+                      height={400}
+                      className="w-full h-auto"
+                    />
                   </div>
                   <div>
-                    <img src="/images/modals/car.webp" alt="" />
+                    <Image
+                      src="/images/modals/car.webp"
+                      alt="Car"
+                      width={300}
+                      height={200}
+                      className="w-full h-auto"
+                    />
                   </div>
                   <div>
-                    <img src="/images/modals/five_star.webp" alt="" />
+                    <Image
+                      src="/images/modals/five_star.webp"
+                      alt="Five star"
+                      width={300}
+                      height={200}
+                      className="w-full h-auto"
+                    />
                   </div>
                 </div>
               </div>
