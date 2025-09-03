@@ -4,7 +4,7 @@ import GoogleRevs from "../ui/GoogleRevs";
 import Heading from "../ui/Heading";
 
 const Cta = () => {
-  const [awardsImg, setAwardsImg] = useState("/images/elements/exl.png");
+  const [awardsImg, setAwardsImg] = useState("/images/elements/exl.webp");
 
   const awards = [
     `Home Owners <br/> & Diyer`,
@@ -17,7 +17,7 @@ const Cta = () => {
     const handleResize = () => {
       const isSmallScreen = window.innerWidth < 992;
       setAwardsImg(
-        isSmallScreen ? "/images/elements/exl2.png" : "/images/elements/exl.png"
+        isSmallScreen ? "/images/elements/exl2.webp" : "/images/elements/exl.webp"
       );
     };
 
@@ -35,12 +35,12 @@ const Cta = () => {
             <div className="flex flex-col lg:gap-7 max-lg:*:px-5 py-10 lg:py-[60px] items-center text-center bg-[#0b0b0b]/10 rounded-3xl lg:rounded-[40px] lg:*:px-[130px] lg:*:py-5 *:w-full">
               <div className="relative w-full flex items-center justify-center lg:py-3! max-lg:mb-10">
                 <img
-                  src="/images/logo.png"
+                  src="/images/logo.webp"
                   className="w-[160px] lg:w-[320px] relative z-[1] inline-block"
                   alt=""
                 />
                 <img
-                  src="/images/logo.png"
+                  src="/images/logo.webp"
                   className="absolute inset-0 m-auto w-full max-w-[300px] lg:max-w-[700px] lg:h-[150px] object-contain opacity-15"
                   alt=""
                 />

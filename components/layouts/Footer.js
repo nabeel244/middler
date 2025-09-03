@@ -8,7 +8,7 @@ const Footer = () => {
         <div className="flex flex-wrap justify-between gap-y-14 pb-5 mb-5 lg:pb-4 lg:mb-4 border-b border-b-white/60">
           <div className="w-full lg:max-w-[481px] flex flex-col gap-y-[19px]">
             <img
-              src="/images/logo_w.png"
+              src="/images/logo_w.webp"
               className="max-w-[175px] lg:max-w-[236px]"
               alt=""
             />

@@ -33,7 +33,7 @@ const Home = () => {
         "name": "Middler",
         "alternateName": "Middler",
         "url": "https://middler.com/",
-        "logo": "https://middler.com/images/logo.png",
+        "logo": "https://middler.com/images/logo.webp",
         "sameAs": [
             "https://www.linkedin.com/company/middler/",
             "https://www.instagram.com/middler_com/"
@@ -45,7 +45,7 @@ const Home = () => {
         "@context": "https://schema.org/",
         "@type": "Product",
         "name": "Paint Cost Estimate Calculator",
-        "image": "https://middler.com/images/mobile_mockup2.png",
+        "image": "https://middler.com/images/mobile_mockup2.webp",
         "description": "Plan your painting project with confidence. Middler's paint calculator gives detailed cost estimates for interior & exterior house painting, including paint, material & labor.",
         "brand": {
             "@type": "Brand",
@@ -70,7 +70,7 @@ const Home = () => {
 
         <meta property="og:url" content="https://middler.com/" />
 
-        <meta property="og:image" content="https://middler.com/images/mobile_mockup2.png" />
+        <meta property="og:image" content="https://middler.com/images/mobile_mockup2.webp" />
 
         <meta property="og:description"
               content="Plan your painting project with confidence. Middler’s paint calculator gives detailed cost estimates for interior & exterior house painting, including paint, material & labor." />
@@ -84,7 +84,7 @@ const Home = () => {
         <meta name="twitter:description"
               content="Plan your painting project with confidence. Middler’s paint calculator gives detailed cost estimates for interior & exterior house painting, including paint, material & labor." />
 
-        <meta name="twitter:image" content="https://middler.com/images/mobile_mockup2.png" />
+        <meta name="twitter:image" content="https://middler.com/images/mobile_mockup2.webp" />
 
         <link rel="canonical" href="https://middler.com/" />
 

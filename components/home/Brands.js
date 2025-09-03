@@ -17,7 +17,7 @@ const Brands = () => {
                   className: "max-lg:order-5 max-lg:w-1/2!",
                 },
                 {
-                  img: "/images/google_reviews.png",
+                  img: "/images/google_reviews.webp",
                   className: "max-lg:order-2",
                 },
                 {

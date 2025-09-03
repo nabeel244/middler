@@ -14,25 +14,25 @@ const cards = [
     span: "Interior",
     title: "Designers",
     text: "Show clients accurate interior painting cost as part of design packages.",
-    icon: "chair.png",
+    icon: "chair.webp",
   },
   {
     span: "Homeowners",
     title: "& DIY’ers",
     text: "Estimate the cost to paint interior of house or exterior projects before hiring.",
-    icon: "tools.png",
+    icon: "tools.webp",
   },
   {
     span: "Painters",
     title: "& Contractors",
     text: "Win more jobs with professional, fast painting estimates.",
-    icon: "brush.png",
+    icon: "brush.webp",
   },
   {
     span: "Real Estate Agents",
     title: "& Property Managers",
     text: "Need a quick cost to paint a room or an entire property before listing? Middler delivers in seconds.",
-    icon: "house.png",
+    icon: "house.webp",
   },
 ];
 

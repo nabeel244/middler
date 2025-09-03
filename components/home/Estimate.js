@@ -46,12 +46,12 @@ const Estimate = () => {
                     <div
                       className="absolute top-0 left-0 h-full max-lg:w-[88%] lg:inset-0 z-0 bg-cover bg-center bg-no-repeat"
                       style={{
-                        backgroundImage: `url(/images/elements/${smallSize ? `1_${idx + 1}` : idx + 1}.png)`,
+                        backgroundImage: `url(/images/elements/${smallSize ? `1_${idx + 1}` : idx + 1}.webp)`,
                       }}
                     />
                     <span>
                       <img
-                        src={`/images/icons/${idx + 1}.png`}
+                        src={`/images/icons/${idx + 1}.webp`}
                         className="size-10"
                         alt=""
                       />

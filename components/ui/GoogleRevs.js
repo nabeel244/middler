@@ -2,7 +2,7 @@ const GoogleRevs = () => {
   return (
     <div className="rounded-[86px] py-3 pl-5 pr-[27px] bg-gradient-to-b from-white to-[#f3f3f3] grd_shdow-2 flex items-center justify-center gap-2.5">
       <div className="rounded-full p-2.5 bg-white dbl_shw">
-        <img src="/images/icons/google.png" className="size-[30px]" alt="" />
+        <img src="/images/icons/google.webp" className="size-[30px]" alt="" />
       </div>
       <div className="flex flex-col gap-1.5">
         <span className="font-semibold text-sm tracking-[2%]">

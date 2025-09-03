@@ -418,9 +418,9 @@ const Preview = ({
                 {/* action buttons */}
                 {/* <div className="flex items-center gap-2 lg:gap-4">
                   {[
-                    { t: "Print", icon: "print.png" },
-                    { t: "Save as PDF", icon: "pdf.png" },
-                    { t: "Resend Email", icon: "send.png" },
+                    { t: "Print", icon: "print.webp" },
+                    { t: "Save as PDF", icon: "pdf.webp" },
+                    { t: "Resend Email", icon: "send.webp" },
                   ].map(({ t, icon }) => (
                     <button
                       key={t}

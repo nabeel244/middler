@@ -21,7 +21,7 @@ const GetStarted = () => {
                 <div className="flex justify-center max-lg:w-full">
                   <div className="relative min-h-[250px] sm:max-lg:min-h-[392px] max-lg:w-full">
                     <img
-                      src="/images/mobile_mockup2.png"
+                      src="/images/mobile_mockup2.webp"
                       className="max-w-[400px] md:max-w-[480px] xl:max-w-[680px] max-lg:absolute left-1/2 max-lg:-translate-x-1/2"
                       alt="Paint Calculator | House Paint Estimate Cost"
                     />
@@ -73,11 +73,11 @@ const GetStarted = () => {
                 <div className="lg:w-[24%] flex flex-col gap-10 max-lg:order-1">
                   {[
                     {
-                      icon: "rating.png",
+                      icon: "rating.webp",
                       text: `<b>No more vague estimates</b><br/> Middler gives you the real deal, instantly.`,
                     },
                     {
-                      icon: "usd.png",
+                      icon: "usd.webp",
                       text: `<b>Get a Real Price for your house painting</b><br/> Fast, Clear, and Accurate.`,
                     },
                   ].map((item, idx) => (

@@ -101,7 +101,7 @@ const Hero = () => {
 
   return (
     <section className="relative mt-14 lg:mt-20 pt-12 lg:pt-[70px] pb-3 sm:pb-10 px-0 lg:px-10">
-      <div className="absolute -left-4 top-[126px] h-[540px] w-[250px] lg:-left-10 lg:top-1/2 lg:-translate-y-1/2 lg:size-1/2 bg-center bg-no-repeat bg-[url('/images/hero_el2.png')] lg:bg-[url('/images/hero_el.png')] bg-contain" />
+      <div className="absolute -left-4 top-[126px] h-[540px] w-[250px] lg:-left-10 lg:top-1/2 lg:-translate-y-1/2 lg:size-1/2 bg-center bg-no-repeat bg-[url('/images/hero_el2.webp')] lg:bg-[url('/images/hero_el.webp')] bg-contain" />
       <div className="container xl:px-10! 2xl:w-[1300px]!">
         <div className="row gap-y-8 sm:gap-y-14 lg:gap-y-8 gap-x-5 justify-center xl:gap-x-[74px] 2xl:gap-x-20 items-center max-lg:text-center">
           <div className="lg:w-6/12 xl:w-[43%] 2xl:w-5/12 max-lg:order-1">
@@ -120,7 +120,7 @@ const Hero = () => {
           <div className="lg:w-6/12 max-lg:hidden">
             <div className="relative size-full text-right">
               <img
-                src="/images/hero_img.png"
+                src="/images/hero_img.webp"
                 className="inline-block rounded-2xl object-contain max-h-[320px]"
                 alt="cost to paint a house"
               />

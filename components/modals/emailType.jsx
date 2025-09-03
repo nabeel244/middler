@@ -269,17 +269,17 @@ const EmailType = ({
               {[
                 {
                   label: "Homeowner",
-                  icon: "home.png",
+                  icon: "home.webp",
                   onClick: () => submitSendEstimate("homeowner"),
                 },
                 {
                   label: "Painter",
-                  icon: "painter.png",
+                  icon: "painter.webp",
                   onClick: () => submitSendEstimate("painter"),
                 },
                 {
                   label: "Handyman",
-                  icon: "handyman.png",
+                  icon: "handyman.webp",
                   onClick: () => submitSendEstimate("handyman"),
                 },
               ].map((item, idx) => (
@@ -306,7 +306,7 @@ const EmailType = ({
                     className="w-full py-5 px-8 lg:py-8 cursor-pointer bg-primary text-white gap-2 lg:gap-4 flex flex-col items-center rounded-lg"
                   >
                     <img
-                      src={"/images/icons/others.png"}
+                      src={"/images/icons/others.webp"}
                       alt="Other"
                       className="max-h-8 lg:max-h-14"
                     />

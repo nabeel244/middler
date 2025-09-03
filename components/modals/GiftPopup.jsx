@@ -184,12 +184,12 @@ const GiftPopup = ({
 
               <div className="flex flex-col items-center relative gap-[15px] text-center">
                 <img
-                  src="/images/logo.png"
+                  src="/images/logo.webp"
                   className="max-w-[124px] lg:max-w-[128px] mb-1 sm:mb-5"
                   alt=""
                 />
                 <img
-                  src="/images/tag.png"
+                  src="/images/tag.webp"
                   className="max-w-[40px] sm:max-w-[65px]"
                   alt=""
                 />
@@ -317,7 +317,7 @@ const GiftPopup = ({
               </p>
             </motion.div>
 
-            <div className="w-full sm:size-full bg-[url('/images/modals/gift.png')] bg-cover bg-no-repeat sm:scale-y-[1.02] aspect-[16/9] sm:min-h-[215px]" />
+            <div className="w-full sm:size-full bg-[url('/images/modals/gift.webp')] bg-cover bg-no-repeat sm:scale-y-[1.02] aspect-[16/9] sm:min-h-[215px]" />
           </motion.div>
         </motion.div>
       )}

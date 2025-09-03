@@ -55,7 +55,7 @@ const OurProcess = () => {
                           }`}
                       >
                         <img
-                          src={`/images/process/${idx + 1}.png`}
+                          src={`/images/process/${idx + 1}.webp`}
                           alt={item.title}
                           className="w-[154px]"
                         />

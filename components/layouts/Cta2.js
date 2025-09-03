@@ -33,7 +33,7 @@ const Cta2 = () => {
           <div className="w-full">
             <div className="flex flex-col-reverse  max-lg:gap-y-10 lg:gap-x-20 lg:flex-row text-center lg:text-left items-center justify-between">
               <img
-                src="/images/mobile.png"
+                src="/images/mobile.webp"
                 className="lg:w-[340px]"
                 alt=""
               />
