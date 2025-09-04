@@ -8,31 +8,32 @@ import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Heading from "../ui/Heading";
 import SwiperBtn from "../ui/SwiperBtn";
+import Image from "next/image";
 
 const cards = [
   {
     span: "Interior",
     title: "Designers",
     text: "Show clients accurate interior painting cost as part of design packages.",
-    icon: "chair.png",
+    icon: "chair.webp",
   },
   {
     span: "Homeowners",
     title: "& DIY’ers",
     text: "Estimate the cost to paint interior of house or exterior projects before hiring.",
-    icon: "tools.png",
+    icon: "tools.webp",
   },
   {
     span: "Painters",
     title: "& Contractors",
     text: "Win more jobs with professional, fast painting estimates.",
-    icon: "brush.png",
+    icon: "brush.webp",
   },
   {
     span: "Real Estate Agents",
     title: "& Property Managers",
     text: "Need a quick cost to paint a room or an entire property before listing? Middler delivers in seconds.",
-    icon: "house.png",
+    icon: "house.webp",
   },
 ];
 
@@ -96,10 +97,12 @@ const WhoUseMiddler = () => {
                   }`}
               >
                 <div className="p-[15px] rounded-[10px] bg-primary/10">
-                  <img
+                  <Image
                     src={`/images/icons/${card.icon}`}
-                    className="size-10"
                     alt={`${card.span} ${card.title}`}
+                    width={40}
+                    height={40}
+                    className="size-10"
                   />
                 </div>
                 <div className="flex flex-col gap-2.5">

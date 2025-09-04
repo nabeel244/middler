@@ -3,6 +3,7 @@
 import { cabinetImages } from "@/app/constants";
 import { validateNumber } from "@/helpers/forms";
 import InputFieldSecondary from "../form/InputFieldSecondary";
+import Image from "next/image";
 
 
 const CabinetsPainting = ({
@@ -71,9 +72,11 @@ const CabinetsPainting = ({
       <div className="grid grid-cols-[repeat(auto-fit,minmax(80px,96px))] gap-1.5 place-items-center w-full place-content-center">
         {cabinetImages.map((img, index) => (
           <div key={index}>
-            <img
+            <Image
               src={img.src}
               alt={img.alt}
+              width={80}
+              height={80}
               className="max-w-20 lg:max-w-20 rounded-xl"
             />
           </div>

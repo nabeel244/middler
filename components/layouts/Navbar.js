@@ -5,6 +5,8 @@ import { AnimatePresence, motion } from "motion/react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
+
 const Navbar = () => {
   const [mobileImgs, setMobileImgs] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -58,10 +60,12 @@ const Navbar = () => {
     >
       <Link href="/" className="block max-lg:grow max-lg:text-left"
             aria-label="Go to Middler Home">
-        <img
-          src={mobileImgs ? "/images/logo.png" : "/images/logo.png"}
-          className="max-w-28 lg:max-w-[280px] inline-block"
+        <Image
+          src={mobileImgs ? "/images/logo.webp" : "/images/logo.webp"}
           alt="Middler Logo"
+          width={280}
+          height={100}
+          className="max-w-28 lg:max-w-[280px] inline-block"
         />
       </Link>
       <button

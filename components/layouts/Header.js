@@ -6,6 +6,7 @@ import { AnimatePresence, motion } from "motion/react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 const Header = () => {
   const pathname = usePathname();
@@ -46,7 +47,13 @@ const Header = () => {
           className="relative flex items-center justify-between bg-white shadow-[0_4px_32px_rgba(0,0,0,0.25)] px-5 py-4 lg:rounded-[10px]"
         >
           <Link className="inline-block" href="/" aria-label="Middler Home">
-            <img src="/images/logo.png" className="w-28 lg:w-48" alt="Middler Home" />
+            <Image
+              src="/images/logo.webp"
+              alt="Middler Home"
+              width={192}
+              height={64} 
+              className="w-28 lg:w-48 h-auto"
+            />
             <span className="sr-only">Go to Middler Homepage</span>
           </Link>
 

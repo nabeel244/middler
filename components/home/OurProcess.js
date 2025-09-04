@@ -1,5 +1,6 @@
 import { FaCheck } from "react-icons/fa";
 import Heading from "../ui/Heading";
+import Image from "next/image";
 
 const OurProcess = () => {
   const process = [
@@ -54,9 +55,11 @@ const OurProcess = () => {
                           : ""
                           }`}
                       >
-                        <img
-                          src={`/images/process/${idx + 1}.png`}
+                        <Image
+                          src={`/images/process/${idx + 1}.webp`}
                           alt={item.title}
+                          width={154}
+                          height={154}
                           className="w-[154px]"
                         />
                       </div>

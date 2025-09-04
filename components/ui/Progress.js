@@ -1,4 +1,5 @@
 import { FaCheck } from "react-icons/fa";
+import Image from "next/image";
 
 /**
  * Progress bar for three fixed stages.
@@ -63,7 +64,13 @@ const Progress = ({ step = 0 }) => {
         <span className="max-lg:text-[10px] font-normal text-[#6F6F6F] absolute left-1/2 -translate-x-1/2 -top-6 whitespace-nowrap">
           Use it
         </span>
-        <img src="/images/icons/paint.png" className="w-6" alt="" />
+        <Image
+          src="/images/icons/paint.webp"
+          alt="Paint icon"
+          width={24}
+          height={24}
+          className="w-6"
+        />
       </div>
     </div>
   );

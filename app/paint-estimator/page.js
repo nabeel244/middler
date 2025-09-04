@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation";
 import { Suspense, useEffect, useRef, useState } from "react";
 import { useCookies } from "react-cookie";
 import { useDispatch, useSelector } from "react-redux";
+import Image from "next/image";
 
 //// REDUCERS
 import { login } from "../_redux/features/authSlice";
@@ -545,7 +546,7 @@ const PaintEstimator = ({ }) => {
 
         <meta property="og:url" content="https://middler.com/paint-estimator" />
 
-        <meta property="og:image" content="https://middler.com/images/modals/3.png" />
+        <meta property="og:image" content="https://middler.com/images/modals/3.webp" />
 
         <meta property="og:description"
               content="Free paint cost calculator to estimate interior & exterior house painting costs per square foot instantly." />
@@ -559,17 +560,17 @@ const PaintEstimator = ({ }) => {
         <meta name="twitter:description"
               content="Free paint cost calculator to estimate interior & exterior house painting costs per square foot instantly." />
 
-        <meta name="twitter:image" content="https://middler.com/images/modals/3.png" />
+        <meta name="twitter:image" content="https://middler.com/images/modals/3.webp" />
 
         <link rel="canonical" href="https://middler.com/paint-estimator" />
       </head>
       <main
-        className={`min-h-dvh h-full overflow-hidden w-full p-5 lg:p-3 xl:p-6 xl:py-5 bg-cover bg-no-repeat bg-center bg-[url('/images/modals/bg_1.png')]`}
+        className={`min-h-dvh h-full overflow-hidden w-full p-5 lg:p-3 xl:p-6 xl:py-5 bg-cover bg-no-repeat bg-center bg-[url('/images/modals/bg_1.webp')]`}
       >
         <div className="grid size-full min-h-[calc(100dvh_-_40px)] lg:min-h-[calc(100dvh_-_32px)] xl:min-h-[calc(100dvh_-_40px)] lg:grid-rows-1 xl:grid-cols-[0.3fr_1fr_0.3fr] 3xl:grid-cols-[0.23fr_1fr_0.23fr] gap-5 lg:gap-8 3xl:gap-10">
           {navigation.value.paintEstimator != "5" && (
             <>
-              <div className="max-lg:hidden mt-[64px] bg-cover bg-center bg-no-repeat bg-[url('/images/modals/1.png')] rounded-2xl" />
+              <div className="max-lg:hidden mt-[64px] bg-cover bg-center bg-no-repeat bg-[url('/images/modals/1.webp')] rounded-2xl" />
               <div
                 className={`w-full flex items-center flex-col justify-between gap-5 2xl:gap-4`}
               >
@@ -577,7 +578,13 @@ const PaintEstimator = ({ }) => {
                 <Progress />
 
                 <div className="lg:hidden">
-                  <img src="/images/modals/team.png" alt="" />
+                  <Image
+                    src="/images/modals/team.webp"
+                    alt="Team"
+                    width={600}
+                    height={400}
+                    className="w-full h-auto"
+                  />
                 </div>
                 <div
                   className={`${navigation.value.paintEstimator == "2.2"
@@ -1115,26 +1122,46 @@ const PaintEstimator = ({ }) => {
                     : " 3xl:max-h-[310px]"
                     } rounded-2xl`}
                 >
-                  <img
-                    src="/images/modals/3.png"
+                  <Image
+                    src="/images/modals/3.webp"
+                    alt="Main modal"
+                    width={800}
+                    height={600}
                     className="w-full object-fill 2xl:object-cover object-top h-full rounded-2xl"
-                    alt=""
                   />
                 </div>
 
                 <div className="lg:hidden grid w-full grid-cols-2 gap-3">
                   <div className="col-span-2">
-                    <img src="/images/modals/wmn_laugh.png" alt="" />
+                    <Image
+                      src="/images/modals/wmn_laugh.webp"
+                      alt="Woman laughing"
+                      width={600}
+                      height={400}
+                      className="w-full h-auto"
+                    />
                   </div>
                   <div>
-                    <img src="/images/modals/car.png" alt="" />
+                    <Image
+                      src="/images/modals/car.webp"
+                      alt="Car"
+                      width={300}
+                      height={200}
+                      className="w-full h-auto"
+                    />
                   </div>
                   <div>
-                    <img src="/images/modals/five_star.png" alt="" />
+                    <Image
+                      src="/images/modals/five_star.webp"
+                      alt="Five star"
+                      width={300}
+                      height={200}
+                      className="w-full h-auto"
+                    />
                   </div>
                 </div>
               </div>
-              <div className="max-lg:hidden mt-[64px] bg-cover bg-center bg-no-repeat bg-[url('/images/modals/2.png')] rounded-2xl" />
+              <div className="max-lg:hidden mt-[64px] bg-cover bg-center bg-no-repeat bg-[url('/images/modals/2.webp')] rounded-2xl" />
             </>
           )}
           {navigation.value.paintEstimator == "5" && (

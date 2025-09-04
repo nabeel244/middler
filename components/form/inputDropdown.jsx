@@ -99,7 +99,13 @@ const InputDropDown = ({
               }
             >
               <div className="size-10 lg:size-16 object-cover p-0.5 flex items-center justify-center bg-white shadow-lg rounded-full">
-                <img src={subitem.image} className="w-full" />
+                <Image
+                  src={subitem.image}
+                  alt={viewType ? subitem[viewType] : "option"}
+                  width={64} 
+                  height={64} 
+                  className="w-full h-auto object-cover rounded-full"
+                />
               </div>
               <span className="lg:text-lg">
                 {viewType ? subitem[viewType] : subitem}

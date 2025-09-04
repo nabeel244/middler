@@ -274,32 +274,32 @@ export const paintList = [
   {
     type: "behr",
     title: "Behr",
-    image: "/images/brands/1.png",
+    image: "/images/brands/1.webp",
   },
   {
     type: "sherwin_williams",
     title: "Sherwin Williams",
-    image: "/images/brands/2.png",
+    image: "/images/brands/2.webp",
   },
   {
     type: "benjamin_moore",
     title: "Benjamin Moore",
-    image: "/images/brands/3.png",
+    image: "/images/brands/3.webp",
   },
   {
     type: "dunn_edwards",
     title: "Dunn Edwards",
-    image: "/images/brands/4.png",
+    image: "/images/brands/4.webp",
   },
   {
     type: "ppg",
     title: "PPG",
-    image: "/images/brands/5.png",
+    image: "/images/brands/5.webp",
   },
   {
     type: "valspar",
     title: "Valspar",
-    image: "/images/brands/6.png",
+    image: "/images/brands/6.webp",
   },
 ];
 

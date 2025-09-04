@@ -1,5 +1,6 @@
 import { menuItems, socials } from "@/app/constants";
 import Link from "next/link";
+import Image from "next/image";
 
 const Footer = () => {
   return (
@@ -7,10 +8,12 @@ const Footer = () => {
       <div className="container">
         <div className="flex flex-wrap justify-between gap-y-14 pb-5 mb-5 lg:pb-4 lg:mb-4 border-b border-b-white/60">
           <div className="w-full lg:max-w-[481px] flex flex-col gap-y-[19px]">
-            <img
-              src="/images/logo_w.png"
+            <Image
+              src="/images/logo_w.webp"
+              alt="Company white logo"
+              width={236}
+              height={100}
               className="max-w-[175px] lg:max-w-[236px]"
-              alt=""
             />
             <p className="text-[11px] lg:text-[15px] font-extralight leading-[17px] lg:leading-10 text-white">
               Middler estimates painting jobs by doing all the calculating, with

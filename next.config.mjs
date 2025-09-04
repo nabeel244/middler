@@ -5,6 +5,47 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  
+  // Performance optimizations
+  experimental: {
+    optimizeCss: true,
+    optimizeServerReact: true,
+  },
+  
+  // Compiler optimizations
+  compiler: {
+    removeConsole: process.env.NODE_ENV === "production",
+  },
+  
+  // Bundle analysis and optimization
+  webpack: (config, { dev, isServer }) => {
+    // Split chunks for better caching
+    if (!dev && !isServer) {
+      config.optimization.splitChunks = {
+        chunks: 'all',
+        cacheGroups: {
+          vendor: {
+            test: /[\\/]node_modules[\\/]/,
+            name: 'vendors',
+            chunks: 'all',
+          },
+          motion: {
+            test: /[\\/]node_modules[\\/](motion|framer-motion)[\\/]/,
+            name: 'motion',
+            chunks: 'all',
+          },
+          swiper: {
+            test: /[\\/]node_modules[\\/]swiper[\\/]/,
+            name: 'swiper',
+            chunks: 'all',
+          },
+        },
+      };
+    }
+    
+    return config;
+  },
+  
   images: {
     loader: 'default',
     domains: ['middler.com', 'www.middler.com'],
@@ -45,12 +86,15 @@ const nextConfig = {
         pathname: '**',
       },
     ],
+    // Optimize images for performance
+    formats: ['image/webp', 'image/avif'],
     unoptimized:
       process.env.NODE_ENV === 'development' ||
       process.env.NEXT_PUBLIC_DISABLE_OPTIMIZATION === 'true',
   },
+  
   output: 'standalone',
-  reactStrictMode: false,
+  
   async rewrites() {
     return [
       {

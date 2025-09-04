@@ -5,6 +5,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useCookies } from "react-cookie";
 import { BiLoaderCircle } from "react-icons/bi";
+import Image from "next/image";
 
 //// MUTATIONS
 import QUICK_ESTIMATE from "../../app/_mutations/quickEstimateClient";
@@ -269,17 +270,17 @@ const EmailType = ({
               {[
                 {
                   label: "Homeowner",
-                  icon: "home.png",
+                  icon: "home.webp",
                   onClick: () => submitSendEstimate("homeowner"),
                 },
                 {
                   label: "Painter",
-                  icon: "painter.png",
+                  icon: "painter.webp",
                   onClick: () => submitSendEstimate("painter"),
                 },
                 {
                   label: "Handyman",
-                  icon: "handyman.png",
+                  icon: "handyman.webp",
                   onClick: () => submitSendEstimate("handyman"),
                 },
               ].map((item, idx) => (
@@ -288,9 +289,11 @@ const EmailType = ({
                     type="button"
                     className="w-full py-5 px-8 lg:py-8 cursor-pointer bg-primary text-white gap-2 lg:gap-4 flex flex-col items-center rounded-lg"
                   >
-                    <img
-                      src={"/images/icons/" + item.icon}
+                    <Image
+                      src={`/images/icons/${item.icon}`}
                       alt={item.label}
+                      width={56}
+                      height={56}
                       className="max-h-8 lg:max-h-14"
                     />
                     <span className="text-xs lg:text-xl tracking-wider font-bold uppercase">
@@ -305,9 +308,11 @@ const EmailType = ({
                     type="button"
                     className="w-full py-5 px-8 lg:py-8 cursor-pointer bg-primary text-white gap-2 lg:gap-4 flex flex-col items-center rounded-lg"
                   >
-                    <img
-                      src={"/images/icons/others.png"}
+                    <Image
+                      src="/images/icons/others.webp"
                       alt="Other"
+                      width={56}
+                      height={56}
                       className="max-h-8 lg:max-h-14"
                     />
                     <span className="text-xs lg:text-xl tracking-wider font-bold uppercase">

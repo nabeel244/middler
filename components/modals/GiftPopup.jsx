@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { IoMdClose } from "react-icons/io";
 import { toast } from "react-toastify";
+import Image from "next/image";
 
 const GiftPopup = ({
   dispatch,
@@ -183,15 +184,19 @@ const GiftPopup = ({
               </button>
 
               <div className="flex flex-col items-center relative gap-[15px] text-center">
-                <img
-                  src="/images/logo.png"
+                <Image
+                  src="/images/logo.webp"
+                  alt="Company logo"
+                  width={128}
+                  height={60}
                   className="max-w-[124px] lg:max-w-[128px] mb-1 sm:mb-5"
-                  alt=""
                 />
-                <img
-                  src="/images/tag.png"
+                <Image
+                  src="/images/tag.webp"
+                  alt="Company tag"
+                  width={65}
+                  height={40}
                   className="max-w-[40px] sm:max-w-[65px]"
-                  alt=""
                 />
                 <h1 className="text-[#003058] text-2xl sm:text-4xl lg:text-[30px] font-bold lg:leading-[30px] uppercase">
                   10% Off Five Star Painting
@@ -317,7 +322,7 @@ const GiftPopup = ({
               </p>
             </motion.div>
 
-            <div className="w-full sm:size-full bg-[url('/images/modals/gift.png')] bg-cover bg-no-repeat sm:scale-y-[1.02] aspect-[16/9] sm:min-h-[215px]" />
+            <div className="w-full sm:size-full bg-[url('/images/modals/gift.webp')] bg-cover bg-no-repeat sm:scale-y-[1.02] aspect-[16/9] sm:min-h-[215px]" />
           </motion.div>
         </motion.div>
       )}

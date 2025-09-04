@@ -2,6 +2,8 @@
 import { FaCheck } from "react-icons/fa";
 import Button from "../ui/Button";
 import Heading from "../ui/Heading";
+import Image from "next/image";
+
 const GetStarted = () => {
   return (
     <section className="mb-20 overflow-hidden">
@@ -20,10 +22,12 @@ const GetStarted = () => {
               <div className="lg:col-start-1 lg:-col-end-1 lg:row-start-1 lg:-row-end-1 col-span-1">
                 <div className="flex justify-center max-lg:w-full">
                   <div className="relative min-h-[250px] sm:max-lg:min-h-[392px] max-lg:w-full">
-                    <img
-                      src="/images/mobile_mockup2.png"
+                    <Image
+                      src="/images/mobile_mockup2.webp"
+                      alt="Paint Calculator | House Paint Estimate Cost"
+                      width={680}
+                      height={400}
                       className="max-w-[400px] md:max-w-[480px] xl:max-w-[680px] max-lg:absolute left-1/2 max-lg:-translate-x-1/2"
-                      alt="Paint Calculator | House Paint Estimate Cost"
                     />
                     {/* <div className="absolute -bottom-1 right-0 w-full h-[12%] bg-gradient-to-t from-white from-10% to-transparent" />
                     {[
@@ -73,11 +77,11 @@ const GetStarted = () => {
                 <div className="lg:w-[24%] flex flex-col gap-10 max-lg:order-1">
                   {[
                     {
-                      icon: "rating.png",
+                      icon: "rating.webp",
                       text: `<b>No more vague estimates</b><br/> Middler gives you the real deal, instantly.`,
                     },
                     {
-                      icon: "usd.png",
+                      icon: "usd.webp",
                       text: `<b>Get a Real Price for your house painting</b><br/> Fast, Clear, and Accurate.`,
                     },
                   ].map((item, idx) => (
@@ -85,10 +89,12 @@ const GetStarted = () => {
                       key={idx}
                       className="flex flex-col max-lg: items-center max-lg:text-center lg:flex-row gap-5 lg:gap-x-3.5 max-lg:border-b border-b-primary-400 max-lg:pb-2"
                     >
-                      <img
-                        className="w-[38px] h-[51px] lg:w-[30px] object-contain lg:h-10"
+                      <Image
                         src={`/images/icons/${item.icon}`}
-                        alt=""
+                        alt="Icon"
+                        width={38}
+                        height={51}
+                        className="w-[38px] h-[51px] lg:w-[30px] object-contain lg:h-10"
                       />
                       <p
                         className="text-base lg:text-lg p_w_b"

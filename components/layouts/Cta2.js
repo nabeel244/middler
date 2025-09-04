@@ -1,6 +1,7 @@
 'use client';
 import { useEffect, useState } from "react";
 import { FaCheck } from "react-icons/fa";
+import Image from "next/image";
 
 const ctaPoints = [
   "Lightning-fast estimates",
@@ -32,10 +33,12 @@ const Cta2 = () => {
         <div className="row">
           <div className="w-full">
             <div className="flex flex-col-reverse  max-lg:gap-y-10 lg:gap-x-20 lg:flex-row text-center lg:text-left items-center justify-between">
-              <img
-                src="/images/mobile.png"
+              <Image
+                src="/images/mobile.webp"
+                alt="Mobile illustration"
+                width={340}
+                height={340}
                 className="lg:w-[340px]"
-                alt=""
               />
               <div className="w-full max-w-[800px] flex-col flex gap-10">
                 <h2 className="font-bold text-2xl lg:text-[50px]">
