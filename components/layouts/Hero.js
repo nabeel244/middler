@@ -107,8 +107,8 @@ const Hero = () => {
         <div className="row gap-y-8 sm:gap-y-14 lg:gap-y-8 gap-x-5 justify-center xl:gap-x-[74px] 2xl:gap-x-20 items-center max-lg:text-center">
           <div className="lg:w-6/12 xl:w-[43%] 2xl:w-5/12 max-lg:order-1">
             <div className="flex flex-col max-lg:px-5">
-              <h1 className="font-bold text-[40px] leading-14 lg:text-6xl lg:leading-[1.2] mb-3 lg:mb-5">
-                <span className="text-primary"  style={{fontSize: '56px'}}>Instant </span> Paint <br /> Cost Calculator
+              <h1 style={{fontSize: '56px'}} className="font-bold text-[40px] leading-14 lg:text-6xl lg:leading-[1.2] mb-3 lg:mb-5">
+                <span className="text-primary">Instant </span> Paint <br /> Cost Calculator
               </h1>
               <p className="text-base lg:text-2xl leading-6 lg:leading-snug" style={{fontSize: '22px'}}>
               Instantly find the true cost to paint a house with Middler—the most effective Paint calculator for rooms, interiors, and exteriors anywhere in the USA
