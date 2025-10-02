@@ -13,26 +13,26 @@ import Image from "next/image";
 const cards = [
   {
     span: "Interior",
-    title: "Designers",
+    title: "<br>Designers",
     text: "Help clients budget more accurately for paint as part of design package. Give them confidence in the numbers and your recommendations.",
     icon: "chair.webp",
   },
   {
     span: "Homeowners",
-    title: "& DIY’ers",
+    title: "<br>& DIY'ers",
     text: "Add painting estimates to your service offerings without the time-consuming math. Middler handles the numbers so you can focus on the job.",
     icon: "tools.webp",
   },
   {
     span: "Painters",
-    title: "& Contractors",
+    title: "<br>& Contractors",
     text: "Whether you are solo or operating a team, Middler helps you quote jobs quickly. Look more professional, and win more work.",
     icon: "brush.webp",
   },
   {
     span: "Real Estate Agents",
-    title: "& Property Managers",
-    text: "Need a quick quote before listing or renovating? Our paint calculator provides fast, relatable cost estimates to help guide decisions and close deals faster.",
+    title: "<br>& Property Managers",
+    text: "Need a quick quote before listing or renovating? Our paint calculator provides fast, relatable cost estimates to help guide decisions.",
     icon: "house.webp",
   },
 ];
@@ -107,8 +107,8 @@ const WhoUseMiddler = () => {
                 </div>
                 <div className="flex flex-col gap-2.5">
                   <h3 className="text-xl lg:text-2xl font-medium leading-[34px]">
-                    <span className="text-primary">{card.span}</span>{" "}
-                    {card.title}
+                    <span className="text-primary">{card.span}</span>
+                    <span dangerouslySetInnerHTML={{ __html: card.title }} />
                   </h3>
                     <p className="text-sm leading-7">
                         {card.text}

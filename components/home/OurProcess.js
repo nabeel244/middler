@@ -6,7 +6,7 @@ const OurProcess = () => {
   const process = [
     {
       title: "Create a professional estimate in 4 simple steps",
-      text: "Enter your property address or basic job details. No measuring, guessing, or complicated forms just simple input ot get started fast",
+      text: "Enter your property address or basic job details. No measuring, guessing, or complicated forms just simple input to get started fast",
     },
     {
       title: "Get Instant Estimate",

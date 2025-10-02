@@ -16,9 +16,7 @@ const Footer = () => {
               className="max-w-[175px] lg:max-w-[236px]"
             />
             <p className="text-[11px] lg:text-[15px] font-extralight leading-[17px] lg:leading-10 text-white">
-              Middler estimates painting jobs by doing all the calculating, with
-              smart technology, that's consistent, accurate, reliable, and
-              professional, every time.
+              Middler estimates painting jobs with smart technology that delivers consistent, accurate, reliable, and professional results every time.
             </p>
             <ul className="flex lg:hidden items-center gap-4">
               {socials.map((social, idx) => {
