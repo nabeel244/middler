@@ -12,19 +12,27 @@ const ctaPoints = [
 
 const Cta2 = () => {
   const [smallSize, setSmallSize] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
     const handleResize = () => {
-      const isSmallScreen = window.innerWidth < 992;
-      setSmallSize(
-        isSmallScreen ? true : false
-      );
+      if (typeof window !== 'undefined') {
+        const isSmallScreen = window.innerWidth < 992;
+        setSmallSize(isSmallScreen ? true : false);
+        setIsMobile(window.innerWidth < 768);
+      }
     };
 
     handleResize();
-    window.addEventListener("resize", handleResize);
+    if (typeof window !== 'undefined') {
+      window.addEventListener("resize", handleResize);
+    }
 
-    return () => window.removeEventListener("resize", handleResize);
+    return () => {
+      if (typeof window !== 'undefined') {
+        window.removeEventListener("resize", handleResize);
+      }
+    };
   }, []);
 
   return (
@@ -47,7 +55,11 @@ const Cta2 = () => {
                 <p className="text-sm lg:text-2xl text-left">
                   {smallSize ? "Level up your next home project with Middler, the smart estimating tool built for everyone. Whether you're planning interiors, exteriors, or full renovations, Middler helps you create fast, accurate, and professional estimates—every single time." : "Level up your next home project with Middler, the smart estimating tool built for everyone. Whether you're planning interiors, exteriors, or full renovations, Middler helps you create fast, accurate, and professional estimates—every single time."}
                 </p>
-                <h3 className="font-bold text-2xl lg:text-[30px]">
+                <h3 className="font-bold text-2xl lg:text-[30px]" style={{
+                  fontSize: isMobile ? '20px' : '',
+                  fontWeight: isMobile ? '600' : '',
+                  textAlign: isMobile ? 'left' : ''
+                }}>
                   Get <span className="text-primary">Smarter & faster </span>
                   Painting Estimates
                 </h3>
