@@ -7,7 +7,7 @@ const ctaPoints = [
   "Lightning-fast estimates",
   "Data-driven accuracy",
   "Professional, branded reports",
-  "Works for both small rooms and full house projects",
+  "Built for Painting Pros",
 ];
 
 const Cta2 = () => {
@@ -48,7 +48,7 @@ const Cta2 = () => {
                   {smallSize ? "Level up your next home project with Middler, the smart estimating tool built for everyone. Whether you're planning interiors, exteriors, or full renovations, Middler helps you create fast, accurate, and professional estimates—every single time." : "Level up your next home project with Middler, the smart estimating tool built for everyone. Whether you're planning interiors, exteriors, or full renovations, Middler helps you create fast, accurate, and professional estimates—every single time."}
                 </p>
                 <h3 className="font-bold text-2xl lg:text-[30px]">
-                  <span className="text-primary">Smarter, Faster </span>
+                  Get <span className="text-primary">Smarter & faster </span>
                   Painting Estimates
                 </h3>
                 {!smallSize && <p className="text-[11px] lg:text-2xl">

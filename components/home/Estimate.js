@@ -37,7 +37,7 @@ const Estimate = () => {
           <div className="w-full">
             <div className="px-3 lg:px-5 py-10 flex flex-col items-center justify-center gap-[50px]">
               <Heading
-                heading={smallSize ? "Answer a few question and in 30 seconds, You Will Get To See What It Costs To Paint." : "Answer a few question and in 30 seconds, this is exactly what you'll see."}
+                heading={smallSize ? "Answer a few questions and in 30 seconds, this is exactly what you'll see." : "Answer a few questions and in 30 seconds, this is exactly what you'll see."}
                 highlight="Answer"
                 preheading="estimate"
               />
