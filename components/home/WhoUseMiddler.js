@@ -14,25 +14,25 @@ const cards = [
   {
     span: "Interior",
     title: "Designers",
-    text: "Show clients accurate interior painting cost as part of design packages.",
+    text: "Help clients budget more accurately for paint as part of design package. Give them confidence in the numbers and your recommendations.",
     icon: "chair.webp",
   },
   {
     span: "Homeowners",
     title: "& DIY’ers",
-    text: "Estimate the cost to paint interior of house or exterior projects before hiring.",
+    text: "Add painting estimates to your service offerings without the time-consuming math. Middler handles the numbers so you can focus on the job.",
     icon: "tools.webp",
   },
   {
     span: "Painters",
     title: "& Contractors",
-    text: "Win more jobs with professional, fast painting estimates.",
+    text: "Whether you are solo or operating a team, Middler helps you quote jobs quickly. Look more professional, and win more work.",
     icon: "brush.webp",
   },
   {
     span: "Real Estate Agents",
     title: "& Property Managers",
-    text: "Need a quick cost to paint a room or an entire property before listing? Middler delivers in seconds.",
+    text: "Need a quick quote before listing or renovating? Our paint calculator provides fast, relatable cost estimates to help guide decisions and close deals faster.",
     icon: "house.webp",
   },
 ];

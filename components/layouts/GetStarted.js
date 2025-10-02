@@ -63,12 +63,7 @@ const GetStarted = () => {
               <div className="max-lg:px-5 lg:col-start-1 lg:-col-end-1 lg:row-start-1 lg:-row-end-1 flex max-lg:flex-wrap justify-between items-end relative z-[1]">
                 <div className="lg:w-[30%] flex flex-col gap-5 max-lg:order-2 w-full max-lg:mt-8">
                   <p className="text-2xl max-lg:hidden">
-                    {/*Know the true cost before the first brushstroke begins.{" "}*/}
-                    {/*<br />*/}
-                    {/*Middler gives you precise estimates with total clarity*/}
-                    Wondering about the painting cost per square foot? Or need an{" "}
-                    {/*<br />*/}
-                    interior painting cost calculator for your next project? Middler gives you:
+                    Know the true paint cost before the first brushstroke begins, Middler gives you precise estimates with total clarity.
                   </p>
                   <div className="max-lg:flex justify-center max-lg:w-full">
                     <Button small>Try now</Button>

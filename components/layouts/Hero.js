@@ -108,13 +108,10 @@ const Hero = () => {
           <div className="lg:w-6/12 xl:w-[43%] 2xl:w-5/12 max-lg:order-1">
             <div className="flex flex-col max-lg:px-5">
               <h1 className="font-bold text-[40px] leading-14 lg:text-6xl lg:leading-[1.2] mb-3 lg:mb-5">
-                <span className="text-primary">Calculate the Cost </span> to Paint Your House Instantly
+                <span className="text-primary">Instant </span> Paint Cost Calculator
               </h1>
               <p className="text-base lg:text-2xl leading-6 lg:leading-snug">
-                Get the true price of painting, including labor, materials,
-                and paint—within seconds. Whether you want to know the cost to paint exterior of house,
-                the cost to paint interior of house,
-                or even the cost to paint a room, Middler is your go-to painting cost calculator.
+                Instantly, find out the true price of painting, including labor, supplies, and paint. Middler is the most effective painting cost calculator for estimating the cost to paint a room, the exterior, or the interior of a house anywhere in the USA.
               </p>
             </div>
           </div>
