@@ -14,6 +14,7 @@ const Hero = () => {
   const [typed, setTyped] = useState(false);
   const [predictions, setPred] = useState([]);
   const [selectedAddr, setSelected] = useState(null);
+  const [isMobile, setIsMobile] = useState(false);
   const { getPlacePredictions, placePredictions } = usePlacesService({
     apiKey: process.env.NEXT_PUBLIC_GOOGLE_ADDRESS_VALIDATION_API_KEY,
   });
@@ -22,6 +23,25 @@ const Hero = () => {
   useEffect(() => {
     if (typed && address.length) getPlacePredictions({ input: address });
   }, [address]);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      if (typeof window !== 'undefined') {
+        setIsMobile(window.innerWidth < 768);
+      }
+    };
+    
+    checkMobile();
+    if (typeof window !== 'undefined') {
+      window.addEventListener('resize', checkMobile);
+    }
+    
+    return () => {
+      if (typeof window !== 'undefined') {
+        window.removeEventListener('resize', checkMobile);
+      }
+    };
+  }, []);
 
   useEffect(() => {
     const handleClickOutside = (e) => {
@@ -107,11 +127,17 @@ const Hero = () => {
         <div className="row gap-y-8 sm:gap-y-14 lg:gap-y-8 gap-x-5 justify-center xl:gap-x-[74px] 2xl:gap-x-20 items-center max-lg:text-center">
           <div className="lg:w-6/12 xl:w-[43%] 2xl:w-5/12 max-lg:order-1">
             <div className="flex flex-col max-lg:px-5">
-              <h1 style={{fontSize: '56px'}} className="font-bold text-[40px] leading-14 lg:text-6xl lg:leading-[1.2] mb-3 lg:mb-5">
+              <h1 style={{
+                fontSize: isMobile ? '32px' : '56px',
+                fontWeight: isMobile ? '600' : '700'
+              }} className="font-bold text-[40px] leading-14 lg:text-6xl lg:leading-[1.2] mb-3 lg:mb-5">
                 <span className="text-primary">Instant </span> Paint <br /> Cost Calculator
               </h1>
-              <p className="text-base lg:text-2xl leading-6 lg:leading-snug" style={{fontSize: '22px'}}>
-              Instantly find the true cost to paint a house with Middler—the most effective Paint calculator for rooms, interiors, and exteriors anywhere in the USA
+              <p className="text-base lg:text-2xl leading-6 lg:leading-snug" style={{
+                fontSize: isMobile ? '16px' : '22px',
+                fontWeight: isMobile ? '400' : '500'
+              }}>
+              Instantly find the true cost to paint a house with Middler—the most effective Paint calculator for rooms, interiors, and exteriors anywhere in the USA
               </p>
             </div>
           </div>
@@ -130,14 +156,17 @@ const Hero = () => {
 
             <form
               onSubmit={handleSubmit}
-              className="border border-primary-300 w-full bg-white p-2 sm:p-3 max-lg:pb-5 max-lg:pt-2 lg:p-[30px] shadow-[0_4px_40px] shadow-primary/20 rounded-[20px] flex flex-col gap-2 lg:gap-5"
+              className="border border-primary-300 bg-white p-2 sm:p-3 max-lg:pb-5 max-lg:pt-2 lg:p-[30px] shadow-[0_4px_40px] shadow-primary/20 rounded-[20px] flex flex-col gap-2 lg:gap-5"
+              style={{
+                width: isMobile ? '100%' : '100%'
+              }}
             >
               <div className="relative py-2 lg:px-1.5 border-b-[1.5px] border-[rgba(51,51,51,0.15)] after:h-[3px] after:w-[89px] after:absolute after:-bottom-px after:left-0 after:bg-primary">
                 <p className="max-[400px]:text-[3.45vw]! text-[3.5vw] lg:text-2xl font-semibold max-sm:mt-2">
                   Enter address of the property that's being painted
                 </p>
               </div>
-              <div className="w-full flex flex-col sm:flex-row gap-2.5 lg:gap-[30px] items-stretch">
+              <div className="w-full flex flex-row gap-2.5 lg:gap-[30px] items-stretch">
                 <div ref={dropdownRef} className="py-3 px-2 lg:p-3 rounded-xl grow bg-[#f3f3f3] flex flex-col gap-2 relative">
                   <div className="flex gap-2 items-center">
                     <span>
