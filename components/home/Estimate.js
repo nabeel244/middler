@@ -7,19 +7,27 @@ import Image from "next/image";
 
 const Estimate = () => {
   const [smallSize, setSmallSize] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
     const handleResize = () => {
-      const isSmallScreen = window.innerWidth < 992;
-      setSmallSize(
-        isSmallScreen ? true : false
-      );
+      if (typeof window !== 'undefined') {
+        const isSmallScreen = window.innerWidth < 992;
+        setSmallSize(isSmallScreen ? true : false);
+        setIsMobile(window.innerWidth < 768);
+      }
     };
 
     handleResize();
-    window.addEventListener("resize", handleResize);
+    if (typeof window !== 'undefined') {
+      window.addEventListener("resize", handleResize);
+    }
 
-    return () => window.removeEventListener("resize", handleResize);
+    return () => {
+      if (typeof window !== 'undefined') {
+        window.removeEventListener("resize", handleResize);
+      }
+    };
   }, []);
 
   // Alt tags for the background images
@@ -31,7 +39,7 @@ const Estimate = () => {
   ];
 
   return (
-    <section className="relative pt-16 lg:py-10 order-2">
+    <section className="relative pt-16 lg:py-10 order-2" style={{ paddingTop: isMobile ? '10px' : undefined }}>
       <div className="container">
         <div className="row">
           <div className="w-full">
