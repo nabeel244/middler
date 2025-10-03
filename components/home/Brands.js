@@ -1,8 +1,35 @@
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 const Brands = () => {
+
+  const [smallSize, setSmallSize] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (typeof window !== 'undefined') {
+        const isSmallScreen = window.innerWidth < 992;
+        setSmallSize(isSmallScreen ? true : false);
+        setIsMobile(window.innerWidth < 768);
+      }
+    };
+
+    handleResize();
+    if (typeof window !== 'undefined') {
+      window.addEventListener("resize", handleResize);
+    }
+
+    return () => {
+      if (typeof window !== 'undefined') {
+        window.removeEventListener("resize", handleResize);
+      }
+    };
+  }, []);
+
+
   return (
-    <section className="pt-5 lg:pb-10 order-1">
+    <section className="pt-5 lg:pb-10 order-1" style={{ paddingTop: isMobile ? '35px' : undefined }}>
       <div className="container">
         <div className="row">
           <div className="w-full">
