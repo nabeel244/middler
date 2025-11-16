@@ -17,12 +17,18 @@ const Hero = () => {
   const [isMobile, setIsMobile] = useState(false);
   const { getPlacePredictions, placePredictions } = usePlacesService({
     apiKey: process.env.NEXT_PUBLIC_GOOGLE_ADDRESS_VALIDATION_API_KEY,
-  });
+  }) || { getPlacePredictions: () => {}, placePredictions: [] };
   const [, setCookie] = useCookies(["address"]);
 
   useEffect(() => {
-    if (typed && address.length) getPlacePredictions({ input: address });
-  }, [address]);
+    if (typed && address.length && getPlacePredictions) {
+      try {
+        getPlacePredictions({ input: address });
+      } catch (error) {
+        console.warn('Google Places API error:', error);
+      }
+    }
+  }, [address, getPlacePredictions]);
 
   useEffect(() => {
     const checkMobile = () => {
@@ -59,7 +65,7 @@ const Hero = () => {
   }, []);
 
   useEffect(() => {
-    if (!placePredictions?.length) return;
+    if (!placePredictions?.length || !window.google?.maps?.places) return;
     const svc = new window.google.maps.places.PlacesService(
       document.createElement("div")
     );
