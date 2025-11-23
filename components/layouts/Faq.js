@@ -7,55 +7,43 @@ const Faq = ({ type = 'interior' }) => {
 
   const interiorFaqs = [
     {
-      question: "What is the average cost to paint interior walls per square foot?",
-      answer: "Most professional painters charge between $1.00-$3.00 per sq ft for interior wall painting. Rates vary by region, room condition, and paint type—premium finishes command the higher end of the range."
+      question: "How much should it cost to paint the interior of a 2000 sq ft house?",
+      answer: "The cost depends on wall height, number of rooms, and paint type. On average, painting a 2000 sq ft home may range from moderate to higher budgets based on prep work and coats. Using Middler's calculator gives you a closer estimate for your home."
     },
     {
-      question: "How do I calculate paint quantity for interior rooms?",
-      answer: "Calculate total wall area by measuring wall perimeter × ceiling height, then subtract door/window openings. Divide by your paint's coverage rate (typically 350-400 sq ft per gallon). Add 10% extra for touch-ups."
+      question: "How much paint for a 1000 sq ft house interior?",
+      answer: "Most 1000 sq ft homes need several gallons for two coats, depending on wall conditions and color changes. Our calculator helps you see how much paint and labor your project may require."
     },
     {
-      question: "What factors affect interior painting costs?",
-      answer: "Key factors include room size, ceiling height, wall condition, paint quality, number of coats needed, trim work, and local labor rates. Textured walls and multiple colors increase costs."
+      question: "How much should I charge to paint a 20x20 room?",
+      answer: "A 20x20 room usually needs multiple gallons of paint and a few hours of labor. The price depends on ceiling height, wall repairs, and coats. Enter your room size in our tool for an exact estimate."
     },
     {
-      question: "How long does interior painting take?",
-      answer: "A typical room takes 1-2 days including prep work. Whole house interiors usually take 3-7 days depending on size, condition, and detail work required."
+      question: "How much does it cost to paint a 3 bedroom house interior?",
+      answer: "A 3-bedroom home often ranges widely in price depending on square footage, number of coats, ceiling height, and extra areas like trims and doors. The calculator helps you understand your expected total cost."
     },
     {
-      question: "Do I need primer for interior walls?",
-      answer: "Primer is recommended when changing colors dramatically, painting over stains, or using high-quality paint on new drywall. Many modern paints include primer for light color changes."
-    },
-    {
-      question: "What's included in professional interior painting?",
-      answer: "Professional services typically include surface preparation, priming (if needed), paint application, trim work, cleanup, and materials. Some contractors charge extra for extensive prep work."
+      question: "How much cost to paint a room?",
+      answer: "Room painting prices vary based on size and paint type, but our calculator gives you a clear estimate in seconds. You can enter any room size and get an accurate cost range instantly"
     }
   ];
 
   const exteriorFaqs = [
     {
-      question: "What is the average cost to paint exterior walls per square foot?",
-      answer: "Professional exterior painting costs range from $1.50-$4.00 per sq ft. Factors include surface material, condition, height, and paint quality. Multi-story homes and detailed trim work increase costs."
+      question: "How do you calculate exterior painting cost?",
+      answer: "We calculate cost based on home size, number of stories, paint type, wall condition, and the amount of prep work needed. Middler's calculator uses these details to give you a quick and clear estimate."
     },
     {
-      question: "How do I calculate exterior paint coverage?",
-      answer: "Measure total exterior wall area (length × height of each wall), subtract windows/doors, then divide by paint coverage (typically 300-400 sq ft per gallon). Add 15% extra for texture and touch-ups."
+      question: "How much exterior paint for a 2000 square foot house?",
+      answer: "A 2000 sq ft house usually needs 10–18 gallons of paint, depending on the number of coats, texture of the walls, and paint brand."
     },
     {
-      question: "What affects exterior painting costs the most?",
-      answer: "Major factors include home size, surface condition, paint quality, number of stories, architectural details, weather conditions, and local labor rates. Extensive prep work significantly increases costs."
+      question: "How much to paint a 1500 sq ft house exterior near me?",
+      answer: "Prices depend on your location, paint quality, and home condition. Use our calculator to get a fast estimate for your area."
     },
     {
-      question: "How often should I paint my home's exterior?",
-      answer: "Most exteriors need repainting every 7-10 years, but this varies by climate, paint quality, and surface material. Wood siding may need painting every 5-7 years, while fiber cement lasts longer."
-    },
-    {
-      question: "What's the best time of year for exterior painting?",
-      answer: "Late spring through early fall offers ideal conditions. Avoid painting in direct sunlight, high humidity, or when rain is expected within 24 hours. Temperature should be between 50-85°F."
-    },
-    {
-      question: "Do exterior painting estimates include all materials?",
-      answer: "Most professional estimates include paint, primer, brushes, rollers, and basic supplies. Extensive prep work, power washing, or repairs may be quoted separately."
+      question: "Why is exterior house painting so expensive?",
+      answer: "Exterior painting takes time, skill, and high-quality materials. It also includes cleaning, repairs, priming, and safety steps. The cost covers labor, paint, tools, and long-lasting protection for your home."
     }
   ];
 

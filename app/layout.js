@@ -80,6 +80,11 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body className={`${poppins.variable} font-sans`}>
+        {/* Google Maps API Script - load before interactive for address autocomplete */}
+        <Script
+          src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_ADDRESS_VALIDATION_API_KEY}&libraries=places`}
+          strategy="beforeInteractive"
+        />
         {/* Optimized Google Analytics - load after page is interactive */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-T72TYPR1EE"

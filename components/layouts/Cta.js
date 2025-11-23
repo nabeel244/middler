@@ -3,9 +3,12 @@ import { useEffect, useState } from "react";
 import GoogleRevs from "../ui/GoogleRevs";
 import Heading from "../ui/Heading";
 import Image from "next/image";
+import { pageContent } from "@/app/constants/pageContent";
 
-const Cta = () => {
+const Cta = ({ pageType = "home" }) => {
   const [awardsImg, setAwardsImg] = useState("/images/elements/exl.webp");
+  const content = pageContent[pageType] || pageContent.home;
+  const ctaContent = content.cta;
 
   const awards = [
     `Home Owners <br/> & Diyer`,
@@ -53,21 +56,54 @@ const Cta = () => {
               <div className="pb-0!">
                 <Heading
                   oh
-                  heading="Why Middler Certifies Estimates!"
-                  highlight="Certifies"
+                  heading={ctaContent ? ctaContent.heading : "Why Middler Certifies Estimates!"}
+                  highlight={ctaContent ? ctaContent.headingHighlight : "Certifies"}
                   className="text-xl font-semibold!"
                 />
                 <p className="text-[11px] lg:text-[22px] mt-3 max-lg:mb-[35px] lg:mt-5">
-                  Because people will always doubt contractor pricing until a trusted platform like Middler starts certifying estimates. That's what we do — for painters, plumbers, and everyone else.
+                  {ctaContent ? ctaContent.description : "Because people will always doubt contractor pricing until a trusted platform like Middler starts certifying estimates. That's what we do — for painters, plumbers, and everyone else."}
                 </p>
               </div>
-              <div className="lg:pt-0!">
-                <p className="font-medium text-[11px] lg:text-[22px]">
-                  "Middler's prices are not for painters that are trying to rip
-                  people off and not for customers who want to underpay
-                  painters. The seal stands by that."
-                </p>
-              </div>
+              {ctaContent ? (
+                <>
+                  <div className="lg:pt-0!">
+                    <p className="font-semibold text-[11px] lg:text-[22px] mb-4">
+                      {ctaContent.subHeading}
+                    </p>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-3xl mx-auto">
+                      <ul className="text-[11px] lg:text-[22px] text-left space-y-2">
+                        {ctaContent.factors.slice(0, 3).map((factor, idx) => (
+                          <li key={idx} className="flex items-start">
+                            <span className="text-primary mr-2">•</span>
+                            <span>{factor}</span>
+                          </li>
+                        ))}
+                      </ul>
+                      <ul className="text-[11px] lg:text-[22px] text-left space-y-2">
+                        {ctaContent.factors.slice(3, 6).map((factor, idx) => (
+                          <li key={idx + 3} className="flex items-start">
+                            <span className="text-primary mr-2">•</span>
+                            <span>{factor}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                  <div className="lg:pt-0! mt-4">
+                    <p className="font-medium text-[11px] lg:text-[22px]">
+                      {ctaContent.closingText}
+                    </p>
+                  </div>
+                </>
+              ) : (
+                <div className="lg:pt-0!">
+                  <p className="font-medium text-[11px] lg:text-[22px]">
+                    "Middler's prices are not for painters that are trying to rip
+                    people off and not for customers who want to underpay
+                    painters. The seal stands by that."
+                  </p>
+                </div>
+              )}
               <div className="grid grid-cols-2 max-lg:px-0! lg:grid-cols-4 gap-y-10 gap-x-0 lg:gap-x-[25px] mt-10 lg:mt-0 lg:px-3! py-0!">
                 {awards.map((item, index) => (
                   <div

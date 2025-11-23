@@ -1,9 +1,14 @@
 import { FaCheck } from "react-icons/fa";
 import Heading from "../ui/Heading";
 import Image from "next/image";
+import { pageContent } from "@/app/constants/pageContent";
 
-const OurProcess = () => {
-  const process = [
+const OurProcess = ({ pageType = "home" }) => {
+  const content = pageContent[pageType] || pageContent.home;
+  const processContent = content.ourProcess;
+  
+  // Use custom content if available, otherwise use default
+  const defaultProcess = [
     {
       title: "Create a professional estimate in 4 simple steps",
       text: "Enter your property address or basic job details. No measuring, guessing, or complicated forms just simple input to get started fast",
@@ -21,6 +26,12 @@ const OurProcess = () => {
       text: "Get your estimate for free and share it with your partner, homeowner, landlord, or anyone helping with the job.",
     },
   ];
+  
+  const process = processContent ? processContent.steps : defaultProcess;
+  const headingText = processContent ? processContent.heading : "How it works!";
+  const headingHighlight = processContent ? processContent.headingHighlight : "works!";
+  const preheading = processContent ? processContent.preheading : "our process";
+  const description = processContent ? processContent.description : "Whether you're on-site or at the office, Middler makes it fast and easy to generate polished, data-backed painting estimates. Here's how:";
 
   return (
     <section className="px-5 lg:px-10 py-20">
@@ -30,16 +41,14 @@ const OurProcess = () => {
             <div className="flex flex-col w-full items-center text-center gap-y-20 lg:gap-y-32">
               <div className="lg:w-[68%]">
                 <Heading
-                  heading="How it works!"
-                  highlight="works!"
-                  preheading="our process"
+                  heading={headingText}
+                  highlight={headingHighlight}
+                  preheading={preheading}
                   phClassname="mb-[30px]"
                   className="text-[26px]"
                 />
                 <p className="text-center text-sm lg:text-2xl mt-2">
-                  Whether you’re on-site or at the office, Middler makes it fast
-                  and easy to generate polished, data-backed painting estimates.
-                  Here’s how:
+                  {description}
                 </p>
               </div>
               <div className="lg:px-10">
@@ -50,7 +59,7 @@ const OurProcess = () => {
                       className={`grid lg:grid-cols-[154px_auto] w-full gap-12`}
                     >
                       <div
-                        className={`max-lg:hidden size-[154px] relative  ${idx !== 3
+                        className={`max-lg:hidden size-[154px] relative  ${idx !== process.length - 1
                           ? "after:absolute after:h-[179px] after:w-1 after:bg-gradient-to-b after:from-primary after:to-primary/40 after:top-[168px] after:left-[75px]"
                           : ""
                           }`}
@@ -85,10 +94,17 @@ const OurProcess = () => {
                         </div>
                       </div>
                     </div>
-                  ))}
+                  ))} 
                 </div>
               </div>
             </div>
+            {processContent && processContent.closingText && (
+                    <div className="mt-60-px text-center">
+                      <p className="text-sm lg:text-2xl">
+                        {processContent.closingText}
+                      </p>
+                    </div>
+                  )}
           </div>
         </div>
       </div>
