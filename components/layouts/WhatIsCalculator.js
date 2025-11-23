@@ -32,13 +32,13 @@ const WhatIsCalculator = ({ content }) => {
         <div className="row">
           <div className="w-full">
             <div className="flex flex-col-reverse max-lg:gap-y-10 lg:gap-x-20 lg:flex-row text-center lg:text-left items-start justify-between">
-              <div className="lg:sticky lg:top-20">
+              <div className="lg:sticky lg:top-20 flex-shrink-0">
                 <Image
                   src={content.image || "/images/mobile.webp"}
                   alt="Mobile illustration"
                   width={340}
                   height={340}
-                  className="lg:w-[340px]"
+                  className="w-full max-w-[340px] lg:w-[340px] h-auto"
                 />
               </div>
               <div className="w-full max-w-[800px] flex-col flex gap-10">
