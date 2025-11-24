@@ -1,6 +1,7 @@
 import { FaCheck } from "react-icons/fa";
 import Heading from "../ui/Heading";
 import Image from "next/image";
+import Button from "../ui/Button";
 import { pageContent } from "@/app/constants/pageContent";
 
 const OurProcess = ({ pageType = "home" }) => {
@@ -32,6 +33,16 @@ const OurProcess = ({ pageType = "home" }) => {
   const headingHighlight = processContent ? processContent.headingHighlight : "works!";
   const preheading = processContent ? processContent.preheading : "our process";
   const description = processContent ? processContent.description : "Whether you're on-site or at the office, Middler makes it fast and easy to generate polished, data-backed painting estimates. Here's how:";
+
+  // Determine image numbers based on page type
+  const getImageNumber = (idx) => {
+    if (pageType === "exterior") {
+      return idx + 7; // Uses images 7, 8, 9, 10, 11
+    } else if (pageType === "interior") {
+      return idx + 12; // Uses images 12, 13, 14, 15
+    }
+    return idx + 1; // Default for home page (1, 2, 3, 4)
+  };
 
   return (
     <section className="px-5 lg:px-10 py-20">
@@ -65,7 +76,7 @@ const OurProcess = ({ pageType = "home" }) => {
                           }`}
                       >
                         <Image
-                          src={`/images/process/${idx + 1}.webp`}
+                          src={`/images/process/${getImageNumber(idx)}.webp`}
                           alt={item.title}
                           width={154}
                           height={154}
@@ -105,6 +116,13 @@ const OurProcess = ({ pageType = "home" }) => {
                       </p>
                     </div>
                   )}
+            {(pageType === "interior" || pageType === "exterior") && (
+              <div className="mt-80-px text-center">
+                <Button href="/paint-estimator">
+                  Free Estimator
+                </Button>
+              </div>
+            )}
           </div>
         </div>
       </div>

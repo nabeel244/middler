@@ -134,6 +134,10 @@
   .mt-60-px {
     margin-top: 60px;
   }
+
+  .mt-80-px {
+    margin-top: 80px;
+  }
 }
 
 /* @media screen and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {

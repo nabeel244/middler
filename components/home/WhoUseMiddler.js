@@ -8,6 +8,7 @@ import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Heading from "../ui/Heading";
 import SwiperBtn from "../ui/SwiperBtn";
+import Button from "../ui/Button";
 import Image from "next/image";
 import { FaCheck } from "react-icons/fa";
 import { pageContent } from "@/app/constants/pageContent";
@@ -165,6 +166,13 @@ const WhoUseMiddler = ({ pageType = "home" }) => {
           />
         </div>
       </div>
+      {(pageType === "interior" || pageType === "exterior") && (
+        <div className="text-center pb-20">
+          <Button href="/paint-estimator">
+            Free Estimator
+          </Button>
+        </div>
+      )}
     </section>
   );
 };
