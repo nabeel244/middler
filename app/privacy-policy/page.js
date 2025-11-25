@@ -8,7 +8,9 @@ const page = () => {
   return (
     <>
       <Head>
-        <title>Privacy Policy</title>
+        <title>Privacy Policy - Middler</title>
+        <meta name="description" content="Read Middler's privacy policy to understand how we collect, use, and protect your personal information when using our paint calculator services." />
+        <meta name="robots" content="index, follow" />
       </Head>
       <Header />
       <section>

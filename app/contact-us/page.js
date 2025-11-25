@@ -75,8 +75,11 @@ const page = () => {
   return (
     <>
       <Head>
-        <title>Contact Us</title>
+        <title>Contact Us - Middler</title>
+        <meta name="description" content="Get in touch with Middler for questions about your paint estimates or going Middler-Certified. Our experts reply within one business day." />
+        <meta name="robots" content="index, follow" />
       </Head>
+
       <Header />
 
       <section className="relative mt-14 lg:mt-20 pt-12 lg:pt-20 pb-10 px-0 lg:px-10 overflow-hidden">

@@ -9,6 +9,7 @@ import { Suspense, useEffect, useRef, useState } from "react";
 import { useCookies } from "react-cookie";
 import { useDispatch, useSelector } from "react-redux";
 import Image from "next/image";
+import Script from 'next/script';
 
 //// REDUCERS
 import { login } from "../_redux/features/authSlice";
@@ -68,10 +69,23 @@ import GET_USER from "../_queries/fetchUser";
 import Confirmation from "@/components/modals/Confirmation";
 import GiftPopup from "@/components/modals/GiftPopup";
 import { validateEmail, validateNumber, validatePrice } from "@/helpers/forms";
-import { FaArrowLeft } from "react-icons/fa";
+import { FaArrowLeft, FaCheck } from "react-icons/fa";
 import StepSync from "./StepSync";
 
 const allCountries = getCountries();
+
+// Paint Estimator Product Schema
+const paintEstimatorProductSchema = {
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "Free Paint Estimate Cost Calculator",
+  "image": "https://middler.com/images/modals/3.webp",
+  "description": "Free paint cost calculator to estimate interior & exterior house painting costs per square foot instantly. Get accurate painting estimates with our comprehensive tool.",
+  "brand": {
+    "@type": "Brand",
+    "name": "Middler"
+  }
+};
 
 const PaintEstimator = ({ }) => {
   const dispatch = useDispatch();
@@ -530,6 +544,11 @@ const PaintEstimator = ({ }) => {
 
   return (
     <>
+      <Script
+        id="paint-estimator-product-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(paintEstimatorProductSchema) }}
+      />
       <head>
         <title>Free Paint Estimate Cost Calculator - Middler</title>
 
@@ -1188,7 +1207,321 @@ const PaintEstimator = ({ }) => {
               previewRef={previewRef}
             />
           )}
+          
+
         </div>
+        
+        {/* Paint Estimator Content Section - Home Page Style */}
+        <section className="relative pt-16 lg:py-20">
+          <div className="container">
+            <div className="row justify-center">
+              <div className="lg:w-7/12 max-lg:px-8">
+                <div className="flex flex-col items-center gap-2.5 lg:gap-4">
+                  <div className="inline-flex items-center justify-center px-4 py-2 bg-primary/10 text-primary-800 text-sm font-medium rounded-full mb-4">
+                    Paint Estimator Guide
+                  </div>
+                  <h1 className="font-bold text-[26px] lg:text-[50px] text-center">
+                    <span className="text-primary-800">Paint Estimator Tool</span> – A Complete Guide for Accurate Painting Cost Planning
+                  </h1>
+                  <p className="text-base lg:text-2xl leading-6 lg:leading-snug text-center max-w-4xl">
+                    Painting your home can feel confusing when you don't know how much it will cost or how much paint you need. A paint estimator tool makes this easy by helping you plan the whole project with clear numbers. It removes guesswork and helps you stay within your budget.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* What Is a Paint Estimator Tool */}
+        <section className="py-16 lg:py-20">
+          <div className="container">
+            <div className="row justify-center gap-y-10">
+              <div className="lg:w-7/12 max-lg:px-8">
+                <div className="flex flex-col items-center gap-2.5 lg:gap-4">
+                  <h2 className="font-bold text-[22px] lg:text-[50px] text-center">
+                    What Is a <span className="text-primary-800">Paint Estimator Tool</span>?
+                  </h2>
+                </div>
+              </div>
+              <div className="w-full">
+                <div className="flex flex-col lg:gap-7 max-lg:*:px-5 py-10 lg:py-[60px] items-center text-center bg-[#0b0b0b]/10 rounded-3xl lg:rounded-[40px] lg:*:px-[130px] lg:*:py-5 *:w-full">
+                  <div className="pb-0!">
+                    <p className="text-[11px] lg:text-[22px] leading-relaxed">
+                      This tool helps you understand the amount of paint required for any wall, room, or full house. It uses measurements and simple formulas to give quick results. You can use it before starting any painting project to avoid mistakes.
+                    </p>
+                    <p className="text-[11px] lg:text-[22px] mt-3 lg:mt-5 leading-relaxed">
+                      A paint estimator is built to handle painting calculations, which include wall size, number of coats, and paint type. It gives you a simple estimate so you can prepare without stress.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Why Use a Painting Cost Calculator */}
+        <section className="mb-20 overflow-hidden">
+          <div className="container">
+            <div className="row justify-center gap-y-10">
+              <div className="lg:w-7/12 max-lg:px-8">
+                <div className="flex flex-col items-center gap-2.5 lg:gap-4">
+                  <h2 className="font-bold text-[22px] lg:text-[50px] text-center">
+                    Why Use a <span className="text-primary-800">Painting Cost Calculator</span>?
+                  </h2>
+                </div>
+              </div>
+              <div className="w-full">
+                <div className="grid w-full max-lg:grid-cols-1 max-lg:gap-y-6 lg:grid-cols-2 gap-8 items-center">
+                  <div className="space-y-4 text-base lg:text-xl leading-relaxed">
+                    <p>
+                      A painting cost calculator helps you see the expected expenses before the work begins. It shows you the cost breakdown in an easy way. This helps you plan your painting budget wisely.
+                    </p>
+                    <p>
+                      Using a painting cost calculator also helps avoid surprise expenses. It turns confusing numbers into clear, understandable results so you can make better decisions for your home.
+                    </p>
+                  </div>
+                  <div className="bg-primary/10 p-6 lg:p-8 rounded-3xl">
+                    <h3 className="text-lg lg:text-2xl font-semibold text-primary-800 mb-4">Benefits:</h3>
+                    <ul className="space-y-3 text-sm lg:text-lg">
+                      <li className="flex items-center gap-[7.5px]">
+                        <span className="bg-primary flex items-center justify-center text-white border border-primary rounded-full size-[18px] text-[8px] flex-shrink-0">
+                          <FaCheck />
+                        </span>
+                        Clear budget planning
+                      </li>
+                      <li className="flex items-center gap-[7.5px]">
+                        <span className="bg-primary flex items-center justify-center text-white border border-primary rounded-full size-[18px] text-[8px] flex-shrink-0">
+                          <FaCheck />
+                        </span>
+                        No surprise costs
+                      </li>
+                      <li className="flex items-center gap-[7.5px]">
+                        <span className="bg-primary flex items-center justify-center text-white border border-primary rounded-full size-[18px] text-[8px] flex-shrink-0">
+                          <FaCheck />
+                        </span>
+                        Easy decision making
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Exterior and Interior Painting Costs */}
+        <section className="lg:py-20">
+          <div className="container">
+            <div className="row justify-center">
+              <div className="w-full">
+                <div className="flex flex-col lg:gap-7 max-lg:*:px-5 py-10 lg:py-[60px] items-center text-center bg-[#0b0b0b]/10 rounded-3xl lg:rounded-[40px] lg:*:px-[130px] lg:*:py-5 *:w-full">
+                  <div className="pb-0!">
+                    <h2 className="font-bold text-[22px] lg:text-[50px] text-center mb-6">
+                      <span className="text-primary-800">Exterior and Interior</span> Painting Costs
+                    </h2>
+                  </div>
+                  <div className="grid md:grid-cols-2 gap-8 lg:pt-0!">
+                    <div className="bg-white p-6 lg:p-8 rounded-3xl shadow-sm">
+                      <h3 className="text-lg lg:text-2xl font-semibold mb-4">Exterior Painting</h3>
+                      <p className="text-[11px] lg:text-[18px] mb-4">
+                        The cost to paint exterior of house depends on the size of your home, the material of the walls, and the weather conditions.
+                      </p>
+                      <div className="text-[10px] lg:text-[16px] text-left">
+                        <p className="font-medium mb-2">Factors affecting cost:</p>
+                        <ul className="space-y-2">
+                          <li className="flex items-center gap-2">
+                            <span className="bg-primary flex items-center justify-center text-white border border-primary rounded-full size-[16px] text-[6px] lg:size-[18px] lg:text-[8px] flex-shrink-0">
+                              <FaCheck />
+                            </span>
+                            Home size and stories
+                          </li>
+                          <li className="flex items-center gap-2">
+                            <span className="bg-primary flex items-center justify-center text-white border border-primary rounded-full size-[16px] text-[6px] lg:size-[18px] lg:text-[8px] flex-shrink-0">
+                              <FaCheck />
+                            </span>
+                            Surface material
+                          </li>
+                          <li className="flex items-center gap-2">
+                            <span className="bg-primary flex items-center justify-center text-white border border-primary rounded-full size-[16px] text-[6px] lg:size-[18px] lg:text-[8px] flex-shrink-0">
+                              <FaCheck />
+                            </span>
+                            Weather conditions
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div className="bg-white p-6 lg:p-8 rounded-3xl shadow-sm">
+                      <h3 className="text-lg lg:text-2xl font-semibold mb-4">Interior Painting</h3>
+                      <p className="text-[11px] lg:text-[18px] mb-4">
+                        The cost to paint interior of house is based on room height, wall condition, and the number of coats you want.
+                      </p>
+                      <div className="text-[10px] lg:text-[16px] text-left">
+                        <p className="font-medium mb-2">Factors affecting cost:</p>
+                        <ul className="space-y-2">
+                          <li className="flex items-center gap-2">
+                            <span className="bg-primary flex items-center justify-center text-white border border-primary rounded-full size-[16px] text-[6px] lg:size-[18px] lg:text-[8px] flex-shrink-0">
+                              <FaCheck />
+                            </span>
+                            Room height and size
+                          </li>
+                          <li className="flex items-center gap-2">
+                            <span className="bg-primary flex items-center justify-center text-white border border-primary rounded-full size-[16px] text-[6px] lg:size-[18px] lg:text-[8px] flex-shrink-0">
+                              <FaCheck />
+                            </span>
+                            Wall condition
+                          </li>
+                          <li className="flex items-center gap-2">
+                            <span className="bg-primary flex items-center justify-center text-white border border-primary rounded-full size-[16px] text-[6px] lg:size-[18px] lg:text-[8px] flex-shrink-0">
+                              <FaCheck />
+                            </span>
+                            Number of coats needed
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="lg:pt-0! mt-4">
+                    <p className="text-[11px] lg:text-[22px]">
+                      Painting inside and outside the house can have different price ranges. Many things can change the final cost. A paint estimator helps you compare these costs easily.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Interior Paint Cost Breakdown */}
+        <section className="py-16 lg:py-20">
+          <div className="container">
+            <div className="row justify-center gap-y-10">
+              <div className="lg:w-7/12 max-lg:px-8">
+                <div className="flex flex-col items-center gap-2.5 lg:gap-4">
+                  <h2 className="font-bold text-[22px] lg:text-[50px] text-center">
+                    <span className="text-primary-800">Interior Paint Cost</span> Breakdown Made Simple
+                  </h2>
+                  <p className="text-base lg:text-2xl leading-6 lg:leading-snug text-center">
+                    Most homeowners want to know how much painting a room or full interior will cost. These tools help break down every small detail. This gives you a clear starting point for budgeting.
+                  </p>
+                </div>
+              </div>
+              <div className="w-full">
+                <div className="bg-primary/5 border-l-4 border-primary p-6 lg:p-8 rounded-3xl">
+                  <h3 className="text-lg lg:text-2xl font-semibold text-primary-800 mb-4">Cost Components Include:</h3>
+                  <p className="text-sm lg:text-xl">
+                    An interior painting cost calculator helps you check paint amount, labor, and finishing cost. When understanding the cost to paint a room, the tool looks at room size, paint brand, and surface make. This helps you get a realistic interior painting cost before you hire anyone.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Square Foot Calculations */}
+        <section className="mb-20 overflow-hidden">
+          <div className="container">
+            <div className="row justify-center gap-y-10">
+              <div className="lg:w-7/12 max-lg:px-8">
+                <div className="flex flex-col items-center gap-2.5 lg:gap-4">
+                  <h2 className="font-bold text-[22px] lg:text-[50px] text-center">
+                    <span className="text-primary-800">Square Foot Calculations</span> for Accurate Estimates
+                  </h2>
+                  <p className="text-base lg:text-2xl leading-6 lg:leading-snug text-center">
+                    Square footage is one of the most important parts of painting costs. Accurate measurements help avoid buying too much or too little paint. A good estimator makes this part simple.
+                  </p>
+                </div>
+              </div>
+              <div className="w-full">
+                <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
+                  <div className="bg-white p-6 lg:p-8 rounded-3xl border shadow-sm">
+                    <h3 className="text-lg lg:text-2xl font-semibold mb-4">Paint Calculator</h3>
+                    <p className="text-sm lg:text-lg">
+                      A paint calculator square feet option lets you add the wall size and quickly see how much paint you need.
+                    </p>
+                  </div>
+                  <div className="bg-white p-6 lg:p-8 rounded-3xl border shadow-sm">
+                    <h3 className="text-lg lg:text-2xl font-semibold mb-4">Estimate Calculator</h3>
+                    <p className="text-sm lg:text-lg">
+                      A painting estimate calculator then uses total area, paint type, and labor to give you an accurate final estimate.
+                    </p>
+                  </div>
+                </div>
+                <p className="text-base lg:text-xl text-center mt-6">
+                  This helps you plan your full project confidently.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Full House Painting Costs */}
+        <section className="py-16 lg:py-20">
+          <div className="container">
+            <div className="row justify-center gap-y-10">
+              <div className="lg:w-7/12 max-lg:px-8">
+                <div className="flex flex-col items-center gap-2.5 lg:gap-4">
+                  <h2 className="font-bold text-[22px] lg:text-[50px] text-center">
+                    <span className="text-primary-800">Full House</span> Painting Costs
+                  </h2>
+                  <p className="text-base lg:text-2xl leading-6 lg:leading-snug text-center">
+                    People often worry about how much it will cost for the whole home. A paint estimator helps break it down room by room. This makes the planning easier for big projects.
+                  </p>
+                </div>
+              </div>
+              <div className="w-full">
+                <div className="bg-primary/10 p-6 lg:p-8 rounded-3xl">
+                  <h3 className="text-lg lg:text-2xl font-semibold text-primary-800 mb-4 text-center">Cost Calculation Process:</h3>
+                  <div className="space-y-3 text-sm lg:text-lg text-center">
+                    <p>• The painting cost per square foot helps you see the cost based on surface area</p>
+                    <p>• When calculating the cost of painting a house, the estimator checks all walls, ceilings, and trims</p>
+                    <p>• This makes the cost to paint a house much clearer and easier to understand</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Extra Home Improvement Ideas */}
+        <section className="lg:py-20">
+          <div className="container">
+            <div className="row justify-center">
+              <div className="w-full">
+                <div className="flex flex-col lg:gap-7 max-lg:*:px-5 py-10 lg:py-[60px] items-center text-center bg-gradient-to-r from-green-50 to-emerald-50 rounded-3xl lg:rounded-[40px] lg:*:px-[130px] lg:*:py-5 *:w-full">
+                  <div className="pb-0!">
+                    <h2 className="font-bold text-[22px] lg:text-[50px] text-center mb-6">
+                      <span className="text-primary-800">Extra Home Improvement</span> Ideas
+                    </h2>
+                    <p className="text-[11px] lg:text-[22px] mb-3 lg:mb-5">
+                      After painting, many homeowners like to refresh their home décor. Simple additions can make your space feel new.
+                    </p>
+                    <p className="text-[11px] lg:text-[22px]">
+                      One idea is adding decorative items to match your new colors. This is where premium gift baskets can add warmth to your freshly painted home. They also make great housewarming gifts after a renovation.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Conclusion */}
+        <section className="py-16 lg:py-20">
+          <div className="container">
+            <div className="row justify-center">
+              <div className="w-full max-w-4xl">
+                <div className="flex flex-col items-center text-center gap-8 px-5 py-10 lg:py-[60px] bg-[#0b0b0b]/10 rounded-3xl lg:rounded-[40px]">
+                  <h2 className="font-bold text-[22px] lg:text-[50px]">
+                    <span className="text-primary-800">Conclusion</span>
+                  </h2>
+                  <p className="text-[11px] lg:text-[22px] leading-relaxed max-w-3xl">
+                    A paint calculator is one of the easiest tools for planning any painting job. It helps you estimate paint, labor, and total cost without confusion. With clear numbers, you can start your project with confidence and stay within budget.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
       <Suspense fallback={null}>
         <StepSync />

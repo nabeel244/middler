@@ -56,6 +56,17 @@ const WhoUseMiddler = ({ pageType = "home" }) => {
     const mainTitle = titleParts[0].trim();
     // Split main title to get first part (blue) and last word (black) - same as original design
     const words = mainTitle.split(' ');
+    
+    // Define icons based on page type
+    let iconName;
+    if (pageType === 'interior') {
+      iconName = idx === 0 ? "price.webp" : idx === 1 ? "painters.webp" : idx === 2 ? "quality.webp" : "turn.webp";
+    } else if (pageType === 'exterior') {
+      iconName = idx === 0 ? "1500.webp" : idx === 1 ? "2000.webp" : idx === 2 ? "multi.webp" : "house.webp";
+    } else {
+      iconName = idx === 0 ? "chair.webp" : idx === 1 ? "brush.webp" : idx === 2 ? "tools.webp" : "house.webp";
+    }
+    
     if (words.length > 1) {
       const firstPart = words.slice(0, -1).join(' ');
       const lastWord = words[words.length - 1];
@@ -63,7 +74,7 @@ const WhoUseMiddler = ({ pageType = "home" }) => {
         span: firstPart,
         title: `<br>${lastWord}`,
         text: point.description,
-        icon: idx === 0 ? "chair.webp" : idx === 1 ? "brush.webp" : idx === 2 ? "tools.webp" : "house.webp"
+        icon: iconName
       };
     } else {
       // If only one word, keep it in blue
@@ -71,7 +82,7 @@ const WhoUseMiddler = ({ pageType = "home" }) => {
         span: mainTitle,
         title: "",
         text: point.description,
-        icon: idx === 0 ? "chair.webp" : idx === 1 ? "brush.webp" : idx === 2 ? "tools.webp" : "house.webp"
+        icon: iconName
       };
     }
   }) : cards;
