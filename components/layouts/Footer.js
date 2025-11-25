@@ -3,6 +3,14 @@ import Link from "next/link";
 import Image from "next/image";
 
 const Footer = () => {
+  const footerLinks = [
+    { name: "Home", url: "/" },
+    { name: "Interior Painting", url: "/interior-painting-cost-calculator" },
+    { name: "Exterior Painting", url: "/exterior-painting-cost-calculator" },
+    { name: "Privacy Policy", url: "/privacy-policy" },
+    { name: "Terms of Service", url: "/terms-of-service" }
+  ];
+
   return (
     <footer className="bg-gradient-to-br lg:bg-gradient-to-r from-primary-950 to-primary pt-[60px] px-6 pb-5 lg:p-[60px]">
       <div className="container">
@@ -36,7 +44,7 @@ const Footer = () => {
               Links
             </p>
             <ul className="flex flex-col gap-3">
-              {menuItems.filter((_, idx) => idx !== 1).map((item, idx) => (
+              {footerLinks.map((item, idx) => (
                 <li key={idx}>
                   <Link
                     href={item.url}

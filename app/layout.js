@@ -41,7 +41,6 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <title>Paint Calculator | House Paint Estimate Cost - Middler</title>
         <meta name="description" content="Middler's paint calculator gives detailed cost estimates for interior & exterior house painting, including paint, material & labor." />
         <meta name="google-site-verification" content="cXkEsP_rWBJOqS_x8q9XsG3hfwXWJgC9Wvnt93V-PcU" />
         <meta name="google-site-verification" content="f3nKDvsuIi4oBCMJQ5SA08X9o4hG5Hsd-XugfyCAsbU" />
@@ -80,6 +79,11 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body className={`${poppins.variable} font-sans`}>
+        {/* Google Maps API Script - load before interactive for address autocomplete */}
+        <Script
+          src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_ADDRESS_VALIDATION_API_KEY}&libraries=places`}
+          strategy="beforeInteractive"
+        />
         {/* Optimized Google Analytics - load after page is interactive */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-T72TYPR1EE"

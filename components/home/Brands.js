@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-const Brands = () => {
+const Brands = ({ hideStats = false }) => {
 
   const [smallSize, setSmallSize] = useState(false)
   const [isMobile, setIsMobile] = useState(false)
@@ -27,6 +27,11 @@ const Brands = () => {
     };
   }, []);
 
+
+  // If hideStats is true, don't render the entire section
+  if (hideStats) {
+    return null;
+  }
 
   return (
     <section className="pt-5 lg:pb-10 order-1" style={{ paddingTop: isMobile ? '35px' : undefined }}>

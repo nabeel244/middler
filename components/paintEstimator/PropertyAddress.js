@@ -39,7 +39,7 @@ const PropertyAddress = ({
   }, [estimator.value.clientPropertyAddress, userTyped]);
 
   useEffect(() => {
-    if (placePredictions && placePredictions.length > 0) {
+    if (placePredictions && placePredictions.length > 0 && window.google?.maps?.places) {
       const service = new window.google.maps.places.PlacesService(
         document.createElement("div")
       );

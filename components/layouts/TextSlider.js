@@ -4,7 +4,9 @@ import "swiper/css";
 import "swiper/css/autoplay";
 import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-const TextSlider = () => {
+const TextSlider = ({ 
+  text = "Middler makes painting quotes easy, fast, and 98% accurate — no guesswork, just results."
+}) => {
   return (
     <section className="p-5 bg-gradient-to-br from-primary-800 via-[#3a6fff] to-primary mt-5 mb-20">
       <div className="relative w-full">
@@ -20,8 +22,7 @@ const TextSlider = () => {
           {[...Array(5)].map((_, i) => (
             <SwiperSlide key={i} className="w-auto! backface-hidden!">
               <p className="text-white text-base lg:text-[40px]">
-                Middler makes painting quotes easy, fast, and 98% accurate — no
-                guesswork, just results.
+                {text}
               </p>
             </SwiperSlide>
           ))}

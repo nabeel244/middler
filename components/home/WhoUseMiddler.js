@@ -8,7 +8,10 @@ import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Heading from "../ui/Heading";
 import SwiperBtn from "../ui/SwiperBtn";
+import Button from "../ui/Button";
 import Image from "next/image";
+import { FaCheck } from "react-icons/fa";
+import { pageContent } from "@/app/constants/pageContent";
 
 const cards = [
   {
@@ -37,20 +40,54 @@ const cards = [
   },
 ];
 
-const WhoUseMiddler = () => {
+const WhoUseMiddler = ({ pageType = "home" }) => {
+  const content = pageContent[pageType] || pageContent.home;
+  const whoUseContent = content.whoUseMiddler;
   const swiperRef = useRef(null);
+  
+  // Use custom content if available, otherwise use default
+  const headingText = whoUseContent ? whoUseContent.heading : "Who Uses Middler?";
+  const headingHighlight = whoUseContent ? whoUseContent.headingHighlight : "Middler?";
+  const descriptionText = whoUseContent ? whoUseContent.description : "Middler is trusted by a wide range of professionals who need fast, accurate painting estimates—without the hassle.";
+  
+  // For interior page, convert points to cards format (same structure as original - last word in black)
+  const displayCards = whoUseContent ? whoUseContent.points.map((point, idx) => {
+    const titleParts = point.title.split(':');
+    const mainTitle = titleParts[0].trim();
+    // Split main title to get first part (blue) and last word (black) - same as original design
+    const words = mainTitle.split(' ');
+    if (words.length > 1) {
+      const firstPart = words.slice(0, -1).join(' ');
+      const lastWord = words[words.length - 1];
+      return {
+        span: firstPart,
+        title: `<br>${lastWord}`,
+        text: point.description,
+        icon: idx === 0 ? "chair.webp" : idx === 1 ? "brush.webp" : idx === 2 ? "tools.webp" : "house.webp"
+      };
+    } else {
+      // If only one word, keep it in blue
+      return {
+        span: mainTitle,
+        title: "",
+        text: point.description,
+        icon: idx === 0 ? "chair.webp" : idx === 1 ? "brush.webp" : idx === 2 ? "tools.webp" : "house.webp"
+      };
+    }
+  }) : cards;
+  
   return (
     <section className="lg:pt-[60px] lg:px-5">
       <div className="w-full max-w-[1024px] mx-auto lg:mb-[60px] max-lg:px-8">
         <div className="flex flex-col gap-5 text-center">
           <Heading
             oh
-            heading="Who Uses Middler?"
-            highlight="Middler?"
+            heading={headingText}
+            highlight={headingHighlight}
             className="text-[26px]"
           />
           <p className="text-sm lg:text-2xl">
-            Middler is trusted by a wide range of professionals who need fast, accurate painting estimates—without the hassle.
+            {descriptionText}
           </p>
         </div>
       </div>
@@ -86,9 +123,9 @@ const WhoUseMiddler = () => {
               slidesPerView: 4,
             },
           }}
-          className="pb-20! lg:pb-[140px]! max-lg:px-6! cards_slider"
+          className={`pb-20! lg:pb-[140px]! max-lg:px-6! cards_slider ${pageType === 'exterior' ? 'exterior' : ''}`}
         >
-          {cards.map((card, idx) => (
+          {displayCards.map((card, idx) => (
             <SwiperSlide key={idx} className="mt-24">
               <div
                 className={`flex flex-col max-lg:justify-center items-start gap-[30px] max-lg:min-h-[330px] ${idx === 1
@@ -129,6 +166,13 @@ const WhoUseMiddler = () => {
           />
         </div>
       </div>
+      {(pageType === "interior" || pageType === "exterior") && (
+        <div className="text-center pb-20">
+          <Button href="/paint-estimator">
+            Free Estimator
+          </Button>
+        </div>
+      )}
     </section>
   );
 };
