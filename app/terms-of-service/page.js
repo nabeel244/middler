@@ -8,7 +8,9 @@ const TermsOfService = () => {
   return (
     <>
       <Head>
-        <title>Terms of Service</title>
+        <title>Terms of Service - Middler</title>
+        <meta name="description" content="Read Middler's terms of service and conditions for using our paint calculator and estimation services. Understand your rights and obligations." />
+        <meta name="robots" content="index, follow" />
       </Head>
       <Header />
       <section className="mt-40 mb-20">

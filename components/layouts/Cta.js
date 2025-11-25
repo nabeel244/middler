@@ -70,7 +70,7 @@ const Cta = ({ pageType = "home" }) => {
                     <p className="font-semibold text-[11px] lg:text-[22px] mb-4">
                       {ctaContent.subHeading}
                     </p>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-3xl mx-auto">
+                    <div className="grid grid-cols-2 md:grid-cols-2 gap-4 max-w-3xl mx-auto">
                       <ul className="text-[11px] lg:text-[22px] text-left space-y-2">
                         {ctaContent.factors.slice(0, 3).map((factor, idx) => (
                           <li key={idx} className="flex items-start">

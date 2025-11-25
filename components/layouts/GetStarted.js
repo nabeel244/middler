@@ -71,7 +71,7 @@ const GetStarted = ({
                     {description}
                   </p>
                   <div className="max-lg:flex justify-center max-lg:w-full">
-                    <Button small>Try now</Button>
+                    <Button small href="/paint-estimator">Try now</Button>
                   </div>
                 </div>
                 <div className="lg:w-[24%] flex flex-col gap-10 max-lg:order-1">
