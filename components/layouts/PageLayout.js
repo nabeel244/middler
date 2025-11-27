@@ -119,6 +119,7 @@ const PageLayout = ({ pageType = "home" }) => {
             hideAddressForm={content.hideHeroAddressForm || false}
             hideStats={content.hideHeroStats || false}
             heroImage={content.hero.heroImage || "/images/hero_img.webp"}
+            pageType={pageType}
           />
         )}
         
