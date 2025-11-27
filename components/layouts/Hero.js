@@ -12,7 +12,8 @@ const Hero = ({
   description = "Instantly find the true cost to paint a house with Middler—the most effective Paint calculator for rooms, interiors, and exteriors anywhere in the USA",
   hideAddressForm = false,
   hideStats = false,
-  heroImage = "/images/hero_img.webp"
+  heroImage = "/images/hero_img.webp",
+  pageType = "home"
 }) => {
   const router = useRouter();
   const dropdownRef = useRef(null);
@@ -137,9 +138,9 @@ const Hero = ({
     <section className="relative mt-14 lg:mt-20 pt-12 lg:pt-[70px] pb-3 sm:pb-10 px-0 lg:px-10">
       <div className="absolute -left-4 top-[126px] h-[540px] w-[250px] lg:-left-10 lg:top-1/2 lg:-translate-y-1/2 lg:size-1/2 bg-center bg-no-repeat bg-[url('/images/hero_el2.webp')] lg:bg-[url('/images/hero_el.webp')] bg-contain" />
       <div className="container xl:px-10! 2xl:w-[1300px]!">
-        <div className="row gap-y-[60px] sm:gap-y-14 lg:gap-y-8 gap-x-5 justify-center xl:gap-x-[74px] 2xl:gap-x-20 items-center max-lg:text-center">
-          <div className="lg:w-6/12 xl:w-[43%] 2xl:w-5/12 max-lg:order-1">
-            <div className="flex flex-col max-lg:px-5">
+        <div className={`row gap-y-[60px] sm:gap-y-14 lg:gap-y-8 gap-x-5 justify-center ${(pageType === 'interior' || pageType === 'exterior') ? '' : 'xl:gap-x-[74px]'} 2xl:gap-x-20 ${(pageType === 'interior' || pageType === 'exterior') ? 'items-end' : 'items-center'} max-lg:text-center`}>
+          <div className={`lg:w-6/12 ${(pageType === 'interior' || pageType === 'exterior') ? 'xl:w-[47%]' : 'xl:w-[43%]'} 2xl:w-5/12 max-lg:order-1`}>
+            <div className="flex flex-col max-lg:px-5 w-full">
               <h1 style={{
                 fontSize: isMobile ? '34px' : '56px',
                 fontWeight: isMobile ? '600' : '700',

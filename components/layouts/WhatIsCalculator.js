@@ -27,7 +27,7 @@ const WhatIsCalculator = ({ content }) => {
   if (!content) return null;
 
   return (
-    <section className="px-5 lg:px-10 pb-20 lg:pt-20">
+    <section className="px-5 lg:px-10 pb-20 lg:pt-20 mt-60-px">
       <div className="container">
         <div className="row">
           <div className="w-full">
