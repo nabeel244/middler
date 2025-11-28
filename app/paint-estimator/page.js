@@ -72,6 +72,29 @@ import { validateEmail, validateNumber, validatePrice } from "@/helpers/forms";
 import { FaArrowLeft, FaCheck } from "react-icons/fa";
 import StepSync from "./StepSync";
 
+export const metadata = {
+  title: 'Free Paint Estimate Cost Calculator - Middler',
+  description: 'Free paint cost calculator to estimate interior & exterior house painting costs per square foot instantly. Get accurate painting estimates with our comprehensive tool.',
+  openGraph: {
+    siteName: 'Middler',
+    title: 'Free Paint Estimate Cost Calculator - Middler',
+    description: 'Free paint cost calculator to estimate interior & exterior house painting costs per square foot instantly. Get accurate painting estimates with our comprehensive tool.',
+    url: 'https://middler.com/paint-estimator',
+    type: 'website',
+    images: ['https://middler.com/images/modals/3.webp']
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Free Paint Estimate Cost Calculator - Middler',
+    description: 'Free paint cost calculator to estimate interior & exterior house painting costs per square foot instantly. Get accurate painting estimates with our comprehensive tool.',
+    images: ['https://middler.com/images/modals/3.webp']
+  },
+  robots: 'index, follow',
+  alternates: {
+    canonical: 'https://middler.com/paint-estimator'
+  }
+};
+
 const allCountries = getCountries();
 
 // Paint Estimator Product Schema
@@ -549,40 +572,7 @@ const PaintEstimator = ({ }) => {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(paintEstimatorProductSchema) }}
       />
-      <head>
-        <title>Free Paint Estimate Cost Calculator - Middler</title>
 
-        <meta property="og:site_name" content="Middler" />
-
-        <meta name="robots" content="index, follow" />
-
-        <meta name="description"
-              content="Free paint cost calculator to estimate interior & exterior house painting costs per square foot instantly." />
-
-        <meta property="og:title" content="Free Paint Estimate Cost Calculator - Middler" />
-
-        <meta property="og:type" content="website" />
-
-        <meta property="og:url" content="https://middler.com/paint-estimator" />
-
-        <meta property="og:image" content="https://middler.com/images/modals/3.webp" />
-
-        <meta property="og:description"
-              content="Free paint cost calculator to estimate interior & exterior house painting costs per square foot instantly." />
-
-        <meta name="twitter:card" content="summary" />
-
-        <meta name="twitter:url" content="https://middler.com/" />
-
-        <meta name="twitter:title" content="Free Paint Estimate Cost Calculator - Middler" />
-
-        <meta name="twitter:description"
-              content="Free paint cost calculator to estimate interior & exterior house painting costs per square foot instantly." />
-
-        <meta name="twitter:image" content="https://middler.com/images/modals/3.webp" />
-
-        <link rel="canonical" href="https://middler.com/paint-estimator" />
-      </head>
       <main
         className={`min-h-dvh h-full overflow-hidden w-full p-5 lg:p-3 xl:p-6 xl:py-5 bg-cover bg-no-repeat bg-center bg-[url('/images/modals/bg_1.webp')]`}
       >

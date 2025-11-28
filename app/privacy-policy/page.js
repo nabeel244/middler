@@ -2,16 +2,31 @@
 
 import Footer from "@/components/layouts/Footer";
 import Header from "@/components/layouts/Header";
-import Head from "next/head";
+
+export const metadata = {
+  title: 'Privacy Policy - Middler',
+  description: 'Read Middler\'s privacy policy to understand how we collect, use, and protect your personal information when using our paint calculator services.',
+  openGraph: {
+    siteName: 'Middler',
+    title: 'Privacy Policy - Middler',
+    description: 'Read Middler\'s privacy policy to understand how we collect, use, and protect your personal information when using our paint calculator services.',
+    url: 'https://middler.com/privacy-policy',
+    type: 'website'
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Privacy Policy - Middler',
+    description: 'Read Middler\'s privacy policy to understand how we collect, use, and protect your personal information when using our paint calculator services.'
+  },
+  robots: 'index, follow',
+  alternates: {
+    canonical: 'https://middler.com/privacy-policy'
+  }
+};
 
 const page = () => {
   return (
     <>
-      <Head>
-        <title>Privacy Policy - Middler</title>
-        <meta name="description" content="Read Middler's privacy policy to understand how we collect, use, and protect your personal information when using our paint calculator services." />
-        <meta name="robots" content="index, follow" />
-      </Head>
       <Header />
       <section>
         <div className="container mt-40 mb-20">

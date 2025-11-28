@@ -2,16 +2,31 @@
 
 import Footer from "@/components/layouts/Footer";
 import Header from "@/components/layouts/Header";
-import Head from "next/head";
+
+export const metadata = {
+  title: 'Terms of Service - Middler',
+  description: 'Read Middler\'s terms of service and conditions for using our paint calculator and estimation services. Understand your rights and obligations.',
+  openGraph: {
+    siteName: 'Middler',
+    title: 'Terms of Service - Middler',
+    description: 'Read Middler\'s terms of service and conditions for using our paint calculator and estimation services. Understand your rights and obligations.',
+    url: 'https://middler.com/terms-of-service',
+    type: 'website'
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Terms of Service - Middler',
+    description: 'Read Middler\'s terms of service and conditions for using our paint calculator and estimation services. Understand your rights and obligations.'
+  },
+  robots: 'index, follow',
+  alternates: {
+    canonical: 'https://middler.com/terms-of-service'
+  }
+};
 
 const TermsOfService = () => {
   return (
     <>
-      <Head>
-        <title>Terms of Service - Middler</title>
-        <meta name="description" content="Read Middler's terms of service and conditions for using our paint calculator and estimation services. Understand your rights and obligations." />
-        <meta name="robots" content="index, follow" />
-      </Head>
       <Header />
       <section className="mt-40 mb-20">
         <div className="container">

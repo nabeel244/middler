@@ -1,6 +1,5 @@
 "use client";
 import { useMutation } from "@apollo/client";
-import Head from "next/head";
 import React, { useEffect, useRef, useState } from "react";
 import { ImSpinner2 } from "react-icons/im";
 import { useDispatch, useSelector } from "react-redux";
@@ -22,6 +21,27 @@ import Footer from "@/components/layouts/Footer";
 import Header from "@/components/layouts/Header";
 import Button from "@/components/ui/Button";
 import Heading from "@/components/ui/Heading";
+
+export const metadata = {
+  title: 'Contact Us - Middler',
+  description: 'Get in touch with Middler for questions about your paint estimates or going Middler-Certified. Our experts reply within one business day.',
+  openGraph: {
+    siteName: 'Middler',
+    title: 'Contact Us - Middler',
+    description: 'Get in touch with Middler for questions about your paint estimates or going Middler-Certified. Our experts reply within one business day.',
+    url: 'https://middler.com/contact-us',
+    type: 'website'
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Contact Us - Middler',
+    description: 'Get in touch with Middler for questions about your paint estimates or going Middler-Certified. Our experts reply within one business day.'
+  },
+  robots: 'index, follow',
+  alternates: {
+    canonical: 'https://middler.com/contact-us'
+  }
+};
 
 const page = () => {
   const [dropdown, setDropdown] = useState("");
@@ -74,12 +94,6 @@ const page = () => {
 
   return (
     <>
-      <Head>
-        <title>Contact Us - Middler</title>
-        <meta name="description" content="Get in touch with Middler for questions about your paint estimates or going Middler-Certified. Our experts reply within one business day." />
-        <meta name="robots" content="index, follow" />
-      </Head>
-
       <Header />
 
       <section className="relative mt-14 lg:mt-20 pt-12 lg:pt-20 pb-10 px-0 lg:px-10 overflow-hidden">
