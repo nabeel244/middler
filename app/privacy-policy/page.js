@@ -2,16 +2,12 @@
 
 import Footer from "@/components/layouts/Footer";
 import Header from "@/components/layouts/Header";
-import Head from "next/head";
+
+
 
 const page = () => {
   return (
     <>
-      <Head>
-        <title>Privacy Policy - Middler</title>
-        <meta name="description" content="Read Middler's privacy policy to understand how we collect, use, and protect your personal information when using our paint calculator services." />
-        <meta name="robots" content="index, follow" />
-      </Head>
       <Header />
       <section>
         <div className="container mt-40 mb-20">
