@@ -48,7 +48,7 @@ const WhoUseMiddler = ({ pageType = "home" }) => {
   // Use custom content if available, otherwise use default
   const headingText = whoUseContent ? whoUseContent.heading : "Who Uses Middler?";
   const headingHighlight = whoUseContent ? whoUseContent.headingHighlight : "Middler?";
-  const descriptionText = whoUseContent ? whoUseContent.description : "Middler is trusted by a wide range of professionals who need fast, accurate painting estimates—without the hassle.";
+  const descriptionText = whoUseContent ? whoUseContent.description : "Middler is trusted by a wide range of professionals in USA who need fast, accurate painting estimates—without the hassle.";
   
   // For interior page, convert points to cards format (same structure as original - last word in black)
   const displayCards = whoUseContent ? whoUseContent.points.map((point, idx) => {

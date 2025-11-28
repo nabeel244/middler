@@ -20,7 +20,7 @@ const OurProcess = ({ pageType = "home" }) => {
     },
     {
       title: "Trust the Accuracy",
-      text: "We factor in local labor rates, paint coverage, and material costs to show the true cost to paint a house.",
+      text: "We factor in local labor rates, paint coverage, and material costs to show the true cost to paint a house in USA.",
     },
     {
       title: "Download & Share",
@@ -32,7 +32,7 @@ const OurProcess = ({ pageType = "home" }) => {
   const headingText = processContent ? processContent.heading : "How it works!";
   const headingHighlight = processContent ? processContent.headingHighlight : "works!";
   const preheading = processContent ? processContent.preheading : "our process";
-  const description = processContent ? processContent.description : "Whether you're on-site or at the office, Middler makes it fast and easy to generate polished, data-backed painting estimates. Here's how:";
+  const description = processContent ? processContent.description : "Whether you're on-site or at the office, Middler makes it fast and easy to generate polished, data-backed painting estimates in USA. Here's how:";
 
   // Determine image numbers based on page type
   const getImageNumber = (idx) => {

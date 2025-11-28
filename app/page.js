@@ -16,11 +16,11 @@ const homeProductSchema = {
 
 export const metadata = {
   title: 'Paint Calculator | House Paint Estimate Cost - Middler',
-  description: 'Plan your painting project with confidence. Middler\'s paint calculator gives detailed cost estimates for interior & exterior house painting, including paint, material & labor.',
+  description: 'Middler\'s paint calculator gives detailed cost estimates for interior & exterior house painting in USA, including paint, material & labor.',
   openGraph: {
     siteName: 'Middler',
     title: 'Paint Calculator | House Paint Estimate Cost - Middler',
-    description: 'Plan your painting project with confidence. Middler\'s paint calculator gives detailed cost estimates for interior & exterior house painting, including paint, material & labor.',
+    description: 'Middler\'s paint calculator gives detailed cost estimates for interior & exterior house painting in USA, including paint, material & labor.',
     url: 'https://middler.com/',
     type: 'website',
     images: ['https://middler.com/images/mobile_mockup2.webp']
@@ -28,7 +28,7 @@ export const metadata = {
   twitter: {
     card: 'summary',
     title: 'Paint Calculator | House Paint Estimate Cost - Middler',
-    description: 'Plan your painting project with confidence. Middler\'s paint calculator gives detailed cost estimates for interior & exterior house painting, including paint, material & labor.',
+    description: 'Middler\'s paint calculator gives detailed cost estimates for interior & exterior house painting in USA, including paint, material & labor.',
     images: ['https://middler.com/images/mobile_mockup2.webp']
   },
   alternates: {
