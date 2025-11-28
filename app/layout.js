@@ -41,11 +41,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <meta name="description" content="Middler's paint calculator gives detailed cost estimates for interior & exterior house painting, including paint, material & labor." />
+
         <meta name="google-site-verification" content="cXkEsP_rWBJOqS_x8q9XsG3hfwXWJgC9Wvnt93V-PcU" />
         <meta name="google-site-verification" content="f3nKDvsuIi4oBCMJQ5SA08X9o4hG5Hsd-XugfyCAsbU" />
-        <meta property="og:site_name" content="Middler" />
-        <meta name="robots" content="index, follow" />
+
+
 
         
         {/* Preload critical resources */}

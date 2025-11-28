@@ -34,9 +34,9 @@ export const metadata = {
   alternates: {
     canonical: 'https://middler.com/'
   },
-  robots: {
-    index: true,
-    follow: true
+  robots: 'index, follow',
+  other: {
+    'google-site-verification': 'cXkEsP_rWBJOqS_x8q9XsG3hfwXWJgC9Wvnt93V-PcU'
   }
 };
 
