@@ -28,6 +28,7 @@ import { changeUserValue, resetUser } from "../_redux/features/userSlice";
 
 //// COMPONENTS
 import Navbar from "@/components/layouts/Navbar";
+import Footer from "@/components/layouts/Footer";
 import EmailType from "@/components/modals/emailType";
 import GiftCard from "@/components/modals/giftCard";
 import SignUp from "@/components/modals/signUp";
@@ -1492,6 +1493,7 @@ const PaintEstimator = ({ }) => {
           </div>
         </section>
       </main>
+      <Footer />
       <Suspense fallback={null}>
         <StepSync />
       </Suspense>
