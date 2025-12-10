@@ -98,10 +98,22 @@ const nextConfig = {
   output: 'standalone',
   
   async rewrites() {
+    const blogUrl = process.env.NODE_ENV === 'production'
+      ? process.env.NEXT_PUBLIC_WORDPRESS_URL || 'https://middler.com/blog'
+      : 'http://localhost/blog';
+
     return [
       {
         source: '/api/:path*',
         destination: '/api/:path*',
+      },
+      {
+        source: '/blog',
+        destination: blogUrl,
+      },
+      {
+        source: '/blog/:path*',
+        destination: `${blogUrl}/:path*`,
       },
     ];
   },
