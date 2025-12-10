@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 
 export default function WordPressAdmin() {
   useEffect(() => {
-    window.location.href = '/blog/wp-login.php?redirect_to=' + encodeURIComponent('https://primary-production-bf78.up.railway.app/wp-admin/') + '&reauth=1';
+    window.location.href = '/blog/wp-login?redirect_to=' + encodeURIComponent('https://primary-production-bf78.up.railway.app/wp-admin/') + '&reauth=1';
   }, []);
 
   return (
