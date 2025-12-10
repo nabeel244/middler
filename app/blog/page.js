@@ -2,7 +2,7 @@
 
 export default function BlogPage() {
   const blogUrl = process.env.NODE_ENV === 'production' 
-    ? process.env.NEXT_PUBLIC_WORDPRESS_URL || 'https://middler.com/blog'
+    ? 'https://primary-production-b4a4.up.railway.app'
     : 'http://localhost/blog';
 
   return (
