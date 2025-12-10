@@ -2,7 +2,7 @@
 
 export default function BlogPage() {
   const blogUrl = process.env.NODE_ENV === 'production' 
-    ? 'https://primary-production-b4a4.up.railway.app'
+    ? 'https://primary-production-bf78.up.railway.app'
     : 'http://localhost/blog';
 
   return (
