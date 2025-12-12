@@ -1,9 +1,7 @@
 'use client';
 
 export default function BlogPage() {
-  const blogUrl = process.env.NODE_ENV === 'production' 
-    ? 'https://primary-production-bf78.up.railway.app'
-    : 'http://localhost/blog';
+  const blogUrl = 'https://primary-production-bf78.up.railway.app';
 
   return (
     <div className="w-full h-screen">
