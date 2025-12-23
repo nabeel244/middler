@@ -8,11 +8,6 @@ export default function sitemap() {
             priority: 1.00,
         },
         {
-            url: 'https://middler.com/blog',
-            lastModified: currentDate,
-            priority: 0.80,
-        },
-        {
             url: 'https://middler.com/interior-painting-cost-calculator',
             lastModified: currentDate,
             priority: 0.90,
