@@ -1,24 +1,18 @@
-const WORDPRESS_API_URL = 'https://primary-production-bf78.up.railway.app/wp-json/wp/v2';
-
 export async function generateMetadata({ params }) {
+  const defaultMeta = {
+    title: 'Blog Post - Middler',
+    description: 'Read our latest blog post about painting and home improvement.',
+  };
+
   try {
-    const response = await fetch(`${WORDPRESS_API_URL}/posts?slug=${params.slug}&_embed`);
+    const response = await fetch(`https://primary-production-bf78.up.railway.app/wp-json/wp/v2/posts?slug=${params.slug}&_embed`, {
+      next: { revalidate: 3600 }
+    });
     
-    if (!response.ok) {
-      return {
-        title: 'Post Not Found - Middler Blog',
-        description: 'The requested blog post could not be found.',
-      };
-    }
+    if (!response.ok) return defaultMeta;
 
     const posts = await response.json();
-    
-    if (posts.length === 0) {
-      return {
-        title: 'Post Not Found - Middler Blog',
-        description: 'The requested blog post could not be found.',
-      };
-    }
+    if (posts.length === 0) return defaultMeta;
 
     const post = posts[0];
     const title = post.title.rendered;
@@ -28,28 +22,15 @@ export async function generateMetadata({ params }) {
     return {
       title: `${title} - Middler Blog`,
       description,
-      keywords: `${title}, painting, paint estimator, home improvement`,
       openGraph: {
         title,
         description,
         url: `https://middler.com/blog/${post.slug}`,
         type: 'article',
         images: featuredImage ? [{ url: featuredImage }] : [],
-        publishedTime: post.date,
-        modifiedTime: post.modified,
-      },
-      twitter: {
-        card: 'summary_large_image',
-        title,
-        description,
-        images: featuredImage ? [featuredImage] : [],
       },
     };
   } catch (error) {
-    console.error('Error generating metadata:', error);
-    return {
-      title: 'Blog Post - Middler',
-      description: 'Read our latest blog post about painting and home improvement.',
-    };
+    return defaultMeta;
   }
 }
