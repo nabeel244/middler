@@ -7,27 +7,17 @@ export default function BlogPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetchPosts();
+    fetch('/api/blog')
+      .then(res => res.json())
+      .then(data => {
+        setPosts(data.posts || []);
+        setLoading(false);
+      })
+      .catch(() => setLoading(false));
   }, []);
 
-  const fetchPosts = async () => {
-    try {
-      const response = await fetch('/api/blog');
-      const data = await response.json();
-      setPosts(data.posts || []);
-    } catch (error) {
-      console.error('Error fetching posts:', error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
   if (loading) {
-    return (
-      <div className="container mx-auto px-4 py-8">
-        <div className="text-center">Loading blog posts...</div>
-      </div>
-    );
+    return <div className="container mx-auto px-4 py-8">Loading...</div>;
   }
 
   return (
@@ -51,7 +41,7 @@ export default function BlogPage() {
                 </Link>
               </h2>
               <div 
-                className="text-gray-600 mb-4 line-clamp-3"
+                className="text-gray-600 mb-4"
                 dangerouslySetInnerHTML={{ __html: post.excerpt }}
               />
               <div className="flex justify-between items-center text-sm text-gray-500">
@@ -63,7 +53,7 @@ export default function BlogPage() {
         ))}
       </div>
       
-      {posts.length === 0 && (
+      {posts.length === 0 && !loading && (
         <div className="text-center text-gray-600">
           No blog posts found.
         </div>

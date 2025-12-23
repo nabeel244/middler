@@ -11,42 +11,28 @@ export default function BlogPost() {
 
   useEffect(() => {
     if (params.slug) {
-      fetchPost(params.slug);
+      fetch(`/api/blog/${params.slug}`)
+        .then(res => {
+          if (!res.ok) throw new Error('Post not found');
+          return res.json();
+        })
+        .then(data => setPost(data))
+        .catch(err => setError(err.message))
+        .finally(() => setLoading(false));
     }
   }, [params.slug]);
 
-  const fetchPost = async (slug) => {
-    try {
-      const response = await fetch(`/api/blog/${slug}`);
-      if (!response.ok) {
-        throw new Error('Post not found');
-      }
-      const data = await response.json();
-      setPost(data);
-    } catch (error) {
-      setError(error.message);
-    } finally {
-      setLoading(false);
-    }
-  };
-
   if (loading) {
-    return (
-      <div className="container mx-auto px-4 py-8">
-        <div className="text-center">Loading post...</div>
-      </div>
-    );
+    return <div className="container mx-auto px-4 py-8">Loading...</div>;
   }
 
   if (error) {
     return (
       <div className="container mx-auto px-4 py-8">
-        <div className="text-center">
-          <h1 className="text-2xl font-bold mb-4">Post Not Found</h1>
-          <Link href="/blog" className="text-blue-600 hover:underline">
-            ← Back to Blog
-          </Link>
-        </div>
+        <h1 className="text-2xl font-bold mb-4">Post Not Found</h1>
+        <Link href="/blog" className="text-blue-600 hover:underline">
+          ← Back to Blog
+        </Link>
       </div>
     );
   }
