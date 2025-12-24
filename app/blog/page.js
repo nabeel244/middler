@@ -1,5 +1,15 @@
+'use client';
+
 export default function BlogPage() {
-  // This page will be handled by Next.js rewrite
-  // Content will be served from Railway but URLs will show middler.com/blog
-  return null;
+  const blogUrl = 'https://primary-production-bf78.up.railway.app';
+
+  return (
+    <div className="w-full h-screen">
+      <iframe
+        src={blogUrl}
+        className="w-full h-full border-0"
+        title="Blog"
+      />
+    </div>
+  );
 }
