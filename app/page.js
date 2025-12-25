@@ -1,145 +1,54 @@
-"use client";
-import dynamic from "next/dynamic";
-import { useEffect, useState, Suspense } from "react";
+import PageLayout from "@/components/layouts/PageLayout";
+import Script from 'next/script';
 
-// Critical above-the-fold components (load immediately)
-import Header from "@/components/layouts/Header";
-import Hero from "@/components/layouts/Hero";
+// Home Page Product Schema
+const homeProductSchema = {
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "Paint Cost Estimate Calculator",
+  "image": "https://middler.com/images/mobile_mockup2.webp",
+  "description": "Plan your painting project with confidence. Middler's paint calculator gives detailed cost estimates for interior & exterior house painting, including paint, material & labor.",
+  "brand": {
+    "@type": "Brand",
+    "name": "Middler"
+  }
+};
 
-// Non-critical components (lazy loaded)
-const Brands = dynamic(() => import("@/components/home/Brands"), {
-  loading: () => <div className="h-32 bg-gray-100 animate-pulse" />,
-});
-
-const Estimate = dynamic(() => import("@/components/home/Estimate"), {
-  loading: () => <div className="h-64 bg-gray-100 animate-pulse" />,
-});
-
-const TextSlider = dynamic(() => import("@/components/layouts/TextSlider"), {
-  loading: () => <div className="h-20 bg-gradient-to-br from-primary-800 to-primary animate-pulse" />,
-});
-
-const GetStarted = dynamic(() => import("@/components/layouts/GetStarted"), {
-  loading: () => <div className="h-32 bg-gray-100 animate-pulse" />,
-});
-
-const Cta = dynamic(() => import("@/components/layouts/Cta"), {
-  loading: () => <div className="h-40 bg-gray-100 animate-pulse" />,
-});
-
-const OurProcess = dynamic(() => import("@/components/home/OurProcess"), {
-  loading: () => <div className="h-64 bg-gray-100 animate-pulse" />,
-});
-
-const WhoUseMiddler = dynamic(() => import("@/components/home/WhoUseMiddler"), {
-  loading: () => <div className="h-64 bg-gray-100 animate-pulse" />,
-});
-
-const Cta2 = dynamic(() => import("@/components/layouts/Cta2"), {
-  loading: () => <div className="h-40 bg-gray-100 animate-pulse" />,
-});
-
-const Footer = dynamic(() => import("@/components/layouts/Footer"), {
-  loading: () => <div className="h-64 bg-gray-900 animate-pulse" />,
-});
-
-// Heavy modal components (only load when needed)
-const GiftPopup = dynamic(() => import("@/components/modals/GiftPopup"));
-const OpenPopup = dynamic(() => import("@/components/ui/OpenPopup"));
-const ToastProvider = dynamic(() => import("@/components/ToastProvider"));
+export const metadata = {
+  title: 'Paint Calculator | House Paint Estimate Cost in USA - Middler',
+  description: 'Middler\'s paint calculator gives detailed cost estimates for interior & exterior house painting in USA, including paint, material & labor.',
+  openGraph: {
+    siteName: 'Middler',
+    title: 'Paint Calculator | House Paint Estimate Cost in USA - Middler',
+    description: 'Middler\'s paint calculator gives detailed cost estimates for interior & exterior house painting in USA, including paint, material & labor.',
+    url: 'https://middler.com/',
+    type: 'website',
+    images: ['https://middler.com/images/mobile_mockup2.webp']
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Paint Calculator | House Paint Estimate Cost in USA - Middler',
+    description: 'Middler\'s paint calculator gives detailed cost estimates for interior & exterior house painting in USA, including paint, material & labor.',
+    images: ['https://middler.com/images/mobile_mockup2.webp']
+  },
+  alternates: {
+    canonical: 'https://middler.com/'
+  },
+  robots: 'index, follow',
+  other: {
+    'google-site-verification': 'cXkEsP_rWBJOqS_x8q9XsG3hfwXWJgC9Wvnt93V-PcU'
+  }
+};
 
 const Home = () => {
-  const [showPopUp, setShowPopUp] = useState(false);
-  const [isClient, setIsClient] = useState(false);
-
-  // Optimized useEffect - defer sessionStorage access
-  useEffect(() => {
-    // Use setTimeout to defer non-critical operations
-    const timer = setTimeout(() => {
-      setIsClient(true);
-      try {
-        const saved = sessionStorage.getItem("noEmailEntered");
-        if (saved) {
-          setShowPopUp(saved);
-          sessionStorage.removeItem("noEmailEntered");
-        }
-      } catch (error) {
-        console.warn("SessionStorage access failed:", error);
-      }
-    }, 100); // Small delay to prevent blocking
-
-    return () => clearTimeout(timer);
-  }, []);
-
   return (
     <>
-      {/* Critical above-the-fold content */}
-      <Header />
-
-      {/* Conditional popup - only render when needed */}
-      {isClient && showPopUp && (
-        <Suspense fallback={null}>
-          <GiftPopup
-            showPopUp={showPopUp}
-            setShowPopUp={setShowPopUp}
-            isMainPage={true}
-          />
-        </Suspense>
-      )}
-
-      <main>
-        {/* Critical content first */}
-        <Hero />
-        
-        {/* Below-the-fold content with lazy loading */}
-        <div className="flex flex-col">
-          <Suspense fallback={<div className="h-64 bg-gray-100 animate-pulse" />}>
-            <Estimate />
-          </Suspense>
-          <Suspense fallback={<div className="h-32 bg-gray-100 animate-pulse" />}>
-            <Brands />
-          </Suspense>
-        </div>
-        
-        <Suspense fallback={<div className="h-20 bg-gradient-to-br from-primary-800 to-primary animate-pulse" />}>
-          <TextSlider />
-        </Suspense>
-        
-        <Suspense fallback={<div className="h-32 bg-gray-100 animate-pulse" />}>
-          <GetStarted />
-        </Suspense>
-        
-        <Suspense fallback={<div className="h-40 bg-gray-100 animate-pulse" />}>
-          <Cta />
-        </Suspense>
-        
-        <Suspense fallback={<div className="h-64 bg-gray-100 animate-pulse" />}>
-          <OurProcess />
-        </Suspense>
-        
-        <Suspense fallback={<div className="h-64 bg-gray-100 animate-pulse" />}>
-          <WhoUseMiddler />
-        </Suspense>
-        
-        <Suspense fallback={<div className="h-40 bg-gray-100 animate-pulse" />}>
-          <Cta2 />
-        </Suspense>
-      </main>
-
-      <Suspense fallback={<div className="h-64 bg-gray-900 animate-pulse" />}>
-        <Footer />
-      </Suspense>
-
-      {/* Non-critical components */}
-      {isClient && (
-        <Suspense fallback={null}>
-          <OpenPopup showPopUp={showPopUp} setShowPopUp={setShowPopUp} />
-        </Suspense>
-      )}
-      
-      <Suspense fallback={null}>
-        <ToastProvider />
-      </Suspense>
+      <Script
+        id="home-product-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(homeProductSchema) }}
+      />
+      <PageLayout pageType="home" />
     </>
   );
 };

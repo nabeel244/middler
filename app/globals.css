@@ -130,6 +130,14 @@
   .btn_scnd {
     @apply py-2.5 px-8 min-w-[120px] lg:min-w-[140px] rounded-[11px] text-xl font-semibold border-2 border-primary transition-all duration-300 bg-primary text-white cursor-pointer hover:bg-primary-800
   }
+
+  .mt-60-px {
+    margin-top: 60px;
+  }
+
+  .mt-80-px {
+    margin-top: 80px;
+  }
 }
 
 /* @media screen and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
@@ -162,4 +170,9 @@
 
 .cards_slider .swiper-pagination-bullet-active {
   background: var(--color-primary) !important;
+}
+
+/* Exterior page swiper centering */
+.exterior .swiper-wrapper {
+  justify-content: center;
 }

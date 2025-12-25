@@ -1,6 +1,5 @@
 "use client";
 import { useMutation } from "@apollo/client";
-import Head from "next/head";
 import React, { useEffect, useRef, useState } from "react";
 import { ImSpinner2 } from "react-icons/im";
 import { useDispatch, useSelector } from "react-redux";
@@ -22,6 +21,8 @@ import Footer from "@/components/layouts/Footer";
 import Header from "@/components/layouts/Header";
 import Button from "@/components/ui/Button";
 import Heading from "@/components/ui/Heading";
+
+
 
 const page = () => {
   const [dropdown, setDropdown] = useState("");
@@ -74,9 +75,6 @@ const page = () => {
 
   return (
     <>
-      <Head>
-        <title>Contact Us</title>
-      </Head>
       <Header />
 
       <section className="relative mt-14 lg:mt-20 pt-12 lg:pt-20 pb-10 px-0 lg:px-10 overflow-hidden">

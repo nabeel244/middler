@@ -4,16 +4,21 @@ import Button from "../ui/Button";
 import Heading from "../ui/Heading";
 import Image from "next/image";
 
-const GetStarted = () => {
+const GetStarted = ({ 
+  heading = "Know the Cost of Painting a House Before You Begin",
+  headingHighlight = "Know the Cost",
+  preheading = "get started",
+  description = "Know the true paint cost before the first brushstroke begins, Middler gives you precise estimates with total clarity."
+}) => {
   return (
     <section className="mb-20 overflow-hidden">
       <div className="container">
         <div className="row justify-center gap-y-10">
           <div className="lg:w-7/12 max-lg:px-8">
             <Heading
-              heading="Know the Cost of Painting a House Before You Begin"
-              highlight="Know the Cost"
-              preheading="get started"
+              heading={heading}
+              highlight={headingHighlight}
+              preheading={preheading}
               className="text-[26px]"
             />
           </div>
@@ -63,10 +68,10 @@ const GetStarted = () => {
               <div className="max-lg:px-5 lg:col-start-1 lg:-col-end-1 lg:row-start-1 lg:-row-end-1 flex max-lg:flex-wrap justify-between items-end relative z-[1]">
                 <div className="lg:w-[30%] flex flex-col gap-5 max-lg:order-2 w-full max-lg:mt-8">
                   <p className="text-2xl max-lg:hidden">
-                    Know the true paint cost before the first brushstroke begins, Middler gives you precise estimates with total clarity.
+                    {description}
                   </p>
                   <div className="max-lg:flex justify-center max-lg:w-full">
-                    <Button small>Try now</Button>
+                    <Button small href="/paint-estimator">Try now</Button>
                   </div>
                 </div>
                 <div className="lg:w-[24%] flex flex-col gap-10 max-lg:order-1">

@@ -2,14 +2,12 @@
 
 import Footer from "@/components/layouts/Footer";
 import Header from "@/components/layouts/Header";
-import Head from "next/head";
+
+
 
 const TermsOfService = () => {
   return (
     <>
-      <Head>
-        <title>Terms of Service</title>
-      </Head>
       <Header />
       <section className="mt-40 mb-20">
         <div className="container">

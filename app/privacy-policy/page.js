@@ -2,14 +2,12 @@
 
 import Footer from "@/components/layouts/Footer";
 import Header from "@/components/layouts/Header";
-import Head from "next/head";
+
+
 
 const page = () => {
   return (
     <>
-      <Head>
-        <title>Privacy Policy</title>
-      </Head>
       <Header />
       <section>
         <div className="container mt-40 mb-20">

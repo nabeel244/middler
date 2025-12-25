@@ -24,8 +24,8 @@ const organizationSchema = {
   ]
 };
 
-// Product Schema Data
-const productSchema = {
+// Home Page Product Schema Data
+const homeProductSchema = {
   "@context": "https://schema.org/",
   "@type": "Product",
   "name": "Paint Cost Estimate Calculator",
@@ -41,25 +41,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <title>Paint Calculator | House Paint Estimate Cost - Middler</title>
-        <meta name="description" content="Middler's paint calculator gives detailed cost estimates for interior & exterior house painting, including paint, material & labor." />
+
         <meta name="google-site-verification" content="cXkEsP_rWBJOqS_x8q9XsG3hfwXWJgC9Wvnt93V-PcU" />
         <meta name="google-site-verification" content="f3nKDvsuIi4oBCMJQ5SA08X9o4hG5Hsd-XugfyCAsbU" />
-        <meta property="og:site_name" content="Middler" />
-        <meta name="robots" content="index, follow" />
-        <meta property="og:title" content="Paint Calculator | House Paint Estimate Cost - Middler" />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://middler.com/" />
-        <meta property="og:image" content="https://middler.com/images/mobile_mockup2.webp" />
-        <meta property="og:description" content="Plan your painting project with confidence. Middler's paint calculator gives detailed cost estimates for interior & exterior house painting, including paint, material & labor." />
-        
-        <meta name="twitter:card" content="summary" />
-        <meta name="twitter:url" content="https://middler.com/" />
-        <meta name="twitter:title" content="Paint Calculator | House Paint Estimate Cost - Middler" />
-        <meta name="twitter:description" content="Plan your painting project with confidence. Middler's paint calculator gives detailed cost estimates for interior & exterior house painting, including paint, material & labor." />
-        <meta name="twitter:image" content="https://middler.com/images/mobile_mockup2.webp" />
-        
-        <link rel="canonical" href="https://middler.com/" />
+
+
+
         
         {/* Preload critical resources */}
         <link rel="preload" href="/images/logo.webp" as="image" type="image/webp" />
@@ -72,14 +59,14 @@ export default function RootLayout({ children }) {
             __html: JSON.stringify(organizationSchema)
           }}
         />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(productSchema)
-          }}
-        />
+
       </head>
       <body className={`${poppins.variable} font-sans`}>
+        {/* Google Maps API Script - load before interactive for address autocomplete */}
+        <Script
+          src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_ADDRESS_VALIDATION_API_KEY}&libraries=places`}
+          strategy="beforeInteractive"
+        />
         {/* Optimized Google Analytics - load after page is interactive */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-T72TYPR1EE"

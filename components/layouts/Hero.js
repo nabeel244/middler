@@ -6,7 +6,15 @@ import usePlacesService from "react-google-autocomplete/lib/usePlacesAutocomplet
 import Button from "../ui/Button";
 import Image from "next/image";
 
-const Hero = () => {
+const Hero = ({ 
+  title = "Instant Paint Cost Calculator",
+  titleHighlight = "Instant",
+  description = "Instantly find the true cost to paint a house with Middler—the most effective Paint calculator for rooms, interiors, and exteriors anywhere in the USA",
+  hideAddressForm = false,
+  hideStats = false,
+  heroImage = "/images/hero_img.webp",
+  pageType = "home"
+}) => {
   const router = useRouter();
   const dropdownRef = useRef(null);
   const [address, setAddress] = useState("");
@@ -17,12 +25,18 @@ const Hero = () => {
   const [isMobile, setIsMobile] = useState(false);
   const { getPlacePredictions, placePredictions } = usePlacesService({
     apiKey: process.env.NEXT_PUBLIC_GOOGLE_ADDRESS_VALIDATION_API_KEY,
-  });
+  }) || { getPlacePredictions: () => {}, placePredictions: [] };
   const [, setCookie] = useCookies(["address"]);
 
   useEffect(() => {
-    if (typed && address.length) getPlacePredictions({ input: address });
-  }, [address]);
+    if (typed && address.length && getPlacePredictions) {
+      try {
+        getPlacePredictions({ input: address });
+      } catch (error) {
+        console.warn('Google Places API error:', error);
+      }
+    }
+  }, [address, getPlacePredictions]);
 
   useEffect(() => {
     const checkMobile = () => {
@@ -59,7 +73,7 @@ const Hero = () => {
   }, []);
 
   useEffect(() => {
-    if (!placePredictions?.length) return;
+    if (!placePredictions?.length || !window.google?.maps?.places) return;
     const svc = new window.google.maps.places.PlacesService(
       document.createElement("div")
     );
@@ -124,16 +138,16 @@ const Hero = () => {
     <section className="relative mt-14 lg:mt-20 pt-12 lg:pt-[70px] pb-3 sm:pb-10 px-0 lg:px-10">
       <div className="absolute -left-4 top-[126px] h-[540px] w-[250px] lg:-left-10 lg:top-1/2 lg:-translate-y-1/2 lg:size-1/2 bg-center bg-no-repeat bg-[url('/images/hero_el2.webp')] lg:bg-[url('/images/hero_el.webp')] bg-contain" />
       <div className="container xl:px-10! 2xl:w-[1300px]!">
-        <div className="row gap-y-[60px] sm:gap-y-14 lg:gap-y-8 gap-x-5 justify-center xl:gap-x-[74px] 2xl:gap-x-20 items-center max-lg:text-center">
-          <div className="lg:w-6/12 xl:w-[43%] 2xl:w-5/12 max-lg:order-1">
-            <div className="flex flex-col max-lg:px-5">
+        <div className={`row gap-y-[60px] sm:gap-y-14 lg:gap-y-8 gap-x-5 justify-center ${(pageType === 'interior' || pageType === 'exterior') ? '' : 'xl:gap-x-[74px]'} 2xl:gap-x-20 ${(pageType === 'interior' || pageType === 'exterior') ? 'items-end' : 'items-center'} max-lg:text-center`}>
+          <div className={`lg:w-6/12 ${(pageType === 'interior' || pageType === 'exterior') ? 'xl:w-[47%]' : 'xl:w-[43%]'} 2xl:w-5/12 max-lg:order-1`}>
+            <div className="flex flex-col max-lg:px-5 w-full">
               <h1 style={{
                 fontSize: isMobile ? '34px' : '56px',
                 fontWeight: isMobile ? '600' : '700',
                 lineHeight: isMobile ? '46px' : undefined,
                 // textWrap: isMobile ? 'balance' : undefined
               }} className="font-bold text-[40px] leading-14 lg:text-6xl lg:leading-[1.2] mb-3 lg:mb-5">
-                <span className="text-primary">Instant </span> Paint Cost Calculator
+                <span className="text-primary">{titleHighlight} </span> {title.replace(titleHighlight, '').replace(/\s+/g, ' ').trim()}
               </h1>
               <p className="text-base lg:text-2xl leading-6 lg:leading-snug" style={{
                 fontSize: isMobile ? '15px' : '22px',
@@ -142,14 +156,14 @@ const Hero = () => {
                 // maxWidth: isMobile ? '320px' : undefined,
                 // margin: isMobile ? '0 auto' : undefined
               }}>
-              Instantly find the true cost to paint a house with Middler—the most effective Paint calculator for rooms, interiors, and exteriors anywhere in the USA
+              {description}
               </p>
             </div>
           </div>
           <div className="lg:w-6/12 max-lg:hidden">
             <div className="relative size-full text-right">
               <Image
-                src="/images/hero_img.webp"
+                src={heroImage}
                 alt="cost to paint a house"
                 width={500}
                 height={320}
@@ -157,24 +171,25 @@ const Hero = () => {
               />
             </div>
           </div>
-          <div className="mx-auto flex justify-center max-lg:order-2">
+          {!hideAddressForm && (
+            <div className="mx-auto flex justify-center max-lg:order-2">
 
-            <form
-              onSubmit={handleSubmit}
-              className="border border-primary-300 bg-white p-2 sm:p-3 max-lg:pb-5 max-lg:pt-2 lg:p-[30px] shadow-[0_4px_40px] shadow-primary/20 rounded-[20px] flex flex-col gap-2 lg:gap-5"
-              style={{
-                width: isMobile ? '100%' : '100%',
-                padding: isMobile ? '12px' : undefined,
-                paddingTop: isMobile ? '35px' : undefined,
-                borderRadius: isMobile ? '18px' : undefined,
-                boxShadow: isMobile ? '0 10px 28px rgba(0,0,0,0.08)' : undefined
-              }}
-            >
-              <div className="relative py-2 lg:px-1.5 border-b-[1.5px] border-[rgba(51,51,51,0.15)] after:h-[3px] after:w-[89px] after:absolute after:-bottom-px after:left-0 after:bg-primary">
-                <p className="max-[400px]:text-[3.45vw]! text-[3.5vw] lg:text-2xl font-semibold max-sm:mt-2" style={{ fontSize: isMobile ? '14px' : undefined }}>
-                  Enter address of the property that's being painted
-                </p>
-              </div>
+              <form
+                onSubmit={handleSubmit}
+                className="border border-primary-300 bg-white p-2 sm:p-3 max-lg:pb-5 max-lg:pt-2 lg:p-[30px] shadow-[0_4px_40px] shadow-primary/20 rounded-[20px] flex flex-col gap-2 lg:gap-5"
+                style={{
+                  width: isMobile ? '100%' : '100%',
+                  padding: isMobile ? '12px' : undefined,
+                  paddingTop: isMobile ? '35px' : undefined,
+                  borderRadius: isMobile ? '18px' : undefined,
+                  boxShadow: isMobile ? '0 10px 28px rgba(0,0,0,0.08)' : undefined
+                }}
+              >
+                <div className="relative py-2 lg:px-1.5 border-b-[1.5px] border-[rgba(51,51,51,0.15)] after:h-[3px] after:w-[89px] after:absolute after:-bottom-px after:left-0 after:bg-primary">
+                  <p className="max-[400px]:text-[3.45vw]! text-[3.5vw] lg:text-2xl font-semibold max-sm:mt-2" style={{ fontSize: isMobile ? '14px' : undefined }}>
+                    Enter address of the property that's being painted
+                  </p>
+                </div>
               <div className="w-full flex flex-row gap-2.5 lg:gap-[30px] items-stretch" style={{ padding: isMobile ? '10px' : undefined }}>
                 <div ref={dropdownRef} className="py-3 px-2 lg:p-3 rounded-xl grow bg-[#f3f3f3] flex flex-col gap-2 relative" style={{ padding: isMobile ? '8px' : undefined, height: isMobile ? '44px' : undefined }}>
                   <div className="flex gap-2 items-center" style={{ height: isMobile ? '100%' : undefined }}>
@@ -257,8 +272,9 @@ const Hero = () => {
                   Start Calculating
                 </Button>
               </div>
-            </form>
-          </div>
+              </form>
+            </div>
+          )}
         </div>
       </div>
     </section>
