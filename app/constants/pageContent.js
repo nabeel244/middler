@@ -13,9 +13,10 @@ export const pageContent = {
       heading: "Know the Cost of Painting a House in USA Before You Begin",
       headingHighlight: "Know the Cost",
       preheading: "get started",
-      description: "USA Knows the true paint cost before the first brushstroke begins, Middler gives you precise estimates with total clarity."
+      description: "Know the true paint cost before the first brushstroke begins, Middler painting estimate calculator gives you precise estimates with total clarity."
     },
-    showFaq: false
+    showFaq: true,
+    faqType: "home"
   },
   interior: {
     showEstimate: false,

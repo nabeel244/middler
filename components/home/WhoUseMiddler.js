@@ -29,7 +29,7 @@ const cards = [
   {
     span: "Painters",
     title: "<br>& Contractors",
-    text: "Whether you are solo or operating a team, Middler helps you quote jobs quickly. Look more professional, and win more work.",
+    text: "Whether you are solo or operating a team, Middler paint estimator helps you quote jobs quickly. Look more professional, and win more work.",
     icon: "brush.webp",
   },
   {
