@@ -7,6 +7,7 @@ const Footer = () => {
     { name: "Home", url: "/" },
     { name: "Interior Painting", url: "/interior-painting-cost-calculator" },
     { name: "Exterior Painting", url: "/exterior-painting-cost-calculator" },
+    { name: "Blog", url: "/blog" },
     { name: "Privacy Policy", url: "/privacy-policy" },
     { name: "Terms of Service", url: "/terms-of-service" }
   ];
