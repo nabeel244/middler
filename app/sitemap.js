@@ -23,6 +23,11 @@ export default function sitemap() {
             priority: 0.90,
         },
         {
+            url: 'https://middler.com/cost-to-paint-a-house',
+            lastModified: currentDate,
+            priority: 0.90,
+        },
+        {
             url: 'https://middler.com/paint-estimator',
             lastModified: currentDate,
             priority: 0.80,

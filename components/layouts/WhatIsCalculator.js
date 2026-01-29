@@ -49,6 +49,41 @@ const WhatIsCalculator = ({ content }) => {
                   {content.description}
                 </p>
                 
+                {/* DIY Pros and Cons section */}
+                {content.diyPros && content.diyCons && (
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {/* DIY Pros */}
+                    <div className="flex flex-col gap-3 p-4 lg:p-6 rounded-lg shadow-sm bg-green-50 border border-green-200">
+                      <h4 className="font-bold text-sm lg:text-lg leading-tight text-green-800">
+                        <span className="text-primary">DIY</span> Pros
+                      </h4>
+                      <ul className="space-y-2">
+                        {content.diyPros.map((pro, idx) => (
+                          <li key={idx} className="text-xs lg:text-base text-left leading-relaxed flex items-start gap-2">
+                            <span className="text-green-600 mt-1 flex-shrink-0">•</span>
+                            {pro}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    
+                    {/* DIY Cons */}
+                    <div className="flex flex-col gap-3 p-4 lg:p-6 rounded-lg shadow-sm bg-red-50 border border-red-200">
+                      <h4 className="font-bold text-sm lg:text-lg leading-tight text-red-800">
+                        <span className="text-primary">DIY</span> Cons
+                      </h4>
+                      <ul className="space-y-2">
+                        {content.diyCons.map((con, idx) => (
+                          <li key={idx} className="text-xs lg:text-base text-left leading-relaxed flex items-start gap-2">
+                            <span className="text-red-600 mt-1 flex-shrink-0">•</span>
+                            {con}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                )}
+                
                 {/* Factors section */}
                 {content.factors && (
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

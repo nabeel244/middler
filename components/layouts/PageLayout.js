@@ -130,8 +130,8 @@ const PageLayout = ({ pageType = "home" }) => {
           </Suspense>
         )}
         
-        {/* What Is Calculator Section - for interior page */}
-        {content.whatIsCalculator && (
+        {/* What Is Calculator Section - for interior page, but not for costToPaintHouse */}
+        {content.whatIsCalculator && pageType !== "costToPaintHouse" && (
           <Suspense fallback={<div className="h-64 bg-gray-100 animate-pulse" />}>
             <WhatIsCalculator content={content.whatIsCalculator} />
           </Suspense>
@@ -139,9 +139,14 @@ const PageLayout = ({ pageType = "home" }) => {
         
         {/* Below-the-fold content with lazy loading */}
         <div className="flex flex-col">
-          {content.showEstimate !== false && (
+          {(content.showEstimate !== false && pageType !== 'costToPaintHouse') && (
             <Suspense fallback={<div className="h-64 bg-gray-100 animate-pulse" />}>
               <Estimate />
+            </Suspense>
+          )}
+          {pageType === 'costToPaintHouse' && (
+            <Suspense fallback={<div className="h-64 bg-gray-100 animate-pulse" />}>
+              <Estimate pageType={pageType} />
             </Suspense>
           )}
           <Suspense fallback={<div className="h-32 bg-gray-100 animate-pulse" />}>
@@ -166,14 +171,14 @@ const PageLayout = ({ pageType = "home" }) => {
           </Suspense>
         )}
         
-        {pageType !== "exterior" && (
+        {pageType !== "exterior" && pageType !== "costToPaintHouse" && (
           <Suspense fallback={<div className="h-40 bg-gray-100 animate-pulse" />}>
             <Cta pageType={pageType} />
           </Suspense>
         )}
         
         {/* OurProcess Section - for non-exterior pages */}
-        {pageType !== "exterior" && (
+        {pageType !== "exterior" && pageType !== "costToPaintHouse" && (
           <Suspense fallback={<div className="h-64 bg-gray-100 animate-pulse" />}>
             <OurProcess pageType={pageType} />
           </Suspense>
@@ -200,6 +205,12 @@ const PageLayout = ({ pageType = "home" }) => {
             ) : (
               <Suspense fallback={<div className="h-40 bg-gray-100 animate-pulse" />}>
                 <Cta2 pageType={pageType} />
+              </Suspense>
+            )}
+            {/* WhatIsCalculator for costToPaintHouse - after StartEstimate */}
+            {content.whatIsCalculator && pageType === "costToPaintHouse" && (
+              <Suspense fallback={<div className="h-64 bg-gray-100 animate-pulse" />}>
+                <WhatIsCalculator content={content.whatIsCalculator} />
               </Suspense>
             )}
             {content.startEstimate && pageType !== "exterior" && (
