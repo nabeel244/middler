@@ -142,7 +142,7 @@ const Hero = ({
           <div className={`lg:w-6/12 ${(pageType === 'interior' || pageType === 'exterior' || pageType === 'costToPaintHouse') ? 'xl:w-[47%]' : 'xl:w-[43%]'} 2xl:w-5/12 max-lg:order-1`}>
             <div className="flex flex-col max-lg:px-5 w-full">
               <h1 style={{
-                fontSize: isMobile ? '34px' : '56px',
+                fontSize: isMobile ? '34px' : (pageType === 'costToPaintHouse' ? '52px' : '56px'),
                 fontWeight: isMobile ? '600' : '700',
                 lineHeight: isMobile ? '46px' : undefined,
                 // textWrap: isMobile ? 'balance' : undefined
@@ -160,14 +160,14 @@ const Hero = ({
               </p>
             </div>
           </div>
-          <div className="lg:w-6/12 max-lg:hidden">
+          <div className="lg:w-6/12 max-lg:hidden" style={pageType === 'costToPaintHouse' ? { paddingInline: 0 } : {}}>
             <div className="relative size-full text-right">
               <Image
                 src={heroImage}
                 alt="cost to paint a house"
                 width={500}
                 height={320}
-                className="inline-block rounded-2xl object-contain max-h-[320px]"
+                className={`inline-block object-contain max-h-[320px] ${pageType === 'costToPaintHouse' ? 'rounded-none' : 'rounded-2xl'}`}
               />
             </div>
           </div>
