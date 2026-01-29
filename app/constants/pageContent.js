@@ -275,6 +275,121 @@ export const pageContent = {
         { title: "Multi-Story Home:", description: "Homes with two or more levels require more safety measures and more time. These homes usually fall into a higher price range." }
       ]
     }
+  },
+  costToPaintHouse: {
+    showEstimate: false,
+    showTextSlider: false,
+    showGetStarted: false,
+    hideHeroAddressForm: true,
+    hideHeroStats: true,
+    hero: {
+      title: "How Much Does It Cost to Paint a House in USA?",
+      titleHighlight: "How Much Does It Cost",
+      description: "The cost to paint a house typically ranges from $1,800 to $6,500, depending on the size of the home, whether you're painting the interior, exterior, or both, and the amount of prep work required. Smaller homes may cost less than $1,500, while larger or multi-story houses can exceed $8,000. On this page, you can estimate the cost to paint your house based on square footage, project type, and other key factors, so you get a realistic price range before hiring a painter.",
+      heroImage: "/images/interior/Interior Painting Cost Calculator.webp"
+    },
+    calculateRoomCost: {
+      heading: "Interior vs Exterior Painting Costs",
+      headingHighlight: "Interior vs Exterior",
+      description: "Understanding the cost differences between interior and exterior painting helps you budget effectively for your project.",
+      interiorSection: {
+        title: "Interior Painting",
+        description: "Interior painting is usually cheaper because it involves:",
+        points: [
+          "Less prep work",
+          "Easier access",
+          "Fewer weather-related delays"
+        ],
+        costRange: "Average interior painting cost: $1.50 – $3.50 per square foot"
+      },
+      exteriorSection: {
+        title: "Exterior Painting",
+        description: "Exterior painting costs more due to:",
+        points: [
+          "Pressure washing",
+          "Scraping and repairs",
+          "Ladders or scaffolding",
+          "Weather exposure"
+        ],
+        costRange: "Average exterior painting cost: $2.50 – $4.00 per square foot"
+      },
+      image: "/images/interior/cost to paint a room.webp"
+    },
+    textSlider: {
+      text: "Middler makes house painting quotes easy, fast, and 98% accurate — no guesswork, just results."
+    },
+    getStarted: {
+      heading: "Know the Cost of House Painting Before You Begin",
+      headingHighlight: "Know the Cost",
+      preheading: "get started",
+      description: "Know the true house painting cost before the first brushstroke begins, Middler gives you precise estimates with total clarity."
+    },
+    whatIsCalculator: {
+      heading: "Is It Cheaper to Paint a House Yourself?",
+      headingHighlight: "Is It Cheaper",
+      description: "DIY painting can reduce costs, but it comes with trade-offs.",
+      diyPros: [
+        "Lower upfront cost",
+        "Full control over timeline"
+      ],
+      diyCons: [
+        "Time-consuming",
+        "Professional results are harder to achieve",
+        "Mistakes can increase long-term costs"
+      ],
+      description2: "For large homes or exterior projects, hiring professionals is often worth the investment.",
+      image: "/images/interior/cost to paint interior of house.webp"
+    },
+    startEstimate: {
+      heading: "Get an Accurate House Painting Cost Estimate",
+      headingHighlight: "Get an Accurate",
+      description: "While national averages are helpful, your actual cost depends on your home's unique details. Use our house painting cost calculator to get a more accurate estimate based on your square footage, project type, and location.",
+      ctaButton: {
+        text: "Free Estimator",
+        url: "https://middler.com/paint-estimator"
+      }
+    },
+    showFaq: true,
+    faqType: "costToPaintHouse",
+    benefits: {
+      heading: "How Do I Estimate the Cost of Painting My House?",
+      headingHighlight: "How Do I Estimate",
+      description: "You can estimate your painting cost in three simple steps:",
+      points: [
+        "Measure square footage (interior living space or exterior surface area)",
+        "Multiply by average cost per sq ft",
+        "Add prep, repairs, and paint upgrades"
+      ],
+      closingText: "<strong>Example:</strong> A 2,000 sq ft home × $2.50 per sq ft = $5,000. For faster results, many homeowners use a house painting cost calculator to get an instant estimate."
+    },
+    whoUseMiddler: {
+      heading: "What Factors Affect the Cost of Painting a House?",
+      headingHighlight: "What Factors Affect",
+      description: "Several factors influence the final price:",
+      subHeading: "",
+      points: [
+        {
+          title: "Paint Quality",
+          description: "Higher-quality paints last longer but cost more upfront."
+        },
+        {
+          title: "Surface Condition",
+          description: "Cracked walls, peeling paint, or damaged siding increase labor time."
+        },
+        {
+          title: "Home Height & Layout",
+          description: "Multi-story homes and complex layouts cost more due to accessibility."
+        },
+        {
+          title: "Location",
+          description: "Labor rates vary by city and state."
+        },
+        {
+          title: "Prep Work",
+          description: "Repairs, priming, and sanding can add 10–30% to the total cost."
+        }
+      ]
+    },
   }
 };
 

@@ -7,6 +7,7 @@ const Footer = () => {
     { name: "Home", url: "/" },
     { name: "Interior Painting", url: "/interior-painting-cost-calculator" },
     { name: "Exterior Painting", url: "/exterior-painting-cost-calculator" },
+    { name: "Cost to Paint a House", url: "/cost-to-paint-a-house" },
     { name: "Blog", url: "/blog" },
     { name: "Privacy Policy", url: "/privacy-policy" },
     { name: "Terms of Service", url: "/terms-of-service" }
@@ -17,13 +18,15 @@ const Footer = () => {
       <div className="container">
         <div className="flex flex-wrap justify-between gap-y-14 pb-5 mb-5 lg:pb-4 lg:mb-4 border-b border-b-white/60">
           <div className="w-full lg:max-w-[481px] flex flex-col gap-y-[19px]">
-            <Image
-              src="/images/logo_w.webp"
-              alt="Company white logo"
-              width={236}
-              height={100}
-              className="max-w-[175px] lg:max-w-[236px]"
-            />
+            <Link href="/" aria-label="Go to homepage">
+              <Image
+                src="/images/logo_w.webp"
+                alt="Company white logo"
+                width={236}
+                height={100}
+                className="max-w-[175px] lg:max-w-[236px]"
+              />
+            </Link>
             <p className="text-[11px] lg:text-[15px] font-extralight leading-[17px] lg:leading-10 text-white">
               Middler estimates painting jobs with smart technology that delivers consistent, accurate, reliable, and professional results every time.
             </p>

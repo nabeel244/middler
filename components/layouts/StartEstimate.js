@@ -1,5 +1,6 @@
 'use client';
 import Heading from "../ui/Heading";
+import Link from "next/link";
 
 const StartEstimate = ({ content }) => {
   if (!content) return null;
@@ -19,6 +20,14 @@ const StartEstimate = ({ content }) => {
               <p className="text-base lg:text-xl leading-relaxed text-gray-700 max-w-3xl">
                 {content.description}
               </p>
+              {content.ctaButton && (
+                <Link 
+                  href={content.ctaButton.url}
+                  className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-primary hover:bg-primary-700 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl"
+                >
+                  {content.ctaButton.text}
+                </Link>
+              )}
             </div>
           </div>
         </div>

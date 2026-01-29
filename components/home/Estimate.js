@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import Heading from "../ui/Heading";
 import Image from "next/image";
 
-const Estimate = () => {
+const Estimate = ({ pageType }) => {
   const [smallSize, setSmallSize] = useState(false)
   const [isMobile, setIsMobile] = useState(false)
 
@@ -29,6 +29,125 @@ const Estimate = () => {
       }
     };
   }, []);
+
+  // Content for costToPaintHouse page
+  if (pageType === 'costToPaintHouse') {
+    const paintingCosts = [
+      { type: "Interior only", cost: "$1,500 – $4,500" },
+      { type: "Exterior only", cost: "$2,000 – $6,500" },
+      { type: "Interior + Exterior", cost: "$3,500 – $9,000" },
+      { type: "Cost per square foot", cost: "$1.50 – $4.00" }
+    ];
+
+    const squareFootageCosts = [
+      { size: "1,000 sq ft", interior: "$1,000 – $3,000", exterior: "$1,800 – $3,500" },
+      { size: "1,500 sq ft", interior: "$1,500 – $4,000", exterior: "$2,200 – $4,800" },
+      { size: "2,000 sq ft", interior: "$2,000 – $5,500", exterior: "$2,800 – $6,500" },
+      { size: "3,000 sq ft", interior: "$3,000 – $7,500", exterior: "$4,000 – $9,000" }
+    ];
+
+    return (
+      <>
+        {/* First Table - Project Types */}
+        <section className="relative pt-16 lg:py-10 order-2" style={{ paddingTop: isMobile ? '10px' : undefined }}>
+          <div className="container">
+            <div className="row">
+              <div className="w-full">
+                <div className="px-3 lg:px-5 py-10 flex flex-col items-center justify-center gap-[50px]">
+                  <Heading
+                    heading="How Much Will My Painting Project Cost?"
+                    highlight="How Much Will"
+                    preheading="estimate"
+                  />
+                  <p className="text-sm lg:text-xl text-center max-w-3xl">
+                    Here's a quick look at national average painting costs:
+                  </p>
+                  
+                  {/* Pricing Table */}
+                  <div className="w-full max-w-4xl">
+                    <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+                      {/* Table Header */}
+                      <div className="grid grid-cols-2 bg-primary text-white font-semibold text-sm lg:text-lg">
+                        <div className="p-4 lg:p-6 border-r border-white/20">Project Type</div>
+                        <div className="p-4 lg:p-6">Average Cost</div>
+                      </div>
+                      
+                      {/* Table Rows */}
+                      {paintingCosts.map((item, idx) => (
+                        <div key={idx} className={`grid grid-cols-2 ${idx % 2 === 0 ? 'bg-gray-50' : 'bg-white'} border-b border-gray-200 last:border-b-0`}>
+                          <div className="p-4 lg:p-6 border-r border-gray-200 font-medium text-sm lg:text-base">
+                            {item.type}
+                          </div>
+                          <div className="p-4 lg:p-6 font-semibold text-primary text-sm lg:text-base">
+                            {item.cost}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  
+                  <p className="text-sm lg:text-lg text-center text-gray-600 max-w-3xl">
+                    Prices vary based on location, paint quality, surface condition, and labor rates.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Second Table - Square Footage */}
+        <section className="relative py-10 order-3">
+          <div className="container">
+            <div className="row">
+              <div className="w-full">
+                <div className="px-3 lg:px-5 py-10 flex flex-col items-center justify-center gap-[50px]">
+                  <Heading
+                    heading="Cost to Paint a House by Square Footage"
+                    highlight="Cost to Paint a House"
+                    preheading="pricing"
+                  />
+                  <p className="text-sm lg:text-xl text-center max-w-3xl">
+                    Many painters price projects based on square footage.
+                  </p>
+                  
+                  {/* Square Footage Pricing Table */}
+                  <div className="w-full max-w-4xl">
+                    <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+                      {/* Table Header */}
+                      <div className="grid grid-cols-3 bg-primary text-white font-semibold text-sm lg:text-lg">
+                        <div className="p-4 lg:p-6 border-r border-white/20">Home Size</div>
+                        <div className="p-4 lg:p-6 border-r border-white/20">Interior Cost</div>
+                        <div className="p-4 lg:p-6">Exterior Cost</div>
+                      </div>
+                      
+                      {/* Table Rows */}
+                      {squareFootageCosts.map((item, idx) => (
+                        <div key={idx} className={`grid grid-cols-3 ${idx % 2 === 0 ? 'bg-gray-50' : 'bg-white'} border-b border-gray-200 last:border-b-0`}>
+                          <div className="p-4 lg:p-6 border-r border-gray-200 font-medium text-sm lg:text-base">
+                            {item.size}
+                          </div>
+                          <div className="p-4 lg:p-6 border-r border-gray-200 font-semibold text-primary text-sm lg:text-base">
+                            {item.interior}
+                          </div>
+                          <div className="p-4 lg:p-6 font-semibold text-primary text-sm lg:text-base">
+                            {item.exterior}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  
+                  <p className="text-sm lg:text-lg text-center text-gray-600 max-w-3xl">
+                    These estimates include labor and standard materials but may increase for specialty finishes or heavy prep work.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </>
+    );
+  }
 
   // Alt tags for the background images
   const backgroundImageAlts = [

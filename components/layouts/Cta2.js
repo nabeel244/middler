@@ -61,7 +61,9 @@ const Cta2 = ({ pageType = "home" }) => {
                     <p className="text-sm lg:text-2xl text-left">
                       {benefits.description}
                     </p>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5 lg:gap-5 py-2.5 max-lg:text-left">
+                    <div className={`grid gap-2.5 lg:gap-5 py-2.5 max-lg:text-left ${
+                      pageType === 'costToPaintHouse' ? 'grid-cols-1' : 'grid-cols-1 md:grid-cols-2'
+                    }`}>
                       {benefits.points.map((point, idx) => (
                         <div
                           key={idx}
@@ -74,8 +76,7 @@ const Cta2 = ({ pageType = "home" }) => {
                         </div>
                       ))}
                     </div>
-                    <p className="text-sm lg:text-2xl text-left">
-                      {benefits.closingText}
+                    <p className="text-sm lg:text-2xl text-left" dangerouslySetInnerHTML={{ __html: benefits.closingText }}>
                     </p>
                   </>
                 ) : startEstimate ? (

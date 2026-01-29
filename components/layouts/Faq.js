@@ -114,8 +114,55 @@ const Faq = ({ type = 'interior' }) => {
     }
   ];
 
-  const faqs = type === 'home' ? homeFaqs : type === 'interior' ? interiorFaqs : exteriorFaqs;
-  const title = type === 'home' ? 'Paint Calculator' : type === 'interior' ? 'Interior Paint Calculator' : 'Exterior Paint Calculator';
+  const costToPaintHouseFaqs = [
+    {
+      question: "How much does it cost to paint a house per square foot?",
+      answer: "Most painting projects range from $1.50 to $4.00 per square foot, depending on whether the work is interior or exterior."
+    },
+    {
+      question: "How long does it take to paint a house?",
+      answer: "Interior painting usually takes 2–5 days, while exterior painting projects take 3–7 days, depending on weather and home size."
+    },
+    {
+      question: "Is it cheaper to paint in winter?",
+      answer: "Yes. Many contractors offer off-season discounts during winter, especially for interior painting projects."
+    },
+    {
+      question: "Does painting a house increase home value?",
+      answer: "Yes. A fresh paint job can increase home value by 2–5% and significantly improve curb appeal. Neutral colors and professional finishes provide the highest return on investment."
+    },
+    {
+      question: "How do you calculate the cost for painting a house?",
+      answer: "Measure the paintable area, calculate paint needed by dividing area by coverage, then add paint cost, labor, supplies, and a small buffer for extras."
+    },
+    {
+      question: "How accurate is an interior painting cost calculator?",
+      answer: "It provides a good estimate but not an exact price. Accuracy depends on measurements, number of coats, paint quality, surface condition, and local labor rates."
+    },
+    {
+      question: "What is the average cost to paint the interior of a house?",
+      answer: "Professional interior painting typically costs between $2 and $6 per square foot, depending on the home's condition, layout, and location."
+    },
+    {
+      question: "How do you calculate painting cost per square foot?",
+      answer: "Divide the total painting cost, including paint, labor, and supplies, by the total paintable square footage."
+    },
+    {
+      question: "How much does it cost to paint the interior of a 2000 square foot house?",
+      answer: "Painting the interior of a 2000 square foot house typically costs between $4,000 and $12,000, depending on prep work, ceiling height, number of rooms, and paint quality."
+    },
+    {
+      question: "How much should it cost to paint the exterior of a 2000 square foot house?",
+      answer: "Exterior painting for a 2000 square foot house usually costs between $3,000 and $10,000, depending on siding type, number of stories, and surface preparation."
+    },
+    {
+      question: "How accurate is a house painting cost calculator?",
+      answer: "A house painting cost calculator is accurate for budgeting and planning, but final costs may vary based on on-site conditions and contractor pricing."
+    }
+  ];
+
+  const faqs = type === 'home' ? homeFaqs : type === 'interior' ? interiorFaqs : type === 'exterior' ? exteriorFaqs : costToPaintHouseFaqs;
+  const title = type === 'home' ? 'Paint Calculator' : type === 'interior' ? 'Interior Paint Calculator' : type === 'exterior' ? 'Exterior Paint Calculator' : 'House Painting Cost Calculator';
 
   const toggleFaq = (index) => {
     setOpenIndex(openIndex === index ? null : index);
